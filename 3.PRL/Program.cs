@@ -20,6 +20,7 @@ namespace _3.PRL
             ApplicationConfiguration.Initialize();
             Application.Run(new Frm_DangNhap2());
 
+            //potang ina mo
              
         }
     }

@@ -8,23 +8,23 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\HoangAnh\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\CODE\\VisualStudio\\DU_AN_1\\NHOM_3_DU_AN_-\\3.PRL\\3.PRL.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Source\\Repos\\Nhom_3_DuAn1\\3.PRL\\3.PRL.csproj",
       "projectName": "3.PRL",
-      "projectPath": "E:\\CODE\\VisualStudio\\DU_AN_1\\NHOM_3_DU_AN_-\\3.PRL\\3.PRL.csproj",
-      "packagesPath": "C:\\Users\\HoangAnh\\.nuget\\packages\\",
-      "outputPath": "E:\\CODE\\VisualStudio\\DU_AN_1\\NHOM_3_DU_AN_-\\3.PRL\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Source\\Repos\\Nhom_3_DuAn1\\3.PRL\\3.PRL.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Source\\Repos\\Nhom_3_DuAn1\\3.PRL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\HoangAnh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
