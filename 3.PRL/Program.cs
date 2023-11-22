@@ -20,7 +20,7 @@ namespace _3.PRL
             ApplicationConfiguration.Initialize();
             Application.Run(new Frm_DangNhap2());
 
-            // Source Tree
+            // Scaffold-DbContext "Server=DESKTOP-B52SRBN\SQLEXPRESS;Database= OnlyFans;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
         }
     }
 }
