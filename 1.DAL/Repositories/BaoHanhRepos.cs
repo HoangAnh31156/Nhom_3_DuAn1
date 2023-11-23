@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    internal class NguoiDungRepos
+    internal class BaoHanhRepos
     {
-        public NguoiDungRepos()
-        {
-            
-        }
     }
 }
