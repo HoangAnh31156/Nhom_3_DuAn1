@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    internal class DoiTra_IRepos
+    public interface DoiTra_IRepos
     {
     }
 }

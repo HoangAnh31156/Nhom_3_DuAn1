@@ -130,3 +130,36 @@ E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Quat\3.PRL\obj\Debug\net6.0-window
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Quat\3.PRL\obj\Debug\net6.0-windows\3.PRL.pdb
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Quat\3.PRL\obj\Debug\net6.0-windows\3.PRL.genruntimeconfig.cache
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Quat\3.PRL\obj\Debug\net6.0-windows\ref\3.PRL.dll
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\bin\Debug\net6.0-windows\3.PRL.exe
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\bin\Debug\net6.0-windows\3.PRL.deps.json
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\bin\Debug\net6.0-windows\3.PRL.runtimeconfig.json
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\bin\Debug\net6.0-windows\3.PRL.dll
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\bin\Debug\net6.0-windows\3.PRL.pdb
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.csproj.AssemblyReference.cache
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Properties.Resources.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_BaoHanh.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.BaoHanh.Frm_TaoPhieuBH.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.DangNhap.Frm_DangNhap2.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.DangNhap.Frm_QuenMK.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_DoiTra.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_TaiKhoan.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_TrangChu.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_KhachHang.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.KhachHang.Frm_ThemKH.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_NhanVien.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.NhanVien.Frm_ThemNV.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_SanPham.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.SanPham.Frm_ThemBienThe.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.SanPham.Frm_ThemCTKhac.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.SanPham.Frm_ThemSP.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_ThanhToan.resources
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.csproj.GenerateResource.cache
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.AssemblyInfoInputs.cache
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.AssemblyInfo.cs
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.csproj.CoreCompileInputs.cache
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.dll
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\refint\3.PRL.dll
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.pdb
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.genruntimeconfig.cache
+D:\FPT\DuAn1\PROJECTS\DuAn1\3.PRL\obj\Debug\net6.0-windows\ref\3.PRL.dll

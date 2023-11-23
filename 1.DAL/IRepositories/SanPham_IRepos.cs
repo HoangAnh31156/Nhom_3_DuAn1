@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    internal class SanPham_IRepos
+    public interface SanPham_IRepos
     {
     }
 }

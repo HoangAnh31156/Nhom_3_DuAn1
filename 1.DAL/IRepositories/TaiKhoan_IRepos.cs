@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    internal class TaiKhoan_IRepos
+    public interface TaiKhoan_IRepos
     {
     }
 }

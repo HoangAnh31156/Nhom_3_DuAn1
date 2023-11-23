@@ -41,6 +41,8 @@
             btnDSKhachHang = new Button();
             panel7 = new Panel();
             dgvDSKH = new DataGridView();
+            label1 = new Label();
+            txtTimKhach = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -198,12 +200,31 @@
             dgvDSKH.TabIndex = 4;
             dgvDSKH.CellContentClick += dgvDSKH_CellContentClick;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(282, 173);
+            label1.Name = "label1";
+            label1.Size = new Size(70, 20);
+            label1.TabIndex = 5;
+            label1.Text = "Tìm kiếm";
+            // 
+            // txtTimKhach
+            // 
+            txtTimKhach.Location = new Point(368, 166);
+            txtTimKhach.Name = "txtTimKhach";
+            txtTimKhach.PlaceholderText = "Nhập tên khách hàng để tìm kiếm...";
+            txtTimKhach.Size = new Size(674, 27);
+            txtTimKhach.TabIndex = 6;
+            // 
             // Frm_KhachHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1882, 953);
+            Controls.Add(txtTimKhach);
+            Controls.Add(label1);
             Controls.Add(dgvDSKH);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -221,6 +242,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvDSKH).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -237,5 +259,7 @@
         private Button button3;
         private PictureBox pictureBox5;
         private DataGridView dgvDSKH;
+        private Label label1;
+        private TextBox txtTimKhach;
     }
 }

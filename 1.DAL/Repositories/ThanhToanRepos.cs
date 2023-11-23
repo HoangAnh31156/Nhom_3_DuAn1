@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    internal class ThanhToanRepos
+    public class ThanhToanRepos
     {
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _1.DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    internal class KhachHang_IRepos
+    public interface KhachHang_IRepos
     {
+        List<KhachHanh> GetAllKhach();
+        List<KhachHanh> GetKhachByName(string name);
+        bool CreateKhach(KhachHanh khach);
+        bool UpdateKhach(KhachHanh khach);
     }
 }
