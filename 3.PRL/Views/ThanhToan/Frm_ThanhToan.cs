@@ -34,9 +34,10 @@ namespace _3.PRL.Views
 
         private void Frm_ThanhToan_Load(object sender, EventArgs e)
         {
-            LoadGrid();
+            LoadGridDSSP();
+            LoadGridHD();
         }
-        private void LoadGrid()
+        private void LoadGridDSSP()
         {
             int stt = 1;
             dgvDSSP.ColumnCount = 5;
@@ -47,6 +48,34 @@ namespace _3.PRL.Views
             dgvDSSP.Columns[3].Name = "Giảm giá";
             dgvDSSP.Columns[4].Name = "Thành tiền";
 
+
+        }
+        private void LoadGridHD()
+        {
+            int stt = 1;
+            dgvHoaDon.ColumnCount = 5;
+            dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHoaDon.Columns[0].Name = "STT";
+            dgvHoaDon.Columns[1].Name = "Tên sản phẩm";
+            dgvHoaDon.Columns[2].Name = "Số lượng";
+            dgvHoaDon.Columns[3].Name = "Giảm giá";
+            dgvHoaDon.Columns[4].Name = "Thành tiền";
+
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }

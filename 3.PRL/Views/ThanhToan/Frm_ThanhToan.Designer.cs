@@ -39,6 +39,7 @@
             groupBox1 = new GroupBox();
             comboBox1 = new ComboBox();
             label4 = new Label();
+            dgvDSSP = new DataGridView();
             textBox3 = new TextBox();
             label3 = new Label();
             btnThem = new Button();
@@ -46,9 +47,9 @@
             textBox1 = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            dgvDSSP = new DataGridView();
-            label5 = new Label();
             btnTinhTien = new Button();
+            label5 = new Label();
+            dgvHoaDon = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -56,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDSSP).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -143,6 +145,7 @@
             // 
             groupBox1.Controls.Add(comboBox1);
             groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(dgvDSSP);
             groupBox1.Controls.Add(textBox3);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(btnThem);
@@ -153,10 +156,11 @@
             groupBox1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(286, 66);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1584, 204);
+            groupBox1.Size = new Size(1584, 351);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Tạo đơn hàng";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // comboBox1
             // 
@@ -175,6 +179,17 @@
             label4.Size = new Size(87, 25);
             label4.TabIndex = 7;
             label4.Text = "Giảm giá";
+            // 
+            // dgvDSSP
+            // 
+            dgvDSSP.BackgroundColor = SystemColors.ActiveCaption;
+            dgvDSSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDSSP.Location = new Point(6, 141);
+            dgvDSSP.Name = "dgvDSSP";
+            dgvDSSP.RowHeadersWidth = 51;
+            dgvDSSP.RowTemplate.Height = 29;
+            dgvDSSP.Size = new Size(1563, 204);
+            dgvDSSP.TabIndex = 4;
             // 
             // textBox3
             // 
@@ -237,38 +252,40 @@
             label1.TabIndex = 0;
             label1.Text = "Sản phẩm";
             // 
-            // dgvDSSP
-            // 
-            dgvDSSP.BackgroundColor = SystemColors.ActiveCaption;
-            dgvDSSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDSSP.Location = new Point(286, 350);
-            dgvDSSP.Name = "dgvDSSP";
-            dgvDSSP.RowHeadersWidth = 51;
-            dgvDSSP.RowTemplate.Height = 29;
-            dgvDSSP.Size = new Size(1584, 374);
-            dgvDSSP.TabIndex = 4;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(286, 304);
-            label5.Name = "label5";
-            label5.Size = new Size(225, 30);
-            label5.TabIndex = 5;
-            label5.Text = "Danh sách sản phẩm";
-            // 
             // btnTinhTien
             // 
             btnTinhTien.BackColor = Color.White;
             btnTinhTien.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             btnTinhTien.ForeColor = Color.OrangeRed;
-            btnTinhTien.Location = new Point(286, 744);
+            btnTinhTien.Location = new Point(292, 833);
             btnTinhTien.Name = "btnTinhTien";
-            btnTinhTien.Size = new Size(1584, 85);
+            btnTinhTien.Size = new Size(1578, 85);
             btnTinhTien.TabIndex = 6;
             btnTinhTien.Text = "Tính tiền";
             btnTinhTien.UseVisualStyleBackColor = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(301, 420);
+            label5.Name = "label5";
+            label5.Size = new Size(104, 30);
+            label5.TabIndex = 5;
+            label5.Text = "Hóa Đơn";
+            label5.Click += label5_Click;
+            // 
+            // dgvHoaDon
+            // 
+            dgvHoaDon.BackgroundColor = SystemColors.ActiveCaption;
+            dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHoaDon.Location = new Point(292, 470);
+            dgvHoaDon.Name = "dgvHoaDon";
+            dgvHoaDon.RowHeadersWidth = 51;
+            dgvHoaDon.RowTemplate.Height = 29;
+            dgvHoaDon.Size = new Size(1572, 347);
+            dgvHoaDon.TabIndex = 7;
+            dgvHoaDon.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Frm_ThanhToan
             // 
@@ -276,9 +293,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1882, 953);
+            Controls.Add(dgvHoaDon);
             Controls.Add(btnTinhTien);
             Controls.Add(label5);
-            Controls.Add(dgvDSSP);
             Controls.Add(groupBox1);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -295,6 +312,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDSSP).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -319,7 +337,8 @@
         private TextBox textBox3;
         private Label label3;
         private DataGridView dgvDSSP;
-        private Label label5;
         private Button btnTinhTien;
+        private Label label5;
+        private DataGridView dgvHoaDon;
     }
 }

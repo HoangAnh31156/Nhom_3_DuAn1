@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    internal class BienThe_IRepos
+    public interface BienThe_IRepos
     {
     }
 }

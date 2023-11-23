@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.IRepositories
 {
-    internal class LoaiSP_IRepos
+    public interface LoaiSP_IRepos
     {
     }
 }
