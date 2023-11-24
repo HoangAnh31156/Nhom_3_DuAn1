@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uVZhbFNm+yHNb3n4drznrUmZsF5WJyQn8wjbzUcQWvbn+0+jQfklbxCf2JXdfHh36nnQI4jWHQ/Sn85H4zbDDQ==",
+  "dgSpecHash": "O4pjnjgvUX4V8jI+fy5d0wdzXbRGfwCjkTZ39wWm7IX9xDlxwRBpDgJKg6HB1CT3DOj5fY3SQ+qG3TQn2pckBg==",
   "success": true,
-  "projectFilePath": "D:\\FPT\\DuAn1\\PROJECTS\\DuAn1\\1.DAL\\1.DAL.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\Nhom_3_DuAn1\\1.DAL\\1.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -48,5 +48,12 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Admin\\source\\repos\\Nhom_3_DuAn1\\1.DAL\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

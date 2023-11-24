@@ -37,19 +37,21 @@
             btnThanhToan = new Button();
             panel5 = new Panel();
             groupBox1 = new GroupBox();
-            comboBox1 = new ComboBox();
+            cbgiamgia = new ComboBox();
             label4 = new Label();
             dgvDSSP = new DataGridView();
-            textBox3 = new TextBox();
+            txdongia = new TextBox();
             label3 = new Label();
             btnThem = new Button();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txsoluong = new TextBox();
+            txsanpham = new TextBox();
             label2 = new Label();
             label1 = new Label();
             btnTinhTien = new Button();
             label5 = new Label();
             dgvHoaDon = new DataGridView();
+            label6 = new Label();
+            label7 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -143,14 +145,14 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(cbgiamgia);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(dgvDSSP);
-            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(txdongia);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(btnThem);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txsoluong);
+            groupBox1.Controls.Add(txsanpham);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -162,13 +164,13 @@
             groupBox1.Text = "Tạo đơn hàng";
             groupBox1.Enter += groupBox1_Enter;
             // 
-            // comboBox1
+            // cbgiamgia
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(1152, 78);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 33);
-            comboBox1.TabIndex = 8;
+            cbgiamgia.FormattingEnabled = true;
+            cbgiamgia.Location = new Point(1152, 78);
+            cbgiamgia.Name = "cbgiamgia";
+            cbgiamgia.Size = new Size(151, 33);
+            cbgiamgia.TabIndex = 8;
             // 
             // label4
             // 
@@ -191,12 +193,12 @@
             dgvDSSP.Size = new Size(1563, 204);
             dgvDSSP.TabIndex = 4;
             // 
-            // textBox3
+            // txdongia
             // 
-            textBox3.Location = new Point(858, 78);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(136, 32);
-            textBox3.TabIndex = 6;
+            txdongia.Location = new Point(858, 78);
+            txdongia.Name = "txdongia";
+            txdongia.Size = new Size(136, 32);
+            txdongia.TabIndex = 6;
             // 
             // label3
             // 
@@ -218,19 +220,19 @@
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txsoluong
             // 
-            textBox2.Location = new Point(580, 78);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(136, 32);
-            textBox2.TabIndex = 3;
+            txsoluong.Location = new Point(580, 78);
+            txsoluong.Name = "txsoluong";
+            txsoluong.Size = new Size(136, 32);
+            txsoluong.TabIndex = 3;
             // 
-            // textBox1
+            // txsanpham
             // 
-            textBox1.Location = new Point(129, 78);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(327, 32);
-            textBox1.TabIndex = 2;
+            txsanpham.Location = new Point(129, 78);
+            txsanpham.Name = "txsanpham";
+            txsanpham.Size = new Size(327, 32);
+            txsanpham.TabIndex = 2;
             // 
             // label2
             // 
@@ -283,9 +285,30 @@
             dgvHoaDon.Name = "dgvHoaDon";
             dgvHoaDon.RowHeadersWidth = 51;
             dgvHoaDon.RowTemplate.Height = 29;
-            dgvHoaDon.Size = new Size(1572, 347);
+            dgvHoaDon.Size = new Size(1572, 299);
             dgvHoaDon.TabIndex = 7;
             dgvHoaDon.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(309, 788);
+            label6.Name = "label6";
+            label6.Size = new Size(106, 28);
+            label6.TabIndex = 9;
+            label6.Text = "TổngTiền:";
+            label6.Click += label6_Click;
+            // 
+            // label7
+            // 
+            label7.BorderStyle = BorderStyle.Fixed3D;
+            label7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(433, 791);
+            label7.Name = "label7";
+            label7.Size = new Size(199, 25);
+            label7.TabIndex = 10;
+            label7.Text = "0";
             // 
             // Frm_ThanhToan
             // 
@@ -293,6 +316,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1882, 953);
+            Controls.Add(label7);
+            Controls.Add(label6);
             Controls.Add(dgvHoaDon);
             Controls.Add(btnTinhTien);
             Controls.Add(label5);
@@ -328,17 +353,19 @@
         private PictureBox pbBack;
         private GroupBox groupBox1;
         private Button btnThem;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txsoluong;
+        private TextBox txsanpham;
         private Label label2;
         private Label label1;
-        private ComboBox comboBox1;
+        private ComboBox cbgiamgia;
         private Label label4;
-        private TextBox textBox3;
+        private TextBox txdongia;
         private Label label3;
         private DataGridView dgvDSSP;
         private Button btnTinhTien;
         private Label label5;
         private DataGridView dgvHoaDon;
+        private Label label6;
+        private Label label7;
     }
 }
