@@ -1,4 +1,4 @@
-﻿using _1.DAL.Models;
+﻿using _1.DAL.Model2s;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +9,9 @@ namespace _1.DAL.IRepositories
 {
     public interface KhachHang_IRepos
     {
-        List<KhachHanh> GetAllKhach();
-        List<KhachHanh> GetKhachByName(string name);
-        bool CreateKhach(KhachHanh khach);
-        bool UpdateKhach(KhachHanh khach);
+        List<KhachHang> GetAllKhach();
+        List<KhachHang> GetKhachByName(string name);
+        bool CreateKhach(KhachHang khach);
+        bool UpdateKhach(KhachHang khach);
     }
 }
