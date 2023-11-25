@@ -9,8 +9,7 @@ namespace _1.DAL.IRepositories
 {
     public interface KhachHang_IRepos
     {
-        List<KhachHang> GetAllKhach();
-        List<KhachHang> GetKhachByName(string name);
+        List<KhachHang> GetKhach(string input);
         bool CreateKhach(KhachHang khach);
         bool UpdateKhach(KhachHang khach);
     }
