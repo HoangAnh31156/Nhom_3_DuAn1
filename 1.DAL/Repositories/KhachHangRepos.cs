@@ -41,7 +41,7 @@ namespace _1.DAL.Repositories
                 _context.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception)
             {
                 return false;
             }
@@ -62,7 +62,7 @@ namespace _1.DAL.Repositories
                 _context.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception)
             {
                 return false;
             }

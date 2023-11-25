@@ -41,12 +41,11 @@
             btnDSKhachHang = new Button();
             panel7 = new Panel();
             groupBox1 = new GroupBox();
-            comboBox1 = new ComboBox();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtEmail = new TextBox();
+            txtDiaChi = new TextBox();
+            txtSDT = new TextBox();
+            txtNgaySinh = new TextBox();
+            txtTenKH = new TextBox();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -56,6 +55,8 @@
             groupBox2 = new GroupBox();
             btnSua = new Button();
             btnThem = new Button();
+            rbtnNam = new RadioButton();
+            rbtnNu = new RadioButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -204,12 +205,13 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(textBox5);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(rbtnNu);
+            groupBox1.Controls.Add(rbtnNam);
+            groupBox1.Controls.Add(txtEmail);
+            groupBox1.Controls.Add(txtDiaChi);
+            groupBox1.Controls.Add(txtSDT);
+            groupBox1.Controls.Add(txtNgaySinh);
+            groupBox1.Controls.Add(txtTenKH);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
@@ -224,48 +226,40 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin khách hàng";
             // 
-            // comboBox1
+            // txtEmail
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(348, 380);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 33);
-            comboBox1.TabIndex = 11;
+            txtEmail.Location = new Point(348, 304);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(454, 32);
+            txtEmail.TabIndex = 10;
             // 
-            // textBox5
+            // txtDiaChi
             // 
-            textBox5.Location = new Point(348, 304);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(454, 32);
-            textBox5.TabIndex = 10;
+            txtDiaChi.Location = new Point(348, 457);
+            txtDiaChi.Name = "txtDiaChi";
+            txtDiaChi.Size = new Size(454, 32);
+            txtDiaChi.TabIndex = 9;
             // 
-            // textBox4
+            // txtSDT
             // 
-            textBox4.Location = new Point(348, 457);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(454, 32);
-            textBox4.TabIndex = 9;
+            txtSDT.Location = new Point(348, 228);
+            txtSDT.Name = "txtSDT";
+            txtSDT.Size = new Size(454, 32);
+            txtSDT.TabIndex = 8;
             // 
-            // textBox3
+            // txtNgaySinh
             // 
-            textBox3.Location = new Point(348, 228);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(454, 32);
-            textBox3.TabIndex = 8;
+            txtNgaySinh.Location = new Point(348, 152);
+            txtNgaySinh.Name = "txtNgaySinh";
+            txtNgaySinh.Size = new Size(454, 32);
+            txtNgaySinh.TabIndex = 7;
             // 
-            // textBox2
+            // txtTenKH
             // 
-            textBox2.Location = new Point(348, 152);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(454, 32);
-            textBox2.TabIndex = 7;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(348, 76);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(454, 32);
-            textBox1.TabIndex = 6;
+            txtTenKH.Location = new Point(348, 76);
+            txtTenKH.Name = "txtTenKH";
+            txtTenKH.Size = new Size(454, 32);
+            txtTenKH.TabIndex = 6;
             // 
             // label6
             // 
@@ -343,6 +337,7 @@
             btnSua.TabIndex = 1;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnThem
             // 
@@ -354,6 +349,29 @@
             btnThem.TabIndex = 0;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
+            // 
+            // rbtnNam
+            // 
+            rbtnNam.AutoSize = true;
+            rbtnNam.Location = new Point(348, 379);
+            rbtnNam.Name = "rbtnNam";
+            rbtnNam.Size = new Size(73, 29);
+            rbtnNam.TabIndex = 11;
+            rbtnNam.TabStop = true;
+            rbtnNam.Text = "Nam";
+            rbtnNam.UseVisualStyleBackColor = true;
+            // 
+            // rbtnNu
+            // 
+            rbtnNu.AutoSize = true;
+            rbtnNu.Location = new Point(515, 379);
+            rbtnNu.Name = "rbtnNu";
+            rbtnNu.Size = new Size(58, 29);
+            rbtnNu.TabIndex = 12;
+            rbtnNu.TabStop = true;
+            rbtnNu.Text = "Nữ";
+            rbtnNu.UseVisualStyleBackColor = true;
             // 
             // Frm_ThemKH
             // 
@@ -398,11 +416,11 @@
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private ComboBox comboBox1;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtEmail;
+        private TextBox txtDiaChi;
+        private TextBox txtSDT;
+        private TextBox txtNgaySinh;
+        private TextBox txtTenKH;
         private Label label6;
         private Label label5;
         private Label label4;
@@ -411,5 +429,7 @@
         private Label label1;
         private Button btnThem;
         private Button btnSua;
+        private RadioButton rbtnNu;
+        private RadioButton rbtnNam;
     }
 }
