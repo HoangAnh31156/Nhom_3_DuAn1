@@ -37,10 +37,11 @@ namespace _2.BUS.Services
             };
             return _khachRepos.CreateKhach(khachHang);
         }
-        public bool UpdateKhach(string ten, DateTime ngaySinh, string sdt, string email, bool gioiTinh, string diaChi)
+        public bool UpdateKhach(Guid id, string ten, DateTime ngaySinh, string sdt, string email, bool gioiTinh, string diaChi)
         {
             var khachHang = new KhachHang
             {
+                IdKh = id,
                 TenKh = ten,
                 NgaySinh = ngaySinh,
                 Sdt = sdt,
@@ -48,7 +49,14 @@ namespace _2.BUS.Services
                 GioiTinh = gioiTinh,
                 DiaChi = diaChi
             };
-            return _khachRepos.UpdateKhach(khachHang);
+            try
+            {
+                return _khachRepos.UpdateKhach(khachHang);
+            }
+            catch
+            {
+                return _khachRepos.UpdateKhach(khachHang);
+            }
         }
     }
 }

@@ -63,21 +63,21 @@ namespace _3.PRL.Views.KhachHang
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string ten = txtTenKH.Text;
-            string ngaySinh = txtNgaySinh.Text;
-            string sdt = txtSDT.Text;
-            string email = txtEmail.Text;
-            bool gioiTinh = rbtnNam.Checked;
-            string diaChi = txtDiaChi.Text;
-            bool add = _khachService.UpdateKhach(ten, Convert.ToDateTime(ngaySinh), sdt, email, gioiTinh, diaChi);
-            if (add)
-            {
-                MessageBox.Show("Sửa khách thành công");
-            }
-            else
-            {
-                MessageBox.Show("Sửa thất bại!!!!!!!");
-            }
+            //string ten = txtTenKH.Text;
+            //string ngaySinh = txtNgaySinh.Text;
+            //string sdt = txtSDT.Text;
+            //string email = txtEmail.Text;
+            //bool gioiTinh = rbtnNam.Checked;
+            //string diaChi = txtDiaChi.Text;
+            //bool add = _khachService.UpdateKhach(ten, Convert.ToDateTime(ngaySinh), sdt, email, gioiTinh, diaChi);
+            //if (add)
+            //{
+            //    MessageBox.Show("Sửa khách thành công");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Sửa thất bại!!!!!!!");
+            //}
             
         }
     }

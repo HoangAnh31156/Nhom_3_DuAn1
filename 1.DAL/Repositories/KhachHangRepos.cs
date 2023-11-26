@@ -58,7 +58,7 @@ namespace _1.DAL.Repositories
                 updatedKhach.Email = khach.Email;
                 updatedKhach.GioiTinh = khach.GioiTinh;
                 updatedKhach.DiaChi = khach.DiaChi;
-                _context.Update(updatedKhach);
+                _context.KhachHangs.Update(updatedKhach);
                 _context.SaveChanges();
                 return true;
             }

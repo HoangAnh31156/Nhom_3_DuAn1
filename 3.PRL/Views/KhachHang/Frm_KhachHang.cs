@@ -1,4 +1,5 @@
-﻿using _2.BUS.Services;
+﻿using _1.DAL.Model2s;
+using _2.BUS.Services;
 using _3.PRL.Views.DangNhap;
 using _3.PRL.Views.KhachHang;
 using System;
@@ -18,6 +19,7 @@ namespace _3.PRL.Views
     {
         KhachHangService _khachService;
         Guid _id;
+        
         public Frm_KhachHang()
         {
             _khachService = new KhachHangService();
@@ -68,7 +70,7 @@ namespace _3.PRL.Views
             dgvDSKH.Rows.Clear();
             foreach (var item in _khachService.GetKhach(input))
             {
-                dgvDSKH.Rows.Add(item.IdKh, stt++, null, item.TenKh, item.NgaySinh, item.Sdt, item.Email, item.GioiTinh, item.DiaChi);
+                dgvDSKH.Rows.Add(item.IdKh, stt++, null, item.TenKh, item.NgaySinh, item.Sdt, item.Email, ((bool)(item.GioiTinh)? "Nam" : "Nữ"), item.DiaChi);
             }
 
         }
@@ -76,6 +78,10 @@ namespace _3.PRL.Views
         private void dgvDSKH_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
+            if (rowIndex < 0 || rowIndex > dgvDSKH.RowCount)
+            {
+                return;
+            }
             var selectedKhach = dgvDSKH.Rows[rowIndex];
             txtTenKH.Text = selectedKhach.Cells[3].Value.ToString();
             txtNgaySinh.Text = selectedKhach.Cells[4].Value.ToString();
@@ -126,7 +132,7 @@ namespace _3.PRL.Views
             string email = txtEmail.Text;
             bool gioiTinh = rbtnNam.Checked;
             string diaChi = txtDiaChi.Text;
-            bool add = _khachService.UpdateKhach(ten, Convert.ToDateTime(ngaySinh), sdt, email, gioiTinh, diaChi);
+            bool add = _khachService.UpdateKhach(_id, ten, Convert.ToDateTime(ngaySinh), sdt, email, gioiTinh, diaChi);
             if (add)
             {
                 MessageBox.Show("Sửa khách thành công");
@@ -142,6 +148,10 @@ namespace _3.PRL.Views
         private void dgvDSKH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
+            if (rowIndex < 0 || rowIndex > dgvDSKH.RowCount)
+            {
+                return;
+            }
             var selectedKhach = dgvDSKH.Rows[rowIndex];
             txtTenKH.Text = selectedKhach.Cells[3].Value.ToString();
             txtNgaySinh.Text = selectedKhach.Cells[4].Value.ToString();
