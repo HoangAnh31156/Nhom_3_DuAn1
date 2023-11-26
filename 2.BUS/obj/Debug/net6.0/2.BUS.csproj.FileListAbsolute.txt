@@ -37,3 +37,6 @@ D:\FPT\DuAn1\PROJECTS\DuAn1\2.BUS\obj\Debug\net6.0\2.BUS.dll
 D:\FPT\DuAn1\PROJECTS\DuAn1\2.BUS\obj\Debug\net6.0\refint\2.BUS.dll
 D:\FPT\DuAn1\PROJECTS\DuAn1\2.BUS\obj\Debug\net6.0\2.BUS.pdb
 D:\FPT\DuAn1\PROJECTS\DuAn1\2.BUS\obj\Debug\net6.0\ref\2.BUS.dll
+E:\CODE\VisualStudio\$SOURCE TREE\DU_AN_1\2.BUS\bin\Debug\net6.0\1.DAL.dll
+E:\CODE\VisualStudio\$SOURCE TREE\DU_AN_1\2.BUS\bin\Debug\net6.0\1.DAL.pdb
+E:\CODE\VisualStudio\$SOURCE TREE\DU_AN_1\2.BUS\obj\Debug\net6.0\2.BUS.csproj.CopyComplete
