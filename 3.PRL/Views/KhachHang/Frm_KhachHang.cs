@@ -61,6 +61,7 @@ namespace _3.PRL.Views
             dgvDSKH.Columns[0].Visible = false;
             dgvDSKH.Columns[1].Name = "STT";
             dgvDSKH.Columns[2].Name = "ID_TaiKhoan";
+            dgvDSKH.Columns[2].Visible = false;
             dgvDSKH.Columns[3].Name = "Tên khách hàng";
             dgvDSKH.Columns[4].Name = "Ngày sinh";
             dgvDSKH.Columns[5].Name = "SDT";
@@ -132,8 +133,8 @@ namespace _3.PRL.Views
             string email = txtEmail.Text;
             bool gioiTinh = rbtnNam.Checked;
             string diaChi = txtDiaChi.Text;
-            bool add = _khachService.UpdateKhach(_id, ten, Convert.ToDateTime(ngaySinh), sdt, email, gioiTinh, diaChi);
-            if (add)
+            bool update = _khachService.UpdateKhach(_id, ten, Convert.ToDateTime(ngaySinh), sdt, email, gioiTinh, diaChi);
+            if (update)
             {
                 MessageBox.Show("Sửa khách thành công");
             }

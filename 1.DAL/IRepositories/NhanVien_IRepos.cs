@@ -9,8 +9,7 @@ namespace _1.DAL.IRepositories
 {
     public interface NhanVien_IRepos
     {
-        List<NhanVien> GetAllNhanVien();
-        List<NhanVien> GetNVByName(string name);
+        List<NhanVien> GetNV(string input);
         bool CreateNhanVien(NhanVien nhanVien);
         bool UpdateNhanVien(NhanVien nhanVien);
     }

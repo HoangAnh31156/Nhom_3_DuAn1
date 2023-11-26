@@ -219,7 +219,7 @@
             groupBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(286, 190);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1206, 575);
+            groupBox1.Size = new Size(1206, 291);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin nhân viên";
@@ -227,7 +227,7 @@
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(244, 464);
+            comboBox2.Location = new Point(814, 239);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(151, 33);
             comboBox2.TabIndex = 12;
@@ -235,35 +235,35 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(244, 387);
+            comboBox1.Location = new Point(814, 162);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(151, 33);
             comboBox1.TabIndex = 11;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(244, 311);
+            textBox5.Location = new Point(814, 86);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(364, 32);
             textBox5.TabIndex = 10;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(244, 235);
+            textBox3.Location = new Point(191, 235);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(364, 32);
             textBox3.TabIndex = 8;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(244, 159);
+            textBox2.Location = new Point(191, 159);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(364, 32);
             textBox2.TabIndex = 7;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(244, 83);
+            textBox1.Location = new Point(191, 83);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(364, 32);
             textBox1.TabIndex = 6;
@@ -271,7 +271,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(53, 314);
+            label6.Location = new Point(695, 89);
             label6.Name = "label6";
             label6.Size = new Size(70, 25);
             label6.TabIndex = 5;
@@ -280,7 +280,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(53, 390);
+            label5.Location = new Point(695, 165);
             label5.Name = "label5";
             label5.Size = new Size(84, 25);
             label5.TabIndex = 4;
@@ -289,7 +289,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(53, 467);
+            label4.Location = new Point(695, 242);
             label4.Name = "label4";
             label4.Size = new Size(96, 25);
             label4.TabIndex = 3;
@@ -329,7 +329,7 @@
             groupBox2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.Location = new Point(1498, 190);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(372, 575);
+            groupBox2.Size = new Size(372, 291);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức năng";
