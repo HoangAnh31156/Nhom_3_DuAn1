@@ -1,10 +1,12 @@
-﻿using _2.BUS.Services;
+﻿using _1.DAL.Model2s;
+using _2.BUS.Services;
 using _3.PRL.Views.DangNhap;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,11 @@ namespace _3.PRL.Views.SanPham
         private SanPhamService _SanPhamService;
         private BienTheService _BienTheService;
         private LoaiSPService _LoaiSPService;
+        Guid MaChatLieu = Guid.Empty;
+        Guid Mamau = Guid.Empty;
+        Guid SoCanh = Guid.Empty;
+        Guid MaSanPham = Guid.Empty;
+        string MaBT = null;
         public Frm_ThemBienThe()
         {
             InitializeComponent();
@@ -93,6 +100,31 @@ namespace _3.PRL.Views.SanPham
                 stt++;
             }
         }
+
+        private void AddVariant()
+        {
+
+            var obj = new BienThe()
+            {
+                IdBienThe = Guid.NewGuid(),
+                MaBienThe = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}",
+                GiaTien = decimal.Parse(txtGiaTien.Text),
+                TgbaoHanh = int.Parse(txtTGBaoHanh.Text),
+                CongSuat = decimal.Parse(txtCongSuat.Text),
+                SoLuong = int.Parse(txtSoluong.Text),
+                ChieuCao = float.Parse(txtchieucao.Text),
+                BanKinh = float.Parse(txtBankinh.Text),
+            };
+            var result = _BienTheService.CreateBienThe(obj);
+            if (result)
+            {
+                MessageBox.Show("Thông báo", "Thêm thành công!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                MessageBox.Show("Thông báo", "Thêm thất bại!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnTCSanPham_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -112,6 +144,57 @@ namespace _3.PRL.Views.SanPham
             this.Hide();
             Frm_ThemSP frm_ThemSP = new Frm_ThemSP();
             frm_ThemSP.Show();
+        }
+
+        private void cboChatLieu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var lst = (from i in _chatLieuService.GetChatLieu(null) select i.IdChatLieu).ToList();
+            MaChatLieu = lst[cboChatLieu.SelectedIndex];
+            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+        }
+
+        private void cboMau_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var lst = (from i in _mauSacService.GetMau(null) select i.IdMau).ToList();
+            Mamau = lst[cboMau.SelectedIndex];
+            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+        }
+
+        private void cboSoCanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var lst = (from i in _soCanhService.GetSoCanh(null) select i.IdCanh).ToList();
+            SoCanh = lst[cboSoCanh.SelectedIndex];
+            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+        }
+
+        private void cboMaSp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var lst = (from i in _SanPhamService.GetSanPham(null) select i.IdSanPham).ToList();
+            MaSanPham = lst[cboMaSp.SelectedIndex];
+            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtpath_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Images files(*.jpg,*png,*bmp)|*.jpg;*.png;*.bmp";
+            openFileDialog.Title = "Chọn hình ảnh";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtpath.Text = openFileDialog.FileName;
+                Image img = Image.FromFile(openFileDialog.FileName);
+                picImage.Image = img;
+            }
+        }
+
+        private void txtCongSuat_TextChanged(object sender, EventArgs e)
+        {
+            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
         }
     }
 }

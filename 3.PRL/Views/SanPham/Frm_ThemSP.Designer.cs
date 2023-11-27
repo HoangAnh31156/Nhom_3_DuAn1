@@ -46,19 +46,19 @@
             btnSanPham = new Button();
             panel10 = new Panel();
             groupBox3 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            GirdSp = new DataGridView();
             groupBox2 = new GroupBox();
             btnSua = new Button();
             btnThem = new Button();
             groupBox1 = new GroupBox();
             textBox3 = new TextBox();
-            comboBox1 = new ComboBox();
+            cboLoaiSp = new ComboBox();
             textBox2 = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
             pictureBox9 = new PictureBox();
-            textBox1 = new TextBox();
+            txtSearch = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -70,7 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel10.SuspendLayout();
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)GirdSp).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
@@ -274,7 +274,7 @@
             panel10.Controls.Add(groupBox2);
             panel10.Controls.Add(groupBox1);
             panel10.Controls.Add(pictureBox9);
-            panel10.Controls.Add(textBox1);
+            panel10.Controls.Add(txtSearch);
             panel10.Dock = DockStyle.Fill;
             panel10.Location = new Point(280, 60);
             panel10.Name = "panel10";
@@ -283,7 +283,7 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(dataGridView1);
+            groupBox3.Controls.Add(GirdSp);
             groupBox3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox3.Location = new Point(6, 640);
             groupBox3.Name = "groupBox3";
@@ -292,16 +292,16 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Hiển thị";
             // 
-            // dataGridView1
+            // GirdSp
             // 
-            dataGridView1.BackgroundColor = SystemColors.ControlLight;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(0, 37);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1584, 204);
-            dataGridView1.TabIndex = 15;
+            GirdSp.BackgroundColor = SystemColors.ControlLight;
+            GirdSp.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GirdSp.Location = new Point(0, 37);
+            GirdSp.Name = "GirdSp";
+            GirdSp.RowHeadersWidth = 51;
+            GirdSp.RowTemplate.Height = 29;
+            GirdSp.Size = new Size(1584, 204);
+            GirdSp.TabIndex = 15;
             // 
             // groupBox2
             // 
@@ -342,7 +342,7 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(cboLoaiSp);
             groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
@@ -362,13 +362,13 @@
             textBox3.Size = new Size(568, 32);
             textBox3.TabIndex = 6;
             // 
-            // comboBox1
+            // cboLoaiSp
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(218, 171);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(568, 33);
-            comboBox1.TabIndex = 5;
+            cboLoaiSp.FormattingEnabled = true;
+            cboLoaiSp.Location = new Point(218, 171);
+            cboLoaiSp.Name = "cboLoaiSp";
+            cboLoaiSp.Size = new Size(568, 33);
+            cboLoaiSp.TabIndex = 5;
             // 
             // textBox2
             // 
@@ -414,14 +414,14 @@
             pictureBox9.TabIndex = 9;
             pictureBox9.TabStop = false;
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(6, 600);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Tìm kiếm sản phẩm...";
-            textBox1.Size = new Size(474, 34);
-            textBox1.TabIndex = 5;
+            txtSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSearch.Location = new Point(6, 600);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Tìm kiếm sản phẩm...";
+            txtSearch.Size = new Size(474, 34);
+            txtSearch.TabIndex = 5;
             // 
             // Frm_ThemSP
             // 
@@ -447,7 +447,7 @@
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
             groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)GirdSp).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -470,7 +470,7 @@
         private Button btnSanPham;
         private Panel panel10;
         private PictureBox pictureBox9;
-        private TextBox textBox1;
+        private TextBox txtSearch;
         private GroupBox groupBox2;
         private GroupBox groupBox1;
         private GroupBox groupBox3;
@@ -481,11 +481,11 @@
         private Button btnSua;
         private TextBox textBox2;
         private TextBox textBox3;
-        private ComboBox comboBox1;
+        private ComboBox cboLoaiSp;
         private Button btnThemCTKhac;
         private PictureBox pictureBox11;
         private Button btnThemBienThe;
         private PictureBox pictureBox1;
-        private DataGridView dataGridView1;
+        private DataGridView GirdSp;
     }
 }
