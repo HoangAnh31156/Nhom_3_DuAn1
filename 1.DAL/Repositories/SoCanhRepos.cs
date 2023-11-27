@@ -9,7 +9,7 @@ namespace _1.DAL.Repositories
 {
     public class SoCanhRepos
     {
-        private OnlyFansContext _onFansContext;
+        private OnlyFansContext _onFansContext = new OnlyFansContext();
         public SoCanhRepos(OnlyFansContext onFansContext)
         {
             _onFansContext = onFansContext;
@@ -28,7 +28,7 @@ namespace _1.DAL.Repositories
             return false;
         }
 
-        public List<SoCanh> GetSoCanh(int name)
+        public List<SoCanh> GetSoCanh(int? name)
         {
             if (name == null)
             {

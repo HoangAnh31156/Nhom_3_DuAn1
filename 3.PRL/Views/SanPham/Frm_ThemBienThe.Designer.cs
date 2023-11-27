@@ -48,11 +48,11 @@
             btnSua = new Button();
             btnThem = new Button();
             groupBox3 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            GridVariant = new DataGridView();
             pictureBox9 = new PictureBox();
-            textBox1 = new TextBox();
+            txtSearch = new TextBox();
             groupBox1 = new GroupBox();
-            comboBox4 = new ComboBox();
+            cboMaSp = new ComboBox();
             label11 = new Label();
             textBox8 = new TextBox();
             textBox7 = new TextBox();
@@ -66,10 +66,10 @@
             label6 = new Label();
             label5 = new Label();
             label2 = new Label();
-            comboBox3 = new ComboBox();
-            comboBox2 = new ComboBox();
+            cboSoCanh = new ComboBox();
+            cboChatLieu = new ComboBox();
             textBox3 = new TextBox();
-            comboBox1 = new ComboBox();
+            cboMau = new ComboBox();
             textBox2 = new TextBox();
             label4 = new Label();
             label3 = new Label();
@@ -85,7 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)GridVariant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -320,7 +320,7 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(dataGridView1);
+            groupBox3.Controls.Add(GridVariant);
             groupBox3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox3.Location = new Point(286, 700);
             groupBox3.Name = "groupBox3";
@@ -329,16 +329,16 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Hiển thị";
             // 
-            // dataGridView1
+            // GridVariant
             // 
-            dataGridView1.BackgroundColor = SystemColors.ControlLight;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(0, 37);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1584, 204);
-            dataGridView1.TabIndex = 18;
+            GridVariant.BackgroundColor = SystemColors.ControlLight;
+            GridVariant.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GridVariant.Location = new Point(0, 37);
+            GridVariant.Name = "GridVariant";
+            GridVariant.RowHeadersWidth = 51;
+            GridVariant.RowTemplate.Height = 29;
+            GridVariant.Size = new Size(1584, 204);
+            GridVariant.TabIndex = 18;
             // 
             // pictureBox9
             // 
@@ -350,18 +350,18 @@
             pictureBox9.TabIndex = 15;
             pictureBox9.TabStop = false;
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(286, 659);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Tìm kiếm sản phẩm...";
-            textBox1.Size = new Size(474, 34);
-            textBox1.TabIndex = 14;
+            txtSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSearch.Location = new Point(286, 659);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Tìm kiếm sản phẩm...";
+            txtSearch.Size = new Size(474, 34);
+            txtSearch.TabIndex = 14;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox4);
+            groupBox1.Controls.Add(cboMaSp);
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(textBox8);
             groupBox1.Controls.Add(textBox7);
@@ -375,10 +375,10 @@
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(comboBox3);
-            groupBox1.Controls.Add(comboBox2);
+            groupBox1.Controls.Add(cboSoCanh);
+            groupBox1.Controls.Add(cboChatLieu);
             groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(cboMau);
             groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
@@ -391,13 +391,13 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
             // 
-            // comboBox4
+            // cboMaSp
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(220, 278);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(305, 33);
-            comboBox4.TabIndex = 22;
+            cboMaSp.FormattingEnabled = true;
+            cboMaSp.Location = new Point(220, 278);
+            cboMaSp.Name = "cboMaSp";
+            cboMaSp.Size = new Size(305, 33);
+            cboMaSp.TabIndex = 22;
             // 
             // label11
             // 
@@ -506,21 +506,21 @@
             label2.TabIndex = 9;
             label2.Text = "Ảnh";
             // 
-            // comboBox3
+            // cboSoCanh
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(220, 206);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(305, 33);
-            comboBox3.TabIndex = 8;
+            cboSoCanh.FormattingEnabled = true;
+            cboSoCanh.Location = new Point(220, 206);
+            cboSoCanh.Name = "cboSoCanh";
+            cboSoCanh.Size = new Size(305, 33);
+            cboSoCanh.TabIndex = 8;
             // 
-            // comboBox2
+            // cboChatLieu
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(220, 134);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(305, 33);
-            comboBox2.TabIndex = 7;
+            cboChatLieu.FormattingEnabled = true;
+            cboChatLieu.Location = new Point(220, 134);
+            cboChatLieu.Name = "cboChatLieu";
+            cboChatLieu.Size = new Size(305, 33);
+            cboChatLieu.TabIndex = 7;
             // 
             // textBox3
             // 
@@ -529,13 +529,13 @@
             textBox3.Size = new Size(305, 32);
             textBox3.TabIndex = 6;
             // 
-            // comboBox1
+            // cboMau
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(220, 62);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(305, 33);
-            comboBox1.TabIndex = 5;
+            cboMau.FormattingEnabled = true;
+            cboMau.Location = new Point(220, 62);
+            cboMau.Name = "cboMau";
+            cboMau.Size = new Size(305, 33);
+            cboMau.TabIndex = 5;
             // 
             // textBox2
             // 
@@ -580,7 +580,7 @@
             Controls.Add(groupBox1);
             Controls.Add(groupBox3);
             Controls.Add(pictureBox9);
-            Controls.Add(textBox1);
+            Controls.Add(txtSearch);
             Controls.Add(groupBox2);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -599,7 +599,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)GridVariant).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -629,7 +629,7 @@
         private Button btnThem;
         private GroupBox groupBox3;
         private PictureBox pictureBox9;
-        private TextBox textBox1;
+        private TextBox txtSearch;
         private GroupBox groupBox1;
         private TextBox textBox8;
         private TextBox textBox7;
@@ -643,16 +643,16 @@
         private Label label6;
         private Label label5;
         private Label label2;
-        private ComboBox comboBox3;
-        private ComboBox comboBox2;
+        private ComboBox cboSoCanh;
+        private ComboBox cboChatLieu;
         private TextBox textBox3;
-        private ComboBox comboBox1;
+        private ComboBox cboMau;
         private TextBox textBox2;
         private Label label4;
         private Label label3;
         private Label label1;
-        private ComboBox comboBox4;
+        private ComboBox cboMaSp;
         private Label label11;
-        private DataGridView dataGridView1;
+        private DataGridView GridVariant;
     }
 }

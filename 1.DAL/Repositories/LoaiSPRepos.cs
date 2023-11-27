@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _1.DAL.IRepositories;
+using _1.DAL.Model2s;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,44 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
-    public class LoaiSPRepos
+    public class LoaiSPRepos : LoaiSP_IRepos
     {
+        private OnlyFansContext _onFansContext = new OnlyFansContext();
+        public LoaiSPRepos(OnlyFansContext onFansContext)
+        {
+            _onFansContext = onFansContext;
+        }
+        public LoaiSPRepos()
+        {
+
+        }
+        public bool CreateLoaiSanPham(LoaiSanPham LoaiSanPham)
+        {
+            var obj = _onFansContext.LoaiSanPhams.Add(LoaiSanPham);
+            if (obj != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public List<LoaiSanPham> GetLoaiSanPham(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return _onFansContext.LoaiSanPhams.ToList();
+            }
+            return _onFansContext.LoaiSanPhams.Where(x => x.TenLoai.ToLower().Contains(name.ToLower())).ToList();
+        }
+
+        public bool UpdateLoaiSanPham(LoaiSanPham LoaiSanPham)
+        {
+            var obj = _onFansContext.LoaiSanPhams.Update(LoaiSanPham);
+            if (obj != null)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

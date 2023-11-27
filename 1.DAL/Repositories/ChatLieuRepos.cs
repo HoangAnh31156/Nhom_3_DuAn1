@@ -9,7 +9,7 @@ namespace _1.DAL.Repositories
 {
     public class ChatLieuRepos
     {
-        private OnlyFansContext _onFansContext;
+        private OnlyFansContext _onFansContext = new OnlyFansContext();
         public ChatLieuRepos(OnlyFansContext onFansContext)
         {
             _onFansContext = onFansContext;

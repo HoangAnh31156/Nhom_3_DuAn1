@@ -9,7 +9,7 @@ namespace _1.DAL.Repositories
 {
     public class SanPhamRepos
     {
-        private OnlyFansContext _onFansContext;
+        private OnlyFansContext _onFansContext = new OnlyFansContext();
         public SanPhamRepos(OnlyFansContext onFansContext)
         {
             _onFansContext = onFansContext;

@@ -9,7 +9,7 @@ namespace _1.DAL.Repositories
 {
     public class MauSacRepos
     {
-        private OnlyFansContext _onFansContext;
+        private OnlyFansContext _onFansContext = new OnlyFansContext();
         public MauSacRepos(OnlyFansContext onFansContext)
         {
             _onFansContext = onFansContext;
