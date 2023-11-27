@@ -20,12 +20,17 @@ namespace _1.DAL.Repositories
         }
         public bool CreateBienThe(BienThe BienThe)
         {
-            var obj = _onFansContext.BienThes.Add(BienThe);
-            if (obj != null)
+            try
             {
+                var obj = _onFansContext.BienThes.Add(BienThe);
+                _onFansContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch 
+            {
+                   return false;
+            }
+           
         }
 
         public List<BienThe> GetBienThe(string name)
@@ -39,12 +44,16 @@ namespace _1.DAL.Repositories
 
         public bool UpdateBienThe(BienThe BienThe)
         {
-            var obj = _onFansContext.BienThes.Update(BienThe);
-            if (obj != null)
+            try
             {
+                var obj = _onFansContext.BienThes.Update(BienThe);
+                _onFansContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch 
+            {
+                return false;
+            }
         }
     }
 }

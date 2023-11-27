@@ -306,7 +306,7 @@
             picImage.Location = new Point(19, 45);
             picImage.Name = "picImage";
             picImage.Size = new Size(331, 256);
-            picImage.SizeMode = PictureBoxSizeMode.CenterImage;
+            picImage.SizeMode = PictureBoxSizeMode.StretchImage;
             picImage.TabIndex = 15;
             picImage.TabStop = false;
             // 

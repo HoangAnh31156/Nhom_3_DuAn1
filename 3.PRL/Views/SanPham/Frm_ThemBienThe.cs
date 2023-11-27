@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,7 @@ namespace _3.PRL.Views.SanPham
         Guid Mamau = Guid.Empty;
         Guid SoCanh = Guid.Empty;
         Guid MaSanPham = Guid.Empty;
+        byte[] images;
         string MaBT = null;
         public Frm_ThemBienThe()
         {
@@ -114,15 +116,20 @@ namespace _3.PRL.Views.SanPham
                 SoLuong = int.Parse(txtSoluong.Text),
                 ChieuCao = float.Parse(txtchieucao.Text),
                 BanKinh = float.Parse(txtBankinh.Text),
+                HinhAnh = images,
+                IdMau = Mamau,
+                IdSanPham = MaSanPham,
+                IdCanh = SoCanh,
+                IdChatLieu = MaChatLieu
             };
             var result = _BienTheService.CreateBienThe(obj);
             if (result)
             {
-                MessageBox.Show("Thông báo", "Thêm thành công!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Thêm thành công!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
-                MessageBox.Show("Thông báo", "Thêm thất bại!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thêm thất bại!", "Thông báo",  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnTCSanPham_Click(object sender, EventArgs e)
@@ -176,7 +183,7 @@ namespace _3.PRL.Views.SanPham
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            AddVariant();
         }
 
         private void txtpath_Click(object sender, EventArgs e)
@@ -189,6 +196,30 @@ namespace _3.PRL.Views.SanPham
                 txtpath.Text = openFileDialog.FileName;
                 Image img = Image.FromFile(openFileDialog.FileName);
                 picImage.Image = img;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    ImageFormat format;
+                    int lastDotIndex = openFileDialog.FileName.LastIndexOf(".");
+                    string duoi = openFileDialog.FileName.Substring(lastDotIndex + 1);
+                    switch (duoi.ToLower())
+                    {
+                        case "jpg":
+                        case "jpeg":
+                            format = ImageFormat.Jpeg;
+                            break;
+                        case "png":
+                            format = ImageFormat.Png;
+                            break;
+                        case "bmp":
+                            format = ImageFormat.Bmp;
+                            break;
+                        default:
+                            MessageBox.Show("Định dạng ảnh không được hỗ trợ");
+                            return;
+                    }
+                    img.Save(ms, format);
+                    images = ms.ToArray();
+                }
             }
         }
 

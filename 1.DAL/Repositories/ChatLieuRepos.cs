@@ -30,12 +30,16 @@ namespace _1.DAL.Repositories
 
         public bool CreateChatLieu(ChatLieu chatlieu)
         {
-            var obj = _onFansContext.ChatLieus.Add(chatlieu);
-            if (obj != null)
+            try
             {
+                var obj = _onFansContext.ChatLieus.Add(chatlieu);
+                _onFansContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch 
+            {
+                return false;
+            }
         }
 
 

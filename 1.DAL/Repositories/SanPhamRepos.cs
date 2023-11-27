@@ -20,12 +20,16 @@ namespace _1.DAL.Repositories
         }
         public bool CreateSanPham(SanPham SanPham)
         {
-            var obj = _onFansContext.SanPhams.Add(SanPham);
-            if (obj != null)
+            try
             {
+                var obj = _onFansContext.SanPhams.Add(SanPham);
+                _onFansContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         public List<SanPham> GetSanPham(string name)
@@ -39,12 +43,16 @@ namespace _1.DAL.Repositories
 
         public bool UpdateSanPham(SanPham SanPham)
         {
-            var obj = _onFansContext.SanPhams.Update(SanPham);
-            if (obj != null)
+            try
             {
+                var obj = _onFansContext.SanPhams.Update(SanPham);
+                _onFansContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
     }
 }

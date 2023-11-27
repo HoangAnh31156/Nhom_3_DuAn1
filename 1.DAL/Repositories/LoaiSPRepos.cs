@@ -21,12 +21,16 @@ namespace _1.DAL.Repositories
         }
         public bool CreateLoaiSanPham(LoaiSanPham LoaiSanPham)
         {
-            var obj = _onFansContext.LoaiSanPhams.Add(LoaiSanPham);
-            if (obj != null)
+            try
             {
+                var obj = _onFansContext.LoaiSanPhams.Add(LoaiSanPham);
+                _onFansContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         public List<LoaiSanPham> GetLoaiSanPham(string name)
@@ -40,12 +44,16 @@ namespace _1.DAL.Repositories
 
         public bool UpdateLoaiSanPham(LoaiSanPham LoaiSanPham)
         {
-            var obj = _onFansContext.LoaiSanPhams.Update(LoaiSanPham);
-            if (obj != null)
+            try
             {
+                var obj = _onFansContext.LoaiSanPhams.Update(LoaiSanPham);
+                _onFansContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
     }
 }

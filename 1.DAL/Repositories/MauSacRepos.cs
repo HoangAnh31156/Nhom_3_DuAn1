@@ -20,12 +20,16 @@ namespace _1.DAL.Repositories
         }
         public bool CreateMau(Mau Mau)
         {
-            var obj = _onFansContext.Maus.Add(Mau);
-            if (obj != null)
+            try
             {
+                var obj = _onFansContext.Maus.Add(Mau);
+                _onFansContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         public List<Mau> GetMau(string name)
@@ -39,12 +43,16 @@ namespace _1.DAL.Repositories
 
         public bool UpdateMau(Mau Mau)
         {
-            var obj = _onFansContext.Maus.Update(Mau);
-            if (obj != null)
+            try
             {
+                var obj = _onFansContext.Maus.Update(Mau);
+                _onFansContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
     }
 }

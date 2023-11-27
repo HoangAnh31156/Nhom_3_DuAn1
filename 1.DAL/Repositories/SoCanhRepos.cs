@@ -20,12 +20,16 @@ namespace _1.DAL.Repositories
         }
         public bool CreateSoCanh(SoCanh SoCanh)
         {
-            var obj = _onFansContext.SoCanhs.Add(SoCanh);
-            if (obj != null)
+            try
             {
+                var obj = _onFansContext.SoCanhs.Add(SoCanh);
+                _onFansContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         public List<SoCanh> GetSoCanh(int? name)
@@ -39,12 +43,17 @@ namespace _1.DAL.Repositories
 
         public bool UpdateSoCanh(SoCanh SoCanh)
         {
-            var obj = _onFansContext.SoCanhs.Update(SoCanh);
-            if (obj != null)
+
+            try
             {
+                var obj = _onFansContext.SoCanhs.Update(SoCanh);
+                _onFansContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
     }
