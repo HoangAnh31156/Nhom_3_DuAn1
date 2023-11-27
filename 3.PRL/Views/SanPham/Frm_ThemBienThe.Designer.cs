@@ -225,7 +225,6 @@
             btnThemSP.Text = "Thêm / sửa sản phẩm";
             btnThemSP.TextAlign = ContentAlignment.MiddleLeft;
             btnThemSP.UseVisualStyleBackColor = false;
-            btnThemSP.Click += btnThemSP_Click;
             // 
             // pictureBox2
             // 
@@ -356,6 +355,7 @@
             GridVariant.RowTemplate.Height = 29;
             GridVariant.Size = new Size(1584, 204);
             GridVariant.TabIndex = 18;
+            GridVariant.SelectionChanged += GridVariant_SelectionChanged;
             // 
             // pictureBox9
             // 

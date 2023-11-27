@@ -80,29 +80,109 @@ namespace _3.PRL.Views.SanPham
 
             int stt = 1;
             GridVariant.Rows.Clear();
-            GridVariant.ColumnCount = 5;
+            GridVariant.ColumnCount = 12;
             GridVariant.Columns[0].Name = "STT";
-            GridVariant.Columns[1].Name = "Mã Sản Phẩm";
+            GridVariant.Columns[1].Name = "Mã Biến Thể";
             GridVariant.Columns[2].Name = "Tên";
-            GridVariant.Columns[3].Name = "Số Lượng";
-            GridVariant.Columns[4].Name = "Loại Sản Phẩm";
-            var lst = from i in _SanPhamService.GetSanPham(null)
-                      join y in _LoaiSPService.GetLoaiSanPham(null)
-                      on i.IdLoaiSanPham equals y.IdLoaiSanPham
+            GridVariant.Columns[3].Name = "TG Bảo Hành";
+            GridVariant.Columns[4].Name = "Công Suất";
+            GridVariant.Columns[5].Name = "Số lượng";
+            GridVariant.Columns[6].Name = "Chiều Cao";
+            GridVariant.Columns[7].Name = "Bán Kính";
+            GridVariant.Columns[8].Name = "Chất Liệu";
+            GridVariant.Columns[9].Name = "Màu Sắc";
+            GridVariant.Columns[10].Name = "Số Cánh";
+            GridVariant.Columns[11].Name = "Giá Tiền";
+
+            var lst = from i in _BienTheService.GetBienThe(null)
+                      join y in _SanPhamService.GetSanPham(null)
+                      on i.IdSanPham equals y.IdSanPham
+                      join a in _chatLieuService.GetChatLieu(null)
+                      on i.IdChatLieu equals a.IdChatLieu
+                      join b in _mauSacService.GetMau(null)
+                      on i.IdMau equals b.IdMau
+                      join c in _soCanhService.GetSoCanh(null)
+                      on i.IdCanh equals c.IdCanh
                       select new
                       {
-                          MaSp = i.MaSanPham,
-                          ten = i.Ten,
-                          soluong = i.SoLuong,
-                          Loai = y.TenLoai
+                          MaBienThe = i.MaBienThe,
+                          ten = y.Ten,
+                          Gia = i.GiaTien,
+                          TG = i.TgbaoHanh,
+                          CS = i.CongSuat,
+                          SL = i.SoLuong,
+                          CC = i.ChieuCao,
+                          BK = i.BanKinh,
+                          Hinh = i.HinhAnh,
+                          CL = a.TenChatLieu,
+                          M = b.TenMau,
+                          SC = c.SoCanh1
                       };
             foreach (var i in lst)
             {
-                GridVariant.Rows.Add(stt, i.MaSp, i.ten, i.soluong, i.Loai);
+                GridVariant.Rows.Add(stt, i.MaBienThe, i.ten, i.TG, i.CS, i.SL, i.CC, i.BK, i.CL, i.M, i.SC, i.Gia);
                 stt++;
             }
         }
+        private string GetMa()
+        {
+            int CurrentRow = GridVariant.CurrentRow.Index;
+            if (CurrentRow >= 0 && CurrentRow <= GridVariant.Rows.Count - 2)
+            {
+                return GridVariant.CurrentRow.Cells[1].Value.ToString();
+            }
+            return null;
+        }
+        private void GetInfor()
+        {
+            if (!string.IsNullOrEmpty(GetMa()))
+            {
 
+                var lst = from i in _BienTheService.GetBienThe(null)
+                          join y in _SanPhamService.GetSanPham(null)
+                          on i.IdSanPham equals y.IdSanPham
+                          join a in _chatLieuService.GetChatLieu(null)
+                          on i.IdChatLieu equals a.IdChatLieu
+                          join b in _mauSacService.GetMau(null)
+                          on i.IdMau equals b.IdMau
+                          join c in _soCanhService.GetSoCanh(null)
+                          on i.IdCanh equals c.IdCanh
+                          select new
+                          {
+                              MaBienThe = i.MaBienThe,
+                              ten = y.MaSanPham,
+                              Gia = i.GiaTien,
+                              TG = i.TgbaoHanh,
+                              CS = i.CongSuat,
+                              SL = i.SoLuong,
+                              CC = i.ChieuCao,
+                              BK = i.BanKinh,
+                              Hinh = i.HinhAnh,
+                              CL = a.TenChatLieu,
+                              M = b.TenMau,
+                              SC = c.SoCanh1
+                          };
+                var bienThe = lst.FirstOrDefault(x => x.MaBienThe == GetMa());
+                cboChatLieu.Text = bienThe.CL;
+                cboMau.Text = bienThe.M;
+                cboSoCanh.Text = bienThe.SC.ToString();
+                cboMaSp.Text = bienThe.M.ToString();
+                txtGiaTien.Text = bienThe.Gia.ToString();
+                txtchieucao.Text = bienThe.CC.ToString();
+                txtCongSuat.Text = bienThe.CS.ToString();
+                txtSoluong.Text = bienThe.SL.ToString();
+                txtBankinh.Text = bienThe.BK.ToString();
+                txtTGBaoHanh.Text = bienThe.TG.ToString();
+                if (bienThe.Hinh != null)
+                {
+                    using (MemoryStream memoryStream = new MemoryStream(bienThe.Hinh))
+                    {
+                        Image img = Image.FromStream(memoryStream);
+                        picImage.Image = img;
+                    }
+                }
+            }
+        }
         private void AddVariant()
         {
 
@@ -125,11 +205,11 @@ namespace _3.PRL.Views.SanPham
             var result = _BienTheService.CreateBienThe(obj);
             if (result)
             {
-                MessageBox.Show("Thêm thành công!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
-                MessageBox.Show("Thêm thất bại!", "Thông báo",  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thêm thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnTCSanPham_Click(object sender, EventArgs e)
@@ -226,6 +306,11 @@ namespace _3.PRL.Views.SanPham
         private void txtCongSuat_TextChanged(object sender, EventArgs e)
         {
             txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+        }
+
+        private void GridVariant_SelectionChanged(object sender, EventArgs e)
+        {
+            GetInfor();
         }
     }
 }
