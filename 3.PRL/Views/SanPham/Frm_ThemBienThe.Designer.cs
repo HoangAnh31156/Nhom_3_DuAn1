@@ -53,11 +53,11 @@
             pictureBox9 = new PictureBox();
             txtSearch = new TextBox();
             groupBox1 = new GroupBox();
+            btnAnh = new Button();
             txtBankinh = new TextBox();
             label12 = new Label();
             cboMaSp = new ComboBox();
             label11 = new Label();
-            txtpath = new TextBox();
             txtchieucao = new TextBox();
             txtCongSuat = new TextBox();
             txtSoluong = new TextBox();
@@ -319,6 +319,7 @@
             btnSua.TabIndex = 14;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnThem
             // 
@@ -378,11 +379,11 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnAnh);
             groupBox1.Controls.Add(txtBankinh);
             groupBox1.Controls.Add(label12);
             groupBox1.Controls.Add(cboMaSp);
             groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(txtpath);
             groupBox1.Controls.Add(txtchieucao);
             groupBox1.Controls.Add(txtCongSuat);
             groupBox1.Controls.Add(txtSoluong);
@@ -410,6 +411,19 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
             // 
+            // btnAnh
+            // 
+            btnAnh.FlatAppearance.MouseDownBackColor = Color.White;
+            btnAnh.FlatAppearance.MouseOverBackColor = Color.White;
+            btnAnh.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            btnAnh.ForeColor = SystemColors.Desktop;
+            btnAnh.Location = new Point(855, 346);
+            btnAnh.Name = "btnAnh";
+            btnAnh.Size = new Size(305, 38);
+            btnAnh.TabIndex = 16;
+            btnAnh.UseVisualStyleBackColor = true;
+            btnAnh.Click += btnAnh_Click;
+            // 
             // txtBankinh
             // 
             txtBankinh.Location = new Point(855, 274);
@@ -434,7 +448,7 @@
             cboMaSp.Name = "cboMaSp";
             cboMaSp.Size = new Size(305, 28);
             cboMaSp.TabIndex = 22;
-            cboMaSp.SelectedIndexChanged += cboMaSp_SelectedIndexChanged;
+            cboMaSp.SelectedIndexChanged += cboMaSp_SelectedIndexChanged_1;
             // 
             // label11
             // 
@@ -444,14 +458,6 @@
             label11.Size = new Size(126, 25);
             label11.TabIndex = 21;
             label11.Text = "Mã sản phẩm";
-            // 
-            // txtpath
-            // 
-            txtpath.Location = new Point(855, 353);
-            txtpath.Name = "txtpath";
-            txtpath.Size = new Size(305, 32);
-            txtpath.TabIndex = 20;
-            txtpath.Click += txtpath_Click;
             // 
             // txtchieucao
             // 
@@ -466,7 +472,7 @@
             txtCongSuat.Name = "txtCongSuat";
             txtCongSuat.Size = new Size(305, 32);
             txtCongSuat.TabIndex = 18;
-            txtCongSuat.TextChanged += txtCongSuat_TextChanged;
+            txtCongSuat.TextChanged += txtCongSuat_TextChanged_1;
             // 
             // txtSoluong
             // 
@@ -553,7 +559,7 @@
             cboSoCanh.Name = "cboSoCanh";
             cboSoCanh.Size = new Size(305, 28);
             cboSoCanh.TabIndex = 8;
-            cboSoCanh.SelectedIndexChanged += cboSoCanh_SelectedIndexChanged;
+            cboSoCanh.SelectedIndexChanged += cboSoCanh_SelectedIndexChanged_1;
             // 
             // cboChatLieu
             // 
@@ -563,7 +569,7 @@
             cboChatLieu.Name = "cboChatLieu";
             cboChatLieu.Size = new Size(305, 28);
             cboChatLieu.TabIndex = 7;
-            cboChatLieu.SelectedIndexChanged += cboChatLieu_SelectedIndexChanged;
+            cboChatLieu.SelectedIndexChanged += cboChatLieu_SelectedIndexChanged_1;
             // 
             // txtMaBT
             // 
@@ -581,7 +587,7 @@
             cboMau.Name = "cboMau";
             cboMau.Size = new Size(305, 28);
             cboMau.TabIndex = 5;
-            cboMau.SelectedIndexChanged += cboMau_SelectedIndexChanged;
+            cboMau.SelectedIndexChanged += cboMau_SelectedIndexChanged_1;
             // 
             // txtGiaTien
             // 
@@ -682,7 +688,6 @@
         private PictureBox pictureBox9;
         private TextBox txtSearch;
         private GroupBox groupBox1;
-        private TextBox txtpath;
         private TextBox txtchieucao;
         private TextBox txtCongSuat;
         private TextBox txtSoluong;
@@ -709,5 +714,6 @@
         private OpenFileDialog DialogImage;
         private TextBox txtBankinh;
         private Label label12;
+        private Button btnAnh;
     }
 }

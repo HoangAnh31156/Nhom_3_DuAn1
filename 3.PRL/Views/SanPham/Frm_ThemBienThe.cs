@@ -166,13 +166,14 @@ namespace _3.PRL.Views.SanPham
                 cboChatLieu.Text = bienThe.CL;
                 cboMau.Text = bienThe.M;
                 cboSoCanh.Text = bienThe.SC.ToString();
-                cboMaSp.Text = bienThe.M.ToString();
+                cboMaSp.Text = bienThe.ten.ToString();
                 txtGiaTien.Text = bienThe.Gia.ToString();
                 txtchieucao.Text = bienThe.CC.ToString();
                 txtCongSuat.Text = bienThe.CS.ToString();
                 txtSoluong.Text = bienThe.SL.ToString();
                 txtBankinh.Text = bienThe.BK.ToString();
                 txtTGBaoHanh.Text = bienThe.TG.ToString();
+                txtMaBT.Text = bienThe.MaBienThe.ToString();
                 if (bienThe.Hinh != null)
                 {
                     using (MemoryStream memoryStream = new MemoryStream(bienThe.Hinh))
@@ -185,11 +186,11 @@ namespace _3.PRL.Views.SanPham
         }
         private void AddVariant()
         {
-
+            GridVariant.ClearSelection();
             var obj = new BienThe()
             {
                 IdBienThe = Guid.NewGuid(),
-                MaBienThe = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}",
+                MaBienThe = $"{cboMaSp.Text}_{cboChatLieu}_{cboSoCanh.Text}_{txtCongSuat.Text}",
                 GiaTien = decimal.Parse(txtGiaTien.Text),
                 TgbaoHanh = int.Parse(txtTGBaoHanh.Text),
                 CongSuat = decimal.Parse(txtCongSuat.Text),
@@ -233,47 +234,59 @@ namespace _3.PRL.Views.SanPham
             frm_ThemSP.Show();
         }
 
-        private void cboChatLieu_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var lst = (from i in _chatLieuService.GetChatLieu(null) select i.IdChatLieu).ToList();
-            MaChatLieu = lst[cboChatLieu.SelectedIndex];
-            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
-        }
-
-        private void cboMau_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var lst = (from i in _mauSacService.GetMau(null) select i.IdMau).ToList();
-            Mamau = lst[cboMau.SelectedIndex];
-            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
-        }
-
-        private void cboSoCanh_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var lst = (from i in _soCanhService.GetSoCanh(null) select i.IdCanh).ToList();
-            SoCanh = lst[cboSoCanh.SelectedIndex];
-            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
-        }
-
-        private void cboMaSp_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var lst = (from i in _SanPhamService.GetSanPham(null) select i.IdSanPham).ToList();
-            MaSanPham = lst[cboMaSp.SelectedIndex];
-            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
-        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             AddVariant();
         }
 
-        private void txtpath_Click(object sender, EventArgs e)
+
+        private void GridVariant_SelectionChanged(object sender, EventArgs e)
+        {
+            GetInfor();
+        }
+
+        private void cboMau_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            var lst = (from i in _mauSacService.GetMau(null) select i.IdMau).ToArray();
+            Mamau = lst[cboMau.SelectedIndex];
+            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+        }
+
+        private void cboChatLieu_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            var lst = (from i in _chatLieuService.GetChatLieu(null) select i.IdChatLieu).ToArray();
+            MaChatLieu = lst[cboChatLieu.SelectedIndex];
+            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+        }
+
+        private void cboSoCanh_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            var lst = (from i in _soCanhService.GetSoCanh(null) select i.IdCanh).ToArray();
+            SoCanh = lst[cboSoCanh.SelectedIndex];
+            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+        }
+
+        private void cboMaSp_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            var lst = (from i in _SanPhamService.GetSanPham(null) select i.IdSanPham).ToArray();
+            MaSanPham = lst[cboMaSp.SelectedIndex];
+            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+        }
+
+        private void txtCongSuat_TextChanged_1(object sender, EventArgs e)
+        {
+            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+        }
+
+        private void btnAnh_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Images files(*.jpg,*png,*bmp)|*.jpg;*.png;*.bmp";
             openFileDialog.Title = "Chọn hình ảnh";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                txtpath.Text = openFileDialog.FileName;
+                btnAnh.Text = openFileDialog.FileName;
                 Image img = Image.FromFile(openFileDialog.FileName);
                 picImage.Image = img;
                 using (MemoryStream ms = new MemoryStream())
@@ -302,15 +315,35 @@ namespace _3.PRL.Views.SanPham
                 }
             }
         }
-
-        private void txtCongSuat_TextChanged(object sender, EventArgs e)
+        private void UpdateVariant()
         {
-            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+            GridVariant.ClearSelection();
+            BienThe obj = _BienTheService.GetBienThe(null).FirstOrDefault(x => x.MaBienThe == GetMa());
+            obj.MaBienThe = $"{cboMaSp.Text}_{cboChatLieu}_{cboSoCanh.Text}_{txtCongSuat.Text}";
+                obj.GiaTien = decimal.Parse(txtGiaTien.Text);
+                obj.TgbaoHanh = int.Parse(txtTGBaoHanh.Text);
+                obj.CongSuat = decimal.Parse(txtCongSuat.Text);
+                obj.SoLuong = int.Parse(txtSoluong.Text);
+                obj.ChieuCao = float.Parse(txtchieucao.Text);
+                obj.BanKinh = float.Parse(txtBankinh.Text);
+                obj.HinhAnh = images;
+                obj.IdMau = Mamau;
+                obj.IdSanPham = MaSanPham;
+                obj.IdCanh = SoCanh;
+                obj.IdChatLieu = MaChatLieu;
+            var result = _BienTheService.UpdateBienThe(obj);
+            if (result)
+            {
+                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
-        private void GridVariant_SelectionChanged(object sender, EventArgs e)
+        private void btnSua_Click(object sender, EventArgs e)
         {
-            GetInfor();
+            UpdateVariant();
         }
     }
 }
