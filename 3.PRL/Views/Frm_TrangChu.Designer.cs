@@ -54,6 +54,9 @@
             panel3 = new Panel();
             btnSanPham = new Button();
             panel10 = new Panel();
+            panel11 = new Panel();
+            pictureBox8 = new PictureBox();
+            button1 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
             panel2.SuspendLayout();
@@ -64,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -91,6 +95,9 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(panel11);
+            panel2.Controls.Add(pictureBox8);
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(pictureBox7);
             panel2.Controls.Add(panel9);
             panel2.Controls.Add(btnDoiTra);
@@ -132,7 +139,7 @@
             // panel9
             // 
             panel9.BackColor = Color.FromArgb(183, 209, 255);
-            panel9.Location = new Point(12, 621);
+            panel9.Location = new Point(12, 624);
             panel9.Name = "panel9";
             panel9.Size = new Size(10, 64);
             panel9.TabIndex = 19;
@@ -155,7 +162,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(32, 621);
+            pictureBox6.Location = new Point(32, 624);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(64, 64);
             pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -209,7 +216,7 @@
             btnTaiKhoan.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
             btnTaiKhoan.FlatStyle = FlatStyle.Flat;
             btnTaiKhoan.ForeColor = Color.FromArgb(3, 43, 118);
-            btnTaiKhoan.Location = new Point(106, 621);
+            btnTaiKhoan.Location = new Point(106, 624);
             btnTaiKhoan.Name = "btnTaiKhoan";
             btnTaiKhoan.Size = new Size(171, 64);
             btnTaiKhoan.TabIndex = 12;
@@ -359,6 +366,38 @@
             panel10.Size = new Size(1602, 893);
             panel10.TabIndex = 2;
             // 
+            // panel11
+            // 
+            panel11.BackColor = Color.FromArgb(183, 209, 255);
+            panel11.Location = new Point(12, 729);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(10, 64);
+            panel11.TabIndex = 23;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
+            pictureBox8.Location = new Point(32, 729);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(64, 64);
+            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox8.TabIndex = 22;
+            pictureBox8.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.FromArgb(3, 43, 118);
+            button1.Location = new Point(106, 729);
+            button1.Name = "button1";
+            button1.Size = new Size(171, 64);
+            button1.TabIndex = 21;
+            button1.Text = "Giảm giá";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Frm_TrangChu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -381,6 +420,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ResumeLayout(false);
         }
 
@@ -411,5 +451,8 @@
         private Button btnKhachHang;
         private PictureBox pbDangXuat;
         private Panel panel10;
+        private Panel panel11;
+        private PictureBox pictureBox8;
+        private Button button1;
     }
 }
