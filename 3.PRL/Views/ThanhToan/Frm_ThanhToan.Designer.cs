@@ -37,27 +37,30 @@
             btnThanhToan = new Button();
             panel5 = new Panel();
             groupBox1 = new GroupBox();
-            comboBox1 = new ComboBox();
+            cmbKhachHang = new ComboBox();
+            btnSua = new Button();
+            btnLuu = new Button();
+            cmbNhanVien = new ComboBox();
+            dtpNgayTao = new DateTimePicker();
             label4 = new Label();
-            dgvDSSP = new DataGridView();
-            textBox3 = new TextBox();
             label3 = new Label();
             btnThem = new Button();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtMaHD = new TextBox();
             label2 = new Label();
             label1 = new Label();
             btnTinhTien = new Button();
+            dgvHoaDonCT = new DataGridView();
+            groupBox2 = new GroupBox();
             label5 = new Label();
-            dgvHoaDon = new DataGridView();
+            cmbTrangThaiHD = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDSSP).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDonCT).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -143,149 +146,184 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(cmbTrangThaiHD);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(cmbKhachHang);
+            groupBox1.Controls.Add(btnSua);
+            groupBox1.Controls.Add(btnLuu);
+            groupBox1.Controls.Add(cmbNhanVien);
+            groupBox1.Controls.Add(dtpNgayTao);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(dgvDSSP);
-            groupBox1.Controls.Add(textBox3);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(btnThem);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtMaHD);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(286, 66);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1584, 351);
+            groupBox1.Size = new Size(1584, 231);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Tạo đơn hàng";
-            groupBox1.Enter += groupBox1_Enter;
+            groupBox1.Text = "Thông Tin Hóa Đơn";
             // 
-            // comboBox1
+            // cmbKhachHang
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(1152, 78);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 33);
-            comboBox1.TabIndex = 8;
+            cmbKhachHang.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbKhachHang.FormattingEnabled = true;
+            cmbKhachHang.Location = new Point(173, 92);
+            cmbKhachHang.Name = "cmbKhachHang";
+            cmbKhachHang.Size = new Size(283, 33);
+            cmbKhachHang.TabIndex = 14;
+            // 
+            // btnSua
+            // 
+            btnSua.ForeColor = SystemColors.Highlight;
+            btnSua.Location = new Point(1087, 113);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(188, 54);
+            btnSua.TabIndex = 13;
+            btnSua.Text = "Sửa";
+            btnSua.UseVisualStyleBackColor = true;
+            // 
+            // btnLuu
+            // 
+            btnLuu.ForeColor = SystemColors.Highlight;
+            btnLuu.Location = new Point(1340, 31);
+            btnLuu.Name = "btnLuu";
+            btnLuu.Size = new Size(188, 54);
+            btnLuu.TabIndex = 12;
+            btnLuu.Text = "Lưu";
+            btnLuu.UseVisualStyleBackColor = true;
+            // 
+            // cmbNhanVien
+            // 
+            cmbNhanVien.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbNhanVien.FormattingEnabled = true;
+            cmbNhanVien.Location = new Point(713, 93);
+            cmbNhanVien.Name = "cmbNhanVien";
+            cmbNhanVien.Size = new Size(216, 33);
+            cmbNhanVien.TabIndex = 11;
+            // 
+            // dtpNgayTao
+            // 
+            dtpNgayTao.CalendarFont = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpNgayTao.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpNgayTao.Location = new Point(713, 40);
+            dtpNgayTao.Name = "dtpNgayTao";
+            dtpNgayTao.Size = new Size(310, 32);
+            dtpNgayTao.TabIndex = 10;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(1041, 81);
+            label4.Location = new Point(580, 40);
             label4.Name = "label4";
-            label4.Size = new Size(87, 25);
+            label4.Size = new Size(88, 25);
             label4.TabIndex = 7;
-            label4.Text = "Giảm giá";
-            // 
-            // dgvDSSP
-            // 
-            dgvDSSP.BackgroundColor = SystemColors.ActiveCaption;
-            dgvDSSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDSSP.Location = new Point(6, 141);
-            dgvDSSP.Name = "dgvDSSP";
-            dgvDSSP.RowHeadersWidth = 51;
-            dgvDSSP.RowTemplate.Height = 29;
-            dgvDSSP.Size = new Size(1563, 204);
-            dgvDSSP.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(858, 78);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(136, 32);
-            textBox3.TabIndex = 6;
+            label4.Text = "Ngày tạo";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(765, 81);
+            label3.Location = new Point(580, 95);
             label3.Name = "label3";
-            label3.Size = new Size(78, 25);
+            label3.Size = new Size(98, 25);
             label3.TabIndex = 5;
-            label3.Text = "Đơn giá";
+            label3.Text = "Nhân viên";
             // 
             // btnThem
             // 
             btnThem.ForeColor = SystemColors.Highlight;
-            btnThem.Location = new Point(1390, 66);
+            btnThem.Location = new Point(1087, 31);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(188, 54);
             btnThem.TabIndex = 4;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txtMaHD
             // 
-            textBox2.Location = new Point(580, 78);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(136, 32);
-            textBox2.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(129, 78);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(327, 32);
-            textBox1.TabIndex = 2;
+            txtMaHD.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMaHD.Location = new Point(173, 40);
+            txtMaHD.Name = "txtMaHD";
+            txtMaHD.Size = new Size(283, 32);
+            txtMaHD.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(487, 81);
+            label2.Location = new Point(15, 95);
             label2.Name = "label2";
-            label2.Size = new Size(87, 25);
+            label2.Size = new Size(144, 25);
             label2.TabIndex = 1;
-            label2.Text = "Số lượng";
+            label2.Text = "Tên khách hàng";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(15, 81);
+            label1.Location = new Point(15, 43);
             label1.Name = "label1";
-            label1.Size = new Size(96, 25);
+            label1.Size = new Size(114, 25);
             label1.TabIndex = 0;
-            label1.Text = "Sản phẩm";
+            label1.Text = "Mã hóa đơn";
             // 
             // btnTinhTien
             // 
             btnTinhTien.BackColor = Color.White;
             btnTinhTien.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             btnTinhTien.ForeColor = Color.OrangeRed;
-            btnTinhTien.Location = new Point(292, 833);
+            btnTinhTien.Location = new Point(292, 856);
             btnTinhTien.Name = "btnTinhTien";
             btnTinhTien.Size = new Size(1578, 85);
             btnTinhTien.TabIndex = 6;
             btnTinhTien.Text = "Tính tiền";
             btnTinhTien.UseVisualStyleBackColor = false;
             // 
+            // dgvHoaDonCT
+            // 
+            dgvHoaDonCT.BackgroundColor = SystemColors.ActiveCaption;
+            dgvHoaDonCT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHoaDonCT.Location = new Point(0, 31);
+            dgvHoaDonCT.Name = "dgvHoaDonCT";
+            dgvHoaDonCT.RowHeadersWidth = 51;
+            dgvHoaDonCT.RowTemplate.Height = 29;
+            dgvHoaDonCT.Size = new Size(1578, 599);
+            dgvHoaDonCT.TabIndex = 7;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(dgvHoaDonCT);
+            groupBox2.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox2.Location = new Point(292, 303);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(1578, 547);
+            groupBox2.TabIndex = 8;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Thông Tin Chi Tiết";
+            // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(301, 420);
+            label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(580, 151);
             label5.Name = "label5";
-            label5.Size = new Size(104, 30);
-            label5.TabIndex = 5;
-            label5.Text = "Hóa Đơn";
-            label5.Click += label5_Click;
+            label5.Size = new Size(96, 25);
+            label5.TabIndex = 15;
+            label5.Text = "Trạng thái";
             // 
-            // dgvHoaDon
+            // cmbTrangThaiHD
             // 
-            dgvHoaDon.BackgroundColor = SystemColors.ActiveCaption;
-            dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHoaDon.Location = new Point(292, 470);
-            dgvHoaDon.Name = "dgvHoaDon";
-            dgvHoaDon.RowHeadersWidth = 51;
-            dgvHoaDon.RowTemplate.Height = 29;
-            dgvHoaDon.Size = new Size(1572, 347);
-            dgvHoaDon.TabIndex = 7;
-            dgvHoaDon.CellContentClick += dataGridView1_CellContentClick;
+            cmbTrangThaiHD.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbTrangThaiHD.FormattingEnabled = true;
+            cmbTrangThaiHD.Location = new Point(713, 147);
+            cmbTrangThaiHD.Name = "cmbTrangThaiHD";
+            cmbTrangThaiHD.Size = new Size(216, 33);
+            cmbTrangThaiHD.TabIndex = 16;
             // 
             // Frm_ThanhToan
             // 
@@ -293,9 +331,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1882, 953);
-            Controls.Add(dgvHoaDon);
+            Controls.Add(groupBox2);
             Controls.Add(btnTinhTien);
-            Controls.Add(label5);
             Controls.Add(groupBox1);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -311,10 +348,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDSSP).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDonCT).EndInit();
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -328,17 +364,20 @@
         private PictureBox pbBack;
         private GroupBox groupBox1;
         private Button btnThem;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtMaHD;
         private Label label2;
         private Label label1;
-        private ComboBox comboBox1;
         private Label label4;
-        private TextBox textBox3;
         private Label label3;
-        private DataGridView dgvDSSP;
         private Button btnTinhTien;
+        private DataGridView dgvHoaDonCT;
+        private Button btnSua;
+        private Button btnLuu;
+        private ComboBox cmbNhanVien;
+        private DateTimePicker dtpNgayTao;
+        private GroupBox groupBox2;
+        private ComboBox cmbKhachHang;
+        private ComboBox cmbTrangThaiHD;
         private Label label5;
-        private DataGridView dgvHoaDon;
     }
 }

@@ -39,44 +39,33 @@ namespace _3.PRL.Views
         }
         private void LoadGridDSSP()
         {
-            int stt = 1;
-            dgvDSSP.ColumnCount = 5;
-            dgvDSSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDSSP.Columns[0].Name = "STT";
-            dgvDSSP.Columns[1].Name = "Tên sản phẩm";
-            dgvDSSP.Columns[2].Name = "Số lượng";
-            dgvDSSP.Columns[3].Name = "Giảm giá";
-            dgvDSSP.Columns[4].Name = "Thành tiền";
+
 
 
         }
         private void LoadGridHD()
         {
             int stt = 1;
-            dgvHoaDon.ColumnCount = 5;
-            dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHoaDon.Columns[0].Name = "STT";
-            dgvHoaDon.Columns[1].Name = "Tên sản phẩm";
-            dgvHoaDon.Columns[2].Name = "Số lượng";
-            dgvHoaDon.Columns[3].Name = "Giảm giá";
-            dgvHoaDon.Columns[4].Name = "Thành tiền";
+            dgvHoaDonCT.ColumnCount = 8;
+            dgvHoaDonCT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHoaDonCT.Columns[0].Name = "ID";
+            dgvHoaDonCT.Columns[0].Visible = false;
+            dgvHoaDonCT.Columns[1].Name = "STT";
+            dgvHoaDonCT.Columns[2].Name = "Mã Sản phẩm";
+            dgvHoaDonCT.Columns[3].Name = "Mã Biến thể";
+            dgvHoaDonCT.Columns[4].Name = "Tên";
+            dgvHoaDonCT.Columns[5].Name = "Số lượng";
+            dgvHoaDonCT.Columns[6].Name = "Giảm giá";
+            dgvHoaDonCT.Columns[7].Name = "Thành tiền";
 
 
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
-        }
+
+
+
+
     }
 }

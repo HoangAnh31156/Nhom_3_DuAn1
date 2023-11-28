@@ -1,4 +1,5 @@
 ﻿using _3.PRL.Views.DangNhap;
+using _3.PRL.Views.GiamGia;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,6 +74,13 @@ namespace _3.PRL.Views
             this.Hide();
             Frm_TaiKhoan frm_TaiKhoan = new Frm_TaiKhoan();
             frm_TaiKhoan.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_GiamGia frm_GiamGia = new Frm_GiamGia();
+            frm_GiamGia.Show();
         }
     }
 }

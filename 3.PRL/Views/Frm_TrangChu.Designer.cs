@@ -32,6 +32,9 @@
             panel1 = new Panel();
             pbDangXuat = new PictureBox();
             panel2 = new Panel();
+            panel11 = new Panel();
+            pictureBox8 = new PictureBox();
+            button1 = new Button();
             pictureBox7 = new PictureBox();
             panel9 = new Panel();
             btnDoiTra = new Button();
@@ -54,12 +57,10 @@
             panel3 = new Panel();
             btnSanPham = new Button();
             panel10 = new Panel();
-            panel11 = new Panel();
-            pictureBox8 = new PictureBox();
-            button1 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -67,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -125,6 +125,39 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(280, 893);
             panel2.TabIndex = 1;
+            // 
+            // panel11
+            // 
+            panel11.BackColor = Color.FromArgb(183, 209, 255);
+            panel11.Location = new Point(12, 729);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(10, 64);
+            panel11.TabIndex = 23;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
+            pictureBox8.Location = new Point(32, 729);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(64, 64);
+            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox8.TabIndex = 22;
+            pictureBox8.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.FromArgb(3, 43, 118);
+            button1.Location = new Point(106, 729);
+            button1.Name = "button1";
+            button1.Size = new Size(171, 64);
+            button1.TabIndex = 21;
+            button1.Text = "Giảm giá";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // pictureBox7
             // 
@@ -366,38 +399,6 @@
             panel10.Size = new Size(1602, 893);
             panel10.TabIndex = 2;
             // 
-            // panel11
-            // 
-            panel11.BackColor = Color.FromArgb(183, 209, 255);
-            panel11.Location = new Point(12, 729);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(10, 64);
-            panel11.TabIndex = 23;
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(32, 729);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(64, 64);
-            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox8.TabIndex = 22;
-            pictureBox8.TabStop = false;
-            // 
-            // button1
-            // 
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.FromArgb(3, 43, 118);
-            button1.Location = new Point(106, 729);
-            button1.Name = "button1";
-            button1.Size = new Size(171, 64);
-            button1.TabIndex = 21;
-            button1.Text = "Giảm giá";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = true;
-            // 
             // Frm_TrangChu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -413,6 +414,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).EndInit();
             panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -420,7 +422,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ResumeLayout(false);
         }
 
