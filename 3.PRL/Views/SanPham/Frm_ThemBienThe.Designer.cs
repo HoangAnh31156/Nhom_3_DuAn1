@@ -376,6 +376,7 @@
             txtSearch.PlaceholderText = "Tìm kiếm sản phẩm...";
             txtSearch.Size = new Size(474, 34);
             txtSearch.TabIndex = 14;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // groupBox1
             // 

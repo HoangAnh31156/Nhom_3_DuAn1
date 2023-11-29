@@ -95,29 +95,33 @@ namespace _3.PRL.Views.SanPham
             GridVariant.Columns[11].Name = "Giá Tiền";
 
             var lst = from i in _BienTheService.GetBienThe(null)
-                      join y in _SanPhamService.GetSanPham(null)
-                      on i.IdSanPham equals y.IdSanPham
-                      join a in _chatLieuService.GetChatLieu(null)
-                      on i.IdChatLieu equals a.IdChatLieu
-                      join b in _mauSacService.GetMau(null)
-                      on i.IdMau equals b.IdMau
-                      join c in _soCanhService.GetSoCanh(null)
-                      on i.IdCanh equals c.IdCanh
-                      select new
-                      {
-                          MaBienThe = i.MaBienThe,
-                          ten = y.Ten,
-                          Gia = i.GiaTien,
-                          TG = i.TgbaoHanh,
-                          CS = i.CongSuat,
-                          SL = i.SoLuong,
-                          CC = i.ChieuCao,
-                          BK = i.BanKinh,
-                          Hinh = i.HinhAnh,
-                          CL = a.TenChatLieu,
-                          M = b.TenMau,
-                          SC = c.SoCanh1
-                      };
+                       join y in _SanPhamService.GetSanPham(null)
+                       on i.IdSanPham equals y.IdSanPham
+                       join a in _chatLieuService.GetChatLieu(null)
+                       on i.IdChatLieu equals a.IdChatLieu
+                       join b in _mauSacService.GetMau(null)
+                       on i.IdMau equals b.IdMau
+                       join c in _soCanhService.GetSoCanh(null)
+                       on i.IdCanh equals c.IdCanh
+                       select new
+                       {
+                           MaBienThe = i.MaBienThe,
+                           ten = y.Ten,
+                           Gia = i.GiaTien,
+                           TG = i.TgbaoHanh,
+                           CS = i.CongSuat,
+                           SL = i.SoLuong,
+                           CC = i.ChieuCao,
+                           BK = i.BanKinh,
+                           Hinh = i.HinhAnh,
+                           CL = a.TenChatLieu,
+                           M = b.TenMau,
+                           SC = c.SoCanh1
+                       };
+            if(txtSearch.Text != null)
+            {
+                lst = lst.Where(x => x.ten.ToLower().Contains(txtSearch.Text.ToLower()));
+            }
             foreach (var i in lst)
             {
                 GridVariant.Rows.Add(stt, i.MaBienThe, i.ten, i.TG, i.CS, i.SL, i.CC, i.BK, i.CL, i.M, i.SC, i.Gia);
@@ -190,7 +194,7 @@ namespace _3.PRL.Views.SanPham
             var obj = new BienThe()
             {
                 IdBienThe = Guid.NewGuid(),
-                MaBienThe = $"{cboMaSp.Text}_{cboChatLieu}_{cboSoCanh.Text}_{txtCongSuat.Text}",
+                MaBienThe = $"{cboMaSp.Text}_{cboChatLieu.Text}_{cboSoCanh.Text}_{txtCongSuat.Text}",
                 GiaTien = decimal.Parse(txtGiaTien.Text),
                 TgbaoHanh = int.Parse(txtTGBaoHanh.Text),
                 CongSuat = decimal.Parse(txtCongSuat.Text),
@@ -207,6 +211,7 @@ namespace _3.PRL.Views.SanPham
             if (result)
             {
                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                LoadgridVariant(null);
             }
             else
             {
@@ -237,7 +242,10 @@ namespace _3.PRL.Views.SanPham
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            AddVariant();
+            if(checkEmpty() && checkExists())
+            {
+                AddVariant();
+            }
         }
 
 
@@ -250,33 +258,33 @@ namespace _3.PRL.Views.SanPham
         {
             var lst = (from i in _mauSacService.GetMau(null) select i.IdMau).ToArray();
             Mamau = lst[cboMau.SelectedIndex];
-            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+            txtMaBT.Text = $"{cboMaSp.Text}_{cboChatLieu.Text}_{cboSoCanh.Text}_{txtCongSuat.Text}";
         }
 
         private void cboChatLieu_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             var lst = (from i in _chatLieuService.GetChatLieu(null) select i.IdChatLieu).ToArray();
             MaChatLieu = lst[cboChatLieu.SelectedIndex];
-            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+            txtMaBT.Text = $"{cboMaSp.Text}_{cboChatLieu.Text}_{cboSoCanh.Text}_{txtCongSuat.Text}";
         }
 
         private void cboSoCanh_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             var lst = (from i in _soCanhService.GetSoCanh(null) select i.IdCanh).ToArray();
             SoCanh = lst[cboSoCanh.SelectedIndex];
-            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+            txtMaBT.Text = $"{cboMaSp.Text}_{cboChatLieu.Text}_{cboSoCanh.Text}_{txtCongSuat.Text}";
         }
 
         private void cboMaSp_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             var lst = (from i in _SanPhamService.GetSanPham(null) select i.IdSanPham).ToArray();
             MaSanPham = lst[cboMaSp.SelectedIndex];
-            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+            txtMaBT.Text = $"{cboMaSp.Text}_{cboChatLieu.Text}_{cboSoCanh.Text}_{txtCongSuat.Text}";
         }
 
         private void txtCongSuat_TextChanged_1(object sender, EventArgs e)
         {
-            txtMaBT.Text = $"{cboMaSp.Text}_{txtCongSuat.Text}_{cboMau.Text}";
+            txtMaBT.Text = $"{cboMaSp.Text}_{cboChatLieu.Text}_{cboSoCanh.Text}_{txtCongSuat.Text}";
         }
 
         private void btnAnh_Click(object sender, EventArgs e)
@@ -318,8 +326,11 @@ namespace _3.PRL.Views.SanPham
         private void UpdateVariant()
         {
             GridVariant.ClearSelection();
-            BienThe obj = _BienTheService.GetBienThe(null).FirstOrDefault(x => x.MaBienThe == GetMa());
-            obj.MaBienThe = $"{cboMaSp.Text}_{cboChatLieu}_{cboSoCanh.Text}_{txtCongSuat.Text}";
+            var lst = _BienTheService.GetBienThe(null);
+            var obj = lst.FirstOrDefault(x => x.MaBienThe == (GetMa()));
+            if (obj != null)
+            {
+                obj.MaBienThe = $"{cboMaSp.Text}_{cboChatLieu.Text}_{cboSoCanh.Text}_{txtCongSuat.Text}";
                 obj.GiaTien = decimal.Parse(txtGiaTien.Text);
                 obj.TgbaoHanh = int.Parse(txtTGBaoHanh.Text);
                 obj.CongSuat = decimal.Parse(txtCongSuat.Text);
@@ -331,19 +342,109 @@ namespace _3.PRL.Views.SanPham
                 obj.IdSanPham = MaSanPham;
                 obj.IdCanh = SoCanh;
                 obj.IdChatLieu = MaChatLieu;
-            var result = _BienTheService.UpdateBienThe(obj);
-            if (result)
-            {
-                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                var result = _BienTheService.UpdateBienThe(obj);
+                if (result)
+                {
+                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    LoadgridVariant(null);
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Thêm thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Noooo!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoadgridVariant(null);
             }
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            UpdateVariant();
+            if (checkEmpty() && checkExists())
+            {
+                UpdateVariant();
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadgridVariant(txtSearch.Text);
+        }
+
+        private bool checkEmpty()
+        {
+            if (cboMau.SelectedIndex == -1)
+            {
+                MessageBox.Show("Chưa chọn màu");
+                return false;
+            }
+            if (cboChatLieu.SelectedIndex == -1)
+            {
+                MessageBox.Show("Chưa chọn chất liệu");
+                return false;
+            }
+            if (cboSoCanh.SelectedIndex == -1)
+            {
+                MessageBox.Show("Chưa chọn số cánh");
+                return false;
+            }
+            if (cboMaSp.SelectedIndex == -1)
+            {
+                MessageBox.Show("Chưa chọn mã sản phẩm");
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtGiaTien.Text))
+            {
+                MessageBox.Show("Chưa nhập giá tiền");
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtSoluong.Text))
+            {
+                MessageBox.Show("Chưa nhập số lượng");
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtCongSuat.Text))
+            {
+                MessageBox.Show("Chưa nhập công suất");
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtchieucao.Text))
+            {
+                MessageBox.Show("Chưa nhập chiều");
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtBankinh.Text))
+            {
+                MessageBox.Show("Chưa nhập bán kính");
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtTGBaoHanh.Text))
+            {
+                MessageBox.Show("Chưa nhập TG bảo hành");
+                return false;
+            }
+            if (picImage.Image == null)
+            {
+                MessageBox.Show("Chưa chọn hình ảnh");
+                return false;
+            }
+            return true;
+        }
+
+        private bool checkExists()
+        {
+            var lst = _BienTheService.GetBienThe(null);
+            if (txtMaBT.Text != null)
+            {
+                if (lst.FirstOrDefault(x => x.MaBienThe == txtMaBT.Text) == null)
+                {
+                    return true;
+                }
+                MessageBox.Show("Biến thể đã tồn tại");
+                return false;
+            }
+            return false;
         }
     }
 }
