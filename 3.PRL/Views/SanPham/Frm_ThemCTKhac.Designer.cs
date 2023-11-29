@@ -46,19 +46,15 @@
             btnSanPham = new Button();
             groupBox1 = new GroupBox();
             groupBox7 = new GroupBox();
-            richTextBox1 = new RichTextBox();
+            rtxtMoTa = new RichTextBox();
             label5 = new Label();
             label4 = new Label();
-            textBox5 = new TextBox();
             groupBox6 = new GroupBox();
             label3 = new Label();
-            textBox4 = new TextBox();
             groupBox5 = new GroupBox();
             label2 = new Label();
-            textBox3 = new TextBox();
             groupBox4 = new GroupBox();
             label1 = new Label();
-            textBox2 = new TextBox();
             groupBox2 = new GroupBox();
             btnSua = new Button();
             btnThem = new Button();
@@ -66,6 +62,10 @@
             dataGridView1 = new DataGridView();
             pictureBox9 = new PictureBox();
             textBox1 = new TextBox();
+            cboChatLieu = new ComboBox();
+            cboSoCanh = new ComboBox();
+            cboMau = new ComboBox();
+            cboLoaiSP = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -294,10 +294,10 @@
             // 
             // groupBox7
             // 
-            groupBox7.Controls.Add(richTextBox1);
+            groupBox7.Controls.Add(cboLoaiSP);
+            groupBox7.Controls.Add(rtxtMoTa);
             groupBox7.Controls.Add(label5);
             groupBox7.Controls.Add(label4);
-            groupBox7.Controls.Add(textBox5);
             groupBox7.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox7.Location = new Point(637, 255);
             groupBox7.Name = "groupBox7";
@@ -306,14 +306,14 @@
             groupBox7.TabStop = false;
             groupBox7.Text = "Loại Sản phẩm";
             // 
-            // richTextBox1
+            // rtxtMoTa
             // 
-            richTextBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox1.Location = new Point(130, 113);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(387, 92);
-            richTextBox1.TabIndex = 6;
-            richTextBox1.Text = "";
+            rtxtMoTa.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            rtxtMoTa.Location = new Point(130, 113);
+            rtxtMoTa.Name = "rtxtMoTa";
+            rtxtMoTa.Size = new Size(387, 92);
+            rtxtMoTa.TabIndex = 6;
+            rtxtMoTa.Text = "";
             // 
             // label5
             // 
@@ -335,18 +335,10 @@
             label4.TabIndex = 0;
             label4.Text = "Tên loại";
             // 
-            // textBox5
-            // 
-            textBox5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox5.Location = new Point(130, 44);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(387, 32);
-            textBox5.TabIndex = 4;
-            // 
             // groupBox6
             // 
+            groupBox6.Controls.Add(cboSoCanh);
             groupBox6.Controls.Add(label3);
-            groupBox6.Controls.Add(textBox4);
             groupBox6.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox6.Location = new Point(6, 255);
             groupBox6.Name = "groupBox6";
@@ -365,18 +357,10 @@
             label3.TabIndex = 0;
             label3.Text = "Số cánh";
             // 
-            // textBox4
-            // 
-            textBox4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(130, 44);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(387, 32);
-            textBox4.TabIndex = 4;
-            // 
             // groupBox5
             // 
+            groupBox5.Controls.Add(cboMau);
             groupBox5.Controls.Add(label2);
-            groupBox5.Controls.Add(textBox3);
             groupBox5.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox5.Location = new Point(637, 45);
             groupBox5.Name = "groupBox5";
@@ -395,18 +379,10 @@
             label2.TabIndex = 0;
             label2.Text = "Tên màu";
             // 
-            // textBox3
-            // 
-            textBox3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(130, 44);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(387, 32);
-            textBox3.TabIndex = 4;
-            // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(cboChatLieu);
             groupBox4.Controls.Add(label1);
-            groupBox4.Controls.Add(textBox2);
             groupBox4.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox4.Location = new Point(6, 45);
             groupBox4.Name = "groupBox4";
@@ -424,14 +400,6 @@
             label1.Size = new Size(118, 25);
             label1.TabIndex = 0;
             label1.Text = "Tên chất liệu";
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(130, 44);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(387, 32);
-            textBox2.TabIndex = 4;
             // 
             // groupBox2
             // 
@@ -509,6 +477,39 @@
             textBox1.PlaceholderText = "Tìm kiếm ...";
             textBox1.Size = new Size(474, 34);
             textBox1.TabIndex = 14;
+            // 
+            // cboChatLieu
+            // 
+            cboChatLieu.FormattingEnabled = true;
+            cboChatLieu.Location = new Point(143, 44);
+            cboChatLieu.Name = "cboChatLieu";
+            cboChatLieu.Size = new Size(335, 33);
+            cboChatLieu.TabIndex = 1;
+            // 
+            // cboSoCanh
+            // 
+            cboSoCanh.FormattingEnabled = true;
+            cboSoCanh.Location = new Point(143, 47);
+            cboSoCanh.Name = "cboSoCanh";
+            cboSoCanh.Size = new Size(335, 33);
+            cboSoCanh.TabIndex = 2;
+            // 
+            // cboMau
+            // 
+            cboMau.FormattingEnabled = true;
+            cboMau.Location = new Point(130, 47);
+            cboMau.Name = "cboMau";
+            cboMau.Size = new Size(335, 33);
+            cboMau.TabIndex = 3;
+            // 
+            // cboLoaiSP
+            // 
+            cboLoaiSP.FormattingEnabled = true;
+            cboLoaiSP.Location = new Point(130, 47);
+            cboLoaiSP.Name = "cboLoaiSP";
+            cboLoaiSP.Size = new Size(335, 33);
+            cboLoaiSP.TabIndex = 4;
+            cboLoaiSP.SelectedIndexChanged += cboLoaiSP_SelectedIndexChanged;
             // 
             // Frm_ThemCTKhac
             // 
@@ -589,8 +590,12 @@
         private Label label2;
         private TextBox textBox3;
         private GroupBox groupBox4;
-        private RichTextBox richTextBox1;
+        private RichTextBox rtxtMoTa;
         private Label label5;
         private DataGridView dataGridView1;
+        private ComboBox cboLoaiSP;
+        private ComboBox cboSoCanh;
+        private ComboBox cboMau;
+        private ComboBox cboChatLieu;
     }
 }

@@ -1,4 +1,5 @@
-﻿using _3.PRL.Views.DangNhap;
+﻿using _2.BUS.Services;
+using _3.PRL.Views.DangNhap;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,40 @@ namespace _3.PRL.Views.SanPham
 {
     public partial class Frm_ThemCTKhac : Form
     {
+        private ChatLieuService _chatLieuService;
+        private MauSacService _mauSacService;
+        private SoCanhService _soCanhService;
+        private LoaiSPService _LoaiSPService;
+        Dictionary<string, string> lstloai = new Dictionary<string, string>();
         public Frm_ThemCTKhac()
         {
             InitializeComponent();
+            _chatLieuService = new ChatLieuService();
+            _mauSacService = new MauSacService();
+            _soCanhService = new SoCanhService();
+            _LoaiSPService = new LoaiSPService();
+            LoadAttributes();
+        }
+        private void LoadAttributes()
+        {
+            var chatlieu = (from i in _chatLieuService.GetChatLieu(null)
+                            select i.TenChatLieu).ToArray();
+            cboChatLieu.Items.AddRange(chatlieu);
+
+            var Mau = (from i in _mauSacService.GetMau(null)
+                       select i.TenMau).ToArray();
+            cboMau.Items.AddRange(Mau);
+
+            var Socanh = (from i in _soCanhService.GetSoCanh(null)
+                          select i.SoCanh1.ToString()).ToArray();
+            cboSoCanh.Items.AddRange(Socanh);
+            var loaisp = _LoaiSPService.GetLoaiSanPham(null);
+            foreach (var i in loaisp)
+            {
+                lstloai.Add(i.TenLoai, i.MoTa);
+            }
+            var lstTen = lstloai.Keys.ToArray();
+            cboLoaiSP.Items.AddRange(lstTen);
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -51,6 +83,11 @@ namespace _3.PRL.Views.SanPham
             this.Hide();
             Frm_ThemBienThe frm_ThemBienThe = new Frm_ThemBienThe();
             frm_ThemBienThe.Show();
+        }
+
+        private void cboLoaiSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rtxtMoTa.Text = lstloai.FirstOrDefault(x => x.Key == cboLoaiSP.Text).Value;
         }
     }
 }

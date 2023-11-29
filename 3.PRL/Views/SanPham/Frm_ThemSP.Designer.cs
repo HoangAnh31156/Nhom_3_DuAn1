@@ -48,12 +48,15 @@
             groupBox3 = new GroupBox();
             GirdSp = new DataGridView();
             groupBox2 = new GroupBox();
+            btnLamMoi = new Button();
             btnSua = new Button();
             btnThem = new Button();
             groupBox1 = new GroupBox();
-            textBox3 = new TextBox();
+            txtSoLuong = new TextBox();
+            label2 = new Label();
+            txtMaSP = new TextBox();
             cboLoaiSp = new ComboBox();
-            textBox2 = new TextBox();
+            txtTen = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
@@ -302,9 +305,11 @@
             GirdSp.RowTemplate.Height = 29;
             GirdSp.Size = new Size(1584, 204);
             GirdSp.TabIndex = 15;
+            GirdSp.SelectionChanged += GirdSp_SelectionChanged;
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnLamMoi);
             groupBox2.Controls.Add(btnSua);
             groupBox2.Controls.Add(btnThem);
             groupBox2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
@@ -315,16 +320,29 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức năng";
             // 
+            // btnLamMoi
+            // 
+            btnLamMoi.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLamMoi.ForeColor = SystemColors.Highlight;
+            btnLamMoi.Location = new Point(6, 264);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(360, 75);
+            btnLamMoi.TabIndex = 15;
+            btnLamMoi.Text = "Làm Mới";
+            btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
+            // 
             // btnSua
             // 
             btnSua.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnSua.ForeColor = SystemColors.Highlight;
-            btnSua.Location = new Point(6, 192);
+            btnSua.Location = new Point(6, 149);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(360, 75);
             btnSua.TabIndex = 14;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnThem
             // 
@@ -338,12 +356,15 @@
             btnThem.TabIndex = 0;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(txtSoLuong);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(txtMaSP);
             groupBox1.Controls.Add(cboLoaiSp);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(txtTen);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label1);
@@ -355,12 +376,28 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
             // 
-            // textBox3
+            // txtSoLuong
             // 
-            textBox3.Location = new Point(218, 281);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(568, 32);
-            textBox3.TabIndex = 6;
+            txtSoLuong.Location = new Point(218, 385);
+            txtSoLuong.Name = "txtSoLuong";
+            txtSoLuong.Size = new Size(568, 32);
+            txtSoLuong.TabIndex = 8;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(35, 388);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 25);
+            label2.TabIndex = 7;
+            label2.Text = "Số Lượng";
+            // 
+            // txtMaSP
+            // 
+            txtMaSP.Location = new Point(218, 281);
+            txtMaSP.Name = "txtMaSP";
+            txtMaSP.Size = new Size(568, 32);
+            txtMaSP.TabIndex = 6;
             // 
             // cboLoaiSp
             // 
@@ -369,13 +406,14 @@
             cboLoaiSp.Name = "cboLoaiSp";
             cboLoaiSp.Size = new Size(568, 33);
             cboLoaiSp.TabIndex = 5;
+            cboLoaiSp.SelectedIndexChanged += cboLoaiSp_SelectedIndexChanged;
             // 
-            // textBox2
+            // txtTen
             // 
-            textBox2.Location = new Point(218, 62);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(568, 32);
-            textBox2.TabIndex = 4;
+            txtTen.Location = new Point(218, 62);
+            txtTen.Name = "txtTen";
+            txtTen.Size = new Size(568, 32);
+            txtTen.TabIndex = 4;
             // 
             // label4
             // 
@@ -422,6 +460,7 @@
             txtSearch.PlaceholderText = "Tìm kiếm sản phẩm...";
             txtSearch.Size = new Size(474, 34);
             txtSearch.TabIndex = 5;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // Frm_ThemSP
             // 
@@ -479,13 +518,16 @@
         private Label label3;
         private Label label1;
         private Button btnSua;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txtTen;
+        private TextBox txtMaSP;
         private ComboBox cboLoaiSp;
         private Button btnThemCTKhac;
         private PictureBox pictureBox11;
         private Button btnThemBienThe;
         private PictureBox pictureBox1;
         private DataGridView GirdSp;
+        private TextBox txtSoLuong;
+        private Label label2;
+        private Button btnLamMoi;
     }
 }
