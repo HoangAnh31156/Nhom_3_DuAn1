@@ -65,7 +65,7 @@ namespace _3.PRL.Views
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_ThanhToan frm_ThanhToan = new Frm_ThanhToan();
+            Frm_HoaDon frm_ThanhToan = new Frm_HoaDon();
             frm_ThanhToan.Show();
         }
 

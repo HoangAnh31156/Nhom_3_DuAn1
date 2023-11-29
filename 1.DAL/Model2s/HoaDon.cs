@@ -15,7 +15,7 @@ namespace _1.DAL.Model2s
         public decimal? TongTien { get; set; }
         public DateTime? NgayGd { get; set; }
         public bool? TrangThai { get; set; }
-        public string? MaHoaDon { get; set; }
+        
         public Guid? IdVc { get; set; }
         public Guid? IdNv { get; set; }
         public Guid? IdKh { get; set; }

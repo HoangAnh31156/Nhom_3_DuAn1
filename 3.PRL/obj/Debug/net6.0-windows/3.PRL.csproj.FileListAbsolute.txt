@@ -379,14 +379,11 @@ E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-window
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_TaiKhoan.resources
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_TrangChu.resources
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_KhachHang.resources
-E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.KhachHang.Frm_ThemKH.resources
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_NhanVien.resources
-E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.NhanVien.Frm_ThemNV.resources
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_SanPham.resources
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.SanPham.Frm_ThemBienThe.resources
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.SanPham.Frm_ThemCTKhac.resources
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.SanPham.Frm_ThemSP.resources
-E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_ThanhToan.resources
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\3.PRL.csproj.GenerateResource.cache
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\3.PRL.GeneratedMSBuildEditorConfig.editorconfig
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\3.PRL.AssemblyInfoInputs.cache
@@ -466,3 +463,4 @@ D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\refint\3.PRL.dll
 D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.pdb
 D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.genruntimeconfig.cache
 D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\ref\3.PRL.dll
+E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_HoaDon.resources
