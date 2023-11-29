@@ -2,8 +2,6 @@ using _3.PRL.Views;
 using _3.PRL.Views.BaoHanh;
 using _3.PRL.Views.DangNhap;
 using _3.PRL.Views.GiamGia;
-using _3.PRL.Views.KhachHang;
-using _3.PRL.Views.NhanVien;
 using _3.PRL.Views.SanPham;
 
 namespace _3.PRL

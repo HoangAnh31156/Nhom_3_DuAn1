@@ -1,7 +1,6 @@
 ﻿using _1.DAL.Model2s;
 using _2.BUS.Services;
 using _3.PRL.Views.DangNhap;
-using _3.PRL.Views.KhachHang;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +18,6 @@ namespace _3.PRL.Views
     {
         KhachHangService _khachService;
         Guid _id;
-        
         public Frm_KhachHang()
         {
             _khachService = new KhachHangService();
@@ -40,12 +38,6 @@ namespace _3.PRL.Views
             fTC.Show();
         }
 
-        private void btnThemKH_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_ThemKH frm_ThemKH = new Frm_ThemKH();
-            frm_ThemKH.Show();
-        }
 
         private void Frm_KhachHang_Load(object sender, EventArgs e)
         {
@@ -71,7 +63,7 @@ namespace _3.PRL.Views
             dgvDSKH.Rows.Clear();
             foreach (var item in _khachService.GetKhach(input))
             {
-                dgvDSKH.Rows.Add(item.IdKh, stt++, null, item.TenKh, item.NgaySinh, item.Sdt, item.Email, ((bool)(item.GioiTinh)? "Nam" : "Nữ"), item.DiaChi);
+                dgvDSKH.Rows.Add(item.IdKh, stt++, null, item.TenKh, item.NgaySinh, item.Sdt, item.Email, ((bool)(item.GioiTinh) ? "Nam" : "Nữ"), item.DiaChi);
             }
 
         }
@@ -85,7 +77,7 @@ namespace _3.PRL.Views
             }
             var selectedKhach = dgvDSKH.Rows[rowIndex];
             txtTenKH.Text = selectedKhach.Cells[3].Value.ToString();
-            txtNgaySinh.Text = selectedKhach.Cells[4].Value.ToString();
+            dtpNgaySinh.Value = Convert.ToDateTime(selectedKhach.Cells[4].Value);
             txtSDT.Text = selectedKhach.Cells[5].Value.ToString();
             txtEmail.Text = selectedKhach.Cells[6].Value.ToString();
             _id = Guid.Parse(selectedKhach.Cells[0].Value.ToString());
@@ -107,43 +99,57 @@ namespace _3.PRL.Views
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string ten = txtTenKH.Text;
-            string ngaySinh = txtNgaySinh.Text;
-            string sdt = txtSDT.Text;
-            string email = txtEmail.Text;
-            bool gioiTinh = rbtnNam.Checked;
-            string diaChi = txtDiaChi.Text;
-            bool add = _khachService.AddKhach(ten, Convert.ToDateTime(ngaySinh), sdt, email, gioiTinh, diaChi);
-            if (add)
+            if (CheckTextBox() == false)
             {
-                MessageBox.Show("Thêm khách thành công");
+                return;
             }
             else
             {
-                MessageBox.Show("Thêm thất bại!!!!!!!");
+                string ten = txtTenKH.Text;
+                DateTime ngaySinh = dtpNgaySinh.Value;
+                string sdt = txtSDT.Text;
+                string email = txtEmail.Text;
+                bool gioiTinh = rbtnNam.Checked;
+                string diaChi = txtDiaChi.Text;
+                bool add = _khachService.AddKhach(ten, Convert.ToDateTime(ngaySinh), sdt, email, gioiTinh, diaChi);
+                if (add)
+                {
+                    MessageBox.Show("Thêm khách thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại!!!!!!!");
+                }
+                LoadGrid(null);
             }
-            LoadGrid(null);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string ten = txtTenKH.Text;
-            string ngaySinh = txtNgaySinh.Text;
-            string sdt = txtSDT.Text;
-            string email = txtEmail.Text;
-            bool gioiTinh = rbtnNam.Checked;
-            string diaChi = txtDiaChi.Text;
-            bool update = _khachService.UpdateKhach(_id, ten, Convert.ToDateTime(ngaySinh), sdt, email, gioiTinh, diaChi);
-            if (update)
+            if (CheckTextBox() == false)
             {
-                MessageBox.Show("Sửa khách thành công");
+                return;
             }
             else
             {
-                MessageBox.Show("Sửa thất bại!!!!!!!");
+                string ten = txtTenKH.Text;
+                DateTime ngaySinh = dtpNgaySinh.Value;
+                string sdt = txtSDT.Text;
+                string email = txtEmail.Text;
+                bool gioiTinh = rbtnNam.Checked;
+                string diaChi = txtDiaChi.Text;
+                bool update = _khachService.UpdateKhach(_id, ten, Convert.ToDateTime(ngaySinh), sdt, email, gioiTinh, diaChi);
+                if (update)
+                {
+                    MessageBox.Show("Sửa khách thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại!!!!!!!");
+                }
+                Guid id = _id;
+                LoadGrid(null);
             }
-            Guid id = _id;
-            LoadGrid(null);
         }
 
         private void dgvDSKH_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -155,7 +161,7 @@ namespace _3.PRL.Views
             }
             var selectedKhach = dgvDSKH.Rows[rowIndex];
             txtTenKH.Text = selectedKhach.Cells[3].Value.ToString();
-            txtNgaySinh.Text = selectedKhach.Cells[4].Value.ToString();
+            dtpNgaySinh.Value = Convert.ToDateTime(selectedKhach.Cells[4].Value);
             txtSDT.Text = selectedKhach.Cells[5].Value.ToString();
             txtEmail.Text = selectedKhach.Cells[6].Value.ToString();
             _id = Guid.Parse(selectedKhach.Cells[0].Value.ToString());
@@ -168,6 +174,35 @@ namespace _3.PRL.Views
                 rbtnNu.Checked = true;
             }
             txtDiaChi.Text = selectedKhach.Cells[8].Value.ToString();
+        }
+        public bool CheckTextBox()
+        {
+            //kiểm tra xem các text box có null ko
+            if (string.IsNullOrEmpty(txtTenKH.Text) || string.IsNullOrEmpty(txtSDT.Text) || string.IsNullOrEmpty(txtDiaChi.Text) || string.IsNullOrEmpty(txtEmail.Text))
+            {
+                MessageBox.Show("Các trường ko được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+        public void InputSDT(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+            e.Handled = true;
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            InputSDT(e);
         }
     }
 }

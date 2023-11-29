@@ -31,12 +31,6 @@
     <Compile Update="Views\ThanhToan\Frm_ThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\KhachHang\Frm_ThemKH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\NhanVien\Frm_ThemNV.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\SanPham\Frm_SanPham.cs">
       <SubType>Form</SubType>
     </Compile>

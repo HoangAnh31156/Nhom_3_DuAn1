@@ -1,6 +1,5 @@
 ﻿using _2.BUS.Services;
 using _3.PRL.Views.DangNhap;
-using _3.PRL.Views.NhanVien;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,13 +38,6 @@ namespace _3.PRL.Views
             frm_DangNhap.Show();
         }
 
-        private void btnThemNV_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_ThemNV frm_ThemNV = new Frm_ThemNV();
-            frm_ThemNV.Show();
-        }
-
         private void btnDSNV_Click(object sender, EventArgs e)
         {
 
@@ -79,43 +71,57 @@ namespace _3.PRL.Views
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string ten = txtTenNV.Text;
-            string sdt = txtSDT.Text;
-            string diaChi = txtDiaChi.Text;
-            string ngaySinh = txtNgaySinh.Text;
-            bool gioiTinh = rbtnNam.Checked;
-            bool trangThai = rbtnYES.Checked;
-            bool add = _service.AddNhanVien(ten, sdt, diaChi, Convert.ToDateTime(ngaySinh), gioiTinh, trangThai);
-            if (add)
+            if (CheckTextBox() == false)
             {
-                MessageBox.Show("Thêm nhân viên thành công");
+                return;
             }
             else
             {
-                MessageBox.Show("Thêm thất bại!!!!!!!");
+                string ten = txtTenNV.Text;
+                string sdt = txtSDT.Text;
+                string diaChi = txtDiaChi.Text;
+                DateTime ngaySinh = dtpNgaySinh.Value;
+                bool gioiTinh = rbtnNam.Checked;
+                bool trangThai = rbtnYES.Checked;
+                bool add = _service.AddNhanVien(ten, sdt, diaChi, Convert.ToDateTime(ngaySinh), gioiTinh, trangThai);
+                if (add)
+                {
+                    MessageBox.Show("Thêm nhân viên thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại!!!!!!!");
+                }
+                LoadGrid(null);
             }
-            LoadGrid(null);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string ten = txtTenNV.Text;
-            string sdt = txtSDT.Text;
-            string diaChi = txtDiaChi.Text;
-            string ngaySinh = txtNgaySinh.Text;
-            bool gioiTinh = rbtnNam.Checked;
-            bool trangThai = rbtnYES.Checked;
-            Guid id = _id;
-            bool update = _service.UpdateNV(id, ten, sdt, diaChi, Convert.ToDateTime(ngaySinh), gioiTinh, trangThai);
-            if (update)
+            if (CheckTextBox() == false)
             {
-                MessageBox.Show("Sửa nhân viên thành công");
+                return;
             }
             else
             {
-                MessageBox.Show("Sửa thất bại!!!!!!!");
+                string ten = txtTenNV.Text;
+                string sdt = txtSDT.Text;
+                string diaChi = txtDiaChi.Text;
+                DateTime ngaySinh = dtpNgaySinh.Value;
+                bool gioiTinh = rbtnNam.Checked;
+                bool trangThai = rbtnYES.Checked;
+                Guid id = _id;
+                bool update = _service.UpdateNV(id, ten, sdt, diaChi, Convert.ToDateTime(ngaySinh), gioiTinh, trangThai);
+                if (update)
+                {
+                    MessageBox.Show("Sửa nhân viên thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại!!!!!!!");
+                }
+                LoadGrid(null);
             }
-            LoadGrid(null);
         }
 
         private void txtTimNV_TextChanged(object sender, EventArgs e)
@@ -132,7 +138,7 @@ namespace _3.PRL.Views
             }
             var selectedNV = dgvNhanVien.Rows[rowIndex];
             txtTenNV.Text = selectedNV.Cells[2].Value.ToString();
-            txtNgaySinh.Text = selectedNV.Cells[5].Value.ToString();
+            dtpNgaySinh.Value = Convert.ToDateTime(selectedNV.Cells[5].Value);
             txtSDT.Text = selectedNV.Cells[3].Value.ToString();
             txtDiaChi.Text = selectedNV.Cells[4].Value.ToString();
             _id = Guid.Parse(selectedNV.Cells[1].Value.ToString());
@@ -163,7 +169,7 @@ namespace _3.PRL.Views
             }
             var selectedNV = dgvNhanVien.Rows[rowIndex];
             txtTenNV.Text = selectedNV.Cells[2].Value.ToString();
-            txtNgaySinh.Text = selectedNV.Cells[5].Value.ToString();
+            dtpNgaySinh.Value = Convert.ToDateTime(selectedNV.Cells[5].Value);
             txtSDT.Text = selectedNV.Cells[3].Value.ToString();
             txtDiaChi.Text = selectedNV.Cells[4].Value.ToString();
             _id = Guid.Parse(selectedNV.Cells[1].Value.ToString());
@@ -183,6 +189,34 @@ namespace _3.PRL.Views
             {
                 rbtnNO.Checked = true;
             }
+        }
+        public bool CheckTextBox()
+        {
+            //kiểm tra xem các text box có null ko
+            if (string.IsNullOrEmpty(txtTenNV.Text) || string.IsNullOrEmpty(txtSDT.Text) || string.IsNullOrEmpty(txtDiaChi.Text))
+            {
+                MessageBox.Show("Các trường ko được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+        public void InputSDT(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+            e.Handled = true;
+        }
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            InputSDT(e);
         }
     }
 }

@@ -68,3 +68,17 @@ E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\1.DAL\obj\Debug\net6.0\refint
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\1.DAL\obj\Debug\net6.0\1.DAL.pdb
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\1.DAL\obj\Debug\net6.0\1.DAL.genruntimeconfig.cache
 E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\1.DAL\obj\Debug\net6.0\ref\1.DAL.dll
+D:\FPT\DuAn1\DuAn1\1.DAL\bin\Debug\net6.0\1.DAL.deps.json
+D:\FPT\DuAn1\DuAn1\1.DAL\bin\Debug\net6.0\1.DAL.runtimeconfig.json
+D:\FPT\DuAn1\DuAn1\1.DAL\bin\Debug\net6.0\1.DAL.dll
+D:\FPT\DuAn1\DuAn1\1.DAL\bin\Debug\net6.0\1.DAL.pdb
+D:\FPT\DuAn1\DuAn1\1.DAL\obj\Debug\net6.0\1.DAL.csproj.AssemblyReference.cache
+D:\FPT\DuAn1\DuAn1\1.DAL\obj\Debug\net6.0\1.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\DuAn1\DuAn1\1.DAL\obj\Debug\net6.0\1.DAL.AssemblyInfoInputs.cache
+D:\FPT\DuAn1\DuAn1\1.DAL\obj\Debug\net6.0\1.DAL.AssemblyInfo.cs
+D:\FPT\DuAn1\DuAn1\1.DAL\obj\Debug\net6.0\1.DAL.csproj.CoreCompileInputs.cache
+D:\FPT\DuAn1\DuAn1\1.DAL\obj\Debug\net6.0\1.DAL.dll
+D:\FPT\DuAn1\DuAn1\1.DAL\obj\Debug\net6.0\refint\1.DAL.dll
+D:\FPT\DuAn1\DuAn1\1.DAL\obj\Debug\net6.0\1.DAL.pdb
+D:\FPT\DuAn1\DuAn1\1.DAL\obj\Debug\net6.0\1.DAL.genruntimeconfig.cache
+D:\FPT\DuAn1\DuAn1\1.DAL\obj\Debug\net6.0\ref\1.DAL.dll

@@ -35,21 +35,19 @@
             panel2 = new Panel();
             button3 = new Button();
             pictureBox5 = new PictureBox();
-            pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
-            btnThemKH = new Button();
             btnDSKhachHang = new Button();
             panel7 = new Panel();
             dgvDSKH = new DataGridView();
             label1 = new Label();
             txtTimKhach = new TextBox();
             groupBox1 = new GroupBox();
+            dtpNgaySinh = new DateTimePicker();
             rbtnNu = new RadioButton();
             rbtnNam = new RadioButton();
             txtEmail = new TextBox();
             txtDiaChi = new TextBox();
             txtSDT = new TextBox();
-            txtNgaySinh = new TextBox();
             txtTenKH = new TextBox();
             label6 = new Label();
             label5 = new Label();
@@ -65,7 +63,6 @@
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvDSKH).BeginInit();
             groupBox1.SuspendLayout();
@@ -112,9 +109,7 @@
             panel2.BackColor = Color.White;
             panel2.Controls.Add(button3);
             panel2.Controls.Add(pictureBox5);
-            panel2.Controls.Add(pictureBox3);
             panel2.Controls.Add(pictureBox2);
-            panel2.Controls.Add(btnThemKH);
             panel2.Controls.Add(btnDSKhachHang);
             panel2.Controls.Add(panel7);
             panel2.Dock = DockStyle.Left;
@@ -148,16 +143,6 @@
             pictureBox5.TabIndex = 21;
             pictureBox5.TabStop = false;
             // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(38, 290);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(15, 17);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 19;
-            pictureBox3.TabStop = false;
-            // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
@@ -167,21 +152,6 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 18;
             pictureBox2.TabStop = false;
-            // 
-            // btnThemKH
-            // 
-            btnThemKH.FlatAppearance.BorderSize = 0;
-            btnThemKH.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
-            btnThemKH.FlatStyle = FlatStyle.Flat;
-            btnThemKH.ForeColor = Color.FromArgb(3, 43, 118);
-            btnThemKH.Location = new Point(59, 263);
-            btnThemKH.Name = "btnThemKH";
-            btnThemKH.Size = new Size(217, 64);
-            btnThemKH.TabIndex = 16;
-            btnThemKH.Text = "Thêm khách hàng";
-            btnThemKH.TextAlign = ContentAlignment.MiddleLeft;
-            btnThemKH.UseVisualStyleBackColor = true;
-            btnThemKH.Click += btnThemKH_Click;
             // 
             // btnDSKhachHang
             // 
@@ -240,12 +210,12 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(dtpNgaySinh);
             groupBox1.Controls.Add(rbtnNu);
             groupBox1.Controls.Add(rbtnNam);
             groupBox1.Controls.Add(txtEmail);
             groupBox1.Controls.Add(txtDiaChi);
             groupBox1.Controls.Add(txtSDT);
-            groupBox1.Controls.Add(txtNgaySinh);
             groupBox1.Controls.Add(txtTenKH);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
@@ -260,6 +230,13 @@
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin khách hàng";
+            // 
+            // dtpNgaySinh
+            // 
+            dtpNgaySinh.Location = new Point(222, 129);
+            dtpNgaySinh.Name = "dtpNgaySinh";
+            dtpNgaySinh.Size = new Size(359, 32);
+            dtpNgaySinh.TabIndex = 13;
             // 
             // rbtnNu
             // 
@@ -303,13 +280,7 @@
             txtSDT.Name = "txtSDT";
             txtSDT.Size = new Size(359, 32);
             txtSDT.TabIndex = 8;
-            // 
-            // txtNgaySinh
-            // 
-            txtNgaySinh.Location = new Point(222, 134);
-            txtNgaySinh.Name = "txtNgaySinh";
-            txtNgaySinh.Size = new Size(359, 32);
-            txtNgaySinh.TabIndex = 7;
+            txtSDT.KeyPress += txtSDT_KeyPress;
             // 
             // txtTenKH
             // 
@@ -431,7 +402,6 @@
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvDSKH).EndInit();
             groupBox1.ResumeLayout(false);
@@ -447,9 +417,7 @@
         private PictureBox pbBack;
         private PictureBox pbDangXuat;
         private Panel panel2;
-        private PictureBox pictureBox3;
         private PictureBox pictureBox2;
-        private Button btnThemKH;
         private Button btnDSKhachHang;
         private Panel panel7;
         private Button button3;
@@ -463,7 +431,6 @@
         private TextBox txtEmail;
         private TextBox txtDiaChi;
         private TextBox txtSDT;
-        private TextBox txtNgaySinh;
         private TextBox txtTenKH;
         private Label label6;
         private Label label5;
@@ -474,5 +441,6 @@
         private GroupBox groupBox2;
         private Button btnSua;
         private Button btnThem;
+        private DateTimePicker dtpNgaySinh;
     }
 }
