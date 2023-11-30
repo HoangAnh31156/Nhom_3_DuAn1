@@ -17,7 +17,7 @@ namespace _3.PRL
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Frm_HoaDon());
+            Application.Run(new Frm_GiamGia());
 
             // Scaffold-DbContext "Server=DESKTOP-B52SRBN\SQLEXPRESS;Database= OnlyFans;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model1s
         }

@@ -1,4 +1,5 @@
-﻿using _2.BUS.Services;
+﻿using _1.DAL.Model2s;
+using _2.BUS.Services;
 using _3.PRL.Views.DangNhap;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +22,12 @@ namespace _3.PRL.Views
         VanChuyenService _vanChuyenService = new VanChuyenService();
         PtttSerivce _ptttService = new PtttSerivce();
         LichSuttService _lichSuttService = new LichSuttService();
+
+        List<Guid> idKH = new List<Guid>();
+        List<Guid> idNV = new List<Guid>();
+        List<Guid> idVC = new List<Guid>();
+        List<Guid> idPttt = new List<Guid>();
+        Guid _id;
 
         public Frm_HoaDon()
         {
@@ -45,7 +53,8 @@ namespace _3.PRL.Views
             LoadGridHD(null);
             LoadNhanVien();
             LoadKhachHang();
-
+            LoadVanChuyen();
+            LoadPttt();
         }
 
         private void LoadNhanVien()
@@ -66,15 +75,19 @@ namespace _3.PRL.Views
 
         private void LoadVanChuyen()
         {
-            var lst = (from a in _vanChuyenService.GetVanChuyen()
+            var lst = (from a in _vanChuyenService.GetVanChuyen().OrderBy(a=>a.TongTien)
                        select a.TongTien).ToArray();
 
             cmbVanChuyen.Items.AddRange(lst);
         }
 
+        private void LoadPttt()
+        {
+            var lst = (from a in _ptttService.GetPTTT()
+                       select a.Ten).ToArray();
 
-
-
+            cmbPTTT.Items.AddRange(lst);
+        }
 
         private void LoadGridHD(string input)
         {
@@ -128,6 +141,7 @@ namespace _3.PRL.Views
                 return;
 
             var selectedHoaDon = dgvDSHD.Rows[rowIndex];
+            _id = Guid.Parse(selectedHoaDon.Cells[0].Value.ToString());
             cmbKhachHang.Text = selectedHoaDon.Cells[2].Value.ToString();
             cmbNhanVien.Text = selectedHoaDon.Cells[3].Value.ToString();
             dtpNgayTao.Text = selectedHoaDon.Cells[4].Value.ToString();
@@ -145,7 +159,7 @@ namespace _3.PRL.Views
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnSua_Click(object sender, EventArgs e)

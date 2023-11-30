@@ -18,6 +18,7 @@ namespace _3.PRL.Views.GiamGia
     {
         GiamGiaService _giamGiaService = new GiamGiaService();
         Guid _id;
+
         public Frm_GiamGia()
         {
             InitializeComponent();
@@ -70,7 +71,7 @@ namespace _3.PRL.Views.GiamGia
 
             var selectedGiamGia = dgvDSGiamGia.Rows[rowIndex];
 
-            //_id = Guid.Parse(selectedGiamGia.Cells[0].Value.ToString());
+            _id = Guid.Parse(selectedGiamGia.Cells[0].Value.ToString());
 
             txtGiaTri.Text = selectedGiamGia.Cells[2].Value.ToString();
             txtDieuKien.Text = selectedGiamGia.Cells[3].Value.ToString();
@@ -83,6 +84,10 @@ namespace _3.PRL.Views.GiamGia
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (CheckTBox() == false)
+            {
+                return;
+            }
             string giaTri = txtGiaTri.Text;
             string dieuKien = txtDieuKien.Text;
             string ngayBD = dtpNgayBD.Text;
@@ -128,7 +133,60 @@ namespace _3.PRL.Views.GiamGia
             txtDieuKien.Text = string.Empty;
             dtpNgayBD.Text = Convert.ToString(DateTime.Today);
             dtpNgayKT.Text = Convert.ToString(DateTime.Today);
+        }
 
+        public bool CheckTBox()
+        {
+            if (string.IsNullOrEmpty(txtGiaTri.Text) || string.IsNullOrEmpty(txtDieuKien.Text))
+            {
+                MessageBox.Show("Các trường không được để trống !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        public void CheckGiamGia(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            e.Handled = true;
+        }
+
+        private void txtGiaTri_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckGiamGia(e);
+        }
+
+        private void dtpNgayBD_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePicker ngayBD = (DateTimePicker)sender;
+            DateTimePicker ngayKT = dtpNgayKT;
+
+            if (ngayBD.Value > ngayKT.Value)
+            {
+                MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dtpNgayKT_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePicker ngayBD = dtpNgayBD;
+            DateTimePicker ngayKT = (DateTimePicker)sender;
+
+            if(ngayBD.Value > ngayKT.Value)
+            {
+                MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

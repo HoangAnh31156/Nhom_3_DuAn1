@@ -18,6 +18,9 @@ namespace _3.PRL.Views
     {
         KhachHangService _khachService;
         Guid _id;
+
+
+
         public Frm_KhachHang()
         {
             _khachService = new KhachHangService();
@@ -28,7 +31,6 @@ namespace _3.PRL.Views
         private void pbDangXuat_Click(object sender, EventArgs e)
         {
             this.Hide();
-
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -111,6 +113,7 @@ namespace _3.PRL.Views
                 string email = txtEmail.Text;
                 bool gioiTinh = rbtnNam.Checked;
                 string diaChi = txtDiaChi.Text;
+
                 bool add = _khachService.AddKhach(ten, Convert.ToDateTime(ngaySinh), sdt, email, gioiTinh, diaChi);
                 if (add)
                 {

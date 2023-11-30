@@ -262,6 +262,7 @@
             dtpNgayKT.Name = "dtpNgayKT";
             dtpNgayKT.Size = new Size(250, 32);
             dtpNgayKT.TabIndex = 11;
+            dtpNgayKT.ValueChanged += dtpNgayKT_ValueChanged;
             // 
             // dtpNgayBD
             // 
@@ -270,6 +271,7 @@
             dtpNgayBD.Name = "dtpNgayBD";
             dtpNgayBD.Size = new Size(250, 32);
             dtpNgayBD.TabIndex = 10;
+            dtpNgayBD.ValueChanged += dtpNgayBD_ValueChanged;
             // 
             // txtDieuKien
             // 
@@ -296,6 +298,7 @@
             txtGiaTri.Name = "txtGiaTri";
             txtGiaTri.Size = new Size(464, 32);
             txtGiaTri.TabIndex = 4;
+            txtGiaTri.KeyPress += txtGiaTri_KeyPress;
             // 
             // label4
             // 
@@ -323,9 +326,9 @@
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(46, 83);
             label1.Name = "label1";
-            label1.Size = new Size(63, 25);
+            label1.Size = new Size(84, 25);
             label1.TabIndex = 0;
-            label1.Text = "Giá trị";
+            label1.Text = "Giá trị %";
             // 
             // groupBox3
             // 
