@@ -1,4 +1,5 @@
-﻿using _3.PRL.Views.DangNhap;
+﻿using _1.DAL.Model2s;
+using _3.PRL.Views.DangNhap;
 using _3.PRL.Views.GiamGia;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,15 @@ namespace _3.PRL.Views
             InitializeComponent();
         }
 
+        public Frm_TrangChu(TaiKhoan user, bool isAdmin)
+        {
+            InitializeComponent();
+            this.user = user;
+            this.isAdmin = isAdmin;
+        }
 
+        private TaiKhoan user;
+        private bool isAdmin;
         private void pbDangXuat_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -43,9 +52,27 @@ namespace _3.PRL.Views
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Frm_NhanVien frm_NhanVien = new Frm_NhanVien();
-            frm_NhanVien.Show();
+            // Kiểm tra xem Users có null hay không trước khi truy cập các thuộc tính
+            if (user != null && user.IdVaiTroNavigation != null)
+            {
+                var roleTen = user.IdVaiTroNavigation.Ten;
+
+                // Kiểm tra xem Ten có null hay không trước khi so sánh giá trị
+                if (roleTen != null && roleTen.Equals("Quản lý", StringComparison.OrdinalIgnoreCase))
+                {
+                    this.Hide();
+                    Frm_NhanVien frm_NhanVien = new Frm_NhanVien();
+                    frm_NhanVien.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Bạn không có quyền truy cập chức năng này.");
+                }
+            }
+            //else
+            //{
+            //    MessageBox.Show("Dữ liệu người dùng không hợp lệ.");
+            //}
         }
 
         private void btnBaoHanh_Click(object sender, EventArgs e)
