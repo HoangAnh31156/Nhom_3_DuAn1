@@ -14,7 +14,7 @@ namespace _2.BUS.Services
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=ADMIN\\SQLEXPRESS;Database= OnlyFans;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-B52SRBN\\SQLEXPRESS;Database= OnlyFans;Trusted_Connection=True;");
         }
     }
 }

@@ -23,10 +23,10 @@ namespace _3.PRL.Views
         PtttSerivce _ptttService = new PtttSerivce();
         LichSuttService _lichSuttService = new LichSuttService();
 
-        List<Guid> idKH = new List<Guid>();
-        List<Guid> idNV = new List<Guid>();
-        List<Guid> idVC = new List<Guid>();
-        List<Guid> idPttt = new List<Guid>();
+        Guid _idKH;
+        Guid _idNV;
+        Guid _idVC;
+        Guid _idPttt;
         Guid _id;
 
         public Frm_HoaDon()
@@ -54,7 +54,7 @@ namespace _3.PRL.Views
             LoadNhanVien();
             LoadKhachHang();
             LoadVanChuyen();
-            LoadPttt();
+            //LoadPttt();
         }
 
         private void LoadNhanVien()
@@ -75,19 +75,13 @@ namespace _3.PRL.Views
 
         private void LoadVanChuyen()
         {
-            var lst = (from a in _vanChuyenService.GetVanChuyen().OrderBy(a=>a.TongTien)
+            var lst = (from a in _vanChuyenService.GetVanChuyen().OrderBy(a => a.TongTien)
                        select a.TongTien).ToArray();
 
             cmbVanChuyen.Items.AddRange(lst);
         }
 
-        private void LoadPttt()
-        {
-            var lst = (from a in _ptttService.GetPTTT()
-                       select a.Ten).ToArray();
-
-            cmbPTTT.Items.AddRange(lst);
-        }
+       
 
         private void LoadGridHD(string input)
         {
@@ -101,8 +95,9 @@ namespace _3.PRL.Views
             dgvDSHD.Columns[3].Name = "Nhân Viên";
             dgvDSHD.Columns[4].Name = "Ngày Tạo";
             dgvDSHD.Columns[5].Name = "Trạng Thái";
-            dgvDSHD.Columns[6].Name = "Thanh toán";
-            dgvDSHD.Columns[7].Name = "Phí vận chuyển";
+
+            dgvDSHD.Columns[6].Name = "Phí vận chuyển";
+            dgvDSHD.Columns[7].Name = "Thanh Toan";
             dgvDSHD.Rows.Clear();
 
             var lst = from a in _hoaDonService.GetHoaDon(null)
@@ -118,8 +113,8 @@ namespace _3.PRL.Views
                           nhanVien = c.Ten,
                           ngayTao = a.NgayGd,
                           trangThai = a.TrangThai,
-                          thanhToan = e.Ten,
-                          vanChuyen = f.TongTien
+                          vanChuyen = f.TongTien,
+                          TinhTien = a.TongTien
                       };
 
             if (txtTimKiem.Text != null)
@@ -129,9 +124,11 @@ namespace _3.PRL.Views
 
             foreach (var item in lst)
             {
-                dgvDSHD.Rows.Add(item.Id, stt++, item.khachHang, item.nhanVien, item.ngayTao, (item.trangThai == true ? "Đã thanh toán" : "Chưa thanh toán"), item.thanhToan, item.vanChuyen);
-
+                dgvDSHD.Rows.Add(item.Id, stt++, item.khachHang, item.nhanVien, item.ngayTao,
+                    (item.trangThai == true ? "Đã thanh toán" : "Chưa thanh toán"), item.vanChuyen,
+                    item.TinhTien);
             }
+
         }
 
         private void dgvDSHD_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -153,18 +150,60 @@ namespace _3.PRL.Views
             {
                 rdbChuaThanhToan.Checked = true;
             }
-            cmbPTTT.Text = selectedHoaDon.Cells[6].Value.ToString();
-            cmbVanChuyen.Text = selectedHoaDon.Cells[7].Value.ToString();
+            
+            cmbVanChuyen.Text = selectedHoaDon.Cells[6].Value.ToString();
+        }
+
+        private void ThemHD()
+        {
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            HoaDon hd = new HoaDon();
             
+
+            hd.IdHoaDon = new Guid();
+            hd.NgayGd = dtpNgayTao.Value;
+            hd.IdKh = _idKH;
+            hd.IdNv = _idNV;
+            hd.IdVc = _idVC;
+            if (rdbChuaThanhToan.Checked)
+            {
+                hd.TrangThai = false;
+            }
+            else
+            {
+                hd.TrangThai = true;
+            }
+            hd.TongTien = 0;
+
+            if (_hoaDonService.AddHoaDon(hd))
+            {
+                MessageBox.Show("Tạo Hóa đơn thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show("Tạo Hóa đơn thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            LoadGridHD(null);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            dtpNgayTao.Value = DateTime.Today;
+            cmbNhanVien.SelectedIndex = -1;
+            cmbKhachHang.SelectedIndex = -1;
+            
+            cmbVanChuyen.SelectedIndex = -1;
+            rdbChuaThanhToan.Checked = true;
         }
     }
 }

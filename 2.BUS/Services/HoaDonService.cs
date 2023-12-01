@@ -27,28 +27,28 @@ namespace _2.BUS.Services
             return _hoaDonRepos.GetHoaDon(inptut);
         }
 
-        public bool AddHoaDon(Guid id_KH, Guid id_NV, Guid id_VC, decimal tongTien, DateTime ngayGD, bool trangThai)
+        public bool AddHoaDon(HoaDon hoaDon)
         {
-            var hoaDon = new HoaDon()
-            {
-                IdKh = id_KH,
-                IdNv = id_NV,
-                IdVc = id_VC,
-                TongTien = tongTien,
-                NgayGd = ngayGD,
-                TrangThai = trangThai
-            };
+            //var hoaDon = new HoaDon()
+            //{
+            //    IdKh = id_KH,
+            //    IdNv = id_NV,
+            //    IdVc = id_VC,
+            //    TongTien = tongTien,
+            //    NgayGd = ngayGD,
+            //    TrangThai = trangThai
+            //};
 
-            return _hoaDonRepos.UpdateHoaDon(hoaDon);
+            return _hoaDonRepos.CreateHoaDon(hoaDon);
         }
 
-        public bool UpdateHoaDon(Guid id_HD, bool trangThai)
+        public bool UpdateHoaDon(HoaDon hoaDon)
         {
-            var hoaDon = new HoaDon()
-            {
-                IdHoaDon = id_HD,
-                TrangThai = trangThai
-            };
+            //var hoaDon = new HoaDon()
+            //{
+            //    IdHoaDon = id_HD,
+            //    TrangThai = trangThai
+            //};
 
             return _hoaDonRepos.UpdateHoaDon(hoaDon);
         }

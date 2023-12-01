@@ -41,8 +41,6 @@
             pictureBox7 = new PictureBox();
             btnThanhToan = new Button();
             groupBox1 = new GroupBox();
-            cmbPTTT = new ComboBox();
-            label5 = new Label();
             cmbVanChuyen = new ComboBox();
             label1 = new Label();
             groupBox3 = new GroupBox();
@@ -213,8 +211,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(cmbPTTT);
-            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(cmbVanChuyen);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(groupBox3);
@@ -234,25 +230,6 @@
             groupBox1.TabIndex = 22;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông Tin Hóa Đơn";
-            // 
-            // cmbPTTT
-            // 
-            cmbPTTT.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            cmbPTTT.FormattingEnabled = true;
-            cmbPTTT.Location = new Point(765, 110);
-            cmbPTTT.Name = "cmbPTTT";
-            cmbPTTT.Size = new Size(283, 33);
-            cmbPTTT.TabIndex = 20;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(581, 113);
-            label5.Name = "label5";
-            label5.Size = new Size(53, 25);
-            label5.TabIndex = 19;
-            label5.Text = "PTTT";
             // 
             // cmbVanChuyen
             // 
@@ -337,6 +314,7 @@
             btnLamMoi.TabIndex = 12;
             btnLamMoi.Text = "Làm Mới";
             btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // cmbNhanVien
             // 
@@ -391,7 +369,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(581, 52);
+            label2.Location = new Point(586, 46);
             label2.Name = "label2";
             label2.Size = new Size(144, 25);
             label2.TabIndex = 1;
@@ -510,8 +488,6 @@
         private PictureBox pictureBox7;
         private Button btnThanhToan;
         private GroupBox groupBox1;
-        private ComboBox cmbPTTT;
-        private Label label5;
         private ComboBox cmbVanChuyen;
         private Label label1;
         private GroupBox groupBox3;
