@@ -22,12 +22,13 @@ namespace _3.PRL.Views
         VanChuyenService _vanChuyenService = new VanChuyenService();
         PtttSerivce _ptttService = new PtttSerivce();
         LichSuttService _lichSuttService = new LichSuttService();
-
-        Guid _idKH;
-        Guid _idNV;
-        Guid _idVC;
-        Guid _idPttt;
+        HoaDonCTService _HDctService = new HoaDonCTService();
         Guid _id;
+
+        List<Guid> _idKH = new List<Guid>();
+        List<Guid> _idNV = new List<Guid>();
+        List<Guid> _idVC = new List<Guid>();
+        List<Guid> _idPttt = new List<Guid>();
 
         public Frm_HoaDon()
         {
@@ -59,29 +60,33 @@ namespace _3.PRL.Views
 
         private void LoadNhanVien()
         {
-            var lst = (from a in _nhanVienService.GetNhanVien(null)
-                       select a.Ten).ToArray();
-
-            cmbNhanVien.Items.AddRange(lst);
+            foreach (var item in _nhanVienService.GetNhanVien(null))
+            {
+                _idNV.Add(item.IdNv);
+                cmbNhanVien.Items.Add(item.Ten);
+            }
+            cmbNhanVien.SelectedIndex = -1;
         }
 
         private void LoadKhachHang()
         {
-            var lst = (from a in _khachHangService.GetKhach(null)
-                       select a.TenKh).ToArray();
-
-            cmbKhachHang.Items.AddRange(lst);
+            foreach (var item in _khachHangService.GetKhach(null))
+            {
+                _idKH.Add(item.IdKh);
+                cmbKhachHang.Items.Add(item.TenKh);
+            }
+            cmbKhachHang.SelectedIndex = -1;
         }
 
         private void LoadVanChuyen()
         {
-            var lst = (from a in _vanChuyenService.GetVanChuyen().OrderBy(a => a.TongTien)
-                       select a.TongTien).ToArray();
-
-            cmbVanChuyen.Items.AddRange(lst);
-        }
-
-       
+            foreach (var item in _vanChuyenService.GetVanChuyen().OrderBy(a => a.TongTien.Length).ThenBy(b => b.TongTien))
+            {
+                _idVC.Add(item.IdVc);
+                cmbVanChuyen.Items.Add(item.TongTien);
+            }
+            cmbKhachHang.SelectedIndex = -1;
+        }    
 
         private void LoadGridHD(string input)
         {
@@ -99,7 +104,7 @@ namespace _3.PRL.Views
             dgvDSHD.Columns[6].Name = "Phí vận chuyển";
             dgvDSHD.Columns[7].Name = "Thanh Toan";
             dgvDSHD.Rows.Clear();
-
+            /*
             var lst = from a in _hoaDonService.GetHoaDon(null)
                       join b in _khachHangService.GetKhach(null) on a.IdKh equals b.IdKh
                       join c in _nhanVienService.GetNhanVien(null) on a.IdNv equals c.IdNv
@@ -116,7 +121,7 @@ namespace _3.PRL.Views
                           vanChuyen = f.TongTien,
                           TinhTien = a.TongTien
                       };
-
+            
             if (txtTimKiem.Text != null)
             {
                 lst = lst.Where(a => a.khachHang.ToLower().Contains(txtTimKiem.Text.ToLower()));
@@ -128,7 +133,21 @@ namespace _3.PRL.Views
                     (item.trangThai == true ? "Đã thanh toán" : "Chưa thanh toán"), item.vanChuyen,
                     item.TinhTien);
             }
+            */
 
+            foreach (var item in _hoaDonService.GetHoaDon(null))
+            {
+                var KH = _khachHangService.GetKhach(null).FirstOrDefault(a => a.IdKh == item.IdKh);
+                var NV = _nhanVienService.GetNhanVien(null).FirstOrDefault(a => a.IdNv == item.IdNv);
+                var VC = _vanChuyenService.GetVanChuyen().FirstOrDefault(a => a.IdVc == item.IdVc);
+                var CT = _HDctService.GetHoaDonCts(null).FirstOrDefault(a => a.IdHoaDon == item.IdHoaDon);
+
+                item.TongTien = CT?.SoLuong * CT?.Gia + Convert.ToDecimal(VC?.TongTien);
+
+                dgvDSHD.Rows.Add(item.IdHoaDon, stt++, KH?.TenKh, NV?.Ten,
+                    item.NgayGd, item.TrangThai == true ? "Đã thanh toán" : "Chưa thanh toán",
+                    VC?.TongTien, item.TongTien);
+            }
         }
 
         private void dgvDSHD_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -161,14 +180,13 @@ namespace _3.PRL.Views
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            HoaDon hd = new HoaDon();
-            
-
+            HoaDon hd = new HoaDon();         
             hd.IdHoaDon = new Guid();
             hd.NgayGd = dtpNgayTao.Value;
-            hd.IdKh = _idKH;
-            hd.IdNv = _idNV;
-            hd.IdVc = _idVC;
+            hd.IdKh = _idKH[cmbKhachHang.SelectedIndex];
+            hd.IdNv = _idNV[cmbNhanVien.SelectedIndex];
+            hd.IdVc = _idVC[cmbVanChuyen.SelectedIndex];
+
             if (rdbChuaThanhToan.Checked)
             {
                 hd.TrangThai = false;
