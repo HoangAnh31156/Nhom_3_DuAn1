@@ -13,6 +13,6 @@ namespace _1.DAL.IRepositories
 
         bool CreateHoaDon(HoaDon hoaDon);
 
-        bool UpdateHoaDon(HoaDon hoaDon);
+        bool UpdateHoaDon(Guid id,HoaDon hoaDon);
     }
 }

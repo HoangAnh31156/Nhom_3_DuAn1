@@ -50,12 +50,16 @@ namespace _1.DAL.Repositories
             return hoaDon.ToList();
         }
 
-        public bool UpdateHoaDon(HoaDon hoaDon)
+        public bool UpdateHoaDon(Guid id, HoaDon hoaDon)
         {
             try
             {
-                var updateHoaDon = _context.HoaDons.Find(hoaDon.IdHoaDon);
+                var updateHoaDon = _context.HoaDons.FirstOrDefault(a => a.IdHoaDon == id);
 
+                updateHoaDon.IdNv = hoaDon.IdNv;
+                updateHoaDon.IdKh = hoaDon.IdKh;
+                updateHoaDon.IdVc = hoaDon.IdVc;
+                updateHoaDon.NgayGd = hoaDon.NgayGd;
                 updateHoaDon.TrangThai = hoaDon.TrangThai;
 
                 _context.HoaDons.Update(updateHoaDon);

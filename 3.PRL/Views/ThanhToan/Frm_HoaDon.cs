@@ -146,7 +146,7 @@ namespace _3.PRL.Views
 
                 dgvDSHD.Rows.Add(item.IdHoaDon, stt++, KH?.TenKh, NV?.Ten,
                     item.NgayGd, item.TrangThai == true ? "Đã thanh toán" : "Chưa thanh toán",
-                    VC?.TongTien, item.TongTien);
+                    VC?.TongTien, item?.TongTien);
             }
         }
 
@@ -211,7 +211,31 @@ namespace _3.PRL.Views
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            HoaDon updateHD = new HoaDon();
+            updateHD.NgayGd = dtpNgayTao.Value;
+            updateHD.IdKh = _idKH[cmbKhachHang.SelectedIndex];
+            updateHD.IdNv = _idNV[cmbNhanVien.SelectedIndex];
+            updateHD.IdVc = _idVC[cmbVanChuyen.SelectedIndex];
 
+            if (rdbChuaThanhToan.Checked)
+            {
+                updateHD.TrangThai = false;
+            }
+            else
+            {
+                updateHD.TrangThai = true;
+            }
+
+            if (_hoaDonService.UpdateHoaDon(_id,updateHD))
+            {
+                MessageBox.Show("Sửa Hóa đơn thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show("Sửa Hóa đơn thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            LoadGridHD(null);
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
