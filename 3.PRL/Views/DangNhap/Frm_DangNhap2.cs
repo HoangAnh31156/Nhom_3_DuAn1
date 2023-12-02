@@ -1,4 +1,5 @@
-﻿using _2.BUS.Services;
+﻿using _1.DAL.Model2s;
+using _2.BUS.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,11 @@ namespace _3.PRL.Views.DangNhap
 {
     public partial class Frm_DangNhap2 : Form
     {
-        private readonly TaiKhoanService _taikhoansv;
+        private readonly OnlyFansContext _taikhoansv;
         public Frm_DangNhap2()
         {
             InitializeComponent();
-            _taikhoansv = new TaiKhoanService();
+            _taikhoansv = new();
         }
 
         private void linkQuenMK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -33,7 +34,7 @@ namespace _3.PRL.Views.DangNhap
             var username = textBox1.Text;
             var password = textBox2.Text;
 
-            var user = _taikhoansv.Users.Include(u => u.IdVaiTroNavigation)
+            var user = _taikhoansv.TaiKhoans.Include(u => u.IdVaiTroNavigation)
                 .FirstOrDefault(u => u.TaiKhoan1 == username && u.MatKhau == password);
 
             if (user != null)
