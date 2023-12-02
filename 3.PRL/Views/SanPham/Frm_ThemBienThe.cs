@@ -346,7 +346,6 @@ namespace _3.PRL.Views.SanPham
                 if (result)
                 {
                     MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    LoadgridVariant(null);
                 }
                 else
                 {
@@ -356,8 +355,9 @@ namespace _3.PRL.Views.SanPham
             else
             {
                 MessageBox.Show("Noooo!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LoadgridVariant(null);
+
             }
+            LoadgridVariant(null);
         }
         private void btnSua_Click(object sender, EventArgs e)
         {

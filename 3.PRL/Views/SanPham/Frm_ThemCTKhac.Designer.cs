@@ -45,15 +45,19 @@
             panel7 = new Panel();
             btnSanPham = new Button();
             groupBox1 = new GroupBox();
-            groupBox7 = new GroupBox();
+            grbLSP = new GroupBox();
+            cboLoaiSP = new ComboBox();
             rtxtMoTa = new RichTextBox();
             label5 = new Label();
             label4 = new Label();
-            groupBox6 = new GroupBox();
+            grbSC = new GroupBox();
+            cboSoCanh = new ComboBox();
             label3 = new Label();
-            groupBox5 = new GroupBox();
+            grbMS = new GroupBox();
+            cboMau = new ComboBox();
             label2 = new Label();
-            groupBox4 = new GroupBox();
+            grbCL = new GroupBox();
+            cboChatLieu = new ComboBox();
             label1 = new Label();
             groupBox2 = new GroupBox();
             btnSua = new Button();
@@ -62,10 +66,6 @@
             dataGridView1 = new DataGridView();
             pictureBox9 = new PictureBox();
             textBox1 = new TextBox();
-            cboChatLieu = new ComboBox();
-            cboSoCanh = new ComboBox();
-            cboMau = new ComboBox();
-            cboLoaiSP = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -76,10 +76,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             groupBox1.SuspendLayout();
-            groupBox7.SuspendLayout();
-            groupBox6.SuspendLayout();
-            groupBox5.SuspendLayout();
-            groupBox4.SuspendLayout();
+            grbLSP.SuspendLayout();
+            grbSC.SuspendLayout();
+            grbMS.SuspendLayout();
+            grbCL.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -280,10 +280,10 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(groupBox7);
-            groupBox1.Controls.Add(groupBox6);
-            groupBox1.Controls.Add(groupBox5);
-            groupBox1.Controls.Add(groupBox4);
+            groupBox1.Controls.Add(grbLSP);
+            groupBox1.Controls.Add(grbSC);
+            groupBox1.Controls.Add(grbMS);
+            groupBox1.Controls.Add(grbCL);
             groupBox1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(286, 66);
             groupBox1.Name = "groupBox1";
@@ -292,19 +292,30 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
             // 
-            // groupBox7
+            // grbLSP
             // 
-            groupBox7.Controls.Add(cboLoaiSP);
-            groupBox7.Controls.Add(rtxtMoTa);
-            groupBox7.Controls.Add(label5);
-            groupBox7.Controls.Add(label4);
-            groupBox7.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox7.Location = new Point(637, 255);
-            groupBox7.Name = "groupBox7";
-            groupBox7.Size = new Size(544, 228);
-            groupBox7.TabIndex = 13;
-            groupBox7.TabStop = false;
-            groupBox7.Text = "Loại Sản phẩm";
+            grbLSP.Controls.Add(cboLoaiSP);
+            grbLSP.Controls.Add(rtxtMoTa);
+            grbLSP.Controls.Add(label5);
+            grbLSP.Controls.Add(label4);
+            grbLSP.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            grbLSP.Location = new Point(637, 255);
+            grbLSP.Name = "grbLSP";
+            grbLSP.Size = new Size(544, 228);
+            grbLSP.TabIndex = 13;
+            grbLSP.TabStop = false;
+            grbLSP.Text = "Loại Sản phẩm";
+            grbLSP.Enter += grbLSP_Enter;
+            // 
+            // cboLoaiSP
+            // 
+            cboLoaiSP.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            cboLoaiSP.FormattingEnabled = true;
+            cboLoaiSP.Location = new Point(130, 47);
+            cboLoaiSP.Name = "cboLoaiSP";
+            cboLoaiSP.Size = new Size(335, 33);
+            cboLoaiSP.TabIndex = 4;
+            cboLoaiSP.SelectedIndexChanged += cboLoaiSP_SelectedIndexChanged;
             // 
             // rtxtMoTa
             // 
@@ -335,17 +346,27 @@
             label4.TabIndex = 0;
             label4.Text = "Tên loại";
             // 
-            // groupBox6
+            // grbSC
             // 
-            groupBox6.Controls.Add(cboSoCanh);
-            groupBox6.Controls.Add(label3);
-            groupBox6.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox6.Location = new Point(6, 255);
-            groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(544, 135);
-            groupBox6.TabIndex = 12;
-            groupBox6.TabStop = false;
-            groupBox6.Text = "Cánh quạt";
+            grbSC.Controls.Add(cboSoCanh);
+            grbSC.Controls.Add(label3);
+            grbSC.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            grbSC.Location = new Point(6, 255);
+            grbSC.Name = "grbSC";
+            grbSC.Size = new Size(544, 135);
+            grbSC.TabIndex = 12;
+            grbSC.TabStop = false;
+            grbSC.Text = "Cánh quạt";
+            grbSC.Enter += grbSC_Enter;
+            // 
+            // cboSoCanh
+            // 
+            cboSoCanh.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            cboSoCanh.FormattingEnabled = true;
+            cboSoCanh.Location = new Point(143, 47);
+            cboSoCanh.Name = "cboSoCanh";
+            cboSoCanh.Size = new Size(335, 33);
+            cboSoCanh.TabIndex = 2;
             // 
             // label3
             // 
@@ -357,17 +378,27 @@
             label3.TabIndex = 0;
             label3.Text = "Số cánh";
             // 
-            // groupBox5
+            // grbMS
             // 
-            groupBox5.Controls.Add(cboMau);
-            groupBox5.Controls.Add(label2);
-            groupBox5.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox5.Location = new Point(637, 45);
-            groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(544, 135);
-            groupBox5.TabIndex = 11;
-            groupBox5.TabStop = false;
-            groupBox5.Text = "Màu sắc";
+            grbMS.Controls.Add(cboMau);
+            grbMS.Controls.Add(label2);
+            grbMS.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            grbMS.Location = new Point(637, 45);
+            grbMS.Name = "grbMS";
+            grbMS.Size = new Size(544, 135);
+            grbMS.TabIndex = 11;
+            grbMS.TabStop = false;
+            grbMS.Text = "Màu sắc";
+            grbMS.Enter += grbMS_Enter;
+            // 
+            // cboMau
+            // 
+            cboMau.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            cboMau.FormattingEnabled = true;
+            cboMau.Location = new Point(130, 47);
+            cboMau.Name = "cboMau";
+            cboMau.Size = new Size(335, 33);
+            cboMau.TabIndex = 3;
             // 
             // label2
             // 
@@ -379,17 +410,27 @@
             label2.TabIndex = 0;
             label2.Text = "Tên màu";
             // 
-            // groupBox4
+            // grbCL
             // 
-            groupBox4.Controls.Add(cboChatLieu);
-            groupBox4.Controls.Add(label1);
-            groupBox4.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox4.Location = new Point(6, 45);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(544, 135);
-            groupBox4.TabIndex = 10;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Chất liệu";
+            grbCL.Controls.Add(cboChatLieu);
+            grbCL.Controls.Add(label1);
+            grbCL.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            grbCL.Location = new Point(6, 45);
+            grbCL.Name = "grbCL";
+            grbCL.Size = new Size(544, 135);
+            grbCL.TabIndex = 10;
+            grbCL.TabStop = false;
+            grbCL.Text = "Chất liệu";
+            grbCL.Enter += grbCL_Enter;
+            // 
+            // cboChatLieu
+            // 
+            cboChatLieu.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            cboChatLieu.FormattingEnabled = true;
+            cboChatLieu.Location = new Point(143, 44);
+            cboChatLieu.Name = "cboChatLieu";
+            cboChatLieu.Size = new Size(335, 33);
+            cboChatLieu.TabIndex = 1;
             // 
             // label1
             // 
@@ -436,6 +477,7 @@
             btnThem.TabIndex = 0;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // groupBox3
             // 
@@ -478,39 +520,6 @@
             textBox1.Size = new Size(474, 34);
             textBox1.TabIndex = 14;
             // 
-            // cboChatLieu
-            // 
-            cboChatLieu.FormattingEnabled = true;
-            cboChatLieu.Location = new Point(143, 44);
-            cboChatLieu.Name = "cboChatLieu";
-            cboChatLieu.Size = new Size(335, 33);
-            cboChatLieu.TabIndex = 1;
-            // 
-            // cboSoCanh
-            // 
-            cboSoCanh.FormattingEnabled = true;
-            cboSoCanh.Location = new Point(143, 47);
-            cboSoCanh.Name = "cboSoCanh";
-            cboSoCanh.Size = new Size(335, 33);
-            cboSoCanh.TabIndex = 2;
-            // 
-            // cboMau
-            // 
-            cboMau.FormattingEnabled = true;
-            cboMau.Location = new Point(130, 47);
-            cboMau.Name = "cboMau";
-            cboMau.Size = new Size(335, 33);
-            cboMau.TabIndex = 3;
-            // 
-            // cboLoaiSP
-            // 
-            cboLoaiSP.FormattingEnabled = true;
-            cboLoaiSP.Location = new Point(130, 47);
-            cboLoaiSP.Name = "cboLoaiSP";
-            cboLoaiSP.Size = new Size(335, 33);
-            cboLoaiSP.TabIndex = 4;
-            cboLoaiSP.SelectedIndexChanged += cboLoaiSP_SelectedIndexChanged;
-            // 
             // Frm_ThemCTKhac
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -538,14 +547,14 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             groupBox1.ResumeLayout(false);
-            groupBox7.ResumeLayout(false);
-            groupBox7.PerformLayout();
-            groupBox6.ResumeLayout(false);
-            groupBox6.PerformLayout();
-            groupBox5.ResumeLayout(false);
-            groupBox5.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
+            grbLSP.ResumeLayout(false);
+            grbLSP.PerformLayout();
+            grbSC.ResumeLayout(false);
+            grbSC.PerformLayout();
+            grbMS.ResumeLayout(false);
+            grbMS.PerformLayout();
+            grbCL.ResumeLayout(false);
+            grbCL.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -580,16 +589,16 @@
         private GroupBox groupBox3;
         private PictureBox pictureBox9;
         private TextBox textBox1;
-        private GroupBox groupBox7;
+        private GroupBox grbLSP;
         private Label label4;
         private TextBox textBox5;
-        private GroupBox groupBox6;
+        private GroupBox grbSC;
         private Label label3;
         private TextBox textBox4;
-        private GroupBox groupBox5;
+        private GroupBox grbMS;
         private Label label2;
         private TextBox textBox3;
-        private GroupBox groupBox4;
+        private GroupBox grbCL;
         private RichTextBox rtxtMoTa;
         private Label label5;
         private DataGridView dataGridView1;

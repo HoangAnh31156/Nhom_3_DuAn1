@@ -1,4 +1,5 @@
-﻿using _2.BUS.Services;
+﻿using _1.DAL.Model2s;
+using _2.BUS.Services;
 using _3.PRL.Views.DangNhap;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,16 @@ namespace _3.PRL.Views.SanPham
         }
         private void LoadAttributes()
         {
+            cboChatLieu.Items.Clear();
+            cboLoaiSP.Items.Clear();
+            cboMau.Items.Clear();
+            cboSoCanh.Items.Clear();
+            lstloai.Clear();
+            cboSoCanh.Text = string.Empty;
+            cboMau.Text = string.Empty;
+            cboLoaiSP.Text = string.Empty;
+            cboChatLieu.Text = string.Empty;
+            rtxtMoTa.Text = string.Empty;
             var chatlieu = (from i in _chatLieuService.GetChatLieu(null)
                             select i.TenChatLieu).ToArray();
             cboChatLieu.Items.AddRange(chatlieu);
@@ -88,6 +99,141 @@ namespace _3.PRL.Views.SanPham
         private void cboLoaiSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             rtxtMoTa.Text = lstloai.FirstOrDefault(x => x.Key == cboLoaiSP.Text).Value;
+        }
+        private void AddChatLieu()
+        {
+            ChatLieu chatLieu = new ChatLieu()
+            {
+                IdChatLieu = Guid.NewGuid(),
+                TenChatLieu = cboChatLieu.Text,
+            };
+            if (Xacnhan())
+            {
+                bool result = _chatLieuService.CreateChatLieu(chatLieu);
+                ThongBao(result);
+            }
+            LoadAttributes();
+        }
+
+        private void AddMau()
+        {
+            Mau chatMau = new Mau()
+            {
+                IdMau = Guid.NewGuid(),
+                TenMau = cboMau.Text,
+            };
+            if (Xacnhan())
+            {
+                bool result = _mauSacService.CreateMau(chatMau);
+                ThongBao(result);
+            }
+            LoadAttributes();
+        }
+
+        private void AddSoCanh()
+        {
+            SoCanh chatSoCanh = new SoCanh()
+            {
+                IdCanh = Guid.NewGuid(),
+                SoCanh1 = int.Parse(cboSoCanh.Text)
+            };
+            if (Xacnhan())
+            {
+                bool result = _soCanhService.CreateSoCanh(chatSoCanh);
+                ThongBao(result);
+            }
+            LoadAttributes();
+        }
+
+        private void AddLoaiSP()
+        {
+            LoaiSanPham loaiSanPham = new LoaiSanPham()
+            {
+                IdLoaiSanPham = Guid.NewGuid(),
+                TenLoai = cboLoaiSP.Text,
+                MoTa = rtxtMoTa.Text
+            };
+            if (Xacnhan())
+            {
+                bool result = _LoaiSPService.CreateLoaiSanPham(loaiSanPham);
+                ThongBao(result);
+            }
+            LoadAttributes();
+        }
+
+        private bool Xacnhan()
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void ThongBao(bool result)
+        {
+            if (result == true)
+            {
+                MessageBox.Show("Thêm thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại!");
+            }
+        }
+
+
+        private void changeBG()
+        {
+            grbCL.BackColor = Color.White;
+            grbSC.BackColor = Color.White;
+            grbMS.BackColor = Color.White;
+            grbLSP.BackColor = Color.White;
+        }
+
+        private void grbCL_Enter(object sender, EventArgs e)
+        {
+            changeBG();
+            grbCL.BackColor = Color.LightBlue;
+        }
+
+        private void grbMS_Enter(object sender, EventArgs e)
+        {
+            changeBG();
+            grbMS.BackColor = Color.LightBlue;
+        }
+
+        private void grbSC_Enter(object sender, EventArgs e)
+        {
+            changeBG();
+            grbSC.BackColor = Color.LightBlue;
+        }
+
+        private void grbLSP_Enter(object sender, EventArgs e)
+        {
+            changeBG();
+            grbLSP.BackColor = Color.LightBlue;
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if(grbLSP.BackColor == Color.LightBlue)
+            {
+                AddLoaiSP();
+            }
+            if(grbSC.BackColor == Color.LightBlue)
+            {
+                AddSoCanh();
+            }
+            if(grbMS.BackColor == Color.LightBlue)
+            {
+                AddMau();
+            }
+            if(grbCL.BackColor == Color.LightBlue)
+            {
+                AddChatLieu();
+            }
         }
     }
 }
