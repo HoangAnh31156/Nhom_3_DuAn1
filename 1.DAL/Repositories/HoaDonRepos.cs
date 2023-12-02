@@ -34,20 +34,11 @@ namespace _1.DAL.Repositories
             {
                 return false;
             }
-        }
+        }       
 
         public List<HoaDon> GetHoaDon(string input)
         {
-            if(input == null)
-            {
-                return _context.HoaDons.ToList();
-            }
-            var hoaDon = from a in _context.HoaDons
-                         join b in _context.KhachHangs on a.IdKh equals b.IdKh
-                         where a.IdKhNavigation.TenKh.Contains(input)
-                         select a;
-
-            return hoaDon.ToList();
+            return _context.HoaDons.ToList();                        
         }
 
         public bool UpdateHoaDon(Guid id, HoaDon hoaDon)

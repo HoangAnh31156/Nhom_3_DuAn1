@@ -58,9 +58,15 @@
             groupBox2 = new GroupBox();
             groupBox4 = new GroupBox();
             dgvDSHD = new DataGridView();
-            button2 = new Button();
+            btnTimKiem = new Button();
             txtTimKiem = new TextBox();
             label6 = new Label();
+            STT = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -398,27 +404,34 @@
             // 
             // dgvDSHD
             // 
+            dgvDSHD.AllowUserToAddRows = false;
+            dgvDSHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDSHD.BackgroundColor = SystemColors.ActiveCaption;
             dgvDSHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDSHD.Location = new Point(2, 12);
+            dgvDSHD.Location = new Point(0, 12);
             dgvDSHD.Name = "dgvDSHD";
+            dgvDSHD.ReadOnly = true;
+            dgvDSHD.RowHeadersVisible = false;
             dgvDSHD.RowHeadersWidth = 51;
             dgvDSHD.RowTemplate.Height = 29;
             dgvDSHD.Size = new Size(1566, 364);
             dgvDSHD.TabIndex = 7;
+            dgvDSHD.CancelRowEdit += dgvDSHD_CancelRowEdit;
             dgvDSHD.CellClick += dgvDSHD_CellClick;
+            dgvDSHD.MouseClick += dgvDSHD_MouseClick;
             // 
-            // button2
+            // btnTimKiem
             // 
-            button2.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.Highlight;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(732, 856);
-            button2.Name = "button2";
-            button2.Size = new Size(194, 60);
-            button2.TabIndex = 24;
-            button2.Text = "Tìm kiếm";
-            button2.UseVisualStyleBackColor = true;
+            btnTimKiem.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTimKiem.ForeColor = SystemColors.Highlight;
+            btnTimKiem.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTimKiem.Location = new Point(732, 856);
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(194, 60);
+            btnTimKiem.TabIndex = 24;
+            btnTimKiem.Text = "Tìm kiếm";
+            btnTimKiem.UseVisualStyleBackColor = true;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtTimKiem
             // 
@@ -438,13 +451,61 @@
             label6.TabIndex = 26;
             label6.Text = "Tên Khách hàng";
             // 
+            // STT
+            // 
+            STT.HeaderText = "STT";
+            STT.MinimumWidth = 6;
+            STT.Name = "STT";
+            STT.ReadOnly = true;
+            STT.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.HeaderText = "STT";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.HeaderText = "STT";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.HeaderText = "STT";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.HeaderText = "STT";
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
+            dataGridViewTextBoxColumn4.Width = 1513;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.HeaderText = "STT";
+            dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
+            dataGridViewTextBoxColumn5.Width = 757;
+            // 
             // Frm_HoaDon
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1882, 953);
-            Controls.Add(button2);
+            Controls.Add(btnTimKiem);
             Controls.Add(txtTimKiem);
             Controls.Add(label6);
             Controls.Add(groupBox2);
@@ -505,8 +566,14 @@
         private GroupBox groupBox2;
         private GroupBox groupBox4;
         private DataGridView dgvDSHD;
-        private Button button2;
+        private Button btnTimKiem;
         private TextBox txtTimKiem;
         private Label label6;
+        private DataGridViewTextBoxColumn STT;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
