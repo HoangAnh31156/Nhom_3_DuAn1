@@ -180,7 +180,7 @@ namespace _3.PRL.Views.SanPham
             obj.IdLoaiSanPham = MaLoaiSanPham;
             obj.MaSanPham = txtMaSP.Text;
             obj.SoLuong = int.Parse(txtSoLuong.Text);
-            var result = _SanPhamService.CreateSanPham(obj);
+            var result = _SanPhamService.UpdateSanPham(obj);
             if (result)
             {
                 MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -260,7 +260,7 @@ namespace _3.PRL.Views.SanPham
             SuaSP();
         }
 
-        private void GirdSp_SelectionChanged(object sender, EventArgs e)
+        private void GirdSp_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             GetInfor();
         }

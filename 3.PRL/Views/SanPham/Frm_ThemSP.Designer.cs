@@ -305,7 +305,7 @@
             GirdSp.RowTemplate.Height = 29;
             GirdSp.Size = new Size(1584, 204);
             GirdSp.TabIndex = 15;
-            GirdSp.SelectionChanged += GirdSp_SelectionChanged;
+            GirdSp.CellClick += GirdSp_CellClick;
             // 
             // groupBox2
             // 
