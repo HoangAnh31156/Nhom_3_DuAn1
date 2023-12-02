@@ -218,22 +218,26 @@ namespace _3.PRL.Views.SanPham
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if(grbLSP.BackColor == Color.LightBlue)
+            if (grbLSP.BackColor == Color.LightBlue)
             {
                 AddLoaiSP();
             }
-            if(grbSC.BackColor == Color.LightBlue)
+            if (grbSC.BackColor == Color.LightBlue)
             {
                 AddSoCanh();
             }
-            if(grbMS.BackColor == Color.LightBlue)
+            if (grbMS.BackColor == Color.LightBlue)
             {
                 AddMau();
             }
-            if(grbCL.BackColor == Color.LightBlue)
+            if (grbCL.BackColor == Color.LightBlue)
             {
                 AddChatLieu();
             }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

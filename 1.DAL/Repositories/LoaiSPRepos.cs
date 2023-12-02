@@ -46,9 +46,14 @@ namespace _1.DAL.Repositories
         {
             try
             {
-                var obj = _onFansContext.LoaiSanPhams.Update(LoaiSanPham);
-                _onFansContext.SaveChanges();
-                return true;
+                var obj = _onFansContext.LoaiSanPhams.Find(LoaiSanPham.IdLoaiSanPham);
+                if(obj != null)
+                {
+                    _onFansContext.Entry(obj).CurrentValues.SetValues(LoaiSanPham);
+                    _onFansContext.SaveChanges();
+                    return true;
+                }
+               return false;
             }
             catch
             {

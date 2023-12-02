@@ -46,9 +46,14 @@ namespace _1.DAL.Repositories
 
             try
             {
-                var obj = _onFansContext.SoCanhs.Update(SoCanh);
-                _onFansContext.SaveChanges();
-                return true;
+                var obj = _onFansContext.SoCanhs.Find(SoCanh.IdCanh);
+                if (obj != null)
+                {
+                    _onFansContext.Entry(obj).CurrentValues.SetValues(SoCanh);
+                    _onFansContext.SaveChanges();
+                    return true;
+                }
+               return false;
             }
             catch
             {

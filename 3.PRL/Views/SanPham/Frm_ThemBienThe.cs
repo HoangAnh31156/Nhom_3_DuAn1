@@ -95,30 +95,30 @@ namespace _3.PRL.Views.SanPham
             GridVariant.Columns[11].Name = "Giá Tiền";
 
             var lst = from i in _BienTheService.GetBienThe(null)
-                       join y in _SanPhamService.GetSanPham(null)
-                       on i.IdSanPham equals y.IdSanPham
-                       join a in _chatLieuService.GetChatLieu(null)
-                       on i.IdChatLieu equals a.IdChatLieu
-                       join b in _mauSacService.GetMau(null)
-                       on i.IdMau equals b.IdMau
-                       join c in _soCanhService.GetSoCanh(null)
-                       on i.IdCanh equals c.IdCanh
-                       select new
-                       {
-                           MaBienThe = i.MaBienThe,
-                           ten = y.Ten,
-                           Gia = i.GiaTien,
-                           TG = i.TgbaoHanh,
-                           CS = i.CongSuat,
-                           SL = i.SoLuong,
-                           CC = i.ChieuCao,
-                           BK = i.BanKinh,
-                           Hinh = i.HinhAnh,
-                           CL = a.TenChatLieu,
-                           M = b.TenMau,
-                           SC = c.SoCanh1
-                       };
-            if(txtSearch.Text != null)
+                      join y in _SanPhamService.GetSanPham(null)
+                      on i.IdSanPham equals y.IdSanPham
+                      join a in _chatLieuService.GetChatLieu(null)
+                      on i.IdChatLieu equals a.IdChatLieu
+                      join b in _mauSacService.GetMau(null)
+                      on i.IdMau equals b.IdMau
+                      join c in _soCanhService.GetSoCanh(null)
+                      on i.IdCanh equals c.IdCanh
+                      select new
+                      {
+                          MaBienThe = i.MaBienThe,
+                          ten = y.Ten,
+                          Gia = i.GiaTien,
+                          TG = i.TgbaoHanh,
+                          CS = i.CongSuat,
+                          SL = i.SoLuong,
+                          CC = i.ChieuCao,
+                          BK = i.BanKinh,
+                          Hinh = i.HinhAnh,
+                          CL = a.TenChatLieu,
+                          M = b.TenMau,
+                          SC = c.SoCanh1
+                      };
+            if (txtSearch.Text != null)
             {
                 lst = lst.Where(x => x.ten.ToLower().Contains(txtSearch.Text.ToLower()));
             }
@@ -166,6 +166,7 @@ namespace _3.PRL.Views.SanPham
                               M = b.TenMau,
                               SC = c.SoCanh1
                           };
+                picImage.Image = null;
                 var bienThe = lst.FirstOrDefault(x => x.MaBienThe == GetMa());
                 cboChatLieu.Text = bienThe.CL;
                 cboMau.Text = bienThe.M;
@@ -207,6 +208,7 @@ namespace _3.PRL.Views.SanPham
                 IdCanh = SoCanh,
                 IdChatLieu = MaChatLieu
             };
+            picImage.Image = null;
             var result = _BienTheService.CreateBienThe(obj);
             if (result)
             {
@@ -242,16 +244,10 @@ namespace _3.PRL.Views.SanPham
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if(checkEmpty() && checkExists())
+            if (checkEmpty() && checkExists())
             {
                 AddVariant();
             }
-        }
-
-
-        private void GridVariant_SelectionChanged(object sender, EventArgs e)
-        {
-            GetInfor();
         }
 
         private void cboMau_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -326,10 +322,10 @@ namespace _3.PRL.Views.SanPham
         private void UpdateVariant()
         {
             GridVariant.ClearSelection();
-            var lst = _BienTheService.GetBienThe(null);
-            var obj = lst.FirstOrDefault(x => x.MaBienThe == (GetMa()));
+            var obj = _BienTheService.GetBienThe(null).FirstOrDefault(x => x.MaBienThe == (GetMa()));
             if (obj != null)
             {
+                obj.IdBienThe = obj.IdBienThe;
                 obj.MaBienThe = $"{cboMaSp.Text}_{cboChatLieu.Text}_{cboSoCanh.Text}_{txtCongSuat.Text}";
                 obj.GiaTien = decimal.Parse(txtGiaTien.Text);
                 obj.TgbaoHanh = int.Parse(txtTGBaoHanh.Text);
@@ -445,6 +441,11 @@ namespace _3.PRL.Views.SanPham
                 return false;
             }
             return false;
+        }
+
+        private void GridVariant_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            GetInfor();
         }
     }
 }

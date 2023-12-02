@@ -356,7 +356,7 @@
             GridVariant.RowTemplate.Height = 29;
             GridVariant.Size = new Size(1584, 204);
             GridVariant.TabIndex = 18;
-            GridVariant.SelectionChanged += GridVariant_SelectionChanged;
+            GridVariant.CellClick += GridVariant_CellClick;
             // 
             // pictureBox9
             // 

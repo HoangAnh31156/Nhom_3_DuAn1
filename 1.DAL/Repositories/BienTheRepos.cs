@@ -22,7 +22,7 @@ namespace _1.DAL.Repositories
         {
             try
             {
-                var obj = _onFansContext.BienThes.Add(BienThe);
+                _onFansContext.BienThes.Add(BienThe);
                 _onFansContext.SaveChanges();
                 return true;
             }
@@ -46,11 +46,16 @@ namespace _1.DAL.Repositories
         {
             try
             {
-                var obj = _onFansContext.BienThes.Update(BienThe);
-                _onFansContext.SaveChanges();
-                return true;
+                var existingBienThe = _onFansContext.BienThes.Find(BienThe.IdBienThe);
+                if (existingBienThe != null)
+                {
+                    _onFansContext.Entry(existingBienThe).CurrentValues.SetValues(BienThe);
+                    _onFansContext.SaveChanges();
+                    return true;
+                }
+                return false;
             }
-            catch 
+            catch
             {
                 return false;
             }

@@ -1,4 +1,5 @@
 ﻿using _1.DAL.Model2s;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,9 +46,15 @@ namespace _1.DAL.Repositories
         {
             try
             {
-                var obj = _onFansContext.SanPhams.Update(SanPham);
-                _onFansContext.SaveChanges();
-                return true;
+                var existingSanPham = _onFansContext.SanPhams.Find(SanPham.IdSanPham);
+                if (existingSanPham != null)
+                {
+                    _onFansContext.Entry(existingSanPham).State = EntityState.Detached;
+                    _onFansContext.Entry(SanPham).State = EntityState.Modified;
+                    _onFansContext.SaveChanges();
+                    return true;
+                }
+                return false;
             }
             catch
             {

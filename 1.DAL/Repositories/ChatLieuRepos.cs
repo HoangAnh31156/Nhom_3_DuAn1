@@ -45,12 +45,18 @@ namespace _1.DAL.Repositories
 
         public bool UpdateChatLieu(ChatLieu chatlieu)
         {
-            var obj = _onFansContext.ChatLieus.Update(chatlieu);
-            if (obj != null)
+            try
             {
-                return true;
+                var obj = _onFansContext.ChatLieus.Find(chatlieu.IdChatLieu);
+                if (obj != null)
+                {
+                    _onFansContext.Entry(obj).CurrentValues.SetValues(chatlieu);
+                    _onFansContext.SaveChanges(true);
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch { return false; }
         }
     }
 }

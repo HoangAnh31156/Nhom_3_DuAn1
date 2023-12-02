@@ -45,9 +45,14 @@ namespace _1.DAL.Repositories
         {
             try
             {
-                var obj = _onFansContext.Maus.Update(Mau);
-                _onFansContext.SaveChanges();
-                return true;
+                var obj = _onFansContext.Maus.Find(Mau.IdMau);
+                if(obj != null)
+                {
+                    _onFansContext.Entry(Mau).CurrentValues.SetValues(Mau);
+                    _onFansContext.SaveChanges();
+                    return true;
+                }
+                return false;
             }
             catch
             {
