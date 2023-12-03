@@ -26,7 +26,7 @@ namespace _3.PRL.Views
             InitializeComponent();
             _BienTheService = new BienTheService();
             _SanphamService = new SanPhamService();
-            LoadSP(sd,sc);
+            LoadSP(sd, sc);
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace _3.PRL.Views
             frm_ThemBienThe.Show();
         }
 
-        private void LoadSP(int sodau,int socuoi)
+        private void LoadSP(int sodau, int socuoi)
         {
             var lst = (from b in _SanphamService.GetSanPham(null)
                        join a in _BienTheService.GetBienThe(null)
@@ -76,6 +76,10 @@ namespace _3.PRL.Views
                            Gia = g.Select(x => x.GiaTien).ToArray(),
                            Hinh = g.Select(x => x.HinhAnh).ToArray()
                        }).ToArray();
+            if (txtSearch.Text != null)
+            {
+                lst = lst.Where(x => x.Ten.Contains(txtSearch.Text)).ToArray();
+            }
             int d = 0;
             int cardWidth = 456; // Kích thước chiều rộng của card
             int cardHeight = 200; // Kích thước chiều cao của card
@@ -174,7 +178,7 @@ namespace _3.PRL.Views
                            Gia = g.Select(x => x.GiaTien).ToArray(),
                            Hinh = g.Select(x => x.HinhAnh).ToArray()
                        }).ToArray();
-            if(lst.Count() > st*9)
+            if (lst.Count() > st * 9)
             {
                 sd += 9;
                 sc += 9;
@@ -189,14 +193,23 @@ namespace _3.PRL.Views
             {
                 this.Controls.Remove(panels[i]);
             }
-            if(st > 1)
+            if (st > 1)
             {
                 sd -= 9;
                 sc -= 9;
                 st -= 1;
                 LoadSP(sd, sc);
             }
-            
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < panels.Count; i++)
+            {
+                this.Controls.Remove(panels[i]);
+            }
+            LoadSP(sd, sc);
         }
     }
 }

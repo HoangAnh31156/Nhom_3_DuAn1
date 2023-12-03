@@ -48,7 +48,7 @@
             button2 = new Button();
             button1 = new Button();
             pictureBox9 = new PictureBox();
-            textBox1 = new TextBox();
+            txtSearch = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -258,7 +258,7 @@
             panel10.Controls.Add(button2);
             panel10.Controls.Add(button1);
             panel10.Controls.Add(pictureBox9);
-            panel10.Controls.Add(textBox1);
+            panel10.Controls.Add(txtSearch);
             panel10.Dock = DockStyle.Fill;
             panel10.Location = new Point(280, 60);
             panel10.Name = "panel10";
@@ -301,14 +301,15 @@
             pictureBox9.TabIndex = 9;
             pictureBox9.TabStop = false;
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(79, 65);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Tìm kiếm sản phẩm...";
-            textBox1.Size = new Size(474, 34);
-            textBox1.TabIndex = 5;
+            txtSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSearch.Location = new Point(79, 65);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Tìm kiếm sản phẩm...";
+            txtSearch.Size = new Size(474, 34);
+            txtSearch.TabIndex = 5;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // Frm_SanPham
             // 
@@ -349,7 +350,7 @@
         private PictureBox pbBack;
         private Button btnTCSanPham;
         private PictureBox pictureBox2;
-        private TextBox textBox1;
+        private TextBox txtSearch;
         private PictureBox pictureBox9;
         private PictureBox pictureBox10;
         private Button btnThemSP;
