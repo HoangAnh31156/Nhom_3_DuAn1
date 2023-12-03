@@ -42,19 +42,16 @@ namespace _1.DAL.Repositories
             {
                 return _context.HoaDonCts.ToList();
             }
-            var hoaDonCT = from a in _context.HoaDonCts
-                           join b in _context.BienThes on a.IdBienThe equals b.IdBienThe
-                           where a.IdBienTheNavigation.MaBienThe.Contains(input)
-                           select a;
 
-            return hoaDonCT.ToList();
+            return _context.HoaDonCts.Where(a => a.IdHoaDon.ToString().Substring(a.IdHoaDon.ToString().Length - 5).Contains(input.ToLower())).ToList();
+
         }
 
-        public bool UpdateHoaDonCT(HoaDonCt hoaDonCt)
+        public bool UpdateHoaDonCT(Guid id, HoaDonCt hoaDonCt)
         {
             try
             {
-                var updateHoaDonCT = _context.HoaDonCts.Find(hoaDonCt.IdHoaDonCt);
+                var updateHoaDonCT = _context.HoaDonCts.FirstOrDefault(a=>a.IdHoaDonCt == id);
 
                 updateHoaDonCT.IdBienThe = hoaDonCt.IdBienThe;
                 updateHoaDonCT.IdGiamGia = hoaDonCt.IdGiamGia;

@@ -3,6 +3,7 @@ using _3.PRL.Views.BaoHanh;
 using _3.PRL.Views.DangNhap;
 using _3.PRL.Views.GiamGia;
 using _3.PRL.Views.SanPham;
+using _3.PRL.Views.ThanhToan;
 
 namespace _3.PRL
 {
@@ -17,7 +18,7 @@ namespace _3.PRL
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Frm_HoaDon());
+            Application.Run(new Frm_HoaDonCT());
 
             // Scaffold-DbContext "Server=DESKTOP-B52SRBN\SQLEXPRESS;Database= OnlyFans;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model1s
         }

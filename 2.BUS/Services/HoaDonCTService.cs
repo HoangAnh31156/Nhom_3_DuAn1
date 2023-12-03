@@ -26,33 +26,14 @@ namespace _2.BUS.Services
             return _hoaDonCTRepos.GetHoaDonCts(input);
         }
 
-        public bool AddHoaDonCT(Guid id_bienThe, Guid id_giamGia, Guid id_hoaDon, decimal gia, int soLuong)
-        {
-            var obj = new HoaDonCt()
-            {
-                IdBienThe = id_bienThe,
-                IdGiamGia = id_giamGia,
-                IdHoaDon = id_hoaDon,
-                Gia = gia,
-                SoLuong = soLuong
-            };
-
-            return _hoaDonCTRepos.CreateHoaDonCT(obj);
+        public bool AddHoaDonCT(HoaDonCt hoaDonCt)
+        {           
+            return _hoaDonCTRepos.CreateHoaDonCT(hoaDonCt);
         }
 
-        public bool AddHoaDonCT(Guid id, Guid id_bienThe, Guid id_giamGia, Guid id_hoaDon, decimal gia, int soLuong)
+        public bool UpdateHoaDonCT(Guid id, HoaDonCt hoaDonCt)
         {
-            var obj = new HoaDonCt()
-            {
-                IdHoaDonCt = id,
-                IdBienThe = id_bienThe,
-                IdGiamGia = id_giamGia,
-                IdHoaDon = id_hoaDon,
-                Gia = gia,
-                SoLuong = soLuong
-            };
-
-            return _hoaDonCTRepos.UpdateHoaDonCT(obj);
+            return _hoaDonCTRepos.UpdateHoaDonCT(id, hoaDonCt);
         }
     }
 }

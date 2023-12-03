@@ -130,7 +130,7 @@ namespace _3.PRL.Views
                 string idHoaDon = item.IdHoaDon.ToString();
                 string MaHD = idHoaDon.Substring(idHoaDon.Length - 5);
 
-                dgvDSHD.Rows.Add(item.IdHoaDon, stt++, MaHD, KH?.TenKh, NV?.Ten,
+                dgvDSHD.Rows.Add(item.IdHoaDon, stt++, MaHD.ToUpper(), KH?.TenKh, NV?.Ten,
                     item.NgayGd.ToString(), item.TrangThai == true ? "Đã thanh toán" : "Chưa thanh toán",
                     VC?.TongTien, item?.TongTien);
             }

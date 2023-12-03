@@ -43,7 +43,7 @@ namespace _1.DAL.Repositories
                 return _context.HoaDons.ToList();
             }
            
-            return _context.HoaDons.Where(a=>a.IdHoaDon.ToString().Substring(a.IdHoaDon.ToString().Length - 5).Contains(input)).ToList();
+            return _context.HoaDons.Where(a=>a.IdHoaDon.ToString().Substring(a.IdHoaDon.ToString().Length - 5).Contains(input.ToLower())).ToList();
         }
 
         public bool UpdateHoaDon(Guid id, HoaDon hoaDon)
