@@ -45,10 +45,10 @@
             panel7 = new Panel();
             btnSanPham = new Button();
             panel10 = new Panel();
+            button2 = new Button();
+            button1 = new Button();
             pictureBox9 = new PictureBox();
             textBox1 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -265,6 +265,32 @@
             panel10.Size = new Size(1602, 893);
             panel10.TabIndex = 3;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.BlanchedAlmond;
+            button2.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = Color.SteelBlue;
+            button2.Location = new Point(1415, 844);
+            button2.Name = "button2";
+            button2.Size = new Size(146, 37);
+            button2.TabIndex = 11;
+            button2.Text = "Trang Sau";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.BlanchedAlmond;
+            button1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = Color.SteelBlue;
+            button1.Location = new Point(1245, 844);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 37);
+            button1.TabIndex = 10;
+            button1.Text = "Trang trước";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // pictureBox9
             // 
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
@@ -284,30 +310,6 @@
             textBox1.Size = new Size(474, 34);
             textBox1.TabIndex = 5;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.BlanchedAlmond;
-            button1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = Color.SteelBlue;
-            button1.Location = new Point(1245, 844);
-            button1.Name = "button1";
-            button1.Size = new Size(146, 37);
-            button1.TabIndex = 10;
-            button1.Text = "Trang trước";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.BlanchedAlmond;
-            button2.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.SteelBlue;
-            button2.Location = new Point(1415, 844);
-            button2.Name = "button2";
-            button2.Size = new Size(146, 37);
-            button2.TabIndex = 11;
-            button2.Text = "Trang Sau";
-            button2.UseVisualStyleBackColor = false;
-            // 
             // Frm_SanPham
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -320,7 +322,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Frm_SanPham";
             WindowState = FormWindowState.Maximized;
-            Load += Frm_SanPham_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).EndInit();

@@ -17,11 +17,16 @@ namespace _3.PRL.Views
     {
         SanPhamService _SanphamService;
         BienTheService _BienTheService;
+        List<Panel> panels = new List<Panel>();
+        int sd = 0;
+        int sc = 9;
+        int st = 1;
         public Frm_SanPham()
         {
             InitializeComponent();
             _BienTheService = new BienTheService();
             _SanphamService = new SanPhamService();
+            LoadSP(sd,sc);
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -59,7 +64,7 @@ namespace _3.PRL.Views
             frm_ThemBienThe.Show();
         }
 
-        private void LoadSP()
+        private void LoadSP(int sodau,int socuoi)
         {
             var lst = (from b in _SanphamService.GetSanPham(null)
                        join a in _BienTheService.GetBienThe(null)
@@ -81,10 +86,10 @@ namespace _3.PRL.Views
             int startY = 150 + 45; // Vị trí y ban đầu, dịch xuống 45px
             int pictureOffsetX = 10; // Khoảng cách giữa PictureBox và thành phải của card
             int labelPriceOffsetY = 5; // Khoảng cách giữa Label giá và thành dưới của card
-
-            for (int i = 0; i < 9; i++)
+            int max = lst.Count() > socuoi ? socuoi : lst.Count();
+            for (int i = sodau; i < max; i++)
             {
-                if (d < lst.Count())
+                if (i < lst.Count())
                 {
                     var priceMin = (lst[i].Gia.Length > 0) ? lst[i].Gia.Min() : 0;
                     var priceMax = (lst[i].Gia.Length > 0) ? lst[i].Gia.Max() : 0;
@@ -93,8 +98,8 @@ namespace _3.PRL.Views
                     cardPanel.BorderStyle = BorderStyle.FixedSingle;
                     cardPanel.Size = new Size(cardWidth, cardHeight);
 
-                    int row = i / cardsPerRow;
-                    int col = i % cardsPerRow;
+                    int row = d / cardsPerRow;
+                    int col = d % cardsPerRow;
 
                     int cardPosX = startX - col * (cardWidth + cardSpacingX);
                     int cardPosY = startY + row * (cardHeight + cardSpacingY);
@@ -102,7 +107,7 @@ namespace _3.PRL.Views
                     cardPanel.Location = new Point(cardPosX, cardPosY);
 
                     Label lbl = new Label();
-                    lbl.Text = lst[d].Ten;
+                    lbl.Text = lst[i].Ten;
                     lbl.Font = new Font(lbl.Font.FontFamily, 12, FontStyle.Bold);
                     lbl.Size = new Size(180, 60);
                     lbl.Location = new Point(20, 20);
@@ -142,7 +147,7 @@ namespace _3.PRL.Views
                     cardPanel.Controls.Add(lbl);
                     cardPanel.Controls.Add(label);
                     cardPanel.Controls.Add(pictureBox);
-
+                    panels.Add(cardPanel);
                     this.Controls.Add(cardPanel);
                     cardPanel.BringToFront();
                     lbl.BringToFront();
@@ -153,9 +158,45 @@ namespace _3.PRL.Views
             }
         }
 
-        private void Frm_SanPham_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            LoadSP();
+            for (int i = 0; i < panels.Count; i++)
+            {
+                this.Controls.Remove(panels[i]);
+            }
+            var lst = (from b in _SanphamService.GetSanPham(null)
+                       join a in _BienTheService.GetBienThe(null)
+                       on b.IdSanPham equals a.IdSanPham
+                       group a by b into g
+                       select new
+                       {
+                           Ten = g.Key.Ten,
+                           Gia = g.Select(x => x.GiaTien).ToArray(),
+                           Hinh = g.Select(x => x.HinhAnh).ToArray()
+                       }).ToArray();
+            if(lst.Count() > st*9)
+            {
+                sd += 9;
+                sc += 9;
+                st += 1;
+                LoadSP(sd, sc);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < panels.Count; i++)
+            {
+                this.Controls.Remove(panels[i]);
+            }
+            if(st > 1)
+            {
+                sd -= 9;
+                sc -= 9;
+                st -= 1;
+                LoadSP(sd, sc);
+            }
+            
         }
     }
 }
