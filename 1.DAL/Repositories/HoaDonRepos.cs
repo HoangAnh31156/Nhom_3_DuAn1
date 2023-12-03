@@ -38,7 +38,12 @@ namespace _1.DAL.Repositories
 
         public List<HoaDon> GetHoaDon(string input)
         {
-            return _context.HoaDons.ToList();                        
+            if(input == null)
+            {
+                return _context.HoaDons.ToList();
+            }
+           
+            return _context.HoaDons.Where(a=>a.IdHoaDon.ToString().Substring(a.IdHoaDon.ToString().Length - 5).Contains(input)).ToList();
         }
 
         public bool UpdateHoaDon(Guid id, HoaDon hoaDon)

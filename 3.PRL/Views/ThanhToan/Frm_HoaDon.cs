@@ -1,11 +1,13 @@
 ﻿using _1.DAL.Model2s;
 using _2.BUS.Services;
 using _3.PRL.Views.DangNhap;
+using _3.PRL.Views.ThanhToan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -91,62 +93,45 @@ namespace _3.PRL.Views
         private void LoadGridHD(string input)
         {
             int stt = 1;
-            dgvDSHD.ColumnCount = 8;
+            dgvDSHD.ColumnCount = 9;
             dgvDSHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDSHD.Columns[0].Name = "ID";
             dgvDSHD.Columns[0].Visible = false;
             dgvDSHD.Columns[1].Name = "STT";
             dgvDSHD.Columns[1].Width = 50;
-            dgvDSHD.Columns[2].Name = "Khách Hàng";
-            dgvDSHD.Columns[3].Name = "Nhân Viên";
-            dgvDSHD.Columns[4].Name = "Ngày Tạo";
-            dgvDSHD.Columns[5].Name = "Trạng Thái";
+            dgvDSHD.Columns[2].Name = "Mã HD";
+            dgvDSHD.Columns[2].Width = 100;
+            dgvDSHD.Columns[3].Name = "Khách Hàng";
+            dgvDSHD.Columns[4].Name = "Nhân Viên";
+            dgvDSHD.Columns[5].Name = "Ngày Tạo";
+            dgvDSHD.Columns[6].Name = "Trạng Thái";
 
-            dgvDSHD.Columns[6].Name = "Phí vận chuyển";
-            dgvDSHD.Columns[7].Name = "Thanh Toan";
+            dgvDSHD.Columns[7].Name = "Phí vận chuyển";
+            dgvDSHD.Columns[8].Name = "Thanh Toan";
             dgvDSHD.Rows.Clear();
-            /*
-            var lst = from a in _hoaDonService.GetHoaDon(null)
-                      join b in _khachHangService.GetKhach(null) on a.IdKh equals b.IdKh
-                      join c in _nhanVienService.GetNhanVien(null) on a.IdNv equals c.IdNv
-                      join d in _lichSuttService.GetLichSuTt() on a.IdHoaDon equals d.IdHoaDon
-                      join e in _ptttService.GetPTTT() on d.IdPttt equals e.IdPttt
-                      join f in _vanChuyenService.GetVanChuyen() on a.IdVc equals f.IdVc
-                      select new
-                      {
-                          Id = a.IdHoaDon,
-                          khachHang = b.TenKh,
-                          nhanVien = c.Ten,
-                          ngayTao = a.NgayGd,
-                          trangThai = a.TrangThai,
-                          vanChuyen = f.TongTien,
-                          TinhTien = a.TongTien
-                      };
-            
-            if (txtTimKiem.Text != null)
-            {
-                lst = lst.Where(a => a.khachHang.ToLower().Contains(txtTimKiem.Text.ToLower()));
-            }
 
-            foreach (var item in lst)
-            {
-                dgvDSHD.Rows.Add(item.Id, stt++, item.khachHang, item.nhanVien, item.ngayTao,
-                    (item.trangThai == true ? "Đã thanh toán" : "Chưa thanh toán"), item.vanChuyen,
-                    item.TinhTien);
-            }
-            */
-
-            foreach (var item in _hoaDonService.GetHoaDon(null).OrderBy(a => a.NgayGd))
+            foreach (var item in _hoaDonService.GetHoaDon(input).OrderBy(a => a.NgayGd))
             {
                 var KH = _khachHangService.GetKhach(null).FirstOrDefault(a => a.IdKh == item.IdKh);
                 var NV = _nhanVienService.GetNhanVien(null).FirstOrDefault(a => a.IdNv == item.IdNv);
                 var VC = _vanChuyenService.GetVanChuyen().FirstOrDefault(a => a.IdVc == item.IdVc);
                 var CT = _HDctService.GetHoaDonCts(null).FirstOrDefault(a => a.IdHoaDon == item.IdHoaDon);
 
-                item.TongTien = CT?.SoLuong * CT?.Gia + Convert.ToDecimal(VC?.TongTien);
+                var sum = CT?.SoLuong * CT?.Gia;
+                if (sum != null)
+                {
+                    item.TongTien = sum + Convert.ToDecimal(VC?.TongTien);
+                }
+                else
+                {
+                    item.TongTien = Convert.ToDecimal(VC?.TongTien);
+                }
 
-                dgvDSHD.Rows.Add(item.IdHoaDon, stt++, KH?.TenKh, NV?.Ten,
-                    item.NgayGd, item.TrangThai == true ? "Đã thanh toán" : "Chưa thanh toán",
+                string idHoaDon = item.IdHoaDon.ToString();
+                string MaHD = idHoaDon.Substring(idHoaDon.Length - 5);
+
+                dgvDSHD.Rows.Add(item.IdHoaDon, stt++, MaHD, KH?.TenKh, NV?.Ten,
+                    item.NgayGd.ToString(), item.TrangThai == true ? "Đã thanh toán" : "Chưa thanh toán",
                     VC?.TongTien, item?.TongTien);
             }
         }
@@ -160,10 +145,10 @@ namespace _3.PRL.Views
 
             var selectedHoaDon = dgvDSHD.Rows[rowIndex];
             _id = Guid.Parse(selectedHoaDon.Cells[0].Value.ToString());
-            cmbKhachHang.Text = selectedHoaDon.Cells[2].Value.ToString();
-            cmbNhanVien.Text = selectedHoaDon.Cells[3].Value.ToString();
-            dtpNgayTao.Text = selectedHoaDon.Cells[4].Value.ToString();
-            if (selectedHoaDon.Cells[5].Value.ToString().Equals("Đã thanh toán"))
+            cmbKhachHang.Text = selectedHoaDon.Cells[3].Value.ToString();
+            cmbNhanVien.Text = selectedHoaDon.Cells[4].Value.ToString();
+            dtpNgayTao.Text = selectedHoaDon.Cells[5].Value.ToString();
+            if (selectedHoaDon.Cells[6].Value.ToString().Equals("Đã thanh toán"))
             {
                 rdbDaThanhToan.Checked = true;
             }
@@ -172,7 +157,7 @@ namespace _3.PRL.Views
                 rdbChuaThanhToan.Checked = true;
             }
 
-            cmbVanChuyen.Text = selectedHoaDon.Cells[6].Value.ToString();
+            cmbVanChuyen.Text = selectedHoaDon.Cells[7].Value.ToString();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -283,17 +268,41 @@ namespace _3.PRL.Views
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            // CHUA LAM DC @@@
+            if (txtTimKiem.Text.Length == 0)
+            {
+                LoadGridHD(null);
+            }
+            else
+            {
+                LoadGridHD(txtTimKiem.Text);
+            }
         }
 
-        private void dgvDSHD_CancelRowEdit(object sender, QuestionEventArgs e)
+        private void btnHDCT_Click(object sender, EventArgs e)
         {
-
+            if (CheckHoaDon())
+            {
+                this.Hide();
+                Frm_HoaDonCT hoaDonCT = new Frm_HoaDonCT();
+                hoaDonCT.Show();
+            }
+            else
+            {
+                return;
+            }
         }
 
-        private void dgvDSHD_MouseClick(object sender, MouseEventArgs e)
+        private bool CheckHoaDon()
         {
-
+            if (_hoaDonService.GetHoaDon(null).Any(a => a.IdHoaDon == _id))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Phải chọn 1 Hoa Don !", "Thông Báo !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }
 }

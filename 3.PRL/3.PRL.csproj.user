@@ -46,5 +46,8 @@
     <Compile Update="Views\SanPham\Frm_ThemSP.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\ThanhToan\Frm_HoaDonCT.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
