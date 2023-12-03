@@ -41,6 +41,9 @@
             pictureBox7 = new PictureBox();
             btnThanhToan = new Button();
             groupBox1 = new GroupBox();
+            txtTenSP = new TextBox();
+            label8 = new Label();
+            cmbGiamGia = new ComboBox();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -58,7 +61,6 @@
             groupBox2 = new GroupBox();
             groupBox4 = new GroupBox();
             dgvDSSP = new DataGridView();
-            cmbGiamGia = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -172,6 +174,7 @@
             btnHoaDon.Text = "Hóa Đơn";
             btnHoaDon.TextAlign = ContentAlignment.MiddleLeft;
             btnHoaDon.UseVisualStyleBackColor = false;
+            btnHoaDon.Click += btnHoaDon_Click;
             // 
             // panel7
             // 
@@ -207,6 +210,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtTenSP);
+            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(cmbGiamGia);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
@@ -228,6 +233,34 @@
             groupBox1.Size = new Size(1578, 301);
             groupBox1.TabIndex = 23;
             groupBox1.TabStop = false;
+            // 
+            // txtTenSP
+            // 
+            txtTenSP.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTenSP.Location = new Point(176, 163);
+            txtTenSP.Name = "txtTenSP";
+            txtTenSP.Size = new Size(285, 32);
+            txtTenSP.TabIndex = 29;
+            txtTenSP.TextChanged += txtTenSP_TextChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(24, 166);
+            label8.Name = "label8";
+            label8.Size = new Size(130, 25);
+            label8.TabIndex = 28;
+            label8.Text = "Tên Sản Phẩm";
+            // 
+            // cmbGiamGia
+            // 
+            cmbGiamGia.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbGiamGia.FormattingEnabled = true;
+            cmbGiamGia.Location = new Point(816, 167);
+            cmbGiamGia.Name = "cmbGiamGia";
+            cmbGiamGia.Size = new Size(149, 33);
+            cmbGiamGia.TabIndex = 27;
             // 
             // label7
             // 
@@ -253,7 +286,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(637, 167);
+            label5.Location = new Point(637, 166);
             label5.Name = "label5";
             label5.Size = new Size(87, 25);
             label5.TabIndex = 23;
@@ -338,7 +371,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(23, 102);
+            label3.Location = new Point(23, 106);
             label3.Name = "label3";
             label3.Size = new Size(117, 25);
             label3.TabIndex = 5;
@@ -397,17 +430,8 @@
             dgvDSSP.RowHeadersVisible = false;
             dgvDSSP.RowHeadersWidth = 51;
             dgvDSSP.RowTemplate.Height = 29;
-            dgvDSSP.Size = new Size(1566, 364);
+            dgvDSSP.Size = new Size(1566, 358);
             dgvDSSP.TabIndex = 7;
-            // 
-            // cmbGiamGia
-            // 
-            cmbGiamGia.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            cmbGiamGia.FormattingEnabled = true;
-            cmbGiamGia.Location = new Point(816, 167);
-            cmbGiamGia.Name = "cmbGiamGia";
-            cmbGiamGia.Size = new Size(149, 33);
-            cmbGiamGia.TabIndex = 27;
             // 
             // Frm_HoaDonCT
             // 
@@ -471,5 +495,7 @@
         private GroupBox groupBox4;
         private DataGridView dgvDSSP;
         private ComboBox cmbGiamGia;
+        private TextBox txtTenSP;
+        private Label label8;
     }
 }

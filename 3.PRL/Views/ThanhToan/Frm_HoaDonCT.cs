@@ -35,6 +35,7 @@ namespace _3.PRL.Views.ThanhToan
         {
             HoaDon();
             BienThe();
+            GiamGia();
             LoadGridHDCT(null);
         }
 
@@ -68,12 +69,12 @@ namespace _3.PRL.Views.ThanhToan
                 int selectedIndex = cmbBienThe.SelectedIndex;
                 Guid selectedId = _idBt[selectedIndex];
 
-                var lstBienThe = _bienTheService.GetBienThe(null).OrderBy(a=>a.MaBienThe).ToList();
+                var lstBienThe = _bienTheService.GetBienThe(null).OrderBy(a => a.MaBienThe).ToList();
                 var bt = lstBienThe.FirstOrDefault(a => a.IdBienThe == selectedId);
-                
-                if(bt != null)
+
+                if (bt != null)
                 {
-                    if(bt.GiaTien != null)
+                    if (bt.GiaTien != null)
                     {
                         txtDonGia.Text = bt.GiaTien.ToString();
                     }
@@ -85,23 +86,58 @@ namespace _3.PRL.Views.ThanhToan
             }
         }
 
+        private void txtTenSP_TextChanged(object sender, EventArgs e)
+        {
+            //if (cmbBienThe.SelectedIndex >= 0)
+            //{
+            //    int selectedIndex = cmbBienThe.SelectedIndex;
+            //    Guid selectedId = _idBt[selectedIndex];
+
+            //    var lstBienThe = _bienTheService.GetBienThe(null).OrderBy(a => a.MaBienThe).ToList();
+            //    var bt = lstBienThe.FirstOrDefault(a => a.IdBienThe == selectedId);
+
+            //    if (bt != null)
+            //    {
+            //        if (bt != null)
+            //        {
+            //            txtTenSP = bt.GiaTien.ToString();
+            //        }
+            //        else
+            //        {
+            //            txtTenSP.Text = string.Empty;
+            //        }
+            //    }
+            //}
+        }
+
+        private void GiamGia()
+        {
+            foreach (var item in _giamGiaService.GetGiamGia().OrderBy(a => a.GiaTri))
+            {
+                _idGg.Add(item.IdGiamGia);
+                cmbGiamGia.Items.Add(item.GiaTri);
+            }
+            cmbBienThe.SelectedIndex = -1;
+        }
+
         private void LoadGridHDCT(string input)
         {
             int stt = 1;
-            dgvDSSP.ColumnCount = 8;
+            dgvDSSP.ColumnCount = 9;
             dgvDSSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDSSP.Columns[0].Name = "ID";
             dgvDSSP.Columns[0].Visible = false;
             dgvDSSP.Columns[1].Name = "STT";
-            dgvDSSP.Columns[1].Width = 70;
+            dgvDSSP.Columns[1].Width = 50;
             dgvDSSP.Columns[2].Name = "Mã HD";
             dgvDSSP.Columns[2].Width = 120;
             dgvDSSP.Columns[3].Name = "Mã Biến Thể";
             dgvDSSP.Columns[4].Name = "Số Lượng";
             dgvDSSP.Columns[4].Width = 150;
             dgvDSSP.Columns[5].Name = "Đơn Giá";
-            dgvDSSP.Columns[6].Name = "Giảm Giá";
-            dgvDSSP.Columns[7].Name = "Thành Tiền";
+            dgvDSSP.Columns[6].Name = "Giảm Giá %";
+            dgvDSSP.Columns[7].Name = "Giảm Giá VND";
+            dgvDSSP.Columns[8].Name = "Thành Tiền";
 
             dgvDSSP.Rows.Clear();
 
@@ -114,15 +150,24 @@ namespace _3.PRL.Views.ThanhToan
                 string idHoaDon = item.IdHoaDon.ToString();
                 string MaHD = idHoaDon.Substring(idHoaDon.Length - 5);
 
-                var giamGia = item.SoLuong * BT?.GiaTien * Convert.ToDecimal(GG?.GiaTri) / 100;
+                var sum = item.SoLuong * BT?.GiaTien;
 
-                var thanhTien = item.SoLuong * BT?.GiaTien - giamGia;
+                var giamGia = sum * Convert.ToDecimal(GG?.GiaTri) / 100;
 
-                dgvDSSP.Rows.Add(item.IdHoaDonCt, stt++, MaHD, BT.MaBienThe, item.SoLuong, BT.GiaTien, giamGia, thanhTien);
+                var thanhTien = sum - giamGia;
+
+                dgvDSSP.Rows.Add(item.IdHoaDonCt, stt++, MaHD.ToUpper(), BT.MaBienThe, item.SoLuong, BT.GiaTien, GG.GiaTri, giamGia, thanhTien);
             }
         }
 
-        
+        private void btnHoaDon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_HoaDon frm_HoaDon = new Frm_HoaDon();
+            frm_HoaDon.Show();
+        }
+
+
     }
 }
 

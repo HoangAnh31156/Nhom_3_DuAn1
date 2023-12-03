@@ -77,7 +77,6 @@
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
-            DialogImage = new OpenFileDialog();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -624,10 +623,6 @@
             label1.TabIndex = 0;
             label1.Text = "Màu sắc";
             // 
-            // DialogImage
-            // 
-            DialogImage.FileName = "DialogImage";
-            // 
             // Frm_ThemBienThe
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -712,7 +707,6 @@
         private Label label11;
         private DataGridView GridVariant;
         private PictureBox picImage;
-        private OpenFileDialog DialogImage;
         private TextBox txtBankinh;
         private Label label12;
         private Button btnAnh;

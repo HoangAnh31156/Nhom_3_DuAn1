@@ -100,7 +100,7 @@ namespace _3.PRL.Views
             dgvDSHD.Columns[1].Name = "STT";
             dgvDSHD.Columns[1].Width = 50;
             dgvDSHD.Columns[2].Name = "Mã HD";
-            dgvDSHD.Columns[2].Width = 100;
+            dgvDSHD.Columns[2].Width = 130;
             dgvDSHD.Columns[3].Name = "Khách Hàng";
             dgvDSHD.Columns[4].Name = "Nhân Viên";
             dgvDSHD.Columns[5].Name = "Ngày Tạo";
@@ -128,7 +128,7 @@ namespace _3.PRL.Views
                 }
 
                 string idHoaDon = item.IdHoaDon.ToString();
-                string MaHD = idHoaDon.Substring(idHoaDon.Length - 5);
+                string MaHD = idHoaDon.Substring(idHoaDon.Length - 10);
 
                 dgvDSHD.Rows.Add(item.IdHoaDon, stt++, MaHD.ToUpper(), KH?.TenKh, NV?.Ten,
                     item.NgayGd.ToString(), item.TrangThai == true ? "Đã thanh toán" : "Chưa thanh toán",
