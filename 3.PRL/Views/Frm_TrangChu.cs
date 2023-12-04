@@ -1,6 +1,7 @@
 ﻿using _1.DAL.Model2s;
 using _3.PRL.Views.DangNhap;
 using _3.PRL.Views.GiamGia;
+using _3.PRL.Views.ThanhToan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,8 +93,8 @@ namespace _3.PRL.Views
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_HoaDon frm_ThanhToan = new Frm_HoaDon();
-            frm_ThanhToan.Show();
+            Frm_HoaDonBanHang frm = new();
+            frm.Show();
         }
 
         private void btnTaiKhoan_Click(object sender, EventArgs e)
