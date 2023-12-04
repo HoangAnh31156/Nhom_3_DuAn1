@@ -10,6 +10,7 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -220,6 +221,41 @@ namespace _3.PRL.Views.SanPham
                 MessageBox.Show("Thêm thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private bool CheckFormat()
+        {
+            if (!Regex.IsMatch(txtGiaTien.Text, @"\d+(\.\d+)?"))
+            {
+                MessageBox.Show("Giá tiền phải là số");
+                return false;
+            }
+            else if (!Regex.IsMatch(txtSoluong.Text, @"^[0-9]+$"))
+            {
+                MessageBox.Show("Số lượng phải là số");
+                return false;
+            }
+            if (!Regex.IsMatch(txtCongSuat.Text, @"\d+(\.\d+)?"))
+            {
+                MessageBox.Show("Công suất phải là số");
+                return false;
+            }
+            if (!Regex.IsMatch(txtchieucao.Text, @"\d+(\.\d+)?"))
+            {
+                MessageBox.Show("Chiều cao phải là số");
+                return false;
+            }
+            if (!Regex.IsMatch(txtBankinh.Text, @"\d+(\.\d+)?"))
+            {
+                MessageBox.Show("Bán kính phải là số");
+                return false;
+            }
+            if (!Regex.IsMatch(txtTGBaoHanh.Text, @"^[0-9]+$"))
+            {
+                MessageBox.Show("TG Bảo hành phải là số");
+                return false;
+            }
+            return true;
+        }
         private void btnTCSanPham_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -244,7 +280,7 @@ namespace _3.PRL.Views.SanPham
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (checkEmpty() && checkExists())
+            if (checkEmpty() && checkExists() && CheckFormat())
             {
                 AddVariant();
             }
@@ -357,7 +393,7 @@ namespace _3.PRL.Views.SanPham
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (checkEmpty() && checkExistsUD())
+            if (checkEmpty() && checkExistsUD() &&CheckFormat())
             {
                 UpdateVariant();
             }
