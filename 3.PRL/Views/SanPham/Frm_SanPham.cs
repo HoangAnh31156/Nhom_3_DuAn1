@@ -138,7 +138,7 @@ namespace _3.PRL.Views
                     pictureBox.Size = new Size(190, 170);
                     pictureBox.BorderStyle = BorderStyle.FixedSingle;
                     pictureBox.Location = new Point(cardWidth - pictureBox.Width - pictureOffsetX, 15); // Đặt vị trí cố định cho pictureBox
-                    if (lst[i].Hinh == null)
+                    if (lst[i].Hinh[0] != null)
                     {
                         using (MemoryStream ms = new MemoryStream(lst[i].Hinh[0]))
                         {
