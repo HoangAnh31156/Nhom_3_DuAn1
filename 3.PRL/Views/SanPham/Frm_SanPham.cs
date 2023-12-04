@@ -27,6 +27,10 @@ namespace _3.PRL.Views
             _BienTheService = new BienTheService();
             _SanphamService = new SanPhamService();
             LoadSP(sd, sc);
+            if (st < 2)
+            {
+                button1.Enabled = false;
+            }
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -78,7 +82,7 @@ namespace _3.PRL.Views
                        }).ToArray();
             if (txtSearch.Text != null)
             {
-                lst = lst.Where(x => x.Ten.Contains(txtSearch.Text)).ToArray();
+                lst = lst.Where(x => x.Ten.ToLower().Contains(txtSearch.Text.ToLower())).ToArray();
             }
             int d = 0;
             int cardWidth = 456; // Kích thước chiều rộng của card
@@ -164,10 +168,6 @@ namespace _3.PRL.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < panels.Count; i++)
-            {
-                this.Controls.Remove(panels[i]);
-            }
             var lst = (from b in _SanphamService.GetSanPham(null)
                        join a in _BienTheService.GetBienThe(null)
                        on b.IdSanPham equals a.IdSanPham
@@ -180,13 +180,24 @@ namespace _3.PRL.Views
                        }).ToArray();
             if (lst.Count() > st * 9)
             {
+                for (int i = 0; i < panels.Count; i++)
+                {
+                    this.Controls.Remove(panels[i]);
+                }
                 sd += 9;
                 sc += 9;
                 st += 1;
+                if (st < 2)
+                {
+                    button1.Enabled = false;
+                }
+                else
+                {
+                    button1.Enabled = true;
+                }
                 LoadSP(sd, sc);
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < panels.Count; i++)
@@ -198,9 +209,16 @@ namespace _3.PRL.Views
                 sd -= 9;
                 sc -= 9;
                 st -= 1;
+                if (st < 2)
+                {
+                    button1.Enabled = false;
+                }
+                else
+                {
+                    button1.Enabled = true;
+                }
                 LoadSP(sd, sc);
             }
-
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

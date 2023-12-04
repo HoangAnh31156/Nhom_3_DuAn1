@@ -357,7 +357,7 @@ namespace _3.PRL.Views.SanPham
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (checkEmpty() && checkExists())
+            if (checkEmpty() && checkExistsUD())
             {
                 UpdateVariant();
             }
@@ -434,6 +434,21 @@ namespace _3.PRL.Views.SanPham
             if (txtMaBT.Text != null)
             {
                 if (lst.FirstOrDefault(x => x.MaBienThe == txtMaBT.Text) == null)
+                {
+                    return true;
+                }
+                MessageBox.Show("Biến thể đã tồn tại");
+                return false;
+            }
+            return false;
+        }
+
+        private bool checkExistsUD()
+        {
+            var lst = _BienTheService.GetBienThe(null);
+            if (txtMaBT.Text != null)
+            {
+                if (lst.Where(x => x.MaBienThe == txtMaBT.Text).Count() <= 1)
                 {
                     return true;
                 }

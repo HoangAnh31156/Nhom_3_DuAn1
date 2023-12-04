@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -220,22 +221,112 @@ namespace _3.PRL.Views.SanPham
         {
             if (grbLSP.BackColor == Color.LightBlue)
             {
-                AddLoaiSP();
+                if (checkEmpty(cboLoaiSP.Text) &&
+                    checkExistLoaiSP(_LoaiSPService.GetLoaiSanPham(null), cboLoaiSP.Text)
+                    && checkFormat(cboLoaiSP.Text))
+                {
+                    AddLoaiSP();
+                }
             }
             if (grbSC.BackColor == Color.LightBlue)
             {
-                AddSoCanh();
+                if (checkEmpty(cboSoCanh.Text) &&
+                    checkExistSocanh(_soCanhService.GetSoCanh(null), cboSoCanh.Text)
+                    && checkFormatSC(cboSoCanh.Text))
+                {
+                    AddSoCanh();
+                }
             }
             if (grbMS.BackColor == Color.LightBlue)
             {
-                AddMau();
+                if (checkEmpty(cboMau.Text) &&
+                    checkExistMau(_mauSacService.GetMau(null), cboMau.Text)
+                    && checkFormat(cboMau.Text))
+                {
+                    AddMau();
+                }
             }
             if (grbCL.BackColor == Color.LightBlue)
             {
-                AddChatLieu();
+                if (checkEmpty(cboChatLieu.Text) &&
+                    checkExistChatLieu(_chatLieuService.GetChatLieu(null), cboChatLieu.Text)
+                    && checkFormat(cboChatLieu.Text))
+                {
+                    AddChatLieu();
+                }
             }
         }
+        private bool checkEmpty(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                return false;
+            }
+            return true;
+        }
 
+        private bool checkFormat(string text)
+        {
+            string regex = @"^[A-Za-z0-9\p{L} ]+$";
+            if (!Regex.IsMatch(text, regex))
+            {
+                MessageBox.Show("Vui lòng chỉ nhập chữ cái và số!");
+                return false;
+            }
+            return true;
+        }
+
+        private bool checkFormatSC(string text)
+        {
+            string regex = @"^[0-9]+$";
+            if (!Regex.IsMatch(text, regex))
+            {
+                MessageBox.Show("Số cánh phải là số nguyên");
+                return false;
+            }
+            return true;
+        }
+
+        private bool checkExistMau(List<Mau> lst, string text)
+        {
+            if (lst.Any(x => x.TenMau.ToLower() == text))
+            {
+                MessageBox.Show("Màu đã tồn tại");
+                return false;
+            }
+            return true;
+        }
+
+        private bool checkExistChatLieu(List<ChatLieu> lst, string text)
+        {
+            if (lst.Any(x => x.TenChatLieu.ToLower() == text))
+            {
+                MessageBox.Show("Chất liệu đã tồn tại");
+                return false;
+            }
+            return true;
+        }
+
+        private bool checkExistSocanh(List<SoCanh> lst, string text)
+        {
+            if (lst.Any(x => x.SoCanh1 == int.Parse(text)))
+            {
+                MessageBox.Show("Số cánh đã tồn tại");
+                return false;
+            }
+            return true;
+        }
+
+        private bool checkExistLoaiSP(List<LoaiSanPham> lst, string text)
+        {
+            if (lst.Where(x => x.TenLoai.ToLower() == text) != null)
+            {
+                MessageBox.Show("Tên loại đã tồn tại");
+                return false;
+            }
+            return true;
+        }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
         }

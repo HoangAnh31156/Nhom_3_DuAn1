@@ -198,7 +198,7 @@ namespace _3.PRL.Views.SanPham
                 MessageBox.Show("Chưa nhập tên");
                 return false;
             }
-            if (cboLoaiSp.SelectedIndex == -1)
+            if (cboLoaiSp.SelectedIndex < 0)
             {
                 MessageBox.Show("Chưa chọn loại sản phẩm");
                 return false;
@@ -229,6 +229,20 @@ namespace _3.PRL.Views.SanPham
             }
             return false;
         }
+        private bool CheckExistsUD()
+        {
+            var lst = _SanPhamService.GetSanPham(null);
+            if (txtMaSP.Text != null)
+            {
+                if (lst.Where(x => x.MaSanPham == txtMaSP.Text).Count() <= 1)
+                {
+                    return true;
+                }
+                MessageBox.Show("Sản phẩm đã tồn tại");
+                return false;
+            }
+            return false;
+        }
         private bool CheckFormat()
         {
             string regexx = @"^[A-Z0-9]+$";
@@ -237,12 +251,12 @@ namespace _3.PRL.Views.SanPham
                 MessageBox.Show("Mã sản phẩm chỉ chứa kí tự hoa và số");
                 return false;
             }
-            if (!Regex.IsMatch(txtSoLuong.Text, @"^[0-9]+$"))
+            else if (!Regex.IsMatch(txtSoLuong.Text, @"^[0-9]+$"))
             {
                 MessageBox.Show("Số lượng phải là số");
                 return false;
             }
-            if (!Regex.IsMatch(txtTen.Text, @"^[a-zA-Z0-9]+$"))
+            if (!Regex.IsMatch(txtTen.Text, @"^[A-Za-z0-9\p{L} ]+$"))
             {
                 MessageBox.Show("Tên chỉ chứa chữ cái và số");
                 return false;
@@ -252,12 +266,18 @@ namespace _3.PRL.Views.SanPham
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            AddSP();
+            if(CheckEmpty() && CheckExists() && CheckFormat())
+            {
+                AddSP();
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            SuaSP();
+            if (CheckEmpty() && CheckExistsUD() && CheckFormat())
+            {
+                Update();
+            }
         }
 
         private void GirdSp_CellClick(object sender, DataGridViewCellEventArgs e)
