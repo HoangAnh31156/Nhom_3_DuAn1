@@ -33,7 +33,7 @@
             pbBack = new PictureBox();
             pbDangXuat = new PictureBox();
             groupBox1 = new GroupBox();
-            dgvHoaDon = new DataGridView();
+            comboBox1 = new ComboBox();
             btnLamMoi = new Button();
             btnSua = new Button();
             btnThem = new Button();
@@ -48,6 +48,7 @@
             dtpNgayTao = new DateTimePicker();
             label4 = new Label();
             label3 = new Label();
+            dgvHoaDon = new DataGridView();
             groupBox2 = new GroupBox();
             button1 = new Button();
             button2 = new Button();
@@ -64,15 +65,19 @@
             label8 = new Label();
             cmbBienThe = new ComboBox();
             label5 = new Label();
-            dgvHDCT = new DataGridView();
             textBox1 = new TextBox();
+            groupBox4 = new GroupBox();
+            groupBox5 = new GroupBox();
+            dgvHDCT = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
             groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
             groupBox2.SuspendLayout();
+            groupBox4.SuspendLayout();
+            groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHDCT).BeginInit();
             SuspendLayout();
             // 
@@ -114,7 +119,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dgvHoaDon);
+            groupBox1.Controls.Add(comboBox1);
             groupBox1.Controls.Add(btnLamMoi);
             groupBox1.Controls.Add(btnSua);
             groupBox1.Controls.Add(btnThem);
@@ -135,50 +140,46 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Hóa đơn";
             // 
-            // dgvHoaDon
+            // comboBox1
             // 
-            dgvHoaDon.AllowUserToAddRows = false;
-            dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHoaDon.BackgroundColor = SystemColors.ActiveCaption;
-            dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHoaDon.Location = new Point(0, 391);
-            dgvHoaDon.Name = "dgvHoaDon";
-            dgvHoaDon.ReadOnly = true;
-            dgvHoaDon.RowHeadersVisible = false;
-            dgvHoaDon.RowHeadersWidth = 51;
-            dgvHoaDon.RowTemplate.Height = 29;
-            dgvHoaDon.Size = new Size(907, 330);
-            dgvHoaDon.TabIndex = 38;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(673, 40);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(188, 33);
+            comboBox1.TabIndex = 38;
             // 
             // btnLamMoi
             // 
             btnLamMoi.ForeColor = SystemColors.Highlight;
-            btnLamMoi.Location = new Point(673, 239);
+            btnLamMoi.Location = new Point(673, 304);
             btnLamMoi.Name = "btnLamMoi";
             btnLamMoi.Size = new Size(188, 54);
             btnLamMoi.TabIndex = 37;
             btnLamMoi.Text = "Làm Mới";
             btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnSua
             // 
             btnSua.ForeColor = SystemColors.Highlight;
-            btnSua.Location = new Point(673, 142);
+            btnSua.Location = new Point(673, 210);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(188, 54);
             btnSua.TabIndex = 36;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnThem
             // 
             btnThem.ForeColor = SystemColors.Highlight;
-            btnThem.Location = new Point(673, 51);
+            btnThem.Location = new Point(673, 114);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(188, 54);
             btnThem.TabIndex = 35;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // groupBox3
             // 
@@ -195,7 +196,7 @@
             // 
             rdbChuaThanhToan.AutoSize = true;
             rdbChuaThanhToan.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            rdbChuaThanhToan.Location = new Point(209, 45);
+            rdbChuaThanhToan.Location = new Point(339, 45);
             rdbChuaThanhToan.Name = "rdbChuaThanhToan";
             rdbChuaThanhToan.Size = new Size(174, 29);
             rdbChuaThanhToan.TabIndex = 1;
@@ -207,7 +208,7 @@
             // 
             rdbDaThanhToan.AutoSize = true;
             rdbDaThanhToan.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            rdbDaThanhToan.Location = new Point(6, 45);
+            rdbDaThanhToan.Location = new Point(47, 45);
             rdbDaThanhToan.Name = "rdbDaThanhToan";
             rdbDaThanhToan.Size = new Size(153, 29);
             rdbDaThanhToan.TabIndex = 0;
@@ -228,7 +229,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(18, 215);
+            label1.Location = new Point(32, 217);
             label1.Name = "label1";
             label1.Size = new Size(140, 25);
             label1.TabIndex = 32;
@@ -247,7 +248,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(18, 157);
+            label2.Location = new Point(32, 159);
             label2.Name = "label2";
             label2.Size = new Size(144, 25);
             label2.TabIndex = 30;
@@ -275,7 +276,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(15, 39);
+            label4.Location = new Point(32, 43);
             label4.Name = "label4";
             label4.Size = new Size(88, 25);
             label4.TabIndex = 27;
@@ -285,11 +286,27 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(15, 95);
+            label3.Location = new Point(32, 101);
             label3.Name = "label3";
             label3.Size = new Size(98, 25);
             label3.TabIndex = 26;
             label3.Text = "Nhân viên";
+            // 
+            // dgvHoaDon
+            // 
+            dgvHoaDon.AllowUserToAddRows = false;
+            dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHoaDon.BackgroundColor = SystemColors.ActiveCaption;
+            dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHoaDon.Location = new Point(6, 16);
+            dgvHoaDon.Name = "dgvHoaDon";
+            dgvHoaDon.ReadOnly = true;
+            dgvHoaDon.RowHeadersVisible = false;
+            dgvHoaDon.RowHeadersWidth = 51;
+            dgvHoaDon.RowTemplate.Height = 29;
+            dgvHoaDon.Size = new Size(907, 330);
+            dgvHoaDon.TabIndex = 38;
+            dgvHoaDon.CellClick += dgvHoaDon_CellClick;
             // 
             // groupBox2
             // 
@@ -308,7 +325,6 @@
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(cmbBienThe);
             groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(dgvHDCT);
             groupBox2.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox2.Location = new Point(966, 109);
             groupBox2.Name = "groupBox2";
@@ -351,7 +367,7 @@
             // 
             cmbGiamGia.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cmbGiamGia.FormattingEnabled = true;
-            cmbGiamGia.Location = new Point(164, 619);
+            cmbGiamGia.Location = new Point(164, 661);
             cmbGiamGia.Name = "cmbGiamGia";
             cmbGiamGia.Size = new Size(383, 33);
             cmbGiamGia.TabIndex = 51;
@@ -360,7 +376,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(553, 626);
+            label7.Location = new Point(553, 664);
             label7.Name = "label7";
             label7.Size = new Size(28, 25);
             label7.TabIndex = 50;
@@ -370,7 +386,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(553, 564);
+            label6.Location = new Point(553, 603);
             label6.Name = "label6";
             label6.Size = new Size(51, 25);
             label6.TabIndex = 49;
@@ -380,7 +396,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(23, 627);
+            label9.Location = new Point(27, 667);
             label9.Name = "label9";
             label9.Size = new Size(87, 25);
             label9.TabIndex = 48;
@@ -389,7 +405,7 @@
             // txtDonGia
             // 
             txtDonGia.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDonGia.Location = new Point(164, 561);
+            txtDonGia.Location = new Point(164, 596);
             txtDonGia.Name = "txtDonGia";
             txtDonGia.Size = new Size(383, 32);
             txtDonGia.TabIndex = 47;
@@ -397,7 +413,7 @@
             // txtSoLuong
             // 
             txtSoLuong.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSoLuong.Location = new Point(164, 500);
+            txtSoLuong.Location = new Point(164, 531);
             txtSoLuong.Name = "txtSoLuong";
             txtSoLuong.Size = new Size(383, 32);
             txtSoLuong.TabIndex = 46;
@@ -406,7 +422,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(23, 565);
+            label10.Location = new Point(27, 601);
             label10.Name = "label10";
             label10.Size = new Size(80, 25);
             label10.TabIndex = 45;
@@ -416,7 +432,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(23, 507);
+            label11.Location = new Point(27, 535);
             label11.Name = "label11";
             label11.Size = new Size(91, 25);
             label11.TabIndex = 44;
@@ -425,7 +441,7 @@
             // txtTenSP
             // 
             txtTenSP.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTenSP.Location = new Point(164, 449);
+            txtTenSP.Location = new Point(164, 466);
             txtTenSP.Name = "txtTenSP";
             txtTenSP.Size = new Size(383, 32);
             txtTenSP.TabIndex = 43;
@@ -434,7 +450,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(23, 456);
+            label8.Location = new Point(27, 469);
             label8.Name = "label8";
             label8.Size = new Size(130, 25);
             label8.TabIndex = 42;
@@ -444,35 +460,21 @@
             // 
             cmbBienThe.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cmbBienThe.FormattingEnabled = true;
-            cmbBienThe.Location = new Point(164, 387);
+            cmbBienThe.Location = new Point(164, 400);
             cmbBienThe.Name = "cmbBienThe";
             cmbBienThe.Size = new Size(383, 33);
             cmbBienThe.TabIndex = 41;
+            cmbBienThe.SelectedIndexChanged += cmbBienThe_SelectedIndexChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(22, 396);
+            label5.Location = new Point(27, 403);
             label5.Name = "label5";
             label5.Size = new Size(117, 25);
             label5.TabIndex = 40;
             label5.Text = "Mã Biến Thể";
-            // 
-            // dgvHDCT
-            // 
-            dgvHDCT.AllowUserToAddRows = false;
-            dgvHDCT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHDCT.BackgroundColor = SystemColors.ActiveCaption;
-            dgvHDCT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHDCT.Location = new Point(0, 37);
-            dgvHDCT.Name = "dgvHDCT";
-            dgvHDCT.ReadOnly = true;
-            dgvHDCT.RowHeadersVisible = false;
-            dgvHDCT.RowHeadersWidth = 51;
-            dgvHDCT.RowTemplate.Height = 29;
-            dgvHDCT.Size = new Size(893, 330);
-            dgvHDCT.TabIndex = 39;
             // 
             // textBox1
             // 
@@ -482,11 +484,48 @@
             textBox1.Size = new Size(474, 27);
             textBox1.TabIndex = 41;
             // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(dgvHoaDon);
+            groupBox4.Location = new Point(41, 496);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(913, 346);
+            groupBox4.TabIndex = 38;
+            groupBox4.TabStop = false;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(dgvHDCT);
+            groupBox5.Location = new Point(966, 144);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(904, 346);
+            groupBox5.TabIndex = 56;
+            groupBox5.TabStop = false;
+            // 
+            // dgvHDCT
+            // 
+            dgvHDCT.AllowUserToAddRows = false;
+            dgvHDCT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHDCT.BackgroundColor = SystemColors.ActiveCaption;
+            dgvHDCT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHDCT.Location = new Point(6, 16);
+            dgvHDCT.Name = "dgvHDCT";
+            dgvHDCT.ReadOnly = true;
+            dgvHDCT.RowHeadersVisible = false;
+            dgvHDCT.RowHeadersWidth = 51;
+            dgvHDCT.RowTemplate.Height = 29;
+            dgvHDCT.Size = new Size(898, 324);
+            dgvHDCT.TabIndex = 38;
+            dgvHDCT.CellClick += dgvHDCT_CellClick;
+            // 
             // Frm_HoaDonBanHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1882, 953);
+            Controls.Add(groupBox5);
+            Controls.Add(groupBox4);
             Controls.Add(textBox1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -495,16 +534,19 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Frm_HoaDonBanHang";
             WindowState = FormWindowState.Maximized;
+            Load += Frm_HoaDonBanHang_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvHDCT).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -547,7 +589,10 @@
         private Label label8;
         private ComboBox cmbBienThe;
         private Label label5;
-        private DataGridView dgvHDCT;
         private TextBox textBox1;
+        private GroupBox groupBox4;
+        private GroupBox groupBox5;
+        private DataGridView dgvHDCT;
+        private ComboBox comboBox1;
     }
 }

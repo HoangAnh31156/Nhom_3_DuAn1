@@ -43,7 +43,7 @@ namespace _1.DAL.Repositories
                 return _context.HoaDonCts.ToList();
             }
 
-            return _context.HoaDonCts.Where(a => a.IdHoaDon.ToString().Substring(a.IdHoaDon.ToString().Length - 5).Contains(input.ToLower())).ToList();
+            return _context.HoaDonCts.Where(a => a.IdHoaDon.ToString().Substring(a.IdHoaDon.ToString().Length - 10).Contains(input.ToLower())).ToList();
 
         }
 

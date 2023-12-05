@@ -466,3 +466,4 @@ E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-window
 C:\Users\84385\Source\Repos\Nhom_3_DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.ThanhToan.Frm_HoaDonCT.resources
 D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.ThanhToan.Frm_HoaDonBanHang.resources
 D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.ThanhToan.Frm_HoaDonCT.resources
+E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.ThanhToan.Frm_HoaDonBanHang.resources
