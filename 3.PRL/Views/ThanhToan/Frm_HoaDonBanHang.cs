@@ -268,6 +268,7 @@ namespace _3.PRL.Views.ThanhToan
 
             var selectedHoaDonCT = dgvHDCT.Rows[rowIndex];
             _id = Guid.Parse(selectedHoaDonCT.Cells[0].Value.ToString());
+            
             cmbBienThe.Text = selectedHoaDonCT.Cells[3].Value.ToString();
 
             txtSoLuong.Text = selectedHoaDonCT.Cells[5].Value.ToString();
@@ -291,7 +292,7 @@ namespace _3.PRL.Views.ThanhToan
                     hd.IdKh = _idKH[cmbKhachHang.SelectedIndex];
                     hd.IdNv = _idNV[cmbNhanVien.SelectedIndex];
                     hd.IdVc = _idVC[cmbVanChuyen.SelectedIndex];
-                    O
+                    
                     if (rdbChuaThanhToan.Checked)
                     {
                         hd.TrangThai = false;
@@ -388,37 +389,72 @@ namespace _3.PRL.Views.ThanhToan
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (CheckComboxBoxHD() == false)
+            if (comboBox1.SelectedIndex == 0)
             {
-                return;
+                if (CheckComboxBoxHD() == false)
+                {
+                    return;
+                }
+                else
+                {
+                    HoaDon updateHD = new HoaDon();
+                    updateHD.NgayGd = dtpNgayTao.Value;
+                    updateHD.IdKh = _idKH[cmbKhachHang.SelectedIndex];
+                    updateHD.IdNv = _idNV[cmbNhanVien.SelectedIndex];
+                    updateHD.IdVc = _idVC[cmbVanChuyen.SelectedIndex];
+
+                    if (rdbChuaThanhToan.Checked)
+                    {
+                        updateHD.TrangThai = false;
+                    }
+                    else
+                    {
+                        updateHD.TrangThai = true;
+                    }
+
+                    if (_hoaDonService.UpdateHoaDon(_id, updateHD))
+                    {
+                        MessageBox.Show("Sửa Hóa đơn thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sửa Hóa đơn thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    LoadGridHD(null);
+                }
+            }else if (comboBox1.SelectedIndex == 1)
+            {
+                if (CheckComboBoxHDCT() == false)
+                {
+                    return;
+                }
+                else
+                {
+                    HoaDonCt updateHDCT = new HoaDonCt();
+                    updateHDCT.IdHoaDonCt = new Guid();
+                    updateHDCT.IdBienThe = _idBT[cmbBienThe.SelectedIndex];
+                    updateHDCT.IdGiamGia = _idGG[cmbGiamGia.SelectedIndex];
+                    updateHDCT.Gia = Convert.ToDecimal(txtDonGia.Text);
+
+                    var option2 = MessageBox.Show("Bạn muốn tạo Hóa Đơn CT không ?", "Thông Báo !", MessageBoxButtons.YesNo);
+                    if (option2 == DialogResult.Yes)
+                    {
+                        if (_hdctService.UpdateHoaDonCT(_id ,updateHDCT))
+                        {
+                            MessageBox.Show("Sửa Hóa đơn CT thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            LoadGridHDCT(null);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sửa Hóa đơn CT thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
             }
             else
             {
-                HoaDon updateHD = new HoaDon();
-                updateHD.NgayGd = dtpNgayTao.Value;
-                updateHD.IdKh = _idKH[cmbKhachHang.SelectedIndex];
-                updateHD.IdNv = _idNV[cmbNhanVien.SelectedIndex];
-                updateHD.IdVc = _idVC[cmbVanChuyen.SelectedIndex];
-
-                if (rdbChuaThanhToan.Checked)
-                {
-                    updateHD.TrangThai = false;
-                }
-                else
-                {
-                    updateHD.TrangThai = true;
-                }
-
-                if (_hoaDonService.UpdateHoaDon(_id, updateHD))
-                {
-                    MessageBox.Show("Sửa Hóa đơn thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                }
-                else
-                {
-                    MessageBox.Show("Sửa Hóa đơn thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                LoadGridHD(null);
+                MessageBox.Show("Phải chọn hóa đơn cần sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
