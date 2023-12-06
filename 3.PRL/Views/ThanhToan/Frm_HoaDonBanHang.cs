@@ -190,6 +190,19 @@ namespace _3.PRL.Views.ThanhToan
                     Convert.ToDecimal(VC?.TongTien).ToString("N0"),
                     Convert.ToDecimal(TongTienCaShip).ToString("N0"));
             }
+            RowsColor();
+        }
+
+        private void RowsColor()
+        {
+            for (int i = 0; i < dgvHoaDon.Rows.Count; i++)
+            {
+                string tt = (dgvHoaDon.Rows[i].Cells[6].Value.ToString());
+                if (tt.Equals("Chưa thanh toán"))
+                {
+                    dgvHoaDon.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
         }
 
         private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -335,7 +348,7 @@ namespace _3.PRL.Views.ThanhToan
 
         private bool CheckComboBoxHDCT()
         {
-            if(cmbMaHD.SelectionLength == -1)
+            if (cmbMaHD.SelectedIndex == -1)
             {
                 MessageBox.Show("Phải chọn mã HD!", "Thông Báo !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -345,14 +358,14 @@ namespace _3.PRL.Views.ThanhToan
                 MessageBox.Show("Phải chọn sản phẩm!", "Thông Báo !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if(txtSoLuong.Text.Length == 0)
+            if (txtSoLuong.Text.Length == 0)
             {
                 MessageBox.Show("Số lượng phải lớn hơn 0!", "Thông Báo !", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
         }
-         
+
         private void LoadMaHD()
         {
             foreach (var item in _hoaDonService.GetHoaDon(null))
@@ -419,9 +432,8 @@ namespace _3.PRL.Views.ThanhToan
 
             var selectedHoaDonCT = dgvHDCT.Rows[rowIndex];
             _id = Guid.Parse(selectedHoaDonCT.Cells[0].Value.ToString());
-
+            cmbMaHD.Text = selectedHoaDonCT.Cells[2].Value.ToString();
             cmbBienThe.Text = selectedHoaDonCT.Cells[3].Value.ToString();
-
             txtSoLuong.Text = selectedHoaDonCT.Cells[5].Value.ToString();
             txtDonGia.Text = selectedHoaDonCT.Cells[6].Value.ToString();
             cmbGiamGia.Text = selectedHoaDonCT.Cells[7].Value.ToString();
@@ -468,6 +480,40 @@ namespace _3.PRL.Views.ThanhToan
                 }
             }
         }
-        
+
+        private void btnSuaHDCT_Click(object sender, EventArgs e)
+        {
+            if (CheckComboBoxHDCT() == false)
+            {
+                return;
+            }
+            else
+            {
+                HoaDonCt updateHDCT = new HoaDonCt();
+                updateHDCT.IdBienThe = _idBT[cmbBienThe.SelectedIndex];
+                updateHDCT.IdGiamGia = _idGG[cmbGiamGia.SelectedIndex];
+                updateHDCT.SoLuong = Convert.ToInt32(txtSoLuong.Text);
+                updateHDCT.IdHoaDon = _idHD[cmbMaHD.SelectedIndex];
+                            
+                var option = MessageBox.Show("Bạn sửa Hóa Đơn CT không ?", "Thông Báo !", MessageBoxButtons.YesNo);
+                if (option == DialogResult.Yes)
+                {
+                    if (_hdctService.UpdateHoaDonCT(_id, updateHDCT))
+                    {
+                        MessageBox.Show("Sửa Hóa đơn CT thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        LoadGridHDCT(null);
+                        LoadGridHD(null);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sửa Hóa đơn CT thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
     }
 }

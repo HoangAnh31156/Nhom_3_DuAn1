@@ -348,7 +348,6 @@
             cmbMaHD.Name = "cmbMaHD";
             cmbMaHD.Size = new Size(187, 33);
             cmbMaHD.TabIndex = 57;
-            
             // 
             // label12
             // 
@@ -389,6 +388,7 @@
             btnSuaHDCT.TabIndex = 53;
             btnSuaHDCT.Text = "Sửa HDCT";
             btnSuaHDCT.UseVisualStyleBackColor = true;
+            btnSuaHDCT.Click += btnSuaHDCT_Click;
             // 
             // btnThemHDCT
             // 
@@ -442,6 +442,7 @@
             // 
             // txtDonGia
             // 
+            txtDonGia.Enabled = false;
             txtDonGia.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txtDonGia.Location = new Point(382, 613);
             txtDonGia.Name = "txtDonGia";
@@ -497,7 +498,6 @@
             // cmbBienThe
             // 
             cmbBienThe.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            cmbBienThe.FormattingEnabled = true;
             cmbBienThe.Location = new Point(164, 467);
             cmbBienThe.Name = "cmbBienThe";
             cmbBienThe.Size = new Size(187, 33);
