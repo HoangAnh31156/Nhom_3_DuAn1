@@ -77,6 +77,7 @@
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
+            btnLamMoi = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -287,6 +288,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnLamMoi);
             groupBox2.Controls.Add(picImage);
             groupBox2.Controls.Add(btnSua);
             groupBox2.Controls.Add(btnThem);
@@ -312,9 +314,9 @@
             // 
             btnSua.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnSua.ForeColor = SystemColors.Highlight;
-            btnSua.Location = new Point(0, 473);
+            btnSua.Location = new Point(12, 464);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(360, 75);
+            btnSua.Size = new Size(183, 40);
             btnSua.TabIndex = 14;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
@@ -326,7 +328,7 @@
             btnThem.FlatAppearance.MouseOverBackColor = Color.White;
             btnThem.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnThem.ForeColor = SystemColors.Highlight;
-            btnThem.Location = new Point(0, 378);
+            btnThem.Location = new Point(12, 378);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(360, 75);
             btnThem.TabIndex = 0;
@@ -623,6 +625,18 @@
             label1.TabIndex = 0;
             label1.Text = "Màu sắc";
             // 
+            // btnLamMoi
+            // 
+            btnLamMoi.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLamMoi.ForeColor = SystemColors.Highlight;
+            btnLamMoi.Location = new Point(201, 464);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(171, 40);
+            btnLamMoi.TabIndex = 16;
+            btnLamMoi.Text = "Làm Mới";
+            btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
+            // 
             // Frm_ThemBienThe
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -710,5 +724,6 @@
         private TextBox txtBankinh;
         private Label label12;
         private Button btnAnh;
+        private Button btnLamMoi;
     }
 }

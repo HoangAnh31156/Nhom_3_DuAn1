@@ -393,7 +393,7 @@ namespace _3.PRL.Views.SanPham
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (checkEmpty() && checkExistsUD() &&CheckFormat())
+            if (checkEmpty() && checkExistsUD() && CheckFormat())
             {
                 UpdateVariant();
             }
@@ -497,6 +497,22 @@ namespace _3.PRL.Views.SanPham
         private void GridVariant_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             GetInfor();
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            cboChatLieu.Text = string.Empty;
+            cboMaSp.Text = string.Empty;
+            cboMau.Text = string.Empty;
+            cboSoCanh.Text = string.Empty;
+            txtMaBT.Text = string.Empty;
+            txtGiaTien.Text = string.Empty;
+            txtCongSuat.Text = string.Empty;
+            txtBankinh.Text = string.Empty;
+            txtchieucao.Text = string.Empty;
+            txtSoluong.Text = string.Empty;
+            txtTGBaoHanh.Text = string.Empty;
+            picImage.Image = null;
         }
     }
 }
