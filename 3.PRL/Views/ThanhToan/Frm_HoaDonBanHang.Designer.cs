@@ -33,10 +33,10 @@
             pbBack = new PictureBox();
             pbDangXuat = new PictureBox();
             groupBox1 = new GroupBox();
-            comboBox1 = new ComboBox();
-            btnLamMoi = new Button();
-            btnSua = new Button();
-            btnThem = new Button();
+            btnXoaHD = new Button();
+            btnLamMoiHD = new Button();
+            btnSuaHD = new Button();
+            btnThemHD = new Button();
             groupBox3 = new GroupBox();
             rdbChuaThanhToan = new RadioButton();
             rdbDaThanhToan = new RadioButton();
@@ -50,9 +50,12 @@
             label3 = new Label();
             dgvHoaDon = new DataGridView();
             groupBox2 = new GroupBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            cmbMaHD = new ComboBox();
+            label12 = new Label();
+            btnXoaHDCT = new Button();
+            btnLamMoiHDCT = new Button();
+            btnSuaHDCT = new Button();
+            btnThemHDCT = new Button();
             cmbGiamGia = new ComboBox();
             label7 = new Label();
             label6 = new Label();
@@ -119,10 +122,10 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(btnLamMoi);
-            groupBox1.Controls.Add(btnSua);
-            groupBox1.Controls.Add(btnThem);
+            groupBox1.Controls.Add(btnXoaHD);
+            groupBox1.Controls.Add(btnLamMoiHD);
+            groupBox1.Controls.Add(btnSuaHD);
+            groupBox1.Controls.Add(btnThemHD);
             groupBox1.Controls.Add(groupBox3);
             groupBox1.Controls.Add(cmbVanChuyen);
             groupBox1.Controls.Add(label1);
@@ -140,46 +143,48 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Hóa đơn";
             // 
-            // comboBox1
+            // btnXoaHD
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(673, 40);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(188, 33);
-            comboBox1.TabIndex = 38;
+            btnXoaHD.ForeColor = SystemColors.Highlight;
+            btnXoaHD.Location = new Point(673, 304);
+            btnXoaHD.Name = "btnXoaHD";
+            btnXoaHD.Size = new Size(188, 54);
+            btnXoaHD.TabIndex = 39;
+            btnXoaHD.Text = "Xóa Hóa Đơn";
+            btnXoaHD.UseVisualStyleBackColor = true;
             // 
-            // btnLamMoi
+            // btnLamMoiHD
             // 
-            btnLamMoi.ForeColor = SystemColors.Highlight;
-            btnLamMoi.Location = new Point(673, 304);
-            btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(188, 54);
-            btnLamMoi.TabIndex = 37;
-            btnLamMoi.Text = "Làm Mới";
-            btnLamMoi.UseVisualStyleBackColor = true;
-            btnLamMoi.Click += btnLamMoi_Click;
+            btnLamMoiHD.ForeColor = SystemColors.Highlight;
+            btnLamMoiHD.Location = new Point(673, 210);
+            btnLamMoiHD.Name = "btnLamMoiHD";
+            btnLamMoiHD.Size = new Size(188, 54);
+            btnLamMoiHD.TabIndex = 37;
+            btnLamMoiHD.Text = "Làm Mới Hóa Đơn";
+            btnLamMoiHD.UseVisualStyleBackColor = true;
+            btnLamMoiHD.Click += btnLamMoiHD_Click;
             // 
-            // btnSua
+            // btnSuaHD
             // 
-            btnSua.ForeColor = SystemColors.Highlight;
-            btnSua.Location = new Point(673, 210);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(188, 54);
-            btnSua.TabIndex = 36;
-            btnSua.Text = "Sửa";
-            btnSua.UseVisualStyleBackColor = true;
-            btnSua.Click += btnSua_Click;
+            btnSuaHD.ForeColor = SystemColors.Highlight;
+            btnSuaHD.Location = new Point(673, 121);
+            btnSuaHD.Name = "btnSuaHD";
+            btnSuaHD.Size = new Size(188, 54);
+            btnSuaHD.TabIndex = 36;
+            btnSuaHD.Text = "Sửa Hóa Đơn";
+            btnSuaHD.UseVisualStyleBackColor = true;
+            btnSuaHD.Click += btnSuaHD_Click;
             // 
-            // btnThem
+            // btnThemHD
             // 
-            btnThem.ForeColor = SystemColors.Highlight;
-            btnThem.Location = new Point(673, 114);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new Size(188, 54);
-            btnThem.TabIndex = 35;
-            btnThem.Text = "Thêm";
-            btnThem.UseVisualStyleBackColor = true;
-            btnThem.Click += btnThem_Click;
+            btnThemHD.ForeColor = SystemColors.Highlight;
+            btnThemHD.Location = new Point(673, 37);
+            btnThemHD.Name = "btnThemHD";
+            btnThemHD.Size = new Size(188, 54);
+            btnThemHD.TabIndex = 35;
+            btnThemHD.Text = "Thêm Hóa Đơn";
+            btnThemHD.UseVisualStyleBackColor = true;
+            btnThemHD.Click += btnThemHD_Click;
             // 
             // groupBox3
             // 
@@ -310,9 +315,12 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(button1);
-            groupBox2.Controls.Add(button2);
-            groupBox2.Controls.Add(button3);
+            groupBox2.Controls.Add(cmbMaHD);
+            groupBox2.Controls.Add(label12);
+            groupBox2.Controls.Add(btnXoaHDCT);
+            groupBox2.Controls.Add(btnLamMoiHDCT);
+            groupBox2.Controls.Add(btnSuaHDCT);
+            groupBox2.Controls.Add(btnThemHDCT);
             groupBox2.Controls.Add(cmbGiamGia);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label6);
@@ -333,41 +341,71 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Hóa đơn chi tiết";
             // 
-            // button1
+            // cmbMaHD
             // 
-            button1.ForeColor = SystemColors.Highlight;
-            button1.Location = new Point(663, 585);
-            button1.Name = "button1";
-            button1.Size = new Size(188, 54);
-            button1.TabIndex = 54;
-            button1.Text = "Làm Mới";
-            button1.UseVisualStyleBackColor = true;
+            cmbMaHD.FormattingEnabled = true;
+            cmbMaHD.Location = new Point(164, 394);
+            cmbMaHD.Name = "cmbMaHD";
+            cmbMaHD.Size = new Size(187, 33);
+            cmbMaHD.TabIndex = 57;
+            
             // 
-            // button2
+            // label12
             // 
-            button2.ForeColor = SystemColors.Highlight;
-            button2.Location = new Point(663, 488);
-            button2.Name = "button2";
-            button2.Size = new Size(188, 54);
-            button2.TabIndex = 53;
-            button2.Text = "Sửa";
-            button2.UseVisualStyleBackColor = true;
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.Location = new Point(27, 397);
+            label12.Name = "label12";
+            label12.Size = new Size(70, 25);
+            label12.TabIndex = 56;
+            label12.Text = "Mã HD";
             // 
-            // button3
+            // btnXoaHDCT
             // 
-            button3.ForeColor = SystemColors.Highlight;
-            button3.Location = new Point(663, 397);
-            button3.Name = "button3";
-            button3.Size = new Size(188, 54);
-            button3.TabIndex = 52;
-            button3.Text = "Thêm";
-            button3.UseVisualStyleBackColor = true;
+            btnXoaHDCT.ForeColor = SystemColors.Highlight;
+            btnXoaHDCT.Location = new Point(663, 661);
+            btnXoaHDCT.Name = "btnXoaHDCT";
+            btnXoaHDCT.Size = new Size(188, 54);
+            btnXoaHDCT.TabIndex = 55;
+            btnXoaHDCT.Text = "Xóa HDCT";
+            btnXoaHDCT.UseVisualStyleBackColor = true;
+            // 
+            // btnLamMoiHDCT
+            // 
+            btnLamMoiHDCT.ForeColor = SystemColors.Highlight;
+            btnLamMoiHDCT.Location = new Point(663, 576);
+            btnLamMoiHDCT.Name = "btnLamMoiHDCT";
+            btnLamMoiHDCT.Size = new Size(188, 50);
+            btnLamMoiHDCT.TabIndex = 54;
+            btnLamMoiHDCT.Text = "Làm Mới HDCT";
+            btnLamMoiHDCT.UseVisualStyleBackColor = true;
+            // 
+            // btnSuaHDCT
+            // 
+            btnSuaHDCT.ForeColor = SystemColors.Highlight;
+            btnSuaHDCT.Location = new Point(663, 485);
+            btnSuaHDCT.Name = "btnSuaHDCT";
+            btnSuaHDCT.Size = new Size(188, 54);
+            btnSuaHDCT.TabIndex = 53;
+            btnSuaHDCT.Text = "Sửa HDCT";
+            btnSuaHDCT.UseVisualStyleBackColor = true;
+            // 
+            // btnThemHDCT
+            // 
+            btnThemHDCT.ForeColor = SystemColors.Highlight;
+            btnThemHDCT.Location = new Point(663, 397);
+            btnThemHDCT.Name = "btnThemHDCT";
+            btnThemHDCT.Size = new Size(188, 54);
+            btnThemHDCT.TabIndex = 52;
+            btnThemHDCT.Text = "Thêm HDCT";
+            btnThemHDCT.UseVisualStyleBackColor = true;
+            btnThemHDCT.Click += btnThemHDCT_Click;
             // 
             // cmbGiamGia
             // 
             cmbGiamGia.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cmbGiamGia.FormattingEnabled = true;
-            cmbGiamGia.Location = new Point(164, 661);
+            cmbGiamGia.Location = new Point(164, 686);
             cmbGiamGia.Name = "cmbGiamGia";
             cmbGiamGia.Size = new Size(383, 33);
             cmbGiamGia.TabIndex = 51;
@@ -376,7 +414,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(553, 664);
+            label7.Location = new Point(553, 694);
             label7.Name = "label7";
             label7.Size = new Size(28, 25);
             label7.TabIndex = 50;
@@ -386,7 +424,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(553, 603);
+            label6.Location = new Point(553, 620);
             label6.Name = "label6";
             label6.Size = new Size(51, 25);
             label6.TabIndex = 49;
@@ -396,7 +434,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(27, 667);
+            label9.Location = new Point(27, 689);
             label9.Name = "label9";
             label9.Size = new Size(87, 25);
             label9.TabIndex = 48;
@@ -405,24 +443,24 @@
             // txtDonGia
             // 
             txtDonGia.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDonGia.Location = new Point(164, 596);
+            txtDonGia.Location = new Point(382, 613);
             txtDonGia.Name = "txtDonGia";
-            txtDonGia.Size = new Size(383, 32);
+            txtDonGia.Size = new Size(165, 32);
             txtDonGia.TabIndex = 47;
             // 
             // txtSoLuong
             // 
             txtSoLuong.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSoLuong.Location = new Point(164, 531);
+            txtSoLuong.Location = new Point(164, 612);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(383, 32);
+            txtSoLuong.Size = new Size(117, 32);
             txtSoLuong.TabIndex = 46;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(27, 601);
+            label10.Location = new Point(296, 616);
             label10.Name = "label10";
             label10.Size = new Size(80, 25);
             label10.TabIndex = 45;
@@ -432,7 +470,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(27, 535);
+            label11.Location = new Point(27, 616);
             label11.Name = "label11";
             label11.Size = new Size(91, 25);
             label11.TabIndex = 44;
@@ -441,7 +479,7 @@
             // txtTenSP
             // 
             txtTenSP.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTenSP.Location = new Point(164, 466);
+            txtTenSP.Location = new Point(164, 540);
             txtTenSP.Name = "txtTenSP";
             txtTenSP.Size = new Size(383, 32);
             txtTenSP.TabIndex = 43;
@@ -450,7 +488,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(27, 469);
+            label8.Location = new Point(27, 543);
             label8.Name = "label8";
             label8.Size = new Size(130, 25);
             label8.TabIndex = 42;
@@ -460,9 +498,9 @@
             // 
             cmbBienThe.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cmbBienThe.FormattingEnabled = true;
-            cmbBienThe.Location = new Point(164, 400);
+            cmbBienThe.Location = new Point(164, 467);
             cmbBienThe.Name = "cmbBienThe";
-            cmbBienThe.Size = new Size(383, 33);
+            cmbBienThe.Size = new Size(187, 33);
             cmbBienThe.TabIndex = 41;
             cmbBienThe.SelectedIndexChanged += cmbBienThe_SelectedIndexChanged;
             // 
@@ -470,7 +508,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(27, 403);
+            label5.Location = new Point(27, 470);
             label5.Name = "label5";
             label5.Size = new Size(117, 25);
             label5.TabIndex = 40;
@@ -559,9 +597,9 @@
         private PictureBox pbDangXuat;
         private GroupBox groupBox1;
         private DataGridView dgvHoaDon;
-        private Button btnLamMoi;
-        private Button btnSua;
-        private Button btnThem;
+        private Button btnLamMoiHD;
+        private Button btnSuaHD;
+        private Button btnThemHD;
         private GroupBox groupBox3;
         private RadioButton rdbChuaThanhToan;
         private RadioButton rdbDaThanhToan;
@@ -574,9 +612,9 @@
         private Label label4;
         private Label label3;
         private GroupBox groupBox2;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnLamMoiHDCT;
+        private Button btnSuaHDCT;
+        private Button btnThemHDCT;
         private ComboBox cmbGiamGia;
         private Label label7;
         private Label label6;
@@ -593,6 +631,9 @@
         private GroupBox groupBox4;
         private GroupBox groupBox5;
         private DataGridView dgvHDCT;
-        private ComboBox comboBox1;
+        private Button btnXoaHD;
+        private Button btnXoaHDCT;
+        private ComboBox cmbMaHD;
+        private Label label12;
     }
 }
