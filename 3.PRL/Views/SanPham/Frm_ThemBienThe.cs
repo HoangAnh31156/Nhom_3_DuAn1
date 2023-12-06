@@ -369,8 +369,8 @@ namespace _3.PRL.Views.SanPham
                 obj.CongSuat = decimal.Parse(txtCongSuat.Text);
                 obj.SoLuong = int.Parse(txtSoluong.Text);
                 obj.ChieuCao = float.Parse(txtchieucao.Text);
-                obj.BanKinh = float.Parse(txtBankinh.Text);
-                if(btnAnh.Text == null)
+                obj.BanKinh = float.Parse(txtBankinh.Text);   
+                if(string.IsNullOrEmpty(btnAnh.Text))
                 {
                     obj.HinhAnh = obj.HinhAnh;
                 }
