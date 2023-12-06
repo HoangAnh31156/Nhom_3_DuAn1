@@ -214,6 +214,7 @@ namespace _3.PRL.Views.SanPham
             if (result)
             {
                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                btnAnh.Text = string.Empty;
                 LoadgridVariant(null);
             }
             else
@@ -369,7 +370,14 @@ namespace _3.PRL.Views.SanPham
                 obj.SoLuong = int.Parse(txtSoluong.Text);
                 obj.ChieuCao = float.Parse(txtchieucao.Text);
                 obj.BanKinh = float.Parse(txtBankinh.Text);
-                obj.HinhAnh = images;
+                if(btnAnh.Text == null)
+                {
+                    obj.HinhAnh = obj.HinhAnh;
+                }
+                else
+                {
+                    obj.HinhAnh = images;
+                }
                 obj.IdMau = Mamau;
                 obj.IdSanPham = MaSanPham;
                 obj.IdCanh = SoCanh;
@@ -496,6 +504,7 @@ namespace _3.PRL.Views.SanPham
 
         private void GridVariant_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnAnh.Text = string.Empty;
             GetInfor();
         }
 
