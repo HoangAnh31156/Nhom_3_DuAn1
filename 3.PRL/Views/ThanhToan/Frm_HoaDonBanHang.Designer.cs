@@ -145,13 +145,14 @@
             // 
             // btnXoaHD
             // 
-            btnXoaHD.ForeColor = SystemColors.Highlight;
+            btnXoaHD.ForeColor = Color.Red;
             btnXoaHD.Location = new Point(673, 304);
             btnXoaHD.Name = "btnXoaHD";
             btnXoaHD.Size = new Size(188, 54);
             btnXoaHD.TabIndex = 39;
             btnXoaHD.Text = "Xóa Hóa Đơn";
             btnXoaHD.UseVisualStyleBackColor = true;
+            btnXoaHD.Click += btnXoaHD_Click;
             // 
             // btnLamMoiHD
             // 
@@ -361,7 +362,7 @@
             // 
             // btnXoaHDCT
             // 
-            btnXoaHDCT.ForeColor = SystemColors.Highlight;
+            btnXoaHDCT.ForeColor = Color.Red;
             btnXoaHDCT.Location = new Point(663, 661);
             btnXoaHDCT.Name = "btnXoaHDCT";
             btnXoaHDCT.Size = new Size(188, 54);

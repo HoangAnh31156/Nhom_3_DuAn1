@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace _3.PRL.Views.ThanhToan
 {
@@ -191,6 +192,17 @@ namespace _3.PRL.Views.ThanhToan
                     Convert.ToDecimal(TongTienCaShip).ToString("N0"));
             }
             RowsColor();
+            foreach (DataGridViewRow item in dgvHoaDon.Rows)
+            {
+                if (item.Cells[0].Value is Guid cellValue)
+                {
+                    var idHDXoa = (Guid)item.Cells[0].Value;
+                    if(DanhSachHoaDonXoa.Any(a => a == idHDXoa))
+                    {
+                       dgvHoaDon.Rows.Remove(item);
+                    }
+                }
+            }
         }
 
         private void RowsColor()
@@ -336,7 +348,35 @@ namespace _3.PRL.Views.ThanhToan
                 }
             }
         }
+        private void btnXoaHD_Click(object sender, EventArgs e)
+        {
+            XoaMem(_id);
+        }
 
+        List<Guid> DanhSachHoaDonXoa = new List<Guid>();       
+        private void XoaMem(Guid _id)
+        {
+            var option = MessageBox.Show("Bạn chắc chắn Xóa Hóa Đơn  ?", "Thông Báo !", MessageBoxButtons.YesNo);
+            if (option == DialogResult.Yes)
+            {
+                var id_WC = _hoaDonService.GetHoaDon(null).FirstOrDefault(a => a.IdHoaDon == _id);
+                if(id_WC != null)
+                {
+                    DanhSachHoaDonXoa.Add(id_WC.IdHoaDon);
+
+                    foreach (DataGridViewRow row in dgvHoaDon.Rows)
+                    {
+                        if (row.Cells[0].Value is Guid cellValue && cellValue == id_WC.IdHoaDon)
+                        {
+                            row.Visible = false;
+                            MessageBox.Show("Hóa đơn đã được xóa thành công!", "Thông Báo!");
+                            //LoadGridHD(null);
+                            break;
+                        }
+                    }                
+                }          
+            }
+        }
         private void btnLamMoiHD_Click(object sender, EventArgs e)
         {
             dtpNgayTao.Value = DateTime.Today;
@@ -422,6 +462,14 @@ namespace _3.PRL.Views.ThanhToan
                     Convert.ToDecimal(giamGia).ToString("N0"),
                     Convert.ToDecimal(thanhTien).ToString("N0"));
             }
+
+            foreach (DataGridViewRow row in dgvHDCT.Rows)
+            {
+                if (row.Cells[2].Value is Guid cellValue && DanhSachHoaDonXoa.Any(id =>id.Equals(cellValue)))
+                {
+                    row.Visible = false;
+                }
+            }
         }
 
         private void dgvHDCT_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -494,7 +542,7 @@ namespace _3.PRL.Views.ThanhToan
                 updateHDCT.IdGiamGia = _idGG[cmbGiamGia.SelectedIndex];
                 updateHDCT.SoLuong = Convert.ToInt32(txtSoLuong.Text);
                 updateHDCT.IdHoaDon = _idHD[cmbMaHD.SelectedIndex];
-                            
+
                 var option = MessageBox.Show("Bạn sửa Hóa Đơn CT không ?", "Thông Báo !", MessageBoxButtons.YesNo);
                 if (option == DialogResult.Yes)
                 {
@@ -515,5 +563,7 @@ namespace _3.PRL.Views.ThanhToan
                 }
             }
         }
+
+
     }
 }
