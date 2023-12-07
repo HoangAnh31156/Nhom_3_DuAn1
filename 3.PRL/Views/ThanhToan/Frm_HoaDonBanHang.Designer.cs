@@ -68,7 +68,7 @@
             label8 = new Label();
             cmbBienThe = new ComboBox();
             label5 = new Label();
-            textBox1 = new TextBox();
+            txtTimKiem = new TextBox();
             groupBox4 = new GroupBox();
             groupBox5 = new GroupBox();
             dgvHDCT = new DataGridView();
@@ -515,13 +515,14 @@
             label5.TabIndex = 40;
             label5.Text = "Mã Biến Thể";
             // 
-            // textBox1
+            // txtTimKiem
             // 
-            textBox1.Location = new Point(1396, 76);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Tìm kiếm.....";
-            textBox1.Size = new Size(474, 27);
-            textBox1.TabIndex = 41;
+            txtTimKiem.Location = new Point(1396, 76);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.PlaceholderText = "Nhập Mã HD để tìm kiếm";
+            txtTimKiem.Size = new Size(474, 27);
+            txtTimKiem.TabIndex = 41;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // groupBox4
             // 
@@ -565,7 +566,7 @@
             ClientSize = new Size(1882, 953);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
-            Controls.Add(textBox1);
+            Controls.Add(txtTimKiem);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
@@ -628,7 +629,7 @@
         private Label label8;
         private ComboBox cmbBienThe;
         private Label label5;
-        private TextBox textBox1;
+        private TextBox txtTimKiem;
         private GroupBox groupBox4;
         private GroupBox groupBox5;
         private DataGridView dgvHDCT;

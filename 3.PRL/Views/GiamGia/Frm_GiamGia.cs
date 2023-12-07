@@ -183,7 +183,7 @@ namespace _3.PRL.Views.GiamGia
             DateTimePicker ngayBD = dtpNgayBD;
             DateTimePicker ngayKT = (DateTimePicker)sender;
 
-            if(ngayBD.Value > ngayKT.Value)
+            if (ngayBD.Value > ngayKT.Value)
             {
                 MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

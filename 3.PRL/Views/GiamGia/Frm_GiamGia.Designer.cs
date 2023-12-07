@@ -343,10 +343,12 @@
             // 
             // dgvDSGiamGia
             // 
+            dgvDSGiamGia.AllowUserToAddRows = false;
             dgvDSGiamGia.BackgroundColor = SystemColors.ActiveCaption;
             dgvDSGiamGia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDSGiamGia.Location = new Point(0, 45);
             dgvDSGiamGia.Name = "dgvDSGiamGia";
+            dgvDSGiamGia.RowHeadersVisible = false;
             dgvDSGiamGia.RowHeadersWidth = 51;
             dgvDSGiamGia.RowTemplate.Height = 29;
             dgvDSGiamGia.Size = new Size(1584, 503);

@@ -197,9 +197,9 @@ namespace _3.PRL.Views.ThanhToan
                 if (item.Cells[0].Value is Guid cellValue)
                 {
                     var idHDXoa = (Guid)item.Cells[0].Value;
-                    if(DanhSachHoaDonXoa.Any(a => a == idHDXoa))
+                    if (DanhSachHoaDonXoa.Any(a => a == idHDXoa))
                     {
-                       dgvHoaDon.Rows.Remove(item);
+                        dgvHoaDon.Rows.Remove(item);
                     }
                 }
             }
@@ -353,14 +353,14 @@ namespace _3.PRL.Views.ThanhToan
             XoaMem(_id);
         }
 
-        List<Guid> DanhSachHoaDonXoa = new List<Guid>();       
+        List<Guid> DanhSachHoaDonXoa = new List<Guid>();
         private void XoaMem(Guid _id)
         {
             var option = MessageBox.Show("Bạn chắc chắn Xóa Hóa Đơn  ?", "Thông Báo !", MessageBoxButtons.YesNo);
             if (option == DialogResult.Yes)
             {
                 var id_WC = _hoaDonService.GetHoaDon(null).FirstOrDefault(a => a.IdHoaDon == _id);
-                if(id_WC != null)
+                if (id_WC != null)
                 {
                     DanhSachHoaDonXoa.Add(id_WC.IdHoaDon);
 
@@ -373,8 +373,8 @@ namespace _3.PRL.Views.ThanhToan
                             //LoadGridHD(null);
                             break;
                         }
-                    }                
-                }          
+                    }
+                }
             }
         }
         private void btnLamMoiHD_Click(object sender, EventArgs e)
@@ -465,7 +465,7 @@ namespace _3.PRL.Views.ThanhToan
 
             foreach (DataGridViewRow row in dgvHDCT.Rows)
             {
-                if (row.Cells[2].Value is Guid cellValue && DanhSachHoaDonXoa.Any(id =>id.Equals(cellValue)))
+                if (row.Cells[2].Value is Guid cellValue && DanhSachHoaDonXoa.Any(id => id.Equals(cellValue)))
                 {
                     row.Visible = false;
                 }
@@ -564,6 +564,18 @@ namespace _3.PRL.Views.ThanhToan
             }
         }
 
-
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text.Length == 0)
+            {
+                LoadGridHD(null);
+                LoadGridHDCT(null);
+            }
+            else
+            {
+                LoadGridHD(txtTimKiem.Text);
+                LoadGridHDCT(txtTimKiem.Text);
+            }
+        }
     }
 }
