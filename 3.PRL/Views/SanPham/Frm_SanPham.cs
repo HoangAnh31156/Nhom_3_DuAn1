@@ -78,6 +78,7 @@ namespace _3.PRL.Views
                        {
                            Ten = g.Key.Ten,
                            Gia = g.Select(x => x.GiaTien).ToArray(),
+                           SoLuong = g.Select(x => x.SoLuong).ToArray(),
                            Hinh = g.Select(x => x.HinhAnh).ToArray()
                        }).ToArray();
             if (txtSearch.Text != null)
@@ -99,6 +100,11 @@ namespace _3.PRL.Views
             {
                 if (i < lst.Count())
                 {
+                    int? Soluong = 0;
+                    foreach (var x in lst[i].SoLuong)
+                    {
+                        Soluong += x;
+                    }
                     var priceMin = (lst[i].Gia.Length > 0) ? lst[i].Gia.Min() : 0;
                     var priceMax = (lst[i].Gia.Length > 0) ? lst[i].Gia.Max() : 0;
                     Panel cardPanel = new Panel();
@@ -118,21 +124,29 @@ namespace _3.PRL.Views
                     lbl.Text = lst[i].Ten;
                     lbl.Font = new Font(lbl.Font.FontFamily, 12, FontStyle.Bold);
                     lbl.Size = new Size(180, 60);
+                    lbl.ForeColor = Color.CadetBlue;
                     lbl.Location = new Point(20, 20);
 
-                    Label label = new Label();
+                    Label labelPrice = new Label();
                     if (priceMax > priceMin)
                     {
-                        label.Text = "Giá: " + string.Format("{0:0.00}", priceMin) + " - " + string.Format("{0:0.00}", priceMax) + "VND";
+                        labelPrice.Text = "Giá: " + string.Format("{0:0.00}", priceMin) + " - " + string.Format("{0:0.00}", priceMax) + "VND";
                     }
                     else
                     {
-                        label.Text = "Giá: " + string.Format("{0:0.00}", priceMin) + "VND";
+                        labelPrice.Text = "Giá: " + string.Format("{0:0.00}", priceMin) + "VND";
                     }
-                    label.Font = new Font(label.Font.FontFamily, 10);
-                    label.Size = new Size(360, 80);
-                    label.ForeColor = Color.Red;
-                    label.Location = new Point(20, cardHeight - label.Height - labelPriceOffsetY + 45); // Đặt vị trí cố định cho label
+                    labelPrice.Font = new Font(labelPrice.Font.FontFamily, 10);
+                    labelPrice.Size = new Size(360, 80);
+                    labelPrice.ForeColor = Color.Red;
+                    labelPrice.Location = new Point(20, cardHeight - labelPrice.Height - labelPriceOffsetY + 45); // Đặt vị trí cố định cho label
+
+                    Label labelSoLuong = new Label();
+                    labelSoLuong.Text = "Số lượng: " + Soluong;
+                    labelSoLuong.Font = new Font(labelSoLuong.Font.FontFamily, 10);
+                    labelSoLuong.Size = new Size(360, 40);
+                    labelSoLuong.ForeColor = Color.YellowGreen;
+                    labelSoLuong.Location = new Point(20, (cardHeight - labelPrice.Height - labelPriceOffsetY + 45) - labelSoLuong.Height + 5); // Đặt vị trí cố định cho label số lượng
 
                     PictureBox pictureBox = new PictureBox();
                     pictureBox.Size = new Size(190, 170);
@@ -153,13 +167,15 @@ namespace _3.PRL.Views
                     }
 
                     cardPanel.Controls.Add(lbl);
-                    cardPanel.Controls.Add(label);
+                    cardPanel.Controls.Add(labelPrice);
+                    cardPanel.Controls.Add(labelSoLuong);
                     cardPanel.Controls.Add(pictureBox);
                     panels.Add(cardPanel);
                     this.Controls.Add(cardPanel);
                     cardPanel.BringToFront();
                     lbl.BringToFront();
-                    label.BringToFront();
+                    labelPrice.BringToFront();
+                    labelSoLuong.BringToFront();
                     pictureBox.BringToFront();
                     d++;
                 }

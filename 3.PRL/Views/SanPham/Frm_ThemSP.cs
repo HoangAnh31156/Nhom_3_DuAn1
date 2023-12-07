@@ -38,12 +38,11 @@ namespace _3.PRL.Views.SanPham
 
             int stt = 1;
             GirdSp.Rows.Clear();
-            GirdSp.ColumnCount = 5;
+            GirdSp.ColumnCount = 4;
             GirdSp.Columns[0].Name = "STT";
             GirdSp.Columns[1].Name = "Mã Sản Phẩm";
             GirdSp.Columns[2].Name = "Tên";
-            GirdSp.Columns[3].Name = "Số Lượng";
-            GirdSp.Columns[4].Name = "Loại Sản Phẩm";
+            GirdSp.Columns[3].Name = "Loại Sản Phẩm";
             var lst = from i in _SanPhamService.GetSanPham(null)
                       join y in _LoaiSPService.GetLoaiSanPham(null)
                       on i.IdLoaiSanPham equals y.IdLoaiSanPham
@@ -60,7 +59,7 @@ namespace _3.PRL.Views.SanPham
             }
             foreach (var i in lst)
             {
-                GirdSp.Rows.Add(stt, i.MaSp, i.ten, i.soluong, i.Loai);
+                GirdSp.Rows.Add(stt, i.MaSp, i.ten, i.Loai);
                 stt++;
             }
         }
@@ -113,7 +112,7 @@ namespace _3.PRL.Views.SanPham
                 Ten = txtTen.Text,
                 IdLoaiSanPham = MaLoaiSanPham,
                 MaSanPham = txtMaSP.Text,
-                SoLuong = int.Parse(txtSoLuong.Text)
+                SoLuong = null
             };
             var result = _SanPhamService.CreateSanPham(obj);
             if (result)
@@ -144,14 +143,12 @@ namespace _3.PRL.Views.SanPham
                       {
                           ten = i.Ten,
                           loai = y.TenLoai,
-                          soluong = i.SoLuong,
                           masp = i.MaSanPham
                       };
             var obj = lst.FirstOrDefault(x => x.masp == GetMa());
             txtTen.Text = obj.ten;
-            cboLoaiSp.Text = obj.loai;
-            txtSoLuong.Text = obj.soluong.ToString();
             txtMaSP.Text = obj.masp;
+            cboLoaiSp.Text = obj.loai;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -163,7 +160,6 @@ namespace _3.PRL.Views.SanPham
         {
             txtTen.Text = string.Empty;
             txtMaSP.Text = string.Empty;
-            txtSoLuong.Text = string.Empty;
             cboLoaiSp.Text = string.Empty;
         }
 
@@ -179,7 +175,7 @@ namespace _3.PRL.Views.SanPham
             obj.Ten = txtTen.Text;
             obj.IdLoaiSanPham = MaLoaiSanPham;
             obj.MaSanPham = txtMaSP.Text;
-            obj.SoLuong = int.Parse(txtSoLuong.Text);
+            obj.SoLuong = null;
             var result = _SanPhamService.UpdateSanPham(obj);
             if (result)
             {
@@ -206,11 +202,6 @@ namespace _3.PRL.Views.SanPham
             if (string.IsNullOrEmpty(txtMaSP.Text))
             {
                 MessageBox.Show("Chưa nhập mã sản phẩm");
-                return false;
-            }
-            if (string.IsNullOrEmpty(txtSoLuong.Text))
-            {
-                MessageBox.Show("Chưa nhập số lượng");
                 return false;
             }
             return true;
@@ -251,11 +242,6 @@ namespace _3.PRL.Views.SanPham
                 MessageBox.Show("Mã sản phẩm chỉ chứa kí tự hoa và số");
                 return false;
             }
-            else if (!Regex.IsMatch(txtSoLuong.Text, @"^[0-9]+$"))
-            {
-                MessageBox.Show("Số lượng phải là số");
-                return false;
-            }
             if (!Regex.IsMatch(txtTen.Text, @"^[A-Za-z0-9\p{L} ]+$"))
             {
                 MessageBox.Show("Tên chỉ chứa chữ cái và số");
@@ -266,7 +252,7 @@ namespace _3.PRL.Views.SanPham
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if(CheckEmpty() && CheckExists() && CheckFormat())
+            if (CheckEmpty() && CheckExists() && CheckFormat())
             {
                 AddSP();
             }

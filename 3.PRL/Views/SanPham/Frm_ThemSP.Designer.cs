@@ -52,8 +52,6 @@
             btnSua = new Button();
             btnThem = new Button();
             groupBox1 = new GroupBox();
-            txtSoLuong = new TextBox();
-            label2 = new Label();
             txtMaSP = new TextBox();
             cboLoaiSp = new ComboBox();
             txtTen = new TextBox();
@@ -360,8 +358,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtSoLuong);
-            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(txtMaSP);
             groupBox1.Controls.Add(cboLoaiSp);
             groupBox1.Controls.Add(txtTen);
@@ -375,22 +371,6 @@
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
-            // 
-            // txtSoLuong
-            // 
-            txtSoLuong.Location = new Point(218, 385);
-            txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(568, 32);
-            txtSoLuong.TabIndex = 8;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(35, 388);
-            label2.Name = "label2";
-            label2.Size = new Size(91, 25);
-            label2.TabIndex = 7;
-            label2.Text = "Số Lượng";
             // 
             // txtMaSP
             // 
@@ -526,8 +506,6 @@
         private Button btnThemBienThe;
         private PictureBox pictureBox1;
         private DataGridView GirdSp;
-        private TextBox txtSoLuong;
-        private Label label2;
         private Button btnLamMoi;
     }
 }
