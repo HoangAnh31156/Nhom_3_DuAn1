@@ -138,11 +138,29 @@ namespace _3.PRL.Views.ThanhToan
                 {
                     txtDonGia.Text = string.Empty;
                 }
+
+                if (bt.MaBienThe.StartsWith("QDH"))
+                {
+                    txtTenSP.Text = "Quạt Điều Hòa " + bt.MaBienThe.Substring(4);
+                }
+                else if (bt.MaBienThe.StartsWith("QTN"))
+                {
+                    txtTenSP.Text = "Quạt Trong Nhà " + bt.MaBienThe.Substring(4);
+                }
+                else if (bt.MaBienThe.StartsWith("QG"))
+                {
+                    txtTenSP.Text = "Quạt Gió " + bt.MaBienThe.Substring(4);
+                }
+                else if (bt.MaBienThe.StartsWith("QS"))
+                {
+                    txtTenSP.Text = "Quạt Sưởi " + bt.MaBienThe.Substring(4);
+                }
+                else
+                {
+                    txtTenSP.Text = "Quạt Công Nghiệp " + bt.MaBienThe.Substring(4);
+                }
             }
-            else
-            {
-                txtDonGia.Text = string.Empty;
-            }
+            
         }
 
         private void LoadGridHD(string input)
@@ -447,6 +465,7 @@ namespace _3.PRL.Views.ThanhToan
                 var HD = _hoaDonService.GetHoaDon(null).FirstOrDefault(a => a.IdHoaDon == item.IdHoaDon);
                 var BT = _bienTheService.GetBienThe(null).FirstOrDefault(a => a.IdBienThe == item.IdBienThe);
                 var GG = _giamGiaService.GetGiamGia().FirstOrDefault(a => a.IdGiamGia == item.IdGiamGia);
+                var SP = _sanPhamService.GetSanPham(null).FirstOrDefault(a => a.IdSanPham == BT.IdSanPham);
 
 
                 string idHoaDon = item.IdHoaDon.ToString();
@@ -458,7 +477,7 @@ namespace _3.PRL.Views.ThanhToan
 
                 var thanhTien = sum - giamGia;
 
-                dgvHDCT.Rows.Add(item.IdHoaDonCt, stt++, MaHD.ToUpper(), BT.MaBienThe, null, item.SoLuong,
+                dgvHDCT.Rows.Add(item.IdHoaDonCt, stt++, MaHD.ToUpper(), BT.MaBienThe, SP.Ten, item.SoLuong,
                     Convert.ToDecimal(BT.GiaTien).ToString("N0"), GG.GiaTri,
                     Convert.ToDecimal(giamGia).ToString("N0"),
                     Convert.ToDecimal(thanhTien).ToString("N0"));
