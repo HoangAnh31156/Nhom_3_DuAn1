@@ -271,7 +271,7 @@ namespace _3.PRL.Views.ThanhToan
                     if (_hoaDonService.AddHoaDon(hd))
                     {
                         MessageBox.Show("Tạo Hóa đơn thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        LoadGridHD(null);
+                        LoadGridHD(null);                     
                     }
                     else
                     {
@@ -283,6 +283,7 @@ namespace _3.PRL.Views.ThanhToan
                     return;
                 }
             }
+            LoadMaHD();
         }
 
         private bool CheckComboxBoxHD()

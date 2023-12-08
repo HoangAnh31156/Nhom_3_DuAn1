@@ -130,11 +130,11 @@ namespace _3.PRL.Views
                     Label labelPrice = new Label();
                     if (priceMax > priceMin)
                     {
-                        labelPrice.Text = "Giá: " + string.Format("{0:0.00}", priceMin) + " - " + string.Format("{0:0.00}", priceMax) + "VND";
+                        labelPrice.Text = "Giá: " + Convert.ToDecimal(priceMin).ToString("N0") + " - " + Convert.ToDecimal(priceMax).ToString("N0") + " VND";
                     }
                     else
                     {
-                        labelPrice.Text = "Giá: " + string.Format("{0:0.00}", priceMin) + "VND";
+                        labelPrice.Text = "Giá: " + Convert.ToDecimal(priceMin).ToString("N0") + " VND";
                     }
                     labelPrice.Font = new Font(labelPrice.Font.FontFamily, 10);
                     labelPrice.Size = new Size(360, 80);
