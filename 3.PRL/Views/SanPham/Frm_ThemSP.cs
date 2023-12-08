@@ -106,7 +106,7 @@ namespace _3.PRL.Views.SanPham
         private void AddSP()
         {
             GirdSp.ClearSelection();
-            var obj = new _1.DAL.Model2s.SanPham()
+            var obj = new _1.DAL.Model1s.SanPham()
             {
                 IdSanPham = Guid.NewGuid(),
                 Ten = txtTen.Text,

@@ -242,6 +242,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1882, 953);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);

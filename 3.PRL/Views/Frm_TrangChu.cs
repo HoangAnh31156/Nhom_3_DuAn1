@@ -1,4 +1,4 @@
-﻿using _1.DAL.Model2s;
+﻿using _1.DAL.Model1s;
 using _3.PRL.Views.DangNhap;
 using _3.PRL.Views.GiamGia;
 using _3.PRL.Views.ThanhToan;
