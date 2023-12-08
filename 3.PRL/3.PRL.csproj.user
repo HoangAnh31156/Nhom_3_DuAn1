@@ -52,5 +52,8 @@
     <Compile Update="Views\ThanhToan\Frm_HoaDonCT.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\ThongKe\Frm_ThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
