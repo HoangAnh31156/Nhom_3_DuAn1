@@ -43,11 +43,15 @@
             label1 = new Label();
             label2 = new Label();
             txtDoanhThu = new TextBox();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -132,7 +136,8 @@
             // rbtnNgay
             // 
             rbtnNgay.AutoSize = true;
-            rbtnNgay.Location = new Point(360, 226);
+            rbtnNgay.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            rbtnNgay.Location = new Point(33, 49);
             rbtnNgay.Name = "rbtnNgay";
             rbtnNgay.Size = new Size(99, 24);
             rbtnNgay.TabIndex = 23;
@@ -144,7 +149,8 @@
             // rbtnThang
             // 
             rbtnThang.AutoSize = true;
-            rbtnThang.Location = new Point(517, 226);
+            rbtnThang.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            rbtnThang.Location = new Point(190, 49);
             rbtnThang.Name = "rbtnThang";
             rbtnThang.Size = new Size(105, 24);
             rbtnThang.TabIndex = 24;
@@ -156,7 +162,8 @@
             // rbtnNam
             // 
             rbtnNam.AutoSize = true;
-            rbtnNam.Location = new Point(686, 226);
+            rbtnNam.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            rbtnNam.Location = new Point(359, 49);
             rbtnNam.Name = "rbtnNam";
             rbtnNam.Size = new Size(96, 24);
             rbtnNam.TabIndex = 25;
@@ -167,7 +174,8 @@
             // 
             // dtpNgayThongKe
             // 
-            dtpNgayThongKe.Location = new Point(517, 164);
+            dtpNgayThongKe.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpNgayThongKe.Location = new Point(190, 37);
             dtpNgayThongKe.Name = "dtpNgayThongKe";
             dtpNgayThongKe.Size = new Size(265, 27);
             dtpNgayThongKe.TabIndex = 26;
@@ -175,7 +183,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(360, 171);
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(33, 44);
             label1.Name = "label1";
             label1.Size = new Size(107, 20);
             label1.TabIndex = 27;
@@ -184,7 +193,8 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(360, 284);
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(33, 86);
             label2.Name = "label2";
             label2.Size = new Size(123, 20);
             label2.TabIndex = 28;
@@ -192,24 +202,47 @@
             // 
             // txtDoanhThu
             // 
-            txtDoanhThu.Location = new Point(517, 277);
+            txtDoanhThu.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDoanhThu.Location = new Point(190, 79);
             txtDoanhThu.Name = "txtDoanhThu";
             txtDoanhThu.ReadOnly = true;
             txtDoanhThu.Size = new Size(265, 27);
             txtDoanhThu.TabIndex = 29;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(dtpNgayThongKe);
+            groupBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox1.Location = new Point(286, 127);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(513, 92);
+            groupBox1.TabIndex = 30;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Chọn ngày";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(txtDoanhThu);
+            groupBox2.Controls.Add(rbtnNgay);
+            groupBox2.Controls.Add(rbtnThang);
+            groupBox2.Controls.Add(label2);
+            groupBox2.Controls.Add(rbtnNam);
+            groupBox2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox2.Location = new Point(286, 286);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(518, 147);
+            groupBox2.TabIndex = 31;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Doanh thu";
             // 
             // Frm_ThongKe
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1882, 953);
-            Controls.Add(txtDoanhThu);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(dtpNgayThongKe);
-            Controls.Add(rbtnNam);
-            Controls.Add(rbtnThang);
-            Controls.Add(rbtnNgay);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Frm_ThongKe";
@@ -221,8 +254,11 @@
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -241,5 +277,7 @@
         private Label label1;
         private Label label2;
         private TextBox txtDoanhThu;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
     }
 }
