@@ -2,6 +2,7 @@
 using _3.PRL.Views.DangNhap;
 using _3.PRL.Views.GiamGia;
 using _3.PRL.Views.ThanhToan;
+using _3.PRL.Views.ThongKe;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -109,6 +110,13 @@ namespace _3.PRL.Views
             this.Hide();
             Frm_GiamGia frm_GiamGia = new Frm_GiamGia();
             frm_GiamGia.Show();
+        }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_ThongKe frm = new Frm_ThongKe();
+            frm.Show();
         }
     }
 }

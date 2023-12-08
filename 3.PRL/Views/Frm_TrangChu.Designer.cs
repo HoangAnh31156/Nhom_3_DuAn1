@@ -57,6 +57,9 @@
             panel3 = new Panel();
             btnSanPham = new Button();
             panel10 = new Panel();
+            panel12 = new Panel();
+            btnThongKe = new Button();
+            pictureBox9 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
             panel2.SuspendLayout();
@@ -68,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -95,6 +99,9 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(pictureBox9);
+            panel2.Controls.Add(btnThongKe);
+            panel2.Controls.Add(panel12);
             panel2.Controls.Add(panel11);
             panel2.Controls.Add(pictureBox8);
             panel2.Controls.Add(button1);
@@ -195,7 +202,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(32, 624);
+            pictureBox6.Location = new Point(32, 826);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(64, 64);
             pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -249,7 +256,7 @@
             btnTaiKhoan.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
             btnTaiKhoan.FlatStyle = FlatStyle.Flat;
             btnTaiKhoan.ForeColor = Color.FromArgb(3, 43, 118);
-            btnTaiKhoan.Location = new Point(106, 624);
+            btnTaiKhoan.Location = new Point(106, 826);
             btnTaiKhoan.Name = "btnTaiKhoan";
             btnTaiKhoan.Size = new Size(171, 64);
             btnTaiKhoan.TabIndex = 12;
@@ -399,6 +406,39 @@
             panel10.Size = new Size(1602, 893);
             panel10.TabIndex = 2;
             // 
+            // panel12
+            // 
+            panel12.BackColor = Color.FromArgb(183, 209, 255);
+            panel12.Location = new Point(12, 826);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(10, 64);
+            panel12.TabIndex = 24;
+            // 
+            // btnThongKe
+            // 
+            btnThongKe.FlatAppearance.BorderSize = 0;
+            btnThongKe.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
+            btnThongKe.FlatStyle = FlatStyle.Flat;
+            btnThongKe.ForeColor = Color.FromArgb(3, 43, 118);
+            btnThongKe.Location = new Point(106, 624);
+            btnThongKe.Name = "btnThongKe";
+            btnThongKe.Size = new Size(171, 64);
+            btnThongKe.TabIndex = 25;
+            btnThongKe.Text = "Thống kê";
+            btnThongKe.TextAlign = ContentAlignment.MiddleLeft;
+            btnThongKe.UseVisualStyleBackColor = true;
+            btnThongKe.Click += btnThongKe_Click;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
+            pictureBox9.Location = new Point(32, 624);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(64, 64);
+            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox9.TabIndex = 21;
+            pictureBox9.TabStop = false;
+            // 
             // Frm_TrangChu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -422,6 +462,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ResumeLayout(false);
         }
 
@@ -455,5 +496,8 @@
         private Panel panel11;
         private PictureBox pictureBox8;
         private Button button1;
+        private PictureBox pictureBox9;
+        private Button btnThongKe;
+        private Panel panel12;
     }
 }

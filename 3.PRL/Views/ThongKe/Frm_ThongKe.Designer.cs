@@ -76,6 +76,7 @@
             pbBack.SizeMode = PictureBoxSizeMode.StretchImage;
             pbBack.TabIndex = 2;
             pbBack.TabStop = false;
+            pbBack.Click += pbBack_Click;
             // 
             // pbDangXuat
             // 
@@ -87,6 +88,7 @@
             pbDangXuat.SizeMode = PictureBoxSizeMode.StretchImage;
             pbDangXuat.TabIndex = 0;
             pbDangXuat.TabStop = false;
+            pbDangXuat.Click += pbDangXuat_Click;
             // 
             // panel2
             // 

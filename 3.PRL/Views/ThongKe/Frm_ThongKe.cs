@@ -1,5 +1,6 @@
 ﻿using _1.DAL.Model2s;
 using _2.BUS.Services;
+using _3.PRL.Views.DangNhap;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -145,6 +146,20 @@ namespace _3.PRL.Views.ThongKe
             tongTien = tien.Sum(item => (decimal)item.TongTien);
 
             UpdateTextBox();
+        }
+
+        private void pbBack_Click(object sender, EventArgs e)
+        {
+            Frm_TrangChu frm = new Frm_TrangChu();
+            this.Hide();
+            frm.Show();
+        }
+
+        private void pbDangXuat_Click(object sender, EventArgs e)
+        {
+            Frm_DangNhap2 frm = new Frm_DangNhap2();
+            this.Hide();
+            frm.Show();
         }
     }
 }
