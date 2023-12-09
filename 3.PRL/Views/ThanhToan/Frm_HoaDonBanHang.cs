@@ -179,7 +179,7 @@ namespace _3.PRL.Views.ThanhToan
             dgvHoaDon.Columns[4].Width = 150;
             dgvHoaDon.Columns[5].Name = "Ngày Tạo";
             dgvHoaDon.Columns[6].Name = "Trạng Thái";
-            dgvHoaDon.Columns[6].Width = 120;
+            dgvHoaDon.Columns[6].Width = 110;
             dgvHoaDon.Columns[7].Name = "Phí vận chuyển";
             dgvHoaDon.Columns[7].Width = 80;
             dgvHoaDon.Columns[8].Name = "Thanh Toan";

@@ -36,17 +36,11 @@
             panel7 = new Panel();
             pictureBox7 = new PictureBox();
             btnThanhToan = new Button();
-            rbtnNgay = new RadioButton();
-            rbtnThang = new RadioButton();
-            rbtnNam = new RadioButton();
             label1 = new Label();
-            label2 = new Label();
-            txtDoanhThu = new TextBox();
             groupBox1 = new GroupBox();
+            dtpDenNgay = new DateTimePicker();
+            dtpTuNgay = new DateTimePicker();
             label3 = new Label();
-            mtbDenNgay = new MaskedTextBox();
-            mtbTuNgay = new MaskedTextBox();
-            groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
             txtDT = new TextBox();
             label4 = new Label();
@@ -63,7 +57,6 @@
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvThongKe).BeginInit();
@@ -151,45 +144,6 @@
             btnThanhToan.TextAlign = ContentAlignment.MiddleLeft;
             btnThanhToan.UseVisualStyleBackColor = true;
             // 
-            // rbtnNgay
-            // 
-            rbtnNgay.AutoSize = true;
-            rbtnNgay.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            rbtnNgay.Location = new Point(33, 49);
-            rbtnNgay.Name = "rbtnNgay";
-            rbtnNgay.Size = new Size(99, 24);
-            rbtnNgay.TabIndex = 23;
-            rbtnNgay.TabStop = true;
-            rbtnNgay.Text = "Theo ngày";
-            rbtnNgay.UseVisualStyleBackColor = true;
-            rbtnNgay.CheckedChanged += rbtnNgay_CheckedChanged;
-            // 
-            // rbtnThang
-            // 
-            rbtnThang.AutoSize = true;
-            rbtnThang.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            rbtnThang.Location = new Point(190, 49);
-            rbtnThang.Name = "rbtnThang";
-            rbtnThang.Size = new Size(105, 24);
-            rbtnThang.TabIndex = 24;
-            rbtnThang.TabStop = true;
-            rbtnThang.Text = "Theo tháng";
-            rbtnThang.UseVisualStyleBackColor = true;
-            rbtnThang.CheckedChanged += rbtnThang_CheckedChanged;
-            // 
-            // rbtnNam
-            // 
-            rbtnNam.AutoSize = true;
-            rbtnNam.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            rbtnNam.Location = new Point(359, 49);
-            rbtnNam.Name = "rbtnNam";
-            rbtnNam.Size = new Size(96, 24);
-            rbtnNam.TabIndex = 25;
-            rbtnNam.TabStop = true;
-            rbtnNam.Text = "Theo năm";
-            rbtnNam.UseVisualStyleBackColor = true;
-            rbtnNam.CheckedChanged += rbtnNam_CheckedChanged;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -200,38 +154,37 @@
             label1.TabIndex = 27;
             label1.Text = "Từ Ngày";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(33, 86);
-            label2.Name = "label2";
-            label2.Size = new Size(123, 20);
-            label2.TabIndex = 28;
-            label2.Text = "Doanh thu (VNĐ)";
-            // 
-            // txtDoanhThu
-            // 
-            txtDoanhThu.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDoanhThu.Location = new Point(190, 79);
-            txtDoanhThu.Name = "txtDoanhThu";
-            txtDoanhThu.ReadOnly = true;
-            txtDoanhThu.Size = new Size(265, 27);
-            txtDoanhThu.TabIndex = 29;
-            // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(dtpDenNgay);
+            groupBox1.Controls.Add(dtpTuNgay);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(mtbDenNgay);
-            groupBox1.Controls.Add(mtbTuNgay);
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(286, 66);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(945, 92);
+            groupBox1.Size = new Size(1165, 92);
             groupBox1.TabIndex = 30;
             groupBox1.TabStop = false;
             groupBox1.Text = "Chọn ngày";
+            // 
+            // dtpDenNgay
+            // 
+            dtpDenNgay.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpDenNgay.Location = new Point(548, 37);
+            dtpDenNgay.Name = "dtpDenNgay";
+            dtpDenNgay.Size = new Size(274, 38);
+            dtpDenNgay.TabIndex = 37;
+            dtpDenNgay.ValueChanged += dtpDenNgay_ValueChanged;
+            // 
+            // dtpTuNgay
+            // 
+            dtpTuNgay.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpTuNgay.Location = new Point(129, 37);
+            dtpTuNgay.Name = "dtpTuNgay";
+            dtpTuNgay.Size = new Size(274, 38);
+            dtpTuNgay.TabIndex = 36;
+            dtpTuNgay.ValueChanged += dtpTuNgay_ValueChanged;
             // 
             // label3
             // 
@@ -242,43 +195,6 @@
             label3.Size = new Size(75, 20);
             label3.TabIndex = 35;
             label3.Text = "Đến Ngày";
-            // 
-            // mtbDenNgay
-            // 
-            mtbDenNgay.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            mtbDenNgay.InsertKeyMode = InsertKeyMode.Overwrite;
-            mtbDenNgay.Location = new Point(543, 32);
-            mtbDenNgay.Mask = "00/00/0000 90:00";
-            mtbDenNgay.Name = "mtbDenNgay";
-            mtbDenNgay.Size = new Size(265, 38);
-            mtbDenNgay.TabIndex = 34;
-            mtbDenNgay.ValidatingType = typeof(DateTime);
-            // 
-            // mtbTuNgay
-            // 
-            mtbTuNgay.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            mtbTuNgay.InsertKeyMode = InsertKeyMode.Overwrite;
-            mtbTuNgay.Location = new Point(133, 32);
-            mtbTuNgay.Mask = "00/00/0000 90:00";
-            mtbTuNgay.Name = "mtbTuNgay";
-            mtbTuNgay.Size = new Size(265, 38);
-            mtbTuNgay.TabIndex = 33;
-            mtbTuNgay.ValidatingType = typeof(DateTime);
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(txtDoanhThu);
-            groupBox2.Controls.Add(rbtnNgay);
-            groupBox2.Controls.Add(rbtnThang);
-            groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(rbtnNam);
-            groupBox2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(1352, 66);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(518, 147);
-            groupBox2.TabIndex = 31;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Doanh thu";
             // 
             // groupBox3
             // 
@@ -342,7 +258,7 @@
             groupBox5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox5.Location = new Point(286, 164);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(1040, 147);
+            groupBox5.Size = new Size(1165, 147);
             groupBox5.TabIndex = 33;
             groupBox5.TabStop = false;
             groupBox5.Text = "Doanh thu";
@@ -350,8 +266,9 @@
             // btnThongKe
             // 
             btnThongKe.BackColor = SystemColors.Highlight;
+            btnThongKe.Cursor = Cursors.Hand;
             btnThongKe.ForeColor = Color.White;
-            btnThongKe.Location = new Point(828, 37);
+            btnThongKe.Location = new Point(961, 49);
             btnThongKe.Name = "btnThongKe";
             btnThongKe.Size = new Size(147, 57);
             btnThongKe.TabIndex = 27;
@@ -402,7 +319,6 @@
             ClientSize = new Size(1882, 953);
             Controls.Add(groupBox5);
             Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -418,8 +334,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
@@ -438,20 +352,12 @@
         private Panel panel7;
         private PictureBox pictureBox7;
         private Button btnThanhToan;
-        private RadioButton rbtnNgay;
-        private RadioButton rbtnThang;
-        private RadioButton rbtnNam;
         private Label label1;
-        private Label label2;
-        private TextBox txtDoanhThu;
         private GroupBox groupBox1;
-        private GroupBox groupBox2;
         private GroupBox groupBox3;
         private GroupBox groupBox4;
         private DataGridView dgvThongKe;
         private Label label3;
-        private MaskedTextBox mtbDenNgay;
-        private MaskedTextBox mtbTuNgay;
         private GroupBox groupBox5;
         private Button btnThongKe;
         private ComboBox cmbItems;
@@ -459,5 +365,7 @@
         private RadioButton rdbSanPham;
         private TextBox txtDT;
         private Label label4;
+        private DateTimePicker dtpTuNgay;
+        private DateTimePicker dtpDenNgay;
     }
 }

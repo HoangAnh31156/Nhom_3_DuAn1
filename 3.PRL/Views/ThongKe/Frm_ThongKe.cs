@@ -25,78 +25,13 @@ namespace _3.PRL.Views.ThongKe
 
         List<Guid> _idSp = new List<Guid>();
 
-        private decimal tongTien = 0;
+
         public Frm_ThongKe()
         {
             InitializeComponent();
 
         }
 
-        private void DtpNgayThongKe_ValueChanged(object? sender, EventArgs e)
-        {
-            if (rbtnNgay.Checked)
-            {
-                ThongKeTheoNgay();
-            }
-            else if (rbtnThang.Checked)
-            {
-                ThongKeTheoThang();
-            }
-            else if (rbtnNam.Checked)
-            {
-                ThongKeTheoNam();
-            }
-        }
-
-        private void rbtnNgay_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbtnNgay.Checked)
-            {
-                ThongKeTheoNgay();
-            }
-
-        }
-
-        private void rbtnThang_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbtnThang.Checked)
-            {
-                ThongKeTheoThang();
-            }
-        }
-
-        private void rbtnNam_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbtnNam.Checked)
-            {
-                ThongKeTheoNam();
-            }
-        }
-        private void UpdateTextBox()
-        {
-            if (tongTien != 0)
-            {
-                txtDoanhThu.Text = tongTien.ToString();
-            }
-            else
-            {
-                txtDoanhThu.Text = "Không có dữ liệu";
-            }
-        }
-        private void ThongKeTheoNgay()
-        {
-
-        }
-
-        private void ThongKeTheoThang()
-        {
-
-        }
-
-        private void ThongKeTheoNam()
-        {
-
-        }
 
         private void pbBack_Click(object sender, EventArgs e)
         {
@@ -134,17 +69,31 @@ namespace _3.PRL.Views.ThongKe
                 _idSp.Add(item.IdSanPham);
                 cmbItems.Items.Add(item.Ten);
             }
-
         }
+
+        private DateTime fromDate;
+        private DateTime toDate;
         private void Frm_ThongKe_Load(object sender, EventArgs e)
         {
             LoadSanPham();
 
-            mtbTuNgay.Text = DateTime.Now.ToString("dd/MM/yyyy 00:01"); // Đầu ngày hiện tại
-            mtbDenNgay.Text = DateTime.Now.ToString("dd/MM/yyyy 23:59"); //Thời điểm hiện tại
+            dtpTuNgay.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpTuNgay.Format = DateTimePickerFormat.Custom;
 
+            dtpDenNgay.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpDenNgay.Format = DateTimePickerFormat.Custom;
 
+           fromDate = DateTime.Now.Date;
+           toDate = DateTime.Now.Date.AddDays(1).AddMinutes(-1);
+
+            dtpDenNgay.Value = toDate;
+            dtpTuNgay.MinDate = DateTime.MinValue;
+            dtpTuNgay.MaxDate = toDate;
+            dtpTuNgay.Value = fromDate.AddMinutes(1);
+
+           
         }
+
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
@@ -209,16 +158,17 @@ namespace _3.PRL.Views.ThongKe
 
             foreach (var item in _hoaDonService.GetHoaDon(null))
             {
-                DateTime tuNgay = DateTime.ParseExact(mtbTuNgay.Text, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
-                DateTime denNgay = DateTime.ParseExact(mtbDenNgay.Text, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
-                var ngayGD = _hoaDonService.GetHoaDon(null).Where(a => a.NgayGd >= tuNgay && a.NgayGd <= denNgay);
+                DateTime tuNgay = dtpTuNgay.Value;
+                DateTime denNgay = dtpDenNgay.Value;
+
+                //var ngayGD = _hoaDonService.GetHoaDon(null).Where(a => a.NgayGd >= tuNgay && a.NgayGd <= denNgay);
 
                 var hdct = (from a in _hoaDonService.GetHoaDon(null)
                             join b in _hdctService.GetHoaDonCts(null) on a.IdHoaDon equals b.IdHoaDon
                             join c in _btService.GetBienThe(null) on b.IdBienThe equals c.IdBienThe
                             join d in _spService.GetSanPham(null) on c.IdSanPham equals d.IdSanPham
                             join e in _ggService.GetGiamGia() on b.IdGiamGia equals e.IdGiamGia
-                            where a.IdHoaDon == item.IdHoaDon && a.TrangThai == true
+                            where a.IdHoaDon == item.IdHoaDon && a.TrangThai == true && (a.NgayGd >= tuNgay &&  a.NgayGd <= denNgay)
                             select new
                             {
                                 TenSp = d.Ten,
@@ -251,6 +201,17 @@ namespace _3.PRL.Views.ThongKe
             txtDT.Text = tongDoanhThu.ToString("N0");
         }
 
+        private void dtpTuNgay_ValueChanged(object sender, EventArgs e)
+        {
+            fromDate = dtpTuNgay.Value;
+            //MessageBox.Show($"Bạn chọn từ ngày : {dtpTuNgay.Text}");
+        }
+
+        private void dtpDenNgay_ValueChanged(object sender, EventArgs e)
+        {
+            toDate = dtpDenNgay.Value;
+            //MessageBox.Show($"Bạn chọn đến ngày : {dtpDenNgay.Text}");
+        }
     }
 }
 
