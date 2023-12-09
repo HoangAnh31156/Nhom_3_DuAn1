@@ -18,6 +18,54 @@ namespace _3.PRL.Views.SanPham
 {
     public partial class Frm_ThemBienThe : Form
     {
+        public event EventHandler OpenThemSPForm;
+        public event EventHandler OpenThemCTKhacForm;
+        public event EventHandler OpenSanPhamForm;
+
+        Frm_TrangChu frm_TrangChu;
+        public Frm_ThemBienThe(Frm_TrangChu frm_TrangChu)
+        {
+            InitializeComponent();
+            _chatLieuService = new ChatLieuService();
+            _mauSacService = new MauSacService();
+            _soCanhService = new SoCanhService();
+            _SanPhamService = new SanPhamService();
+            _BienTheService = new BienTheService();
+            _LoaiSPService = new LoaiSPService();
+            LoadAttributes();
+            LoadgridVariant(null);
+            this.frm_TrangChu = frm_TrangChu;
+        }
+        private void pbDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_DangNhap2 frm_DangNhap = new Frm_DangNhap2();
+            frm_DangNhap.Show();
+        }
+
+        private void pbBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frm_TrangChu?.Show();
+        }
+
+        private void btnTCSanPham_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            OpenSanPhamForm?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnThemCTKhac_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            OpenThemCTKhacForm?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnThemSP_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            OpenThemSPForm?.Invoke(this, EventArgs.Empty);
+        }
         private ChatLieuService _chatLieuService;
         private MauSacService _mauSacService;
         private SoCanhService _soCanhService;
@@ -41,20 +89,6 @@ namespace _3.PRL.Views.SanPham
             _LoaiSPService = new LoaiSPService();
             LoadAttributes();
             LoadgridVariant(null);
-        }
-
-        private void pbDangXuat_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_DangNhap2 frm_DangNhap = new Frm_DangNhap2();
-            frm_DangNhap.Show();
-        }
-
-        private void pbBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_TrangChu frm_TrangChu = new Frm_TrangChu();
-            frm_TrangChu.Show();
         }
         private void LoadAttributes()
         {
@@ -257,28 +291,6 @@ namespace _3.PRL.Views.SanPham
             }
             return true;
         }
-        private void btnTCSanPham_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_SanPham frm_SanPham = new Frm_SanPham();
-            frm_SanPham.Show();
-        }
-
-        private void btnThemCTKhac_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_ThemCTKhac frm_ThemCTKhac = new Frm_ThemCTKhac();
-            frm_ThemCTKhac.Show();
-        }
-
-        private void btnThemSP_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_ThemSP frm_ThemSP = new Frm_ThemSP();
-            frm_ThemSP.Show();
-        }
-
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (checkEmpty() && checkExists() && CheckFormat())

@@ -15,11 +15,12 @@ namespace _3.PRL.Views.DangNhap
 {
     public partial class Frm_DangNhap2 : Form
     {
-        private readonly OnlyFansContext _taikhoansv;
+        private TaiKhoanService taiKhoanService = new TaiKhoanService();
+        private VaiTroService vaiTroService = new VaiTroService();
+        private NhanVienService nhanVienService = new NhanVienService();
         public Frm_DangNhap2()
         {
             InitializeComponent();
-            _taikhoansv = new();
         }
 
         private void linkQuenMK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -31,32 +32,32 @@ namespace _3.PRL.Views.DangNhap
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            var username = textBox1.Text;
-            var password = textBox2.Text;
-
-            var user = _taikhoansv.TaiKhoans.Include(u => u.IdVaiTroNavigation)
-                .FirstOrDefault(u => u.TaiKhoan1 == username && u.MatKhau == password);
+            dangnhap();
+        }
+        private void dangnhap()
+        {
+            var user = taiKhoanService.GetKhoans().FirstOrDefault(u => u.TaiKhoan1 == textBox1.Text && u.MatKhau == textBox2.Text);
 
             if (user != null)
             {
-                this.Hide();
-
-                if (user.IdVaiTroNavigation != null && user.IdVaiTroNavigation.Ten == "Quản lý")
+                if (user.IdVaiTro != null && new VaiTroService().GetVaiTros().FirstOrDefault(a => a.IdVaiTro == user.IdVaiTro).Ten == "Quản lý")
                 {
                     MessageBox.Show("Đăng nhập thành công với quyền Admin!");
+                    this.Hide();
                     Frm_TrangChu frm_TrangChuAdmin = new Frm_TrangChu(user, true);
-                    frm_TrangChuAdmin.Show();
+                    frm_TrangChuAdmin.ShowDialog();
                 }
                 else
                 {
                     MessageBox.Show("Đăng nhập thành công với quyền Nhân viên!");
+                    this.Hide();
                     Frm_TrangChu frm_TrangChuNhanVien = new Frm_TrangChu(user, false);
-                    frm_TrangChuNhanVien.Show();
+                    frm_TrangChuNhanVien.ShowDialog();
                 }
             }
             else
             {
-                MessageBox.Show("Tài khoản không tồn tại!!!!!!!!!!!!!");
+                MessageBox.Show("Đăng nhập thất bại.");
             }
         }
     }

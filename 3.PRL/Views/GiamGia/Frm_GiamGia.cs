@@ -18,10 +18,15 @@ namespace _3.PRL.Views.GiamGia
     {
         GiamGiaService _giamGiaService = new GiamGiaService();
         Guid _id;
-
         public Frm_GiamGia()
         {
             InitializeComponent();
+        }
+        Frm_TrangChu frm_TrangChu;
+        public Frm_GiamGia(Frm_TrangChu frm_TrangChu)
+        {
+            InitializeComponent();
+            this.frm_TrangChu = frm_TrangChu;
         }
 
         private void Frm_GiamGia_Load(object sender, EventArgs e)
@@ -32,8 +37,7 @@ namespace _3.PRL.Views.GiamGia
         private void pbBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_TrangChu frm_TrangChu = new Frm_TrangChu();
-            frm_TrangChu.Show();
+            frm_TrangChu?.Show();
         }
 
         private void pbDangXuat_Click(object sender, EventArgs e)

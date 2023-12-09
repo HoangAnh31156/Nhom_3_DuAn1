@@ -197,7 +197,6 @@
             btnDoiTra.Text = "Đổi trả";
             btnDoiTra.TextAlign = ContentAlignment.MiddleLeft;
             btnDoiTra.UseVisualStyleBackColor = true;
-            btnDoiTra.Click += btnDoiTra_Click;
             // 
             // pictureBox6
             // 
@@ -296,7 +295,6 @@
             btnBaoHanh.Text = "Bảo hành";
             btnBaoHanh.TextAlign = ContentAlignment.MiddleLeft;
             btnBaoHanh.UseVisualStyleBackColor = true;
-            btnBaoHanh.Click += btnBaoHanh_Click;
             // 
             // pictureBox3
             // 

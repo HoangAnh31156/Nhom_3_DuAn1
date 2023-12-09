@@ -18,7 +18,14 @@ namespace _3.PRL.Views
     {
         KhachHangService _khachService;
         Guid _id;
-
+        Frm_TrangChu frm_TrangChu;
+        public Frm_KhachHang(Frm_TrangChu frm_TrangChu)
+        {
+            _khachService = new KhachHangService();
+            InitializeComponent();
+            LoadGrid(null);
+            this.frm_TrangChu = frm_TrangChu;
+        }
 
 
         public Frm_KhachHang()
@@ -31,15 +38,15 @@ namespace _3.PRL.Views
         private void pbDangXuat_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Frm_DangNhap2 frm_DangNhap2 = new Frm_DangNhap2();
+            frm_DangNhap2.Show();
         }
 
         private void pbBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_TrangChu fTC = new Frm_TrangChu();
-            fTC.Show();
+            frm_TrangChu?.Show();
         }
-
 
         private void Frm_KhachHang_Load(object sender, EventArgs e)
         {

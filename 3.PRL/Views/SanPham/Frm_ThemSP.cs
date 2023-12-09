@@ -15,6 +15,51 @@ namespace _3.PRL.Views.SanPham
 {
     public partial class Frm_ThemSP : Form
     {
+        public event EventHandler OpenThemCTKhacForm;
+        public event EventHandler OpenSanPhamForm;
+        public event EventHandler OpenThemBienTheForm;
+
+        Frm_TrangChu frm_TrangChu;
+        public Frm_ThemSP(Frm_TrangChu frm_TrangChu)
+        {
+            InitializeComponent();
+            _SanPhamService = new SanPhamService();
+            _LoaiSPService = new LoaiSPService();
+            LoadGridviewSp(null);
+            LoadAttribute();
+            this.frm_TrangChu = frm_TrangChu;
+        }
+
+        private void pbBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frm_TrangChu?.Show();
+        }
+
+        private void pbDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_DangNhap2 frm_DangNhap = new Frm_DangNhap2();
+            frm_DangNhap.Show();
+        }
+
+        private void btnTCSanPham_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            OpenSanPhamForm?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnThemCTKhac_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            OpenThemCTKhacForm?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnThemBienThe_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            OpenThemBienTheForm?.Invoke(this, EventArgs.Empty);
+        }
         private SanPhamService _SanPhamService;
         private LoaiSPService _LoaiSPService;
         Guid MaLoaiSanPham = Guid.Empty;
@@ -63,41 +108,6 @@ namespace _3.PRL.Views.SanPham
                 stt++;
             }
         }
-        private void pbBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_TrangChu frm_TrangChu = new Frm_TrangChu();
-            frm_TrangChu.Show();
-        }
-
-        private void pbDangXuat_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_DangNhap2 frm_DangNhap = new Frm_DangNhap2();
-            frm_DangNhap.Show();
-        }
-
-        private void btnTCSanPham_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_SanPham frm_SanPham = new Frm_SanPham();
-            frm_SanPham.Show();
-        }
-
-        private void btnThemCTKhac_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_ThemCTKhac frm_ThemCTKhac = new Frm_ThemCTKhac();
-            frm_ThemCTKhac.Show();
-        }
-
-        private void btnThemBienThe_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_ThemBienThe frm_ThemBien = new Frm_ThemBienThe();
-            frm_ThemBien.Show();
-        }
-
         private void cboLoaiSp_SelectedIndexChanged(object sender, EventArgs e)
         {
             var lst = (from i in _LoaiSPService.GetLoaiSanPham(null) select i.IdLoaiSanPham).ToArray();

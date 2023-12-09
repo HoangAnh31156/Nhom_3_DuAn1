@@ -30,14 +30,20 @@ namespace _3.PRL.Views.ThongKe
         public Frm_ThongKe()
         {
             InitializeComponent();
-
         }
+
+        public Frm_ThongKe(Frm_TrangChu frm_trangChu)
+        {
+            InitializeComponent();
+            this.frm_trangChu = frm_trangChu;
+        }
+
+        Frm_TrangChu frm_trangChu;
 
         private void pbBack_Click(object sender, EventArgs e)
         {
-            Frm_TrangChu frm = new Frm_TrangChu();
             this.Hide();
-            frm.Show();
+            frm_trangChu?.Show();
         }
 
         private void pbDangXuat_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using _1.DAL.Model1s;
+using _1.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,22 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class TaiKhoanService : OnlyFansContext
+    public class TaiKhoanService 
     {
-        public DbSet<TaiKhoan> Users { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        TaiKhoanRepos _context = new TaiKhoanRepos();
+        public TaiKhoanService()
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-B52SRBN\\SQLEXPRESS;Database= OnlyFans;Trusted_Connection=True;");
+
+        }
+
+        public TaiKhoanService(TaiKhoanRepos context)
+        {
+            _context = context;
+        }
+
+        public List<TaiKhoan> GetKhoans()
+        {
+            return _context.GetKhoans().ToList();
         }
     }
 }

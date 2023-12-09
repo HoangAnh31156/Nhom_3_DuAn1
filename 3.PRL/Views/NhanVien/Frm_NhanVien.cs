@@ -16,6 +16,7 @@ namespace _3.PRL.Views
     {
         NhanVienService _service;
         Guid _id;
+        Frm_TrangChu _chu;
 
         public Frm_NhanVien()
         {
@@ -23,12 +24,18 @@ namespace _3.PRL.Views
             InitializeComponent();
             LoadGrid(null);
         }
+        public Frm_NhanVien(Frm_TrangChu _chu)
+        {
+            _service = new NhanVienService();
+            InitializeComponent();
+            LoadGrid(null);
+            this._chu = _chu;
+        }
 
         private void pbBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_TrangChu frm_TrangChu = new Frm_TrangChu();
-            frm_TrangChu.Show();
+            _chu?.Show();
         }
 
         private void pbDangXuat_Click(object sender, EventArgs e)
@@ -37,6 +44,7 @@ namespace _3.PRL.Views
             Frm_DangNhap2 frm_DangNhap = new Frm_DangNhap2();
             frm_DangNhap.Show();
         }
+
 
         private void btnDSNV_Click(object sender, EventArgs e)
         {

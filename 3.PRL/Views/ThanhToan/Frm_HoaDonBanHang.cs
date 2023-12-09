@@ -17,6 +17,8 @@ namespace _3.PRL.Views.ThanhToan
 {
     public partial class Frm_HoaDonBanHang : Form
     {
+        Frm_TrangChu frm_TrangChu;
+
         HoaDonService _hoaDonService = new HoaDonService();
         NhanVienService _nhanVienService = new NhanVienService();
         KhachHangService _khachHangService = new KhachHangService();
@@ -44,6 +46,12 @@ namespace _3.PRL.Views.ThanhToan
             InitializeComponent();
         }
 
+        public Frm_HoaDonBanHang(Frm_TrangChu frm_TrangChu)
+        {
+            InitializeComponent();
+            this.frm_TrangChu = frm_TrangChu;
+        }
+
         private void pbDangXuat_Click(object sender, EventArgs e)
         {
             Frm_DangNhap2 frm = new();
@@ -53,9 +61,8 @@ namespace _3.PRL.Views.ThanhToan
 
         private void pbBack_Click(object sender, EventArgs e)
         {
-            Frm_TrangChu frm = new();
             this.Hide();
-            frm.Show();
+            frm_TrangChu?.Show();
         }
 
         private void Frm_HoaDonBanHang_Load(object sender, EventArgs e)
@@ -468,7 +475,7 @@ namespace _3.PRL.Views.ThanhToan
 
 
                 string idHoaDon = item.IdHoaDon.ToString();
-                string MaHD = idHoaDon.Substring(idHoaDon.Length - 10);
+                string MaHD = idHoaDon/*.Substring(idHoaDon.Length - 10)*/;
 
                 var sum = item.SoLuong * BT?.GiaTien;
 
