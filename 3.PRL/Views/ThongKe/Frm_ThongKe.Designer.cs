@@ -48,7 +48,6 @@
             dgvThongKe = new DataGridView();
             groupBox5 = new GroupBox();
             btnThongKe = new Button();
-            cmbItems = new ComboBox();
             rdbTatCa = new RadioButton();
             rdbSanPham = new RadioButton();
             panel1.SuspendLayout();
@@ -148,7 +147,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(33, 44);
+            label1.Location = new Point(43, 61);
             label1.Name = "label1";
             label1.Size = new Size(65, 20);
             label1.TabIndex = 27;
@@ -163,7 +162,7 @@
             groupBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(286, 66);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1165, 92);
+            groupBox1.Size = new Size(1165, 109);
             groupBox1.TabIndex = 30;
             groupBox1.TabStop = false;
             groupBox1.Text = "Chọn ngày";
@@ -171,7 +170,7 @@
             // dtpDenNgay
             // 
             dtpDenNgay.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpDenNgay.Location = new Point(548, 37);
+            dtpDenNgay.Location = new Point(697, 46);
             dtpDenNgay.Name = "dtpDenNgay";
             dtpDenNgay.Size = new Size(274, 38);
             dtpDenNgay.TabIndex = 37;
@@ -180,7 +179,7 @@
             // dtpTuNgay
             // 
             dtpTuNgay.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpTuNgay.Location = new Point(129, 37);
+            dtpTuNgay.Location = new Point(149, 46);
             dtpTuNgay.Name = "dtpTuNgay";
             dtpTuNgay.Size = new Size(274, 38);
             dtpTuNgay.TabIndex = 36;
@@ -190,7 +189,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(436, 44);
+            label3.Location = new Point(600, 61);
             label3.Name = "label3";
             label3.Size = new Size(75, 20);
             label3.TabIndex = 35;
@@ -252,13 +251,12 @@
             // groupBox5
             // 
             groupBox5.Controls.Add(btnThongKe);
-            groupBox5.Controls.Add(cmbItems);
             groupBox5.Controls.Add(rdbTatCa);
             groupBox5.Controls.Add(rdbSanPham);
             groupBox5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox5.Location = new Point(286, 164);
+            groupBox5.Location = new Point(286, 181);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(1165, 147);
+            groupBox5.Size = new Size(1165, 130);
             groupBox5.TabIndex = 33;
             groupBox5.TabStop = false;
             groupBox5.Text = "Doanh thu";
@@ -268,7 +266,7 @@
             btnThongKe.BackColor = SystemColors.Highlight;
             btnThongKe.Cursor = Cursors.Hand;
             btnThongKe.ForeColor = Color.White;
-            btnThongKe.Location = new Point(961, 49);
+            btnThongKe.Location = new Point(746, 49);
             btnThongKe.Name = "btnThongKe";
             btnThongKe.Size = new Size(147, 57);
             btnThongKe.TabIndex = 27;
@@ -276,40 +274,29 @@
             btnThongKe.UseVisualStyleBackColor = false;
             btnThongKe.Click += btnThongKe_Click;
             // 
-            // cmbItems
-            // 
-            cmbItems.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            cmbItems.FormattingEnabled = true;
-            cmbItems.Location = new Point(479, 54);
-            cmbItems.Name = "cmbItems";
-            cmbItems.Size = new Size(288, 31);
-            cmbItems.TabIndex = 26;
-            // 
             // rdbTatCa
             // 
             rdbTatCa.AutoSize = true;
-            rdbTatCa.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            rdbTatCa.Location = new Point(33, 49);
+            rdbTatCa.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            rdbTatCa.Location = new Point(86, 65);
             rdbTatCa.Name = "rdbTatCa";
-            rdbTatCa.Size = new Size(72, 24);
+            rdbTatCa.Size = new Size(86, 29);
             rdbTatCa.TabIndex = 23;
             rdbTatCa.TabStop = true;
             rdbTatCa.Text = "Tất Cả";
             rdbTatCa.UseVisualStyleBackColor = true;
-            rdbTatCa.CheckedChanged += rdbTatCa_CheckedChanged;
             // 
             // rdbSanPham
             // 
             rdbSanPham.AutoSize = true;
-            rdbSanPham.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            rdbSanPham.Location = new Point(170, 49);
+            rdbSanPham.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            rdbSanPham.Location = new Point(404, 65);
             rdbSanPham.Name = "rdbSanPham";
-            rdbSanPham.Size = new Size(132, 24);
+            rdbSanPham.Size = new Size(164, 29);
             rdbSanPham.TabIndex = 24;
             rdbSanPham.TabStop = true;
             rdbSanPham.Text = "Theo Sản Phẩm";
             rdbSanPham.UseVisualStyleBackColor = true;
-            rdbSanPham.CheckedChanged += rdbTatCa_CheckedChanged;
             // 
             // Frm_ThongKe
             // 
@@ -360,7 +347,6 @@
         private Label label3;
         private GroupBox groupBox5;
         private Button btnThongKe;
-        private ComboBox cmbItems;
         private RadioButton rdbTatCa;
         private RadioButton rdbSanPham;
         private TextBox txtDT;
