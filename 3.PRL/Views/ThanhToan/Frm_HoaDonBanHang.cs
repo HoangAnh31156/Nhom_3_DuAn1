@@ -160,7 +160,6 @@ namespace _3.PRL.Views.ThanhToan
                     txtTenSP.Text = "Quạt Công Nghiệp " + bt.MaBienThe.Substring(4);
                 }
             }
-            
         }
 
         private void LoadGridHD(string input)
@@ -230,7 +229,7 @@ namespace _3.PRL.Views.ThanhToan
                 string tt = (dgvHoaDon.Rows[i].Cells[6].Value.ToString());
                 if (tt.Equals("Chưa thanh toán"))
                 {
-                    dgvHoaDon.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    dgvHoaDon.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
                 }
             }
         }
@@ -289,7 +288,7 @@ namespace _3.PRL.Views.ThanhToan
                     if (_hoaDonService.AddHoaDon(hd))
                     {
                         MessageBox.Show("Tạo Hóa đơn thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        LoadGridHD(null);                     
+                        LoadGridHD(null);
                     }
                     else
                     {
@@ -597,5 +596,7 @@ namespace _3.PRL.Views.ThanhToan
                 LoadGridHDCT(txtTimKiem.Text);
             }
         }
+
+
     }
 }

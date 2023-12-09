@@ -349,6 +349,7 @@
             cmbMaHD.Name = "cmbMaHD";
             cmbMaHD.Size = new Size(187, 33);
             cmbMaHD.TabIndex = 57;
+            
             // 
             // label12
             // 
@@ -501,7 +502,7 @@
             cmbBienThe.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             cmbBienThe.Location = new Point(164, 467);
             cmbBienThe.Name = "cmbBienThe";
-            cmbBienThe.Size = new Size(187, 33);
+            cmbBienThe.Size = new Size(383, 33);
             cmbBienThe.TabIndex = 41;
             cmbBienThe.SelectedIndexChanged += cmbBienThe_SelectedIndexChanged;
             // 

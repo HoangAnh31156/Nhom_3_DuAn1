@@ -39,12 +39,24 @@
             rbtnNgay = new RadioButton();
             rbtnThang = new RadioButton();
             rbtnNam = new RadioButton();
-            dtpNgayThongKe = new DateTimePicker();
             label1 = new Label();
             label2 = new Label();
             txtDoanhThu = new TextBox();
             groupBox1 = new GroupBox();
+            label3 = new Label();
+            mtbDenNgay = new MaskedTextBox();
+            mtbTuNgay = new MaskedTextBox();
             groupBox2 = new GroupBox();
+            groupBox3 = new GroupBox();
+            txtDT = new TextBox();
+            label4 = new Label();
+            groupBox4 = new GroupBox();
+            dgvThongKe = new DataGridView();
+            groupBox5 = new GroupBox();
+            btnThongKe = new Button();
+            cmbItems = new ComboBox();
+            rdbTatCa = new RadioButton();
+            rdbSanPham = new RadioButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -52,6 +64,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
+            groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvThongKe).BeginInit();
+            groupBox5.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -174,23 +190,15 @@
             rbtnNam.UseVisualStyleBackColor = true;
             rbtnNam.CheckedChanged += rbtnNam_CheckedChanged;
             // 
-            // dtpNgayThongKe
-            // 
-            dtpNgayThongKe.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpNgayThongKe.Location = new Point(190, 37);
-            dtpNgayThongKe.Name = "dtpNgayThongKe";
-            dtpNgayThongKe.Size = new Size(265, 27);
-            dtpNgayThongKe.TabIndex = 26;
-            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(33, 44);
             label1.Name = "label1";
-            label1.Size = new Size(107, 20);
+            label1.Size = new Size(65, 20);
             label1.TabIndex = 27;
-            label1.Text = "Mời chọn ngày";
+            label1.Text = "Từ Ngày";
             // 
             // label2
             // 
@@ -213,15 +221,49 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(mtbDenNgay);
+            groupBox1.Controls.Add(mtbTuNgay);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(dtpNgayThongKe);
             groupBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(286, 127);
+            groupBox1.Location = new Point(286, 66);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(513, 92);
+            groupBox1.Size = new Size(945, 92);
             groupBox1.TabIndex = 30;
             groupBox1.TabStop = false;
             groupBox1.Text = "Chọn ngày";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(436, 44);
+            label3.Name = "label3";
+            label3.Size = new Size(75, 20);
+            label3.TabIndex = 35;
+            label3.Text = "Đến Ngày";
+            // 
+            // mtbDenNgay
+            // 
+            mtbDenNgay.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            mtbDenNgay.InsertKeyMode = InsertKeyMode.Overwrite;
+            mtbDenNgay.Location = new Point(543, 32);
+            mtbDenNgay.Mask = "00/00/0000 90:00";
+            mtbDenNgay.Name = "mtbDenNgay";
+            mtbDenNgay.Size = new Size(265, 38);
+            mtbDenNgay.TabIndex = 34;
+            mtbDenNgay.ValidatingType = typeof(DateTime);
+            // 
+            // mtbTuNgay
+            // 
+            mtbTuNgay.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            mtbTuNgay.InsertKeyMode = InsertKeyMode.Overwrite;
+            mtbTuNgay.Location = new Point(133, 32);
+            mtbTuNgay.Mask = "00/00/0000 90:00";
+            mtbTuNgay.Name = "mtbTuNgay";
+            mtbTuNgay.Size = new Size(265, 38);
+            mtbTuNgay.TabIndex = 33;
+            mtbTuNgay.ValidatingType = typeof(DateTime);
             // 
             // groupBox2
             // 
@@ -231,12 +273,126 @@
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(rbtnNam);
             groupBox2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(286, 286);
+            groupBox2.Location = new Point(1352, 66);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(518, 147);
             groupBox2.TabIndex = 31;
             groupBox2.TabStop = false;
             groupBox2.Text = "Doanh thu";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(txtDT);
+            groupBox3.Controls.Add(label4);
+            groupBox3.Controls.Add(groupBox4);
+            groupBox3.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox3.Location = new Point(286, 317);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(1584, 636);
+            groupBox3.TabIndex = 32;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Thống Kê";
+            // 
+            // txtDT
+            // 
+            txtDT.ForeColor = Color.Red;
+            txtDT.Location = new Point(386, 65);
+            txtDT.Name = "txtDT";
+            txtDT.Size = new Size(355, 41);
+            txtDT.TabIndex = 2;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(120, 68);
+            label4.Name = "label4";
+            label4.Size = new Size(143, 35);
+            label4.TabIndex = 1;
+            label4.Text = "Doanh Thu";
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(dgvThongKe);
+            groupBox4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox4.Location = new Point(6, 144);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(1572, 486);
+            groupBox4.TabIndex = 0;
+            groupBox4.TabStop = false;
+            // 
+            // dgvThongKe
+            // 
+            dgvThongKe.AllowUserToAddRows = false;
+            dgvThongKe.BackgroundColor = Color.FromArgb(255, 255, 192);
+            dgvThongKe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvThongKe.Location = new Point(0, 12);
+            dgvThongKe.Name = "dgvThongKe";
+            dgvThongKe.RowHeadersVisible = false;
+            dgvThongKe.RowHeadersWidth = 51;
+            dgvThongKe.RowTemplate.Height = 29;
+            dgvThongKe.Size = new Size(1572, 578);
+            dgvThongKe.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(btnThongKe);
+            groupBox5.Controls.Add(cmbItems);
+            groupBox5.Controls.Add(rdbTatCa);
+            groupBox5.Controls.Add(rdbSanPham);
+            groupBox5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox5.Location = new Point(286, 164);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(1040, 147);
+            groupBox5.TabIndex = 33;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Doanh thu";
+            // 
+            // btnThongKe
+            // 
+            btnThongKe.BackColor = SystemColors.Highlight;
+            btnThongKe.ForeColor = Color.White;
+            btnThongKe.Location = new Point(828, 37);
+            btnThongKe.Name = "btnThongKe";
+            btnThongKe.Size = new Size(147, 57);
+            btnThongKe.TabIndex = 27;
+            btnThongKe.Text = "Thống Kê";
+            btnThongKe.UseVisualStyleBackColor = false;
+            btnThongKe.Click += btnThongKe_Click;
+            // 
+            // cmbItems
+            // 
+            cmbItems.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbItems.FormattingEnabled = true;
+            cmbItems.Location = new Point(479, 54);
+            cmbItems.Name = "cmbItems";
+            cmbItems.Size = new Size(288, 31);
+            cmbItems.TabIndex = 26;
+            // 
+            // rdbTatCa
+            // 
+            rdbTatCa.AutoSize = true;
+            rdbTatCa.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            rdbTatCa.Location = new Point(33, 49);
+            rdbTatCa.Name = "rdbTatCa";
+            rdbTatCa.Size = new Size(72, 24);
+            rdbTatCa.TabIndex = 23;
+            rdbTatCa.TabStop = true;
+            rdbTatCa.Text = "Tất Cả";
+            rdbTatCa.UseVisualStyleBackColor = true;
+            rdbTatCa.CheckedChanged += rdbTatCa_CheckedChanged;
+            // 
+            // rdbSanPham
+            // 
+            rdbSanPham.AutoSize = true;
+            rdbSanPham.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            rdbSanPham.Location = new Point(170, 49);
+            rdbSanPham.Name = "rdbSanPham";
+            rdbSanPham.Size = new Size(132, 24);
+            rdbSanPham.TabIndex = 24;
+            rdbSanPham.TabStop = true;
+            rdbSanPham.Text = "Theo Sản Phẩm";
+            rdbSanPham.UseVisualStyleBackColor = true;
+            rdbSanPham.CheckedChanged += rdbTatCa_CheckedChanged;
             // 
             // Frm_ThongKe
             // 
@@ -244,6 +400,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1882, 953);
+            Controls.Add(groupBox5);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel2);
@@ -252,6 +410,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Frm_ThongKe";
             WindowState = FormWindowState.Maximized;
+            Load += Frm_ThongKe_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).EndInit();
@@ -261,6 +420,12 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvThongKe).EndInit();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -276,11 +441,23 @@
         private RadioButton rbtnNgay;
         private RadioButton rbtnThang;
         private RadioButton rbtnNam;
-        private DateTimePicker dtpNgayThongKe;
         private Label label1;
         private Label label2;
         private TextBox txtDoanhThu;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
+        private GroupBox groupBox3;
+        private GroupBox groupBox4;
+        private DataGridView dgvThongKe;
+        private Label label3;
+        private MaskedTextBox mtbDenNgay;
+        private MaskedTextBox mtbTuNgay;
+        private GroupBox groupBox5;
+        private Button btnThongKe;
+        private ComboBox cmbItems;
+        private RadioButton rdbTatCa;
+        private RadioButton rdbSanPham;
+        private TextBox txtDT;
+        private Label label4;
     }
 }
