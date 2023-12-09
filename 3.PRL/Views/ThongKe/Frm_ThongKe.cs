@@ -22,6 +22,8 @@ namespace _3.PRL.Views.ThongKe
         HoaDonCTService _hdctService = new HoaDonCTService();
         BienTheService _btService = new BienTheService();
         GiamGiaService _ggService = new GiamGiaService();
+        KhachHangService _kkService = new KhachHangService();
+        NhanVienService _nvService = new NhanVienService();
 
         List<Guid> _idSp = new List<Guid>();
 
@@ -110,33 +112,6 @@ namespace _3.PRL.Views.ThongKe
         }
         private void ThongKeSanPham()
         {
-            int stt = 1;
-            var result = from hd in _hoaDonService.GetHoaDon(null).Where(a => a.TrangThai == true)
-                         join ct in _hdctService.GetHoaDonCts(null) on hd.IdHoaDon equals ct.IdHoaDon
-                         join bt in _btService.GetBienThe(null) on ct.IdBienThe equals bt.IdBienThe
-                         join sp in _spService.GetSanPham(null) on bt.IdSanPham equals sp.IdSanPham
-                         select new
-                         {
-                             NgayGD = hd.NgayGd,
-                             SanPham = sp.Ten,
-                             DonGia = bt.GiaTien,
-                             SoLuong = ct.SoLuong,
-                             ThanhTien = 0
-                         };
-            dgvThongKe.ColumnCount = 6;
-            dgvThongKe.Columns[0].Name = "STT";
-            dgvThongKe.Columns[0].Width = 50;
-            dgvThongKe.Columns[1].Name = "Ngày giao dịch";
-            dgvThongKe.Columns[2].Name = "Sản phẩm";
-            dgvThongKe.Columns[3].Name = "Đơn giá";
-            dgvThongKe.Columns[4].Name = "Số lượng";
-            dgvThongKe.Columns[5].Name = "Thành Tiền";
-            dgvThongKe.Rows.Clear();
-            dgvThongKe.Rows.Add(stt++, result);
-        }
-
-        private void ThongKeTatCa()
-        {
             decimal tongDoanhThu = 0;
             int stt = 1;
             dgvThongKe.ColumnCount = 9;
@@ -147,6 +122,7 @@ namespace _3.PRL.Views.ThongKe
             dgvThongKe.Columns[1].Width = 120;
             dgvThongKe.Columns[2].Name = "Ngày Giao Dịch";
             dgvThongKe.Columns[2].Width = 200;
+            
             dgvThongKe.Columns[3].Name = "Sản Phẩm";
             dgvThongKe.Columns[3].Width = 200;
             dgvThongKe.Columns[4].Name = "Đơn Giá";
@@ -154,6 +130,77 @@ namespace _3.PRL.Views.ThongKe
             dgvThongKe.Columns[6].Name = "Thành Tiền";
             dgvThongKe.Columns[7].Name = "Chiết khấu";
             dgvThongKe.Columns[8].Name = "Tổng Thanh Toán";
+            dgvThongKe.Rows.Clear();
+
+            foreach (var item in _hoaDonService.GetHoaDon(null))
+            {
+                DateTime tuNgay = dtpTuNgay.Value;
+                DateTime denNgay = dtpDenNgay.Value;             
+
+                var hdct = (from a in _hoaDonService.GetHoaDon(null)
+                            join b in _hdctService.GetHoaDonCts(null) on a.IdHoaDon equals b.IdHoaDon
+                            join c in _btService.GetBienThe(null) on b.IdBienThe equals c.IdBienThe
+                            join d in _spService.GetSanPham(null) on c.IdSanPham equals d.IdSanPham
+                            join e in _ggService.GetGiamGia() on b.IdGiamGia equals e.IdGiamGia
+                            
+                            where a.IdHoaDon == item.IdHoaDon && a.TrangThai == true && (a.NgayGd >= tuNgay && a.NgayGd <= denNgay)
+                            select new
+                            {
+                                TenSp = d.Ten,
+                                DonGia = c.GiaTien,
+                                MaHD = a.IdHoaDon,
+                                SL = b.SoLuong,
+                                CK = e.GiaTri,
+                                
+                            }).ToList();
+
+
+                foreach (var ct in hdct)
+                {
+                    string idHD = ct.MaHD.ToString();
+                    string MaHoaDon = idHD.Substring(idHD.Length - 10);
+
+                    var thanhTien = (ct.SL * ct.DonGia);
+
+                    var chietKhau = Convert.ToDouble(thanhTien) * ct.CK / 100;
+
+                    var tongThanhToan = (thanhTien - Convert.ToDecimal(chietKhau)) ?? 0;
+                    dgvThongKe.Rows.Add(stt++, MaHoaDon.ToUpper(), item.NgayGd,ct.TenSp,
+                        Convert.ToDecimal(ct.DonGia).ToString("N0"), ct.SL,
+                        Convert.ToDecimal(thanhTien).ToString("N0"),
+                        Convert.ToDecimal(chietKhau).ToString("N0"),
+                        Convert.ToDecimal(tongThanhToan).ToString("N0"));
+
+                    tongDoanhThu += tongThanhToan;
+                }
+            }
+            txtDT.Text = tongDoanhThu.ToString("N0");
+        }
+
+        private void ThongKeTatCa()
+        {
+            decimal tongDoanhThu = 0;
+            int stt = 1;
+            dgvThongKe.ColumnCount = 11;
+            dgvThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvThongKe.Columns[0].Name = "STT";
+            dgvThongKe.Columns[0].Width = 50;
+            dgvThongKe.Columns[1].Name = "Mã Hóa Đơn";
+            dgvThongKe.Columns[1].Width = 120;
+            dgvThongKe.Columns[2].Name = "Ngày Giao Dịch";
+            dgvThongKe.Columns[2].Width = 200;
+            dgvThongKe.Columns[3].Name = "Sản Phẩm";
+            dgvThongKe.Columns[3].Width = 200;
+            dgvThongKe.Columns[4].Name = "Khách Hàng";
+            dgvThongKe.Columns[4].Width = 200;
+            dgvThongKe.Columns[5].Name = "Nhân Viên";
+            dgvThongKe.Columns[5].Width = 200;
+            dgvThongKe.Columns[6].Name = "Đơn Giá";
+            dgvThongKe.Columns[7].Name = "Số Lượng";
+            dgvThongKe.Columns[7].Width = 100;
+            dgvThongKe.Columns[8].Name = "Thành Tiền";
+            dgvThongKe.Columns[9].Name = "Chiết khấu";
+            dgvThongKe.Columns[10].Name = "Tổng Thanh Toán";
             dgvThongKe.Rows.Clear();
 
             foreach (var item in _hoaDonService.GetHoaDon(null))
@@ -168,6 +215,8 @@ namespace _3.PRL.Views.ThongKe
                             join c in _btService.GetBienThe(null) on b.IdBienThe equals c.IdBienThe
                             join d in _spService.GetSanPham(null) on c.IdSanPham equals d.IdSanPham
                             join e in _ggService.GetGiamGia() on b.IdGiamGia equals e.IdGiamGia
+                            join f in _kkService.GetKhach(null) on a.IdKh equals f.IdKh
+                            join g in _nvService.GetNhanVien(null) on a.IdNv equals g.IdNv
                             where a.IdHoaDon == item.IdHoaDon && a.TrangThai == true && (a.NgayGd >= tuNgay &&  a.NgayGd <= denNgay)
                             select new
                             {
@@ -175,7 +224,9 @@ namespace _3.PRL.Views.ThongKe
                                 DonGia = c.GiaTien,
                                 MaHD = a.IdHoaDon,
                                 SL = b.SoLuong,
-                                CK = e.GiaTri
+                                CK = e.GiaTri,
+                                TenKH = f.TenKh,
+                                TenNV = g.Ten
                             }).ToList();
 
 
@@ -189,7 +240,7 @@ namespace _3.PRL.Views.ThongKe
                     var chietKhau = Convert.ToDouble(thanhTien) * ct.CK / 100;
 
                     var tongThanhToan = (thanhTien - Convert.ToDecimal(chietKhau)) ?? 0;
-                    dgvThongKe.Rows.Add(stt++, MaHoaDon.ToUpper(), item.NgayGd, ct.TenSp,
+                    dgvThongKe.Rows.Add(stt++, MaHoaDon.ToUpper(), item.NgayGd, ct.TenSp, ct.TenKH, ct.TenNV,
                         Convert.ToDecimal(ct.DonGia).ToString("N0"), ct.SL,
                         Convert.ToDecimal(thanhTien).ToString("N0"),
                         Convert.ToDecimal(chietKhau).ToString("N0"),
