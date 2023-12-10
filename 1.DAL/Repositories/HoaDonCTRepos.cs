@@ -34,7 +34,7 @@ namespace _1.DAL.Repositories
             {
                 return false;
             }
-        }
+        }      
 
         public List<HoaDonCt> GetHoaDonCts(string input)
         {
@@ -68,6 +68,17 @@ namespace _1.DAL.Repositories
             {
                 return false;
             }
+        }
+
+        public bool DeleteHoaDonCT(Guid id)
+        {
+            var result = _context.HoaDonCts.FirstOrDefault(a => a.IdHoaDonCt == id);
+            if (result == null)
+                return false;
+
+            _context.Remove(result);
+            _context.SaveChanges();
+            return true;
         }
     }
 }

@@ -36,7 +36,7 @@ namespace _1.DAL.Repositories
             }
         }
 
-        public List<GiamGium> GetGiamGia()
+        public List<GiamGium> GetGiamGia(string input)
         {
             return _context.GiamGia.ToList();
         }

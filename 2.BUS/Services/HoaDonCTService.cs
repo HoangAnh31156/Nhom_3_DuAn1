@@ -35,5 +35,10 @@ namespace _2.BUS.Services
         {
             return _hoaDonCTRepos.UpdateHoaDonCT(id, hoaDonCt);
         }
+
+        public bool DeleteHoaDonCT(Guid id)
+        {
+            return _hoaDonCTRepos.DeleteHoaDonCT(id);
+        }
     }
 }

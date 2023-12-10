@@ -21,9 +21,9 @@ namespace _2.BUS.Services
             _giamGiaRepos = giamGiaRepos;
         }
 
-        public List<GiamGium> GetGiamGia()
+        public List<GiamGium> GetGiamGia(string input)
         {
-            return _giamGiaRepos.GetGiamGia();
+            return _giamGiaRepos.GetGiamGia(input);
         }
 
         public bool AddGiamGia(DateTime ngayBD, DateTime ngayKT, double giaTri, string dieuKien)

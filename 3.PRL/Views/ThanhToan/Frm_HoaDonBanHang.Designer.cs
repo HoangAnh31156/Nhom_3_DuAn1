@@ -157,7 +157,7 @@
             // btnLamMoiHD
             // 
             btnLamMoiHD.ForeColor = SystemColors.Highlight;
-            btnLamMoiHD.Location = new Point(673, 210);
+            btnLamMoiHD.Location = new Point(684, 253);
             btnLamMoiHD.Name = "btnLamMoiHD";
             btnLamMoiHD.Size = new Size(188, 54);
             btnLamMoiHD.TabIndex = 37;
@@ -168,7 +168,7 @@
             // btnSuaHD
             // 
             btnSuaHD.ForeColor = SystemColors.Highlight;
-            btnSuaHD.Location = new Point(673, 121);
+            btnSuaHD.Location = new Point(684, 164);
             btnSuaHD.Name = "btnSuaHD";
             btnSuaHD.Size = new Size(188, 54);
             btnSuaHD.TabIndex = 36;
@@ -179,7 +179,7 @@
             // btnThemHD
             // 
             btnThemHD.ForeColor = SystemColors.Highlight;
-            btnThemHD.Location = new Point(673, 37);
+            btnThemHD.Location = new Point(684, 80);
             btnThemHD.Name = "btnThemHD";
             btnThemHD.Size = new Size(188, 54);
             btnThemHD.TabIndex = 35;
@@ -369,6 +369,7 @@
             btnXoaHDCT.TabIndex = 55;
             btnXoaHDCT.Text = "Xóa HDCT";
             btnXoaHDCT.UseVisualStyleBackColor = true;
+            btnXoaHDCT.Click += btnXoaHDCT_Click;
             // 
             // btnLamMoiHDCT
             // 

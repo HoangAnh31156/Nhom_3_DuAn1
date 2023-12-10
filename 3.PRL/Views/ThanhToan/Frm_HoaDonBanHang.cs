@@ -133,7 +133,7 @@ namespace _3.PRL.Views.ThanhToan
 
         private void LoadGiamGia()
         {
-            foreach (var item in _giamGiaService.GetGiamGia().OrderBy(a => a.GiaTri))
+            foreach (var item in _giamGiaService.GetGiamGia(null).OrderBy(a => a.GiaTri))
             {
                 _idGG.Add(item.IdGiamGia);
                 cmbGiamGia.Items.Add(item.GiaTri);
@@ -221,7 +221,7 @@ namespace _3.PRL.Views.ThanhToan
 
                 var tienHang = hoaDonCT
                     .Join(_bienTheService.GetBienThe(null), ct => ct.IdBienThe, sp => sp.IdBienThe, (ct, sp) => new { ct, sp })
-                    .Join(_giamGiaService.GetGiamGia(), a => a.ct.IdGiamGia, b => b.IdGiamGia, (a, b) => new { a.ct, a.sp, b })
+                    .Join(_giamGiaService.GetGiamGia(null), a => a.ct.IdGiamGia, b => b.IdGiamGia, (a, b) => new { a.ct, a.sp, b })
                     .Sum(x => (x.ct.SoLuong * x.sp.GiaTien * (100 - Convert.ToDecimal(x.b.GiaTri)) / 100));
 
                 var TongTienCaShip = tienHang + Convert.ToDecimal(VC?.TongTien);
@@ -442,7 +442,7 @@ namespace _3.PRL.Views.ThanhToan
             dgvHDCT.Columns[6].Name = "Đơn Giá";
             dgvHDCT.Columns[7].Name = "Giảm Giá %";
             dgvHDCT.Columns[7].Width = 80;
-            dgvHDCT.Columns[8].Name = "Giảm Giá VND";
+            dgvHDCT.Columns[8].Name = "Chiết Khấu";
             dgvHDCT.Columns[9].Name = "Thành Tiền";
 
             dgvHDCT.Rows.Clear();
@@ -451,7 +451,7 @@ namespace _3.PRL.Views.ThanhToan
             {
                 var HD = _hoaDonService.GetHoaDon(null).FirstOrDefault(a => a.IdHoaDon == item.IdHoaDon);
                 var BT = _bienTheService.GetBienThe(null).FirstOrDefault(a => a.IdBienThe == item.IdBienThe);
-                var GG = _giamGiaService.GetGiamGia().FirstOrDefault(a => a.IdGiamGia == item.IdGiamGia);
+                var GG = _giamGiaService.GetGiamGia(null).FirstOrDefault(a => a.IdGiamGia == item.IdGiamGia);
                 var SP = _sanPhamService.GetSanPham(null).FirstOrDefault(a => a.IdSanPham == BT.IdSanPham);
 
 
@@ -563,6 +563,27 @@ namespace _3.PRL.Views.ThanhToan
             }
         }
 
+        private void btnXoaHDCT_Click(object sender, EventArgs e)
+        {
+            var option = MessageBox.Show("Bạn chắc chắn muốn xóa Hóa đơn CT ?", "Thông Báo !", MessageBoxButtons.YesNo);
+            if (option == DialogResult.Yes)
+            {
+                if (_hdctService.DeleteHoaDonCT(_id))
+                {
+                    MessageBox.Show("Xóa Hóa Đơn CT thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    LoadGridHDCT(null);
+                    LoadGridHD(null);
+                }
+                else
+                {
+                    MessageBox.Show("Xóa Hóa đơn CT thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
             if (txtTimKiem.Text.Length == 0)
@@ -590,5 +611,7 @@ namespace _3.PRL.Views.ThanhToan
             Frm_ThanhToan frm_ThanhToan = new Frm_ThanhToan();
             frm_ThanhToan.Show();
         }
+
+
     }
 }

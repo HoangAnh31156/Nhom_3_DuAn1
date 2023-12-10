@@ -31,7 +31,7 @@ namespace _3.PRL.Views.GiamGia
 
         private void Frm_GiamGia_Load(object sender, EventArgs e)
         {
-            LoadGrid();
+            LoadGrid(null);
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace _3.PRL.Views.GiamGia
             }
         }
 
-        public void LoadGrid()
+        public void LoadGrid(string input)
         {
             int stt = 1;
             dgvDSGiamGia.ColumnCount = 6;
@@ -69,7 +69,7 @@ namespace _3.PRL.Views.GiamGia
             dgvDSGiamGia.Columns[5].Name = "Ngày kết thúc";
             dgvDSGiamGia.Rows.Clear();
 
-            foreach (var item in _giamGiaService.GetGiamGia())
+            foreach (var item in _giamGiaService.GetGiamGia(input))
             {
                 dgvDSGiamGia.Rows.Add(item.IdGiamGia, stt++, item.GiaTri, item.DieuKien, item.NgayBatDau, item.NgayKetThuc);
             }
@@ -115,7 +115,7 @@ namespace _3.PRL.Views.GiamGia
                 MessageBox.Show("Thêm giảm giá thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            LoadGrid();
+            LoadGrid(null);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -136,7 +136,7 @@ namespace _3.PRL.Views.GiamGia
                 MessageBox.Show("Sửa giảm giá thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            LoadGrid();
+            LoadGrid(null);
         }
 
         private void btnXoaForm_Click(object sender, EventArgs e)

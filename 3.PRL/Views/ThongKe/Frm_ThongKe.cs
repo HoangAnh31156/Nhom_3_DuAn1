@@ -172,7 +172,7 @@ namespace _3.PRL.Views.ThongKe
                             join b in _hdctService.GetHoaDonCts(null) on a.IdHoaDon equals b.IdHoaDon
                             join c in _btService.GetBienThe(null) on b.IdBienThe equals c.IdBienThe
                             join d in _spService.GetSanPham(null) on c.IdSanPham equals d.IdSanPham
-                            join e in _ggService.GetGiamGia() on b.IdGiamGia equals e.IdGiamGia
+                            join e in _ggService.GetGiamGia(null) on b.IdGiamGia equals e.IdGiamGia
                             join f in _kkService.GetKhach(null) on a.IdKh equals f.IdKh
                             join g in _nvService.GetNhanVien(null) on a.IdNv equals g.IdNv
                             where a.IdHoaDon == item.IdHoaDon && a.TrangThai == true && (a.NgayGd >= tuNgay && a.NgayGd <= denNgay)
@@ -198,6 +198,7 @@ namespace _3.PRL.Views.ThongKe
                     var chietKhau = Convert.ToDouble(thanhTien) * ct.CK / 100;
 
                     var tongThanhToan = (thanhTien - Convert.ToDecimal(chietKhau)) ?? 0;
+
                     dgvThongKe.Rows.Add(stt++, MaHoaDon.ToUpper(), item.NgayGd, ct.TenSp, ct.TenKH, ct.TenNV,
                         Convert.ToDecimal(ct.DonGia).ToString("N0"), ct.SL,
                         Convert.ToDecimal(thanhTien).ToString("N0"),
