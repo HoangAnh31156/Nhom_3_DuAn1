@@ -62,8 +62,6 @@
             groupBox2 = new GroupBox();
             btnSua = new Button();
             btnThem = new Button();
-            groupBox3 = new GroupBox();
-            dataGridView1 = new DataGridView();
             pictureBox9 = new PictureBox();
             textBox1 = new TextBox();
             panel1.SuspendLayout();
@@ -81,8 +79,6 @@
             grbMS.SuspendLayout();
             grbCL.SuspendLayout();
             groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             SuspendLayout();
             // 
@@ -479,29 +475,6 @@
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click;
             // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(dataGridView1);
-            groupBox3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox3.Location = new Point(286, 700);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1584, 241);
-            groupBox3.TabIndex = 16;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Hiển thị";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BackgroundColor = SystemColors.ControlLight;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(0, 31);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1584, 204);
-            dataGridView1.TabIndex = 14;
-            dataGridView1.CellClick += dataGridView1_CellClick;
-            // 
             // pictureBox9
             // 
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
@@ -527,7 +500,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1882, 953);
-            Controls.Add(groupBox3);
             Controls.Add(pictureBox9);
             Controls.Add(textBox1);
             Controls.Add(groupBox2);
@@ -557,8 +529,6 @@
             grbCL.ResumeLayout(false);
             grbCL.PerformLayout();
             groupBox2.ResumeLayout(false);
-            groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -587,7 +557,6 @@
         private GroupBox groupBox2;
         private Button btnSua;
         private Button btnThem;
-        private GroupBox groupBox3;
         private PictureBox pictureBox9;
         private TextBox textBox1;
         private GroupBox grbLSP;
@@ -602,7 +571,6 @@
         private GroupBox grbCL;
         private RichTextBox rtxtMoTa;
         private Label label5;
-        private DataGridView dataGridView1;
         private ComboBox cboLoaiSP;
         private ComboBox cboSoCanh;
         private ComboBox cboMau;

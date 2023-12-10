@@ -35,21 +35,21 @@ namespace _3.PRL.Views.ThongKe
         public Frm_ThongKe(Frm_TrangChu frm_trangChu)
         {
             InitializeComponent();
-            this.frm_trangChu = frm_trangChu;
+           
         }
 
-        Frm_TrangChu frm_trangChu;
 
         private void pbBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frm_trangChu?.Show();
+            Frm_TrangChu frm_trangChu = new Frm_TrangChu();
+            frm_trangChu.Show();
         }
 
         private void pbDangXuat_Click(object sender, EventArgs e)
         {
-            Frm_DangNhap2 frm = new Frm_DangNhap2();
             this.Hide();
+            Frm_DangNhap2 frm = new Frm_DangNhap2();
             frm.Show();
         }
 
@@ -77,6 +77,7 @@ namespace _3.PRL.Views.ThongKe
             if (rdbSanPham.Checked)
             {
                 ThongKeSanPham();
+                txtDT.Text = string.Empty;
                 return;
             }
             if (rdbTatCa.Checked)

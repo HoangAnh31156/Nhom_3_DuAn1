@@ -540,5 +540,12 @@ namespace _3.PRL.Views.SanPham
         {
 
         }
+
+        private void btnThemSP_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_ThemSP frm_ThemSP = new Frm_ThemSP();
+            frm_ThemSP.Show();
+        }
     }
 }

@@ -225,6 +225,7 @@
             btnThemSP.Text = "Thêm / sửa sản phẩm";
             btnThemSP.TextAlign = ContentAlignment.MiddleLeft;
             btnThemSP.UseVisualStyleBackColor = false;
+            btnThemSP.Click += btnThemSP_Click_1;
             // 
             // pictureBox2
             // 

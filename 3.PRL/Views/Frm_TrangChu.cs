@@ -42,8 +42,6 @@ namespace _3.PRL.Views
             frm_DangNhap.Show();
         }
 
-
-
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -124,11 +122,6 @@ namespace _3.PRL.Views
             frm.Show();
         }
 
-
-
-
-
-
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -143,12 +136,21 @@ namespace _3.PRL.Views
             frm_GiamGia.Show();
         }
 
-
         private void btnThongKe_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_ThongKe frm = new Frm_ThongKe(this);
-            frm.Show();
+        {        
+            if(user != null)
+            {
+                if(user.IdVaiTro !=null && new VaiTroService().GetVaiTros().FirstOrDefault(a=>a.IdVaiTro == user.IdVaiTro).Ten == "Quản lý")
+                {
+                    this.Hide();
+                    Frm_ThongKe frm = new Frm_ThongKe();
+                    frm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Bạn không có quyền truy cập chức năng này !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 

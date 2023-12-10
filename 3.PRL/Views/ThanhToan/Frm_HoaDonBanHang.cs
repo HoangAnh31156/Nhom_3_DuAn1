@@ -475,7 +475,7 @@ namespace _3.PRL.Views.ThanhToan
 
 
                 string idHoaDon = item.IdHoaDon.ToString();
-                string MaHD = idHoaDon/*.Substring(idHoaDon.Length - 10)*/;
+                string MaHD = idHoaDon.Substring(idHoaDon.Length - 10);
 
                 var sum = item.SoLuong * BT?.GiaTien;
 
