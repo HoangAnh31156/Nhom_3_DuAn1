@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.WebSockets;
@@ -46,9 +47,11 @@ namespace _3.PRL.Views.ThanhToan
             LoadMaHD();
             LoadPTTT();
             LoadSPMua();
+            LoadVanChuyen();
 
             dtpNgayTao.CustomFormat = "dd/MM/yyyy HH:mm";
             dtpNgayTao.Format = DateTimePickerFormat.Custom;
+
 
         }
 
@@ -84,6 +87,16 @@ namespace _3.PRL.Views.ThanhToan
                 cmbMaHD.Items.Add(MaHoaDon);
             }
             cmbMaHD.SelectedIndex = -1;
+        }
+
+        private void LoadVanChuyen()
+        {
+            foreach (var item in _vanChuyenService.GetVanChuyen().OrderBy(a => a.TongTien.Length).ThenBy(b => b.TongTien))
+            {
+                _idVC.Add(item.IdVc);
+                cmbVanChuyen.Items.Add(item.TongTien);
+            }
+            cmbKhachHang.SelectedIndex = -1;
         }
 
         private void LoadPTTT()
@@ -131,10 +144,6 @@ namespace _3.PRL.Views.ThanhToan
                 var GG = _giamGiaService.GetGiamGia(null).FirstOrDefault(a => a.IdGiamGia == item.IdGiamGia);
                 var SP = _sanPhamService.GetSanPham(null).FirstOrDefault(a => a.IdSanPham == BT.IdSanPham);
 
-                var VC = (from a in _hoaDonService.GetHoaDon(null)
-                          join b in _vanChuyenService.GetVanChuyen() on a.IdVc equals b.IdVc
-                          select b.TongTien).FirstOrDefault();
-
                 string idHoaDon = item.IdHoaDon.ToString();
                 string MaHD = idHoaDon.Substring(idHoaDon.Length - 10);
 
@@ -150,27 +159,71 @@ namespace _3.PRL.Views.ThanhToan
                     Convert.ToDecimal(thanhTien).ToString("N0"));
 
                 tongTienPhaiThanhToan += thanhTien.Value;
-                tongTienPhaiThanhToan += Convert.ToDecimal(VC);
-
-                //txtTienPhaiThanhToan.Text = Convert.ToDecimal(tongTienPhaiThanhToan).ToString("N0");
-                txtTienPhaiThanhToan.Text = Convert.ToDecimal(VC).ToString("N0");
             }
 
             foreach (var item in _hoaDonService.GetHoaDon(selectedMaHD))
             {
                 var KH = _khachHangService.GetKhach(null).FirstOrDefault(a => a.IdKh == item.IdKh);
                 var NV = _nhanVienService.GetNhanVien(null).FirstOrDefault(a => a.IdNv == item.IdNv);
-                var VC = _vanChuyenService.GetVanChuyen().FirstOrDefault(a => a.IdVc == item.IdVc);
+                var VC1 = _vanChuyenService.GetVanChuyen().FirstOrDefault(a => a.IdVc == item.IdVc);
                 var CT = _HDctService.GetHoaDonCts(null).FirstOrDefault(a => a.IdHoaDon == item.IdHoaDon);
                 var hoaDonCT = _hdctService.GetHoaDonCts(null).Where(a => a.IdHoaDon == item.IdHoaDon).ToList();
 
                 cmbNhanVien.Text = NV?.Ten;
                 cmbKhachHang.Text = KH?.TenKh;
                 dtpNgayTao.Text = item.NgayGd.ToString();
-                cmbVanChuyen.Text = VC?.TongTien;
+                cmbVanChuyen.Text = VC1?.TongTien;
             }
 
+            var VC = (from a in _hoaDonService.GetHoaDon(null)
+                      join b in _vanChuyenService.GetVanChuyen() on a.IdVc equals b.IdVc
+                      select b.TongTien).FirstOrDefault();
 
+            decimal x = Convert.ToDecimal(cmbVanChuyen.Text);
+            tongTienPhaiThanhToan += x;
+            txtTienPhaiThanhToan.Text = Convert.ToDecimal(tongTienPhaiThanhToan).ToString("N0");
+        }
+
+        private void btnTT_Click(object sender, EventArgs e)
+        {
+            decimal tienPhaiThanhToan = decimal.Parse(txtTienPhaiThanhToan.Text.Replace(",", ""));
+            decimal tienDua = decimal.Parse(txtKhachDua.Text.Replace(",", ""));
+
+            if (cmbPTTT.Text == "Thanh toán bằng tiền mặt")
+            {
+                decimal tienTraLai = tienDua - tienPhaiThanhToan;
+                if (tienDua >= tienPhaiThanhToan)
+                {
+                   
+                    txtTienTraLai.Text = tienTraLai.ToString("N0");
+                    MessageBox.Show("Thanh toán thành công!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+                else
+                {
+                    txtTienTraLai.Text = tienTraLai.ToString("N0");
+                    MessageBox.Show("Bạn chưa thanh toán đủ số tiền!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                txtKhachDua.Text = tienPhaiThanhToan.ToString("N0");
+                MessageBox.Show("Thanh toán thành công!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+
+        private void cmbPTTT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbPTTT.Text == "Thanh toán bằng tiền mặt")
+            {
+                txtKhachDua.Enabled = true;
+                txtKhachDua.Text = "";
+            }
+            else
+            {
+                decimal tienPhaiThanhToan = decimal.Parse(txtTienPhaiThanhToan.Text.Replace(",", ""));
+                txtKhachDua.Enabled = false;
+                txtKhachDua.Text = tienPhaiThanhToan.ToString("N0");
+            }
         }
     }
 }

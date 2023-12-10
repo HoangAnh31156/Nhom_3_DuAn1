@@ -33,6 +33,8 @@
             pbBack = new PictureBox();
             pbDangXuat = new PictureBox();
             groupBox1 = new GroupBox();
+            txtKhachDua = new TextBox();
+            label5 = new Label();
             txtTienTraLai = new TextBox();
             label15 = new Label();
             cmbPTTT = new ComboBox();
@@ -98,6 +100,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtKhachDua);
+            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(txtTienTraLai);
             groupBox1.Controls.Add(label15);
             groupBox1.Controls.Add(cmbPTTT);
@@ -122,10 +126,27 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin Hóa đơn ";
             // 
+            // txtKhachDua
+            // 
+            txtKhachDua.Location = new Point(1165, 212);
+            txtKhachDua.Name = "txtKhachDua";
+            txtKhachDua.Size = new Size(289, 32);
+            txtKhachDua.TabIndex = 79;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(913, 212);
+            label5.Name = "label5";
+            label5.Size = new Size(101, 25);
+            label5.TabIndex = 78;
+            label5.Text = "Khách đưa";
+            // 
             // txtTienTraLai
             // 
             txtTienTraLai.Enabled = false;
-            txtTienTraLai.Location = new Point(1165, 216);
+            txtTienTraLai.Location = new Point(1165, 279);
             txtTienTraLai.Name = "txtTienTraLai";
             txtTienTraLai.Size = new Size(289, 32);
             txtTienTraLai.TabIndex = 77;
@@ -134,7 +155,7 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.Location = new Point(1028, 219);
+            label15.Location = new Point(913, 282);
             label15.Name = "label15";
             label15.Size = new Size(101, 25);
             label15.TabIndex = 76;
@@ -143,16 +164,17 @@
             // cmbPTTT
             // 
             cmbPTTT.FormattingEnabled = true;
-            cmbPTTT.Location = new Point(1165, 143);
+            cmbPTTT.Location = new Point(1165, 140);
             cmbPTTT.Name = "cmbPTTT";
             cmbPTTT.Size = new Size(289, 33);
             cmbPTTT.TabIndex = 75;
+            cmbPTTT.SelectedIndexChanged += cmbPTTT_SelectedIndexChanged;
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(902, 145);
+            label14.Location = new Point(913, 142);
             label14.Name = "label14";
             label14.Size = new Size(217, 25);
             label14.TabIndex = 74;
@@ -171,7 +193,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(902, 71);
+            label13.Location = new Point(913, 72);
             label13.Name = "label13";
             label13.Size = new Size(193, 25);
             label13.TabIndex = 72;
@@ -284,6 +306,7 @@
             btnTT.TabIndex = 39;
             btnTT.Text = "THANH TOÁN";
             btnTT.UseVisualStyleBackColor = false;
+            btnTT.Click += btnTT_Click;
             // 
             // dgvSPMua
             // 
@@ -358,5 +381,7 @@
         private Label label15;
         private DataGridView dgvSPMua;
         private GroupBox groupBox2;
+        private Label label5;
+        private TextBox txtKhachDua;
     }
 }
