@@ -25,5 +25,39 @@ namespace _1.DAL.Repositories
         {
             return _context.Pttts.ToList();
         }
+
+        public bool CreatePTTT(Pttt pttt)
+        {
+            try
+            {
+                _context.Pttts.Add(pttt);
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool UpdatePTTT(Guid id, Pttt pttt)
+        {
+            try
+            {
+                var updatePttt = _context.Pttts.FirstOrDefault(a => a.IdPttt == id);
+
+                updatePttt.Ten = pttt.Ten;
+
+                _context.Pttts.Update(updatePttt);
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

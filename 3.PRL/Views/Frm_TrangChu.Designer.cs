@@ -32,6 +32,9 @@
             panel1 = new Panel();
             pbDangXuat = new PictureBox();
             panel2 = new Panel();
+            pictureBox9 = new PictureBox();
+            btnThongKe = new Button();
+            panel12 = new Panel();
             panel11 = new Panel();
             pictureBox8 = new PictureBox();
             button1 = new Button();
@@ -57,12 +60,10 @@
             panel3 = new Panel();
             btnSanPham = new Button();
             panel10 = new Panel();
-            panel12 = new Panel();
-            btnThongKe = new Button();
-            pictureBox9 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -71,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -132,6 +132,39 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(280, 893);
             panel2.TabIndex = 1;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
+            pictureBox9.Location = new Point(32, 624);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(64, 64);
+            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox9.TabIndex = 21;
+            pictureBox9.TabStop = false;
+            // 
+            // btnThongKe
+            // 
+            btnThongKe.FlatAppearance.BorderSize = 0;
+            btnThongKe.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
+            btnThongKe.FlatStyle = FlatStyle.Flat;
+            btnThongKe.ForeColor = Color.FromArgb(3, 43, 118);
+            btnThongKe.Location = new Point(106, 624);
+            btnThongKe.Name = "btnThongKe";
+            btnThongKe.Size = new Size(171, 64);
+            btnThongKe.TabIndex = 25;
+            btnThongKe.Text = "Thống kê";
+            btnThongKe.TextAlign = ContentAlignment.MiddleLeft;
+            btnThongKe.UseVisualStyleBackColor = true;
+            btnThongKe.Click += btnThongKe_Click;
+            // 
+            // panel12
+            // 
+            panel12.BackColor = Color.FromArgb(183, 209, 255);
+            panel12.Location = new Point(12, 826);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(10, 64);
+            panel12.TabIndex = 24;
             // 
             // panel11
             // 
@@ -398,44 +431,12 @@
             // 
             // panel10
             // 
+            panel10.BackColor = Color.White;
             panel10.Dock = DockStyle.Fill;
             panel10.Location = new Point(280, 60);
             panel10.Name = "panel10";
             panel10.Size = new Size(1602, 893);
             panel10.TabIndex = 2;
-            // 
-            // panel12
-            // 
-            panel12.BackColor = Color.FromArgb(183, 209, 255);
-            panel12.Location = new Point(12, 826);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(10, 64);
-            panel12.TabIndex = 24;
-            // 
-            // btnThongKe
-            // 
-            btnThongKe.FlatAppearance.BorderSize = 0;
-            btnThongKe.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
-            btnThongKe.FlatStyle = FlatStyle.Flat;
-            btnThongKe.ForeColor = Color.FromArgb(3, 43, 118);
-            btnThongKe.Location = new Point(106, 624);
-            btnThongKe.Name = "btnThongKe";
-            btnThongKe.Size = new Size(171, 64);
-            btnThongKe.TabIndex = 25;
-            btnThongKe.Text = "Thống kê";
-            btnThongKe.TextAlign = ContentAlignment.MiddleLeft;
-            btnThongKe.UseVisualStyleBackColor = true;
-            btnThongKe.Click += btnThongKe_Click;
-            // 
-            // pictureBox9
-            // 
-            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(32, 624);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(64, 64);
-            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox9.TabIndex = 21;
-            pictureBox9.TabStop = false;
             // 
             // Frm_TrangChu
             // 
@@ -452,6 +453,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).EndInit();
             panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
@@ -460,7 +462,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ResumeLayout(false);
         }
 

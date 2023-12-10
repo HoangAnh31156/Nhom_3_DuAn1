@@ -25,5 +25,15 @@ namespace _2.BUS.Services
         {
             return _ptttRepos.GetPTTT();
         }
+
+        public bool AddPTTT(Pttt pttt)
+        {
+            return _ptttRepos.CreatePTTT(pttt);
+        }
+
+        public bool UpdatePTTT(Guid id, Pttt pttt)
+        {
+            return _ptttRepos.UpdatePTTT(id, pttt);
+        }
     }
 }

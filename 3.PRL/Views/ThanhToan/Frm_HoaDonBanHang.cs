@@ -116,10 +116,17 @@ namespace _3.PRL.Views.ThanhToan
 
         private void LoadMaBT()
         {
-            foreach (var item in _bienTheService.GetBienThe(null).OrderBy(a => a.MaBienThe))
+            cmbBienThe.Items.Clear();
+            _idBT.Clear();
+            var lstBienThe = _bienTheService.GetBienThe(null).OrderBy(a => a.MaBienThe);
+
+            foreach (var item in lstBienThe)
             {
-                _idBT.Add(item.IdBienThe);
-                cmbBienThe.Items.Add(item.MaBienThe);
+                if (!cmbBienThe.Items.Contains(item.MaBienThe))
+                {
+                    _idBT.Add(item.IdBienThe);
+                    cmbBienThe.Items.Add(item.MaBienThe);
+                }              
             }
             cmbBienThe.SelectedIndex = -1;
         }
@@ -134,47 +141,48 @@ namespace _3.PRL.Views.ThanhToan
             cmbGiamGia.SelectedIndex = -1;
         }
 
-
         private void cmbBienThe_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = cmbBienThe.SelectedIndex;
-            Guid selectedId = _idBT[selectedIndex];
 
-            var lstBienThe = _bienTheService.GetBienThe(null).OrderBy(a => a.MaBienThe).ToList();
-            var bt = lstBienThe.FirstOrDefault(a => a.IdBienThe == selectedId);
-
-            if (bt != null)
+            if(selectedIndex>0 && selectedIndex < _idBT.Count)
             {
-                if (bt.GiaTien != null)
+                Guid selectedId = _idBT[selectedIndex];
+                var bienThe = _bienTheService.GetBienThe(null).FirstOrDefault(a=>a.IdBienThe == selectedId);
+                if(bienThe != null)
                 {
-                    txtDonGia.Text = Convert.ToDecimal(bt.GiaTien).ToString("N0");
+                    if(bienThe.GiaTien != null)
+                    {
+                        txtDonGia.Text = Convert.ToDecimal(bienThe.GiaTien).ToString("N0");
+                    }
+                    else
+                    {
+                        txtDonGia.Text = string.Empty;
+                    }
+                    string prefix = "";
+                    if (bienThe.MaBienThe.StartsWith("QDH"))
+                    {
+                        prefix = "Quạt Điều Hòa";
+                    }
+                    else if (bienThe.MaBienThe.StartsWith("QTN"))
+                    {
+                        prefix = "Quạt Trong Nhà";
+                    }
+                    else if (bienThe.MaBienThe.StartsWith("QG"))
+                    {
+                        prefix = "Quạt Gió";
+                    }
+                    else if (bienThe.MaBienThe.StartsWith("QS"))
+                    {
+                        prefix = "Quạt Sưởi";
+                    }
+                    else
+                    {
+                        prefix = "Quạt Công Nghiệp";
+                    }
+                    txtTenSP.Text = $"{prefix} {bienThe.MaBienThe.Substring(4)}";
                 }
-                else
-                {
-                    txtDonGia.Text = string.Empty;
-                }
-
-                if (bt.MaBienThe.StartsWith("QDH"))
-                {
-                    txtTenSP.Text = "Quạt Điều Hòa " + bt.MaBienThe.Substring(4);
-                }
-                else if (bt.MaBienThe.StartsWith("QTN"))
-                {
-                    txtTenSP.Text = "Quạt Trong Nhà " + bt.MaBienThe.Substring(4);
-                }
-                else if (bt.MaBienThe.StartsWith("QG"))
-                {
-                    txtTenSP.Text = "Quạt Gió " + bt.MaBienThe.Substring(4);
-                }
-                else if (bt.MaBienThe.StartsWith("QS"))
-                {
-                    txtTenSP.Text = "Quạt Sưởi " + bt.MaBienThe.Substring(4);
-                }
-                else
-                {
-                    txtTenSP.Text = "Quạt Công Nghiệp " + bt.MaBienThe.Substring(4);
-                }
-            }
+            }                      
         }
 
         private void LoadGridHD(string input)
@@ -224,17 +232,6 @@ namespace _3.PRL.Views.ThanhToan
                     Convert.ToDecimal(TongTienCaShip).ToString("N0"));
             }
             RowsColor();
-            foreach (DataGridViewRow item in dgvHoaDon.Rows)
-            {
-                if (item.Cells[0].Value is Guid cellValue)
-                {
-                    var idHDXoa = (Guid)item.Cells[0].Value;
-                    if (DanhSachHoaDonXoa.Any(a => a == idHDXoa))
-                    {
-                        dgvHoaDon.Rows.Remove(item);
-                    }
-                }
-            }
         }
 
         private void RowsColor()
@@ -273,7 +270,6 @@ namespace _3.PRL.Views.ThanhToan
 
         private void btnThemHD_Click(object sender, EventArgs e)
         {
-
             if (CheckComboxBoxHD() == false)
             {
                 return;
@@ -295,6 +291,7 @@ namespace _3.PRL.Views.ThanhToan
                 {
                     hd.TrangThai = true;
                 }
+
                 hd.TongTien = 0;
 
                 var option = MessageBox.Show("Bạn muốn tạo Hóa Đơn không ?", "Thông Báo !", MessageBoxButtons.YesNo);
@@ -381,35 +378,11 @@ namespace _3.PRL.Views.ThanhToan
                 }
             }
         }
-        private void btnXoaHD_Click(object sender, EventArgs e)
+        private void btnTT_Click(object sender, EventArgs e)
         {
-            XoaMem(_id);
+
         }
 
-        List<Guid> DanhSachHoaDonXoa = new List<Guid>();
-        private void XoaMem(Guid _id)
-        {
-            var option = MessageBox.Show("Bạn chắc chắn Xóa Hóa Đơn  ?", "Thông Báo !", MessageBoxButtons.YesNo);
-            if (option == DialogResult.Yes)
-            {
-                var id_WC = _hoaDonService.GetHoaDon(null).FirstOrDefault(a => a.IdHoaDon == _id);
-                if (id_WC != null)
-                {
-                    DanhSachHoaDonXoa.Add(id_WC.IdHoaDon);
-
-                    foreach (DataGridViewRow row in dgvHoaDon.Rows)
-                    {
-                        if (row.Cells[0].Value is Guid cellValue && cellValue == id_WC.IdHoaDon)
-                        {
-                            row.Visible = false;
-                            MessageBox.Show("Hóa đơn đã được xóa thành công!", "Thông Báo!");
-                            //LoadGridHD(null);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
         private void btnLamMoiHD_Click(object sender, EventArgs e)
         {
             dtpNgayTao.Value = DateTime.Today;
@@ -441,12 +414,15 @@ namespace _3.PRL.Views.ThanhToan
 
         private void LoadMaHD()
         {
+            cmbMaHD.Items.Clear();
             foreach (var item in _hoaDonService.GetHoaDon(null))
             {
                 string MaHoaDon = item.IdHoaDon.ToString().Substring(item.IdHoaDon.ToString().Length - 10).ToUpper();
-
-                _idHD.Add(item.IdHoaDon);
-                cmbMaHD.Items.Add(MaHoaDon);
+                if (!cmbMaHD.Items.Contains(MaHoaDon))
+                {
+                    _idHD.Add(item.IdHoaDon);
+                    cmbMaHD.Items.Add(MaHoaDon);
+                }              
             }
             cmbMaHD.SelectedIndex = -1;
         }
@@ -495,14 +471,6 @@ namespace _3.PRL.Views.ThanhToan
                     Convert.ToDecimal(BT.GiaTien).ToString("N0"), GG.GiaTri,
                     Convert.ToDecimal(giamGia).ToString("N0"),
                     Convert.ToDecimal(thanhTien).ToString("N0"));
-            }
-
-            foreach (DataGridViewRow row in dgvHDCT.Rows)
-            {
-                if (row.Cells[2].Value is Guid cellValue && DanhSachHoaDonXoa.Any(id => id.Equals(cellValue)))
-                {
-                    row.Visible = false;
-                }
             }
         }
 
@@ -612,6 +580,11 @@ namespace _3.PRL.Views.ThanhToan
             }
         }
 
-
+        private void btnThemCTKhac_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_PTTT frm_PTTT = new Frm_PTTT();
+            frm_PTTT.Show();
+        }
     }
 }

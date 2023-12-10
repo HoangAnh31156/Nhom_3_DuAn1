@@ -10,5 +10,9 @@ namespace _1.DAL.IRepositories
     public interface PTTT_IRepos
     {
         List<Pttt> GetPTTT();
+
+        bool CreatePTTT(Pttt pttt);
+
+        bool UpdatePTTT(Guid id, Pttt pttt);
     }
 }

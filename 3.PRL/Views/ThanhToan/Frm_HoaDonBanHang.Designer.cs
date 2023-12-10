@@ -33,7 +33,7 @@
             pbBack = new PictureBox();
             pbDangXuat = new PictureBox();
             groupBox1 = new GroupBox();
-            btnXoaHD = new Button();
+            btnTT = new Button();
             btnLamMoiHD = new Button();
             btnSuaHD = new Button();
             btnThemHD = new Button();
@@ -72,6 +72,13 @@
             groupBox4 = new GroupBox();
             groupBox5 = new GroupBox();
             dgvHDCT = new DataGridView();
+            pictureBox7 = new PictureBox();
+            btnThanhToan = new Button();
+            panel5 = new Panel();
+            btnThemCTKhac = new Button();
+            pictureBox10 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            btnTCSanPham = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -82,6 +89,9 @@
             groupBox4.SuspendLayout();
             groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHDCT).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -122,7 +132,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnXoaHD);
+            groupBox1.Controls.Add(btnTT);
             groupBox1.Controls.Add(btnLamMoiHD);
             groupBox1.Controls.Add(btnSuaHD);
             groupBox1.Controls.Add(btnThemHD);
@@ -136,23 +146,25 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(41, 109);
+            groupBox1.Location = new Point(47, 178);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(913, 733);
             groupBox1.TabIndex = 25;
             groupBox1.TabStop = false;
             groupBox1.Text = "Hóa đơn";
             // 
-            // btnXoaHD
+            // btnTT
             // 
-            btnXoaHD.ForeColor = Color.Red;
-            btnXoaHD.Location = new Point(673, 304);
-            btnXoaHD.Name = "btnXoaHD";
-            btnXoaHD.Size = new Size(188, 54);
-            btnXoaHD.TabIndex = 39;
-            btnXoaHD.Text = "Xóa Hóa Đơn";
-            btnXoaHD.UseVisualStyleBackColor = true;
-            btnXoaHD.Click += btnXoaHD_Click;
+            btnTT.BackColor = Color.DeepSkyBlue;
+            btnTT.Cursor = Cursors.Hand;
+            btnTT.ForeColor = Color.White;
+            btnTT.Location = new Point(673, 304);
+            btnTT.Name = "btnTT";
+            btnTT.Size = new Size(188, 54);
+            btnTT.TabIndex = 39;
+            btnTT.Text = "THANH TOÁN";
+            btnTT.UseVisualStyleBackColor = false;
+            btnTT.Click += btnTT_Click;
             // 
             // btnLamMoiHD
             // 
@@ -310,7 +322,7 @@
             dgvHoaDon.RowHeadersVisible = false;
             dgvHoaDon.RowHeadersWidth = 51;
             dgvHoaDon.RowTemplate.Height = 29;
-            dgvHoaDon.Size = new Size(907, 330);
+            dgvHoaDon.Size = new Size(901, 324);
             dgvHoaDon.TabIndex = 38;
             dgvHoaDon.CellClick += dgvHoaDon_CellClick;
             // 
@@ -335,7 +347,7 @@
             groupBox2.Controls.Add(cmbBienThe);
             groupBox2.Controls.Add(label5);
             groupBox2.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(966, 109);
+            groupBox2.Location = new Point(966, 178);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(904, 733);
             groupBox2.TabIndex = 26;
@@ -349,7 +361,6 @@
             cmbMaHD.Name = "cmbMaHD";
             cmbMaHD.Size = new Size(187, 33);
             cmbMaHD.TabIndex = 57;
-            
             // 
             // label12
             // 
@@ -518,7 +529,7 @@
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(1396, 76);
+            txtTimKiem.Location = new Point(1396, 145);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.PlaceholderText = "Nhập Mã HD để tìm kiếm";
             txtTimKiem.Size = new Size(474, 27);
@@ -528,7 +539,7 @@
             // groupBox4
             // 
             groupBox4.Controls.Add(dgvHoaDon);
-            groupBox4.Location = new Point(41, 496);
+            groupBox4.Location = new Point(47, 565);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(913, 346);
             groupBox4.TabIndex = 38;
@@ -537,7 +548,7 @@
             // groupBox5
             // 
             groupBox5.Controls.Add(dgvHDCT);
-            groupBox5.Location = new Point(966, 144);
+            groupBox5.Location = new Point(966, 213);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(904, 346);
             groupBox5.TabIndex = 56;
@@ -559,12 +570,104 @@
             dgvHDCT.TabIndex = 38;
             dgvHDCT.CellClick += dgvHDCT_CellClick;
             // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(32, 81);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(64, 64);
+            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox7.TabIndex = 59;
+            pictureBox7.TabStop = false;
+            // 
+            // btnThanhToan
+            // 
+            btnThanhToan.FlatAppearance.BorderSize = 0;
+            btnThanhToan.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
+            btnThanhToan.FlatStyle = FlatStyle.Flat;
+            btnThanhToan.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            btnThanhToan.ForeColor = Color.FromArgb(3, 43, 118);
+            btnThanhToan.Location = new Point(106, 81);
+            btnThanhToan.Name = "btnThanhToan";
+            btnThanhToan.Size = new Size(171, 64);
+            btnThanhToan.TabIndex = 58;
+            btnThanhToan.Text = "Thanh toán";
+            btnThanhToan.TextAlign = ContentAlignment.MiddleLeft;
+            btnThanhToan.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(183, 209, 255);
+            panel5.Location = new Point(12, 81);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(14, 64);
+            panel5.TabIndex = 57;
+            // 
+            // btnThemCTKhac
+            // 
+            btnThemCTKhac.FlatAppearance.BorderSize = 0;
+            btnThemCTKhac.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
+            btnThemCTKhac.FlatStyle = FlatStyle.Flat;
+            btnThemCTKhac.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            btnThemCTKhac.ForeColor = Color.FromArgb(3, 43, 118);
+            btnThemCTKhac.Location = new Point(546, 83);
+            btnThemCTKhac.Name = "btnThemCTKhac";
+            btnThemCTKhac.Size = new Size(171, 64);
+            btnThemCTKhac.TabIndex = 63;
+            btnThemCTKhac.Text = "Phương thức thanh toán";
+            btnThemCTKhac.TextAlign = ContentAlignment.MiddleLeft;
+            btnThemCTKhac.UseVisualStyleBackColor = true;
+            btnThemCTKhac.Click += btnThemCTKhac_Click;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
+            pictureBox10.Location = new Point(525, 106);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(15, 17);
+            pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox10.TabIndex = 62;
+            pictureBox10.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(262, 106);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(15, 17);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 61;
+            pictureBox2.TabStop = false;
+            // 
+            // btnTCSanPham
+            // 
+            btnTCSanPham.BackColor = Color.FromArgb(183, 209, 255);
+            btnTCSanPham.FlatAppearance.BorderSize = 0;
+            btnTCSanPham.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
+            btnTCSanPham.FlatStyle = FlatStyle.Flat;
+            btnTCSanPham.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTCSanPham.ForeColor = Color.FromArgb(3, 43, 118);
+            btnTCSanPham.Location = new Point(283, 81);
+            btnTCSanPham.Name = "btnTCSanPham";
+            btnTCSanPham.Size = new Size(171, 64);
+            btnTCSanPham.TabIndex = 60;
+            btnTCSanPham.Text = "Hóa Đơn";
+            btnTCSanPham.TextAlign = ContentAlignment.MiddleLeft;
+            btnTCSanPham.UseVisualStyleBackColor = false;
+            // 
             // Frm_HoaDonBanHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1882, 953);
+            Controls.Add(btnThemCTKhac);
+            Controls.Add(pictureBox10);
+            Controls.Add(pictureBox2);
+            Controls.Add(btnTCSanPham);
+            Controls.Add(pictureBox7);
+            Controls.Add(btnThanhToan);
+            Controls.Add(panel5);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
             Controls.Add(txtTimKiem);
@@ -589,6 +692,9 @@
             groupBox4.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvHDCT).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -634,9 +740,16 @@
         private GroupBox groupBox4;
         private GroupBox groupBox5;
         private DataGridView dgvHDCT;
-        private Button btnXoaHD;
+        private Button btnTT;
         private Button btnXoaHDCT;
         private ComboBox cmbMaHD;
         private Label label12;
+        private PictureBox pictureBox7;
+        private Button btnThanhToan;
+        private Panel panel5;
+        private Button btnThemCTKhac;
+        private PictureBox pictureBox10;
+        private PictureBox pictureBox2;
+        private Button btnTCSanPham;
     }
 }
