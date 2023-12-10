@@ -206,7 +206,7 @@ namespace _3.PRL.Views.ThanhToan
             dgvHoaDon.Columns[7].Name = "Phí vận chuyển";
             dgvHoaDon.Columns[7].Width = 80;
             dgvHoaDon.Columns[8].Name = "Thanh Toan";
-            dgvHoaDon.Columns[8].Visible = false;
+            //dgvHoaDon.Columns[8].Visible = false;
             dgvHoaDon.Rows.Clear();
 
             foreach (var item in _hoaDonService.GetHoaDon(input).OrderBy(a => a.NgayGd))
@@ -338,7 +338,6 @@ namespace _3.PRL.Views.ThanhToan
 
         private void btnSuaHD_Click(object sender, EventArgs e)
         {
-
             if (CheckComboxBoxHD() == false)
             {
                 return;

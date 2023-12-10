@@ -1,4 +1,5 @@
-﻿using _2.BUS.Services;
+﻿using _1.DAL.Model1s;
+using _2.BUS.Services;
 using _3.PRL.Views.DangNhap;
 using System;
 using System.Collections.Generic;
@@ -80,7 +81,7 @@ namespace _3.PRL.Views.ThanhToan
         private void LoadMaHD()
         {
             cmbMaHD.Items.Clear();
-            foreach (var item in _hoaDonService.GetHoaDon(null))
+            foreach (var item in _hoaDonService.GetHoaDon(null).Where(a => a.TrangThai == false))
             {
                 string MaHoaDon = item.IdHoaDon.ToString().Substring(item.IdHoaDon.ToString().Length - 10).ToUpper();
                 _idHD.Add(item.IdHoaDon);
@@ -157,7 +158,6 @@ namespace _3.PRL.Views.ThanhToan
                     Convert.ToDecimal(BT.GiaTien).ToString("N0"), GG.GiaTri,
                     Convert.ToDecimal(giamGia).ToString("N0"),
                     Convert.ToDecimal(thanhTien).ToString("N0"));
-
                 tongTienPhaiThanhToan += thanhTien.Value;
             }
 
@@ -193,10 +193,10 @@ namespace _3.PRL.Views.ThanhToan
             {
                 decimal tienTraLai = tienDua - tienPhaiThanhToan;
                 if (tienDua >= tienPhaiThanhToan)
-                {
-                   
+                {                  
                     txtTienTraLai.Text = tienTraLai.ToString("N0");
                     MessageBox.Show("Thanh toán thành công!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Bạn Phải chuyển trạng thái hóa đơn !");
                 }
                 else
                 {
@@ -208,7 +208,10 @@ namespace _3.PRL.Views.ThanhToan
             {
                 txtKhachDua.Text = tienPhaiThanhToan.ToString("N0");
                 MessageBox.Show("Thanh toán thành công!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Bạn Phải chuyển trạng thái hóa đơn !");
             }
+            
+
         }
 
         private void cmbPTTT_SelectedIndexChanged(object sender, EventArgs e)
