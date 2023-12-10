@@ -459,10 +459,8 @@ D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\refint\3.PRL.dll
 D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.pdb
 D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\3.PRL.genruntimeconfig.cache
 D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\ref\3.PRL.dll
-E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_HoaDon.resources
 D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_HoaDon.resources
 C:\Users\84385\Source\Repos\Nhom_3_DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.Frm_HoaDon.resources
-E:\CODE\VisualStudio\$SOURCE TREE\Du_An_1_Ban_Hang\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.ThanhToan.Frm_HoaDonCT.resources
 C:\Users\84385\Source\Repos\Nhom_3_DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.ThanhToan.Frm_HoaDonCT.resources
 D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.ThanhToan.Frm_HoaDonBanHang.resources
 D:\FPT\DuAn1\DuAn1\3.PRL\obj\Debug\net6.0-windows\_3.PRL.Views.ThanhToan.Frm_HoaDonCT.resources

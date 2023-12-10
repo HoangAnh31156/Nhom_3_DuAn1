@@ -42,9 +42,17 @@ namespace _3.PRL.Views.GiamGia
 
         private void pbDangXuat_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Frm_DangNhap2 frm_DangNhap = new Frm_DangNhap2();
-            frm_DangNhap.Show();
+            var option = MessageBox.Show("Bạn muốn đăng xuất không ?", "Thông báo !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (option == DialogResult.Yes)
+            {
+                this.Hide();
+                Frm_DangNhap2 frm_DangNhap = new Frm_DangNhap2();
+                frm_DangNhap.Show();
+            }
+            else
+            {
+                return;
+            }
         }
 
         public void LoadGrid()
