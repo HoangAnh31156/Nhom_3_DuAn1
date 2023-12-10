@@ -126,7 +126,7 @@ namespace _3.PRL.Views.ThanhToan
                 {
                     _idBT.Add(item.IdBienThe);
                     cmbBienThe.Items.Add(item.MaBienThe);
-                }              
+                }
             }
             cmbBienThe.SelectedIndex = -1;
         }
@@ -145,13 +145,13 @@ namespace _3.PRL.Views.ThanhToan
         {
             int selectedIndex = cmbBienThe.SelectedIndex;
 
-            if(selectedIndex>0 && selectedIndex < _idBT.Count)
+            if (selectedIndex > 0 && selectedIndex < _idBT.Count)
             {
                 Guid selectedId = _idBT[selectedIndex];
-                var bienThe = _bienTheService.GetBienThe(null).FirstOrDefault(a=>a.IdBienThe == selectedId);
-                if(bienThe != null)
+                var bienThe = _bienTheService.GetBienThe(null).FirstOrDefault(a => a.IdBienThe == selectedId);
+                if (bienThe != null)
                 {
-                    if(bienThe.GiaTien != null)
+                    if (bienThe.GiaTien != null)
                     {
                         txtDonGia.Text = Convert.ToDecimal(bienThe.GiaTien).ToString("N0");
                     }
@@ -182,7 +182,7 @@ namespace _3.PRL.Views.ThanhToan
                     }
                     txtTenSP.Text = $"{prefix} {bienThe.MaBienThe.Substring(4)}";
                 }
-            }                      
+            }
         }
 
         private void LoadGridHD(string input)
@@ -378,10 +378,7 @@ namespace _3.PRL.Views.ThanhToan
                 }
             }
         }
-        private void btnTT_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnLamMoiHD_Click(object sender, EventArgs e)
         {
@@ -422,7 +419,7 @@ namespace _3.PRL.Views.ThanhToan
                 {
                     _idHD.Add(item.IdHoaDon);
                     cmbMaHD.Items.Add(MaHoaDon);
-                }              
+                }
             }
             cmbMaHD.SelectedIndex = -1;
         }
@@ -585,6 +582,13 @@ namespace _3.PRL.Views.ThanhToan
             this.Hide();
             Frm_PTTT frm_PTTT = new Frm_PTTT();
             frm_PTTT.Show();
+        }
+
+        private void btnTT_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_ThanhToan frm_ThanhToan = new Frm_ThanhToan();
+            frm_ThanhToan.Show();
         }
     }
 }

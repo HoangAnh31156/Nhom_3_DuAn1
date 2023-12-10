@@ -49,6 +49,9 @@
     <Compile Update="Views\ThanhToan\Frm_PTTT.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\ThanhToan\Frm_ThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\ThongKe\Frm_ThongKe.cs">
       <SubType>Form</SubType>
     </Compile>

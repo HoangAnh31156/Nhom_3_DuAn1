@@ -33,7 +33,6 @@
             pbBack = new PictureBox();
             pbDangXuat = new PictureBox();
             groupBox1 = new GroupBox();
-            btnTT = new Button();
             btnLamMoiHD = new Button();
             btnSuaHD = new Button();
             btnThemHD = new Button();
@@ -79,6 +78,8 @@
             pictureBox10 = new PictureBox();
             pictureBox2 = new PictureBox();
             btnTCSanPham = new Button();
+            btnTT = new Button();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -92,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -132,7 +134,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnTT);
             groupBox1.Controls.Add(btnLamMoiHD);
             groupBox1.Controls.Add(btnSuaHD);
             groupBox1.Controls.Add(btnThemHD);
@@ -152,19 +153,6 @@
             groupBox1.TabIndex = 25;
             groupBox1.TabStop = false;
             groupBox1.Text = "Hóa đơn";
-            // 
-            // btnTT
-            // 
-            btnTT.BackColor = Color.DeepSkyBlue;
-            btnTT.Cursor = Cursors.Hand;
-            btnTT.ForeColor = Color.White;
-            btnTT.Location = new Point(673, 304);
-            btnTT.Name = "btnTT";
-            btnTT.Size = new Size(188, 54);
-            btnTT.TabIndex = 39;
-            btnTT.Text = "THANH TOÁN";
-            btnTT.UseVisualStyleBackColor = false;
-            btnTT.Click += btnTT_Click;
             // 
             // btnLamMoiHD
             // 
@@ -587,7 +575,7 @@
             btnThanhToan.FlatStyle = FlatStyle.Flat;
             btnThanhToan.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnThanhToan.ForeColor = Color.FromArgb(3, 43, 118);
-            btnThanhToan.Location = new Point(106, 81);
+            btnThanhToan.Location = new Point(102, 81);
             btnThanhToan.Name = "btnThanhToan";
             btnThanhToan.Size = new Size(171, 64);
             btnThanhToan.TabIndex = 58;
@@ -610,7 +598,7 @@
             btnThemCTKhac.FlatStyle = FlatStyle.Flat;
             btnThemCTKhac.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnThemCTKhac.ForeColor = Color.FromArgb(3, 43, 118);
-            btnThemCTKhac.Location = new Point(546, 83);
+            btnThemCTKhac.Location = new Point(589, 83);
             btnThemCTKhac.Name = "btnThemCTKhac";
             btnThemCTKhac.Size = new Size(171, 64);
             btnThemCTKhac.TabIndex = 63;
@@ -622,7 +610,7 @@
             // pictureBox10
             // 
             pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
-            pictureBox10.Location = new Point(525, 106);
+            pictureBox10.Location = new Point(568, 106);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(15, 17);
             pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -632,7 +620,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(262, 106);
+            pictureBox2.Location = new Point(305, 106);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(15, 17);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -647,7 +635,7 @@
             btnTCSanPham.FlatStyle = FlatStyle.Flat;
             btnTCSanPham.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnTCSanPham.ForeColor = Color.FromArgb(3, 43, 118);
-            btnTCSanPham.Location = new Point(283, 81);
+            btnTCSanPham.Location = new Point(326, 81);
             btnTCSanPham.Name = "btnTCSanPham";
             btnTCSanPham.Size = new Size(171, 64);
             btnTCSanPham.TabIndex = 60;
@@ -655,12 +643,40 @@
             btnTCSanPham.TextAlign = ContentAlignment.MiddleLeft;
             btnTCSanPham.UseVisualStyleBackColor = false;
             // 
+            // btnTT
+            // 
+            btnTT.FlatAppearance.BorderSize = 0;
+            btnTT.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
+            btnTT.FlatStyle = FlatStyle.Flat;
+            btnTT.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTT.ForeColor = Color.FromArgb(3, 43, 118);
+            btnTT.Location = new Point(823, 80);
+            btnTT.Name = "btnTT";
+            btnTT.Size = new Size(171, 64);
+            btnTT.TabIndex = 64;
+            btnTT.Text = "Thanh toán";
+            btnTT.TextAlign = ContentAlignment.MiddleLeft;
+            btnTT.UseVisualStyleBackColor = true;
+            btnTT.Click += btnTT_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(802, 106);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(15, 17);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 65;
+            pictureBox1.TabStop = false;
+            // 
             // Frm_HoaDonBanHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1882, 953);
+            Controls.Add(pictureBox1);
+            Controls.Add(btnTT);
             Controls.Add(btnThemCTKhac);
             Controls.Add(pictureBox10);
             Controls.Add(pictureBox2);
@@ -695,6 +711,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -740,7 +757,6 @@
         private GroupBox groupBox4;
         private GroupBox groupBox5;
         private DataGridView dgvHDCT;
-        private Button btnTT;
         private Button btnXoaHDCT;
         private ComboBox cmbMaHD;
         private Label label12;
@@ -751,5 +767,7 @@
         private PictureBox pictureBox10;
         private PictureBox pictureBox2;
         private Button btnTCSanPham;
+        private Button btnTT;
+        private PictureBox pictureBox1;
     }
 }
