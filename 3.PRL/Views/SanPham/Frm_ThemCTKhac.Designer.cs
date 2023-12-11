@@ -62,8 +62,6 @@
             groupBox2 = new GroupBox();
             btnSua = new Button();
             btnThem = new Button();
-            pictureBox9 = new PictureBox();
-            textBox1 = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -79,7 +77,6 @@
             grbMS.SuspendLayout();
             grbCL.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -475,33 +472,12 @@
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click;
             // 
-            // pictureBox9
-            // 
-            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(766, 660);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(43, 34);
-            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox9.TabIndex = 15;
-            pictureBox9.TabStop = false;
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(286, 660);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Tìm kiếm ...";
-            textBox1.Size = new Size(474, 34);
-            textBox1.TabIndex = 14;
-            // 
             // Frm_ThemCTKhac
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1882, 953);
-            Controls.Add(pictureBox9);
-            Controls.Add(textBox1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel2);
@@ -529,9 +505,7 @@
             grbCL.ResumeLayout(false);
             grbCL.PerformLayout();
             groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -557,8 +531,6 @@
         private GroupBox groupBox2;
         private Button btnSua;
         private Button btnThem;
-        private PictureBox pictureBox9;
-        private TextBox textBox1;
         private GroupBox grbLSP;
         private Label label4;
         private TextBox textBox5;
