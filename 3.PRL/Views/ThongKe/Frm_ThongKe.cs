@@ -26,25 +26,27 @@ namespace _3.PRL.Views.ThongKe
         NhanVienService _nvService = new NhanVienService();
 
         List<Guid> _idSp = new List<Guid>();
-
+        
         public Frm_ThongKe()
         {
             InitializeComponent();
         }
-
+        //
+        Frm_TrangChu frm_trangChu;
         public Frm_ThongKe(Frm_TrangChu frm_trangChu)
         {
             InitializeComponent();
-           
+            this.frm_trangChu = frm_trangChu;
+
+
         }
 
         private void pbBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_TrangChu frm_trangChu = new Frm_TrangChu();
-            frm_trangChu.Show();
+            frm_trangChu?.Show();
         }
-
+        //
         private void pbDangXuat_Click(object sender, EventArgs e)
         {
             var option = MessageBox.Show("Bạn muốn đăng xuất không ?", "Thông báo !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

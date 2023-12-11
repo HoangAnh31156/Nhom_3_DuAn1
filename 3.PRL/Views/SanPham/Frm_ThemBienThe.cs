@@ -68,12 +68,18 @@ namespace _3.PRL.Views.SanPham
             this.Hide();
             OpenThemCTKhacForm?.Invoke(this, EventArgs.Empty);
         }
-
+        /// //////////////////////
+        private void btnThemSP_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            OpenThemSPForm?.Invoke(this, EventArgs.Empty);
+        }
         private void btnThemSP_Click(object sender, EventArgs e)
         {
             this.Hide();
             OpenThemSPForm?.Invoke(this, EventArgs.Empty);
         }
+        /// ////////////////////
         private ChatLieuService _chatLieuService;
         private MauSacService _mauSacService;
         private SoCanhService _soCanhService;
@@ -549,11 +555,6 @@ namespace _3.PRL.Views.SanPham
 
         }
 
-        private void btnThemSP_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            Frm_ThemSP frm_ThemSP = new Frm_ThemSP();
-            frm_ThemSP.Show();
-        }
+        
     }
 }

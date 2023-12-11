@@ -132,7 +132,7 @@ namespace _3.PRL.Views
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_TaiKhoan frm_TaiKhoan = new Frm_TaiKhoan(this);
+            Frm_TaiKhoan frm_TaiKhoan = new Frm_TaiKhoan(this,user);
             frm_TaiKhoan.Show();
         }
 
@@ -150,7 +150,7 @@ namespace _3.PRL.Views
                 if (user.IdVaiTro != null && new VaiTroService().GetVaiTros().FirstOrDefault(a => a.IdVaiTro == user.IdVaiTro).Ten == "Quản lý")
                 {
                     this.Hide();
-                    Frm_ThongKe frm = new Frm_ThongKe();
+                    Frm_ThongKe frm = new Frm_ThongKe(this);
                     frm.Show();
                 }
                 else

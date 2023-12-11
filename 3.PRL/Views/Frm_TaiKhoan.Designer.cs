@@ -37,12 +37,21 @@
             pictureBox6 = new PictureBox();
             btnTaiKhoan = new Button();
             groupBox1 = new GroupBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
+            lbvt = new Label();
+            lbtt = new Label();
+            lbgt = new Label();
+            lbdt = new Label();
+            lbdc = new Label();
+            lbns = new Label();
+            lbten = new Label();
+            label4 = new Label();
+            lbtk = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
             label3 = new Label();
             label2 = new Label();
-            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
@@ -133,71 +142,178 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(lbvt);
+            groupBox1.Controls.Add(lbtt);
+            groupBox1.Controls.Add(lbgt);
+            groupBox1.Controls.Add(lbdt);
+            groupBox1.Controls.Add(lbdc);
+            groupBox1.Controls.Add(lbns);
+            groupBox1.Controls.Add(lbten);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(lbtk);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(286, 155);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1206, 560);
+            groupBox1.Size = new Size(1206, 679);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
             // 
-            // textBox2
+            // lbvt
             // 
-            textBox2.Location = new Point(226, 305);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(342, 32);
-            textBox2.TabIndex = 5;
+            lbvt.AutoSize = true;
+            lbvt.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lbvt.Location = new Point(187, 461);
+            lbvt.Name = "lbvt";
+            lbvt.Size = new Size(43, 25);
+            lbvt.TabIndex = 18;
+            lbvt.Text = "Mã:";
             // 
-            // textBox1
+            // lbtt
             // 
-            textBox1.Location = new Point(224, 204);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(342, 32);
-            textBox1.TabIndex = 4;
+            lbtt.AutoSize = true;
+            lbtt.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lbtt.Location = new Point(187, 402);
+            lbtt.Name = "lbtt";
+            lbtt.Size = new Size(43, 25);
+            lbtt.TabIndex = 17;
+            lbtt.Text = "Mã:";
             // 
-            // comboBox1
+            // lbgt
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(224, 103);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(344, 33);
-            comboBox1.TabIndex = 3;
+            lbgt.AutoSize = true;
+            lbgt.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lbgt.Location = new Point(187, 349);
+            lbgt.Name = "lbgt";
+            lbgt.Size = new Size(43, 25);
+            lbgt.TabIndex = 16;
+            lbgt.Text = "Mã:";
+            // 
+            // lbdt
+            // 
+            lbdt.AutoSize = true;
+            lbdt.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lbdt.Location = new Point(187, 294);
+            lbdt.Name = "lbdt";
+            lbdt.Size = new Size(43, 25);
+            lbdt.TabIndex = 15;
+            lbdt.Text = "Mã:";
+            // 
+            // lbdc
+            // 
+            lbdc.AutoSize = true;
+            lbdc.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lbdc.Location = new Point(187, 246);
+            lbdc.Name = "lbdc";
+            lbdc.Size = new Size(43, 25);
+            lbdc.TabIndex = 14;
+            lbdc.Text = "Mã:";
+            // 
+            // lbns
+            // 
+            lbns.AutoSize = true;
+            lbns.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lbns.Location = new Point(187, 187);
+            lbns.Name = "lbns";
+            lbns.Size = new Size(43, 25);
+            lbns.TabIndex = 13;
+            lbns.Text = "Mã:";
+            // 
+            // lbten
+            // 
+            lbten.AutoSize = true;
+            lbten.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lbten.Location = new Point(187, 131);
+            lbten.Name = "lbten";
+            lbten.Size = new Size(43, 25);
+            lbten.TabIndex = 12;
+            lbten.Text = "Mã:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(63, 246);
+            label4.Name = "label4";
+            label4.Size = new Size(74, 25);
+            label4.TabIndex = 10;
+            label4.Text = "Địa chỉ:";
+            // 
+            // lbtk
+            // 
+            lbtk.AutoSize = true;
+            lbtk.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            lbtk.Location = new Point(430, 47);
+            lbtk.Name = "lbtk";
+            lbtk.Size = new Size(53, 38);
+            lbtk.TabIndex = 9;
+            lbtk.Text = "AS";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(63, 461);
+            label8.Name = "label8";
+            label8.Size = new Size(73, 25);
+            label8.TabIndex = 7;
+            label8.Text = "Vai Trò:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(63, 402);
+            label7.Name = "label7";
+            label7.Size = new Size(100, 25);
+            label7.TabIndex = 6;
+            label7.Text = "Trạng thái:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(63, 349);
+            label6.Name = "label6";
+            label6.Size = new Size(88, 25);
+            label6.TabIndex = 5;
+            label6.Text = "Giới tính:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(63, 294);
+            label5.Name = "label5";
+            label5.Size = new Size(49, 25);
+            label5.TabIndex = 4;
+            label5.Text = "SĐT:";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(54, 308);
+            label3.Location = new Point(63, 187);
             label3.Name = "label3";
-            label3.Size = new Size(91, 25);
+            label3.Size = new Size(102, 25);
             label3.TabIndex = 2;
-            label3.Text = "Mật khẩu";
+            label3.Text = "Ngày Sinh:";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(54, 207);
+            label2.Location = new Point(63, 131);
             label2.Name = "label2";
-            label2.Size = new Size(92, 25);
+            label2.Size = new Size(45, 25);
             label2.TabIndex = 1;
-            label2.Text = "Tài khoản";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(54, 106);
-            label1.Name = "label1";
-            label1.Size = new Size(67, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Vai trò";
+            label2.Text = "Tên:";
             // 
             // Frm_TaiKhoan
             // 
@@ -212,6 +328,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Frm_TaiKhoan";
             WindowState = FormWindowState.Maximized;
+            Load += Frm_TaiKhoan_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).EndInit();
@@ -238,5 +355,19 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Label label4;
+        private Label lbtk;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label lbvt;
+        private Label lbtt;
+        private Label lbgt;
+        private Label lbdt;
+        private Label lbdc;
+        private Label lbns;
+        private Label lbten;
+        private Label lbma;
     }
 }
