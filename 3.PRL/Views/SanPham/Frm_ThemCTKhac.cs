@@ -309,7 +309,7 @@ namespace _3.PRL.Views.SanPham
 
         private bool checkExistMau(List<Mau> lst, string text)
         {
-            if (lst.Any(x => x.TenMau.ToLower() == text))
+            if (lst.Any(x => x.TenMau.ToLower() == text.ToLower()))
             {
                 MessageBox.Show("Màu đã tồn tại");
                 return false;
@@ -319,7 +319,7 @@ namespace _3.PRL.Views.SanPham
 
         private bool checkExistChatLieu(List<ChatLieu> lst, string text)
         {
-            if (lst.Any(x => x.TenChatLieu.ToLower() == text))
+            if (lst.Any(x => x.TenChatLieu.ToLower() == text.ToLower()))
             {
                 MessageBox.Show("Chất liệu đã tồn tại");
                 return false;
@@ -339,15 +339,12 @@ namespace _3.PRL.Views.SanPham
 
         private bool checkExistLoaiSP(List<LoaiSanPham> lst, string text)
         {
-            if (lst.Where(x => x.TenLoai.ToLower() == text) != null)
+            if (lst.Where(x => x.TenLoai.ToLower() == text.ToLower()) != null)
             {
                 MessageBox.Show("Tên loại đã tồn tại");
                 return false;
             }
             return true;
-        }
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
         }
     }
 }
