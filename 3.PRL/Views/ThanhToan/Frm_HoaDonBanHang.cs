@@ -115,18 +115,11 @@ namespace _3.PRL.Views.ThanhToan
         }
 
         private void LoadMaBT()
-        {
-            cmbBienThe.Items.Clear();
-            _idBT.Clear();
-            var lstBienThe = _bienTheService.GetBienThe(null).OrderBy(a => a.MaBienThe);
-
-            foreach (var item in lstBienThe)
+        {          
+            foreach (var item in _bienTheService.GetBienThe(null).OrderBy(a => a.MaBienThe))
             {
-                if (!cmbBienThe.Items.Contains(item.MaBienThe))
-                {
-                    _idBT.Add(item.IdBienThe);
-                    cmbBienThe.Items.Add(item.MaBienThe);
-                }
+                _idBT.Add(item.IdBienThe);
+                cmbBienThe.Items.Add(item.MaBienThe);
             }
             cmbBienThe.SelectedIndex = -1;
         }
@@ -187,6 +180,7 @@ namespace _3.PRL.Views.ThanhToan
                 }
             }
         }
+
         private void LoadGridHD(string input)
         {
             int stt = 1;
