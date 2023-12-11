@@ -52,8 +52,6 @@ namespace _3.PRL.Views.ThanhToan
 
             dtpNgayTao.CustomFormat = "dd/MM/yyyy HH:mm";
             dtpNgayTao.Format = DateTimePickerFormat.Custom;
-
-
         }
 
         private void pbBack_Click(object sender, EventArgs e)
@@ -193,10 +191,19 @@ namespace _3.PRL.Views.ThanhToan
             {
                 decimal tienTraLai = tienDua - tienPhaiThanhToan;
                 if (tienDua >= tienPhaiThanhToan)
-                {                  
+                {
                     txtTienTraLai.Text = tienTraLai.ToString("N0");
                     MessageBox.Show("Thanh toán thành công!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     MessageBox.Show("Bạn Phải chuyển trạng thái hóa đơn !");
+
+                    LichSuTt lstt = new LichSuTt();
+                    lstt.IdLstt = new Guid();
+                    lstt.TongTien = Convert.ToDecimal(txtTienPhaiThanhToan.Text);
+                    lstt.Ngay = dtpNgayTT.Value;
+                    lstt.IdPttt = _idPttt[cmbPTTT.SelectedIndex];
+                    lstt.IdHoaDon = _idHD[cmbMaHD.SelectedIndex];
+
+                    _lichSuttService.AddLSTT(lstt);
                 }
                 else
                 {
@@ -209,9 +216,16 @@ namespace _3.PRL.Views.ThanhToan
                 txtKhachDua.Text = tienPhaiThanhToan.ToString("N0");
                 MessageBox.Show("Thanh toán thành công!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 MessageBox.Show("Bạn Phải chuyển trạng thái hóa đơn !");
-            }
-            
 
+                LichSuTt lstt = new LichSuTt();
+                lstt.IdLstt = new Guid();
+                lstt.TongTien = Convert.ToDecimal(txtTienPhaiThanhToan.Text);
+                lstt.Ngay = dtpNgayTT.Value;
+                lstt.IdPttt = _idPttt[cmbPTTT.SelectedIndex];
+                lstt.IdHoaDon = _idHD[cmbMaHD.SelectedIndex];
+
+                _lichSuttService.AddLSTT(lstt);
+            }
         }
 
         private void cmbPTTT_SelectedIndexChanged(object sender, EventArgs e)

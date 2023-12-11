@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_DangNhap2));
             groupBox1 = new GroupBox();
-            linkQuenMK = new LinkLabel();
             pictureBox1 = new PictureBox();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
@@ -44,7 +43,6 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(254, 254, 254);
-            groupBox1.Controls.Add(linkQuenMK);
             groupBox1.Controls.Add(pictureBox1);
             groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(textBox1);
@@ -60,20 +58,6 @@
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Đăng nhập vào App On-li Fans";
-            // 
-            // linkQuenMK
-            // 
-            linkQuenMK.ActiveLinkColor = Color.FromArgb(49, 106, 109);
-            linkQuenMK.AutoSize = true;
-            linkQuenMK.LinkColor = Color.FromArgb(0, 0, 64);
-            linkQuenMK.Location = new Point(88, 269);
-            linkQuenMK.Name = "linkQuenMK";
-            linkQuenMK.Size = new Size(156, 25);
-            linkQuenMK.TabIndex = 7;
-            linkQuenMK.TabStop = true;
-            linkQuenMK.Text = "Quên mật khẩu?";
-            linkQuenMK.VisitedLinkColor = Color.Purple;
-            linkQuenMK.LinkClicked += linkQuenMK_LinkClicked;
             // 
             // pictureBox1
             // 
@@ -161,7 +145,6 @@
         #endregion
 
         private GroupBox groupBox1;
-        private LinkLabel linkQuenMK;
         private PictureBox pictureBox1;
         private TextBox textBox2;
         private TextBox textBox1;

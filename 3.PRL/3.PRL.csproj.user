@@ -43,6 +43,9 @@
     <Compile Update="Views\SanPham\Frm_ThemSP.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\ThanhToan\FrmLichSuTT.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\ThanhToan\Frm_HoaDonBanHang.cs">
       <SubType>Form</SubType>
     </Compile>

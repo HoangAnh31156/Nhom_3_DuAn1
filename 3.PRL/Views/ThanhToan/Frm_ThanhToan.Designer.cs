@@ -33,6 +33,8 @@
             pbBack = new PictureBox();
             pbDangXuat = new PictureBox();
             groupBox1 = new GroupBox();
+            dtpNgayTT = new DateTimePicker();
+            label6 = new Label();
             txtKhachDua = new TextBox();
             label5 = new Label();
             txtTienTraLai = new TextBox();
@@ -100,6 +102,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(dtpNgayTT);
+            groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(txtKhachDua);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(txtTienTraLai);
@@ -126,9 +130,28 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin Hóa đơn ";
             // 
+            // dtpNgayTT
+            // 
+            dtpNgayTT.CalendarFont = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpNgayTT.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpNgayTT.Location = new Point(1165, 57);
+            dtpNgayTT.Name = "dtpNgayTT";
+            dtpNgayTT.Size = new Size(289, 32);
+            dtpNgayTT.TabIndex = 81;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(915, 57);
+            label6.Name = "label6";
+            label6.Size = new Size(153, 25);
+            label6.TabIndex = 80;
+            label6.Text = "Ngày thanh toán";
+            // 
             // txtKhachDua
             // 
-            txtKhachDua.Location = new Point(1165, 212);
+            txtKhachDua.Location = new Point(1165, 233);
             txtKhachDua.Name = "txtKhachDua";
             txtKhachDua.Size = new Size(289, 32);
             txtKhachDua.TabIndex = 79;
@@ -137,7 +160,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(913, 212);
+            label5.Location = new Point(915, 234);
             label5.Name = "label5";
             label5.Size = new Size(101, 25);
             label5.TabIndex = 78;
@@ -146,7 +169,7 @@
             // txtTienTraLai
             // 
             txtTienTraLai.Enabled = false;
-            txtTienTraLai.Location = new Point(1165, 279);
+            txtTienTraLai.Location = new Point(1165, 289);
             txtTienTraLai.Name = "txtTienTraLai";
             txtTienTraLai.Size = new Size(289, 32);
             txtTienTraLai.TabIndex = 77;
@@ -155,7 +178,7 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.Location = new Point(913, 282);
+            label15.Location = new Point(915, 293);
             label15.Name = "label15";
             label15.Size = new Size(101, 25);
             label15.TabIndex = 76;
@@ -164,7 +187,7 @@
             // cmbPTTT
             // 
             cmbPTTT.FormattingEnabled = true;
-            cmbPTTT.Location = new Point(1165, 140);
+            cmbPTTT.Location = new Point(1165, 176);
             cmbPTTT.Name = "cmbPTTT";
             cmbPTTT.Size = new Size(289, 33);
             cmbPTTT.TabIndex = 75;
@@ -174,7 +197,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(913, 142);
+            label14.Location = new Point(915, 175);
             label14.Name = "label14";
             label14.Size = new Size(217, 25);
             label14.TabIndex = 74;
@@ -184,7 +207,7 @@
             // 
             txtTienPhaiThanhToan.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             txtTienPhaiThanhToan.ForeColor = Color.Red;
-            txtTienPhaiThanhToan.Location = new Point(1165, 64);
+            txtTienPhaiThanhToan.Location = new Point(1165, 113);
             txtTienPhaiThanhToan.Name = "txtTienPhaiThanhToan";
             txtTienPhaiThanhToan.Size = new Size(289, 39);
             txtTienPhaiThanhToan.TabIndex = 73;
@@ -193,7 +216,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(913, 72);
+            label13.Location = new Point(915, 116);
             label13.Name = "label13";
             label13.Size = new Size(193, 25);
             label13.TabIndex = 72;
@@ -383,5 +406,7 @@
         private GroupBox groupBox2;
         private Label label5;
         private TextBox txtKhachDua;
+        private DateTimePicker dtpNgayTT;
+        private Label label6;
     }
 }

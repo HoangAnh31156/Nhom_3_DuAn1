@@ -9,6 +9,9 @@ namespace _1.DAL.IRepositories
 {
     public interface LichSutt_IRepos
     {
-        List<LichSuTt> GetLichSuTt();
+        List<LichSuTt> GetLichSuTt(string input);
+
+        bool CreateLSTT(LichSuTt lichSuTt);
+        bool UpdateLSTT(Guid id, LichSuTt lichSuTt);
     }
 }

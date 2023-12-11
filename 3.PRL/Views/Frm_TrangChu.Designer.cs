@@ -40,21 +40,15 @@
             button1 = new Button();
             pictureBox7 = new PictureBox();
             panel9 = new Panel();
-            btnDoiTra = new Button();
             pictureBox6 = new PictureBox();
             panel8 = new Panel();
             btnThanhToan = new Button();
             pictureBox5 = new PictureBox();
             panel7 = new Panel();
             btnTaiKhoan = new Button();
-            pictureBox4 = new PictureBox();
-            panel6 = new Panel();
-            btnBaoHanh = new Button();
-            pictureBox3 = new PictureBox();
             panel5 = new Panel();
             btnNhanVien = new Button();
             pictureBox2 = new PictureBox();
-            panel4 = new Panel();
             btnKhachHang = new Button();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
@@ -68,8 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -107,21 +99,15 @@
             panel2.Controls.Add(button1);
             panel2.Controls.Add(pictureBox7);
             panel2.Controls.Add(panel9);
-            panel2.Controls.Add(btnDoiTra);
             panel2.Controls.Add(pictureBox6);
             panel2.Controls.Add(panel8);
             panel2.Controls.Add(btnThanhToan);
             panel2.Controls.Add(pictureBox5);
             panel2.Controls.Add(panel7);
             panel2.Controls.Add(btnTaiKhoan);
-            panel2.Controls.Add(pictureBox4);
-            panel2.Controls.Add(panel6);
-            panel2.Controls.Add(btnBaoHanh);
-            panel2.Controls.Add(pictureBox3);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(btnNhanVien);
             panel2.Controls.Add(pictureBox2);
-            panel2.Controls.Add(panel4);
             panel2.Controls.Add(btnKhachHang);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(panel3);
@@ -136,7 +122,7 @@
             // pictureBox9
             // 
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(32, 624);
+            pictureBox9.Location = new Point(32, 434);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(64, 64);
             pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -149,7 +135,7 @@
             btnThongKe.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
             btnThongKe.FlatStyle = FlatStyle.Flat;
             btnThongKe.ForeColor = Color.FromArgb(3, 43, 118);
-            btnThongKe.Location = new Point(106, 624);
+            btnThongKe.Location = new Point(106, 434);
             btnThongKe.Name = "btnThongKe";
             btnThongKe.Size = new Size(171, 64);
             btnThongKe.TabIndex = 25;
@@ -161,7 +147,7 @@
             // panel12
             // 
             panel12.BackColor = Color.FromArgb(183, 209, 255);
-            panel12.Location = new Point(12, 826);
+            panel12.Location = new Point(12, 636);
             panel12.Name = "panel12";
             panel12.Size = new Size(10, 64);
             panel12.TabIndex = 24;
@@ -169,7 +155,7 @@
             // panel11
             // 
             panel11.BackColor = Color.FromArgb(183, 209, 255);
-            panel11.Location = new Point(12, 729);
+            panel11.Location = new Point(12, 539);
             panel11.Name = "panel11";
             panel11.Size = new Size(10, 64);
             panel11.TabIndex = 23;
@@ -177,7 +163,7 @@
             // pictureBox8
             // 
             pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(32, 729);
+            pictureBox8.Location = new Point(32, 539);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(64, 64);
             pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -190,7 +176,7 @@
             button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
             button1.FlatStyle = FlatStyle.Flat;
             button1.ForeColor = Color.FromArgb(3, 43, 118);
-            button1.Location = new Point(106, 729);
+            button1.Location = new Point(106, 539);
             button1.Name = "button1";
             button1.Size = new Size(171, 64);
             button1.TabIndex = 21;
@@ -202,7 +188,7 @@
             // pictureBox7
             // 
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(32, 526);
+            pictureBox7.Location = new Point(32, 336);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(64, 64);
             pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -212,29 +198,15 @@
             // panel9
             // 
             panel9.BackColor = Color.FromArgb(183, 209, 255);
-            panel9.Location = new Point(12, 624);
+            panel9.Location = new Point(12, 434);
             panel9.Name = "panel9";
             panel9.Size = new Size(10, 64);
             panel9.TabIndex = 19;
             // 
-            // btnDoiTra
-            // 
-            btnDoiTra.FlatAppearance.BorderSize = 0;
-            btnDoiTra.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
-            btnDoiTra.FlatStyle = FlatStyle.Flat;
-            btnDoiTra.ForeColor = Color.FromArgb(3, 43, 118);
-            btnDoiTra.Location = new Point(106, 431);
-            btnDoiTra.Name = "btnDoiTra";
-            btnDoiTra.Size = new Size(171, 64);
-            btnDoiTra.TabIndex = 18;
-            btnDoiTra.Text = "Đổi trả";
-            btnDoiTra.TextAlign = ContentAlignment.MiddleLeft;
-            btnDoiTra.UseVisualStyleBackColor = true;
-            // 
             // pictureBox6
             // 
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(32, 826);
+            pictureBox6.Location = new Point(32, 636);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(64, 64);
             pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -255,7 +227,7 @@
             btnThanhToan.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
             btnThanhToan.FlatStyle = FlatStyle.Flat;
             btnThanhToan.ForeColor = Color.FromArgb(3, 43, 118);
-            btnThanhToan.Location = new Point(106, 526);
+            btnThanhToan.Location = new Point(106, 336);
             btnThanhToan.Name = "btnThanhToan";
             btnThanhToan.Size = new Size(171, 64);
             btnThanhToan.TabIndex = 15;
@@ -288,7 +260,7 @@
             btnTaiKhoan.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
             btnTaiKhoan.FlatStyle = FlatStyle.Flat;
             btnTaiKhoan.ForeColor = Color.FromArgb(3, 43, 118);
-            btnTaiKhoan.Location = new Point(106, 826);
+            btnTaiKhoan.Location = new Point(106, 636);
             btnTaiKhoan.Name = "btnTaiKhoan";
             btnTaiKhoan.Size = new Size(171, 64);
             btnTaiKhoan.TabIndex = 12;
@@ -297,52 +269,10 @@
             btnTaiKhoan.UseVisualStyleBackColor = true;
             btnTaiKhoan.Click += btnTaiKhoan_Click;
             // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(32, 431);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(64, 64);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 11;
-            pictureBox4.TabStop = false;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.FromArgb(183, 209, 255);
-            panel6.Location = new Point(12, 431);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(10, 64);
-            panel6.TabIndex = 10;
-            // 
-            // btnBaoHanh
-            // 
-            btnBaoHanh.FlatAppearance.BorderSize = 0;
-            btnBaoHanh.FlatAppearance.MouseOverBackColor = Color.FromArgb(183, 209, 255);
-            btnBaoHanh.FlatStyle = FlatStyle.Flat;
-            btnBaoHanh.ForeColor = Color.FromArgb(3, 43, 118);
-            btnBaoHanh.Location = new Point(106, 336);
-            btnBaoHanh.Name = "btnBaoHanh";
-            btnBaoHanh.Size = new Size(171, 64);
-            btnBaoHanh.TabIndex = 9;
-            btnBaoHanh.Text = "Bảo hành";
-            btnBaoHanh.TextAlign = ContentAlignment.MiddleLeft;
-            btnBaoHanh.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(32, 336);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(64, 64);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 8;
-            pictureBox3.TabStop = false;
-            // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(183, 209, 255);
-            panel5.Location = new Point(12, 526);
+            panel5.Location = new Point(12, 336);
             panel5.Name = "panel5";
             panel5.Size = new Size(10, 64);
             panel5.TabIndex = 7;
@@ -371,14 +301,6 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(183, 209, 255);
-            panel4.Location = new Point(12, 336);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(10, 64);
-            panel4.TabIndex = 4;
             // 
             // btnKhachHang
             // 
@@ -458,8 +380,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -474,21 +394,15 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox7;
         private Panel panel9;
-        private Button btnDoiTra;
         private PictureBox pictureBox6;
         private Panel panel8;
         private Button btnThanhToan;
         private PictureBox pictureBox5;
         private Panel panel7;
         private Button btnTaiKhoan;
-        private PictureBox pictureBox4;
-        private Panel panel6;
-        private Button btnBaoHanh;
-        private PictureBox pictureBox3;
         private Panel panel5;
         private Button btnNhanVien;
         private PictureBox pictureBox2;
-        private Panel panel4;
         private Button btnKhachHang;
         private PictureBox pbDangXuat;
         private Panel panel10;

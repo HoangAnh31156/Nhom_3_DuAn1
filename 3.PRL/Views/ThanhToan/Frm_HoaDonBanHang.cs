@@ -109,7 +109,7 @@ namespace _3.PRL.Views.ThanhToan
             foreach (var item in _vanChuyenService.GetVanChuyen().OrderBy(a => a.TongTien.Length).ThenBy(b => b.TongTien))
             {
                 _idVC.Add(item.IdVc);
-                cmbVanChuyen.Items.Add(item.TongTien);
+                cmbVanChuyen.Items.Add(Convert.ToDecimal(item.TongTien).ToString("N0"));
             }
             cmbKhachHang.SelectedIndex = -1;
         }
@@ -133,7 +133,10 @@ namespace _3.PRL.Views.ThanhToan
 
         private void LoadGiamGia()
         {
-            foreach (var item in _giamGiaService.GetGiamGia(null).OrderBy(a => a.GiaTri))
+            DateTime ngayHienTai = DateTime.Now.Date;
+
+            string ngayHienTaiString = ngayHienTai.ToString("dd/MM/yyyy");
+            foreach (var item in _giamGiaService.GetGiamGia(ngayHienTaiString).OrderBy(a => a.GiaTri))
             {
                 _idGG.Add(item.IdGiamGia);
                 cmbGiamGia.Items.Add(item.GiaTri);
@@ -601,8 +604,8 @@ namespace _3.PRL.Views.ThanhToan
         private void btnThemCTKhac_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_PTTT frm_PTTT = new Frm_PTTT();
-            frm_PTTT.Show();
+            FrmLichSuTT frmLichSuTT = new FrmLichSuTT();
+            frmLichSuTT.Show();
         }
 
         private void btnTT_Click(object sender, EventArgs e)
@@ -612,6 +615,14 @@ namespace _3.PRL.Views.ThanhToan
             frm_ThanhToan.Show();
         }
 
-
+        private void btnLamMoiHDCT_Click(object sender, EventArgs e)
+        {
+            cmbGiamGia.SelectedIndex = -1;
+            txtSoLuong.Text = string.Empty;
+            cmbBienThe.SelectedIndex = -1;
+            txtTenSP.Text = string.Empty;
+            cmbMaHD.SelectedIndex = -1;
+            txtDonGia.Text = string.Empty;
+        }
     }
 }

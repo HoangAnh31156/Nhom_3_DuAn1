@@ -380,6 +380,7 @@
             btnLamMoiHDCT.TabIndex = 54;
             btnLamMoiHDCT.Text = "Làm Mới HDCT";
             btnLamMoiHDCT.UseVisualStyleBackColor = true;
+            btnLamMoiHDCT.Click += btnLamMoiHDCT_Click;
             // 
             // btnSuaHDCT
             // 
@@ -599,11 +600,11 @@
             btnThemCTKhac.FlatStyle = FlatStyle.Flat;
             btnThemCTKhac.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnThemCTKhac.ForeColor = Color.FromArgb(3, 43, 118);
-            btnThemCTKhac.Location = new Point(589, 83);
+            btnThemCTKhac.Location = new Point(789, 81);
             btnThemCTKhac.Name = "btnThemCTKhac";
-            btnThemCTKhac.Size = new Size(171, 64);
+            btnThemCTKhac.Size = new Size(191, 64);
             btnThemCTKhac.TabIndex = 63;
-            btnThemCTKhac.Text = "Phương thức thanh toán";
+            btnThemCTKhac.Text = "Lịch sử thanh toán";
             btnThemCTKhac.TextAlign = ContentAlignment.MiddleLeft;
             btnThemCTKhac.UseVisualStyleBackColor = true;
             btnThemCTKhac.Click += btnThemCTKhac_Click;
@@ -611,7 +612,7 @@
             // pictureBox10
             // 
             pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
-            pictureBox10.Location = new Point(568, 106);
+            pictureBox10.Location = new Point(768, 104);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(15, 17);
             pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -651,7 +652,7 @@
             btnTT.FlatStyle = FlatStyle.Flat;
             btnTT.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnTT.ForeColor = Color.FromArgb(3, 43, 118);
-            btnTT.Location = new Point(823, 80);
+            btnTT.Location = new Point(588, 81);
             btnTT.Name = "btnTT";
             btnTT.Size = new Size(171, 64);
             btnTT.TabIndex = 64;
@@ -663,7 +664,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(802, 106);
+            pictureBox1.Location = new Point(567, 107);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(15, 17);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;

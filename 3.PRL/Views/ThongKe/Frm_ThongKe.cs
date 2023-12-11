@@ -38,7 +38,6 @@ namespace _3.PRL.Views.ThongKe
            
         }
 
-
         private void pbBack_Click(object sender, EventArgs e)
         {
             this.Hide();

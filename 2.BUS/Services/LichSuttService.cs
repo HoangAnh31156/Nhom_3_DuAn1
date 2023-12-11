@@ -21,9 +21,19 @@ namespace _2.BUS.Services
             _lichSuttRepos = lichSuttRepos;
         }
 
-        public List<LichSuTt> GetLichSuTt()
+        public List<LichSuTt> GetLichSuTt(string input)
         {
-            return _lichSuttRepos.GetLichSuTt();
+            return _lichSuttRepos.GetLichSuTt(input);
+        }
+
+        public bool AddLSTT(LichSuTt lichSuTt)
+        {
+            return _lichSuttRepos.CreateLSTT(lichSuTt);
+        }
+
+        public bool UpdateLSTT(Guid id, LichSuTt lichSuTt)
+        {
+            return _lichSuttRepos.UpdateLSTT(id, lichSuTt);
         }
     }
 }
