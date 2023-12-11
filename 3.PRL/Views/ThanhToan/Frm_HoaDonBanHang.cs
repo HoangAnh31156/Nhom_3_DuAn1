@@ -603,14 +603,14 @@ namespace _3.PRL.Views.ThanhToan
         private void btnThemCTKhac_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmLichSuTT frmLichSuTT = new FrmLichSuTT();
+            FrmLichSuTT frmLichSuTT = new FrmLichSuTT(this);
             frmLichSuTT.Show();
         }
 
         private void btnTT_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_ThanhToan frm_ThanhToan = new Frm_ThanhToan();
+            Frm_ThanhToan frm_ThanhToan = new Frm_ThanhToan(this);
             frm_ThanhToan.Show();
         }
 

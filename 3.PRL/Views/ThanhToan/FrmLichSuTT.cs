@@ -26,9 +26,17 @@ namespace _3.PRL.Views.ThanhToan
 
         Guid _id;
         List<Guid> _idPttt = new List<Guid>();
+
+        Frm_HoaDonBanHang frm_HoaDonBan;
         public FrmLichSuTT()
         {
             InitializeComponent();
+        }
+
+        public FrmLichSuTT(Frm_HoaDonBanHang frm_HoaDonBan)
+        {
+            InitializeComponent();
+            this.frm_HoaDonBan = frm_HoaDonBan;
         }
 
         private void FrmLichSuTT_Load(object sender, EventArgs e)
@@ -85,9 +93,8 @@ namespace _3.PRL.Views.ThanhToan
 
         private void pbBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Frm_HoaDonBanHang frm_HoaDonBanHang = new Frm_HoaDonBanHang();
-            frm_HoaDonBanHang.Show();
+            this.Hide();           
+            frm_HoaDonBan?.Show();
         }
     }
 }

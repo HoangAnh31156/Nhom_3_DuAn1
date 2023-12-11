@@ -17,6 +17,7 @@ namespace _3.PRL.Views.ThanhToan
 {
     public partial class Frm_ThanhToan : Form
     {
+        Frm_HoaDonBanHang frm_HoaDonBan;
         HoaDonService _hoaDonService = new HoaDonService();
         NhanVienService _nhanVienService = new NhanVienService();
         KhachHangService _khachHangService = new KhachHangService();
@@ -43,6 +44,11 @@ namespace _3.PRL.Views.ThanhToan
             InitializeComponent();
         }
 
+        public Frm_ThanhToan(Frm_HoaDonBanHang frm_HoaDonBan)
+        {
+            InitializeComponent();
+            this.frm_HoaDonBan = frm_HoaDonBan;
+        }
         private void Frm_ThanhToan_Load(object sender, EventArgs e)
         {
             LoadMaHD();
@@ -56,9 +62,8 @@ namespace _3.PRL.Views.ThanhToan
 
         private void pbBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Frm_HoaDonBanHang frm_HoaDonBanHang = new Frm_HoaDonBanHang();
-            frm_HoaDonBanHang.Show();
+            this.Hide();           
+            frm_HoaDonBan?.Show();
         }
 
         private void pbDangXuat_Click(object sender, EventArgs e)
