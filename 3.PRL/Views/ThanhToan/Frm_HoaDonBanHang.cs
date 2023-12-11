@@ -382,7 +382,6 @@ namespace _3.PRL.Views.ThanhToan
             }
         }
 
-
         private void btnLamMoiHD_Click(object sender, EventArgs e)
         {
             dtpNgayTao.Value = DateTime.Today;
@@ -414,7 +413,7 @@ namespace _3.PRL.Views.ThanhToan
 
         private void LoadMaHD()
         {
-            cmbMaHD.Items.Clear();
+            //cmbMaHD.Items.Clear();
             foreach (var item in _hoaDonService.GetHoaDon(null))
             {
                 string MaHoaDon = item.IdHoaDon.ToString().Substring(item.IdHoaDon.ToString().Length - 10).ToUpper();
