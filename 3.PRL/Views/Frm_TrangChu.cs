@@ -132,7 +132,7 @@ namespace _3.PRL.Views
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_TaiKhoan frm_TaiKhoan = new Frm_TaiKhoan(this,user);
+            Frm_TaiKhoan frm_TaiKhoan = new Frm_TaiKhoan(this, user);
             frm_TaiKhoan.Show();
         }
 

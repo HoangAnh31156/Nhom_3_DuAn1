@@ -187,7 +187,6 @@ namespace _3.PRL.Views.ThanhToan
                 }
             }
         }
-
         private void LoadGridHD(string input)
         {
             int stt = 1;

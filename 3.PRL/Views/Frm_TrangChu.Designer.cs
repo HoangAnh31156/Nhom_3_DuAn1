@@ -32,6 +32,7 @@
             panel1 = new Panel();
             pbDangXuat = new PictureBox();
             panel2 = new Panel();
+            pictureBox10 = new PictureBox();
             pictureBox9 = new PictureBox();
             btnThongKe = new Button();
             panel12 = new Panel();
@@ -54,9 +55,12 @@
             panel3 = new Panel();
             btnSanPham = new Button();
             panel10 = new Panel();
+            panel4 = new Panel();
+            pictureBox3 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -64,6 +68,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel10.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -91,6 +98,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(pictureBox10);
             panel2.Controls.Add(pictureBox9);
             panel2.Controls.Add(btnThongKe);
             panel2.Controls.Add(panel12);
@@ -116,8 +124,18 @@
             panel2.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             panel2.Location = new Point(0, 60);
             panel2.Name = "panel2";
-            panel2.Size = new Size(280, 893);
+            panel2.Size = new Size(280, 993);
             panel2.TabIndex = 1;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
+            pictureBox10.Location = new Point(12, 752);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(262, 129);
+            pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox10.TabIndex = 2;
+            pictureBox10.TabStop = false;
             // 
             // pictureBox9
             // 
@@ -354,17 +372,37 @@
             // panel10
             // 
             panel10.BackColor = Color.White;
+            panel10.Controls.Add(panel4);
             panel10.Dock = DockStyle.Fill;
             panel10.Location = new Point(280, 60);
             panel10.Name = "panel10";
-            panel10.Size = new Size(1602, 893);
+            panel10.Size = new Size(1602, 993);
             panel10.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(pictureBox3);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(0, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1602, 993);
+            panel4.TabIndex = 0;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(34, 51);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1530, 800);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 0;
+            pictureBox3.TabStop = false;
             // 
             // Frm_TrangChu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1882, 953);
+            ClientSize = new Size(1882, 1053);
             Controls.Add(panel10);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -375,6 +413,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbDangXuat).EndInit();
             panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
@@ -382,6 +421,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel10.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -412,5 +454,8 @@
         private PictureBox pictureBox9;
         private Button btnThongKe;
         private Panel panel12;
+        private Panel panel4;
+        private PictureBox pictureBox10;
+        private PictureBox pictureBox3;
     }
 }
