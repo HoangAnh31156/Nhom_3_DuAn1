@@ -1,5 +1,6 @@
 ﻿using _1.DAL.Model1s;
 using _2.BUS.Services;
+using _3.PRL.Views.DangNhap;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,7 +59,6 @@ namespace _3.PRL.Views.ThanhToan
 
                 dgvLSTT.Rows.Add(item.IdLstt, stt++, item.Ngay, Pttt.Ten,
                 MaHD, Convert.ToDecimal(item.TongTien).ToString("N0"));
-
             }
         }
 
@@ -74,6 +74,20 @@ namespace _3.PRL.Views.ThanhToan
             dtpNgayTT.Text = selectedLstt.Cells[2].Value.ToString();
             txtPTTT.Text = selectedLstt.Cells[3].Value.ToString();
             txtTien.Text = Convert.ToDecimal(selectedLstt.Cells[5].Value).ToString("N0");
+        }
+
+        private void pbDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_DangNhap2 frm_DangNhap2 = new Frm_DangNhap2();
+            frm_DangNhap2.Show();
+        }
+
+        private void pbBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_HoaDonBanHang frm_HoaDonBanHang = new Frm_HoaDonBanHang();
+            frm_HoaDonBanHang.Show();
         }
     }
 }
