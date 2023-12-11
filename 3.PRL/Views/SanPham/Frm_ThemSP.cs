@@ -280,7 +280,7 @@ namespace _3.PRL.Views.SanPham
         {
             if (CheckEmpty() && CheckExistsUD() && CheckFormat())
             {
-                Update();
+                SuaSP();
             }
         }
 

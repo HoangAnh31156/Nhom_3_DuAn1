@@ -60,7 +60,6 @@
             cboChatLieu = new ComboBox();
             label1 = new Label();
             groupBox2 = new GroupBox();
-            btnSua = new Button();
             btnThem = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbBack).BeginInit();
@@ -437,7 +436,6 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(btnSua);
             groupBox2.Controls.Add(btnThem);
             groupBox2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.Location = new Point(1498, 66);
@@ -446,17 +444,6 @@
             groupBox2.TabIndex = 13;
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức năng";
-            // 
-            // btnSua
-            // 
-            btnSua.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSua.ForeColor = SystemColors.Highlight;
-            btnSua.Location = new Point(6, 192);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(360, 75);
-            btnSua.TabIndex = 14;
-            btnSua.Text = "Sửa";
-            btnSua.UseVisualStyleBackColor = true;
             // 
             // btnThem
             // 
@@ -529,7 +516,6 @@
         private TextBox textBox2;
         private Label label1;
         private GroupBox groupBox2;
-        private Button btnSua;
         private Button btnThem;
         private GroupBox grbLSP;
         private Label label4;
