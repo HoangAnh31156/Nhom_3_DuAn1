@@ -221,7 +221,7 @@ namespace _3.PRL.Views.SanPham
                 cboMau.Text = bienThe.M;
                 cboSoCanh.Text = bienThe.SC.ToString();
                 cboMaSp.Text = bienThe.ten.ToString();
-                txtGiaTien.Text = bienThe.Gia.ToString();
+                txtGiaTien.Text = Convert.ToDecimal( bienThe.Gia).ToString("N0");
                 txtchieucao.Text = bienThe.CC.ToString();
                 txtCongSuat.Text = bienThe.CS.ToString();
                 txtSoluong.Text = bienThe.SL.ToString();
@@ -244,7 +244,7 @@ namespace _3.PRL.Views.SanPham
             var obj = new BienThe()
             {
                 IdBienThe = Guid.NewGuid(),
-                MaBienThe = $"{cboMaSp.Text}_{cboChatLieu.Text}_{cboSoCanh.Text}_{txtCongSuat.Text}",
+                MaBienThe = $"{cboMaSp.Text}_{cboChatLieu.Text}_{cboSoCanh.Text}_{txtCongSuat.Text}_{cboMau.Text}",
                 GiaTien = decimal.Parse(txtGiaTien.Text),
                 TgbaoHanh = int.Parse(txtTGBaoHanh.Text),
                 CongSuat = decimal.Parse(txtCongSuat.Text),

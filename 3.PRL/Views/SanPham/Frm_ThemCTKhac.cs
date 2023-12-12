@@ -107,6 +107,7 @@ namespace _3.PRL.Views.SanPham
             var Socanh = (from i in _soCanhService.GetSoCanh(null)
                           select i.SoCanh1.ToString()).ToArray();
             cboSoCanh.Items.AddRange(Socanh);
+
             var loaisp = _LoaiSPService.GetLoaiSanPham(null);
             foreach (var i in loaisp)
             {
@@ -339,7 +340,7 @@ namespace _3.PRL.Views.SanPham
 
         private bool checkExistLoaiSP(List<LoaiSanPham> lst, string text)
         {
-            if (lst.Where(x => x.TenLoai.ToLower() == text.ToLower()) != null)
+            if (lst.Any(x => x.TenLoai.ToLower() == text.ToLower())/* != null*/)
             {
                 MessageBox.Show("Tên loại đã tồn tại");
                 return false;
